@@ -1,14 +1,11 @@
-#!/usr/bin/env python
-"""The EE Python library."""
-
-import ee
-import numpy as np
-from .image import basic
+# type: ignore[attr-defined]
+"""Miscellaneous functions for working with the Earth Engine Python API."""
 
 try:
     from importlib.metadata import PackageNotFoundError, version
 except ImportError:  # pragma: no cover
     from importlib_metadata import PackageNotFoundError, version
+
 
 try:
     __version__ = version(__name__)

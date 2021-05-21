@@ -6,7 +6,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "ee_extra"
-version = "0.0.1"
+version = "0.0.2"
 description = "Miscellaneous functions for working with the Earth Engine Python API."
 readme = "README.md"
 authors = ["rgee_team <csaybar@gmail.com>"]
@@ -25,15 +25,8 @@ classifiers = [  # Update me
   "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 
-[tool.poetry.scripts]
-# Entry points for the package https://python-poetry.org/docs/pyproject/#scripts
-"ee_extra" = "ee_extra.__main__:app"
-
 [tool.poetry.dependencies]
 python = "^3.7"
-importlib_metadata = {version = "^1.6.0", python = "<3.8"}
-typer = {extras = ["all"], version = "^0.3.2"}
-rich = "^9.8.2"
 earthengine-api = "^0.1.259"
 
 [tool.poetry.dev-dependencies]
@@ -51,7 +44,7 @@ pre-commit = "^2.9.3"
 
 [tool.black]
 # https://github.com/psf/black
-line-length = 80
+line-length = 100
 target-version = ["py37"]
 
 [tool.isort]

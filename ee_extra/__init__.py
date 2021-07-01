@@ -55,7 +55,7 @@ class ExtraFunctions:
             container_sub = Container()
             container_mod = Container()
             container_fun = Container()
-            container_fun[funame] = function            
+            container_fun[funame] = function
             if subpackage is None:
                 if module is None:
                     self.functions = merge(self.functions, container_fun)
@@ -68,9 +68,9 @@ class ExtraFunctions:
                 self.functions = merge(self.functions, container_sub)                
         return wrapper
 
-
 # Dictionary to save functions
 Extra = ExtraFunctions()
 
+from ee_extra.Image.basic import *
 
-from ee_extra.image.basic import *
+Extra = Extra.functions

@@ -83,14 +83,42 @@ def install(x: str):
         
         ee_sources = _get_ee_sources_path()
         module_folder = os.path.join(ee_sources, x.split(":")[0])
-        os.makedirs(module_folder)
+        
+        if not os.path.isdir(module_folder):        
+            os.makedirs(module_folder)
         
         r = requests.get(_convert_path_to_ee_sources(x))
         
         open(_convert_path_to_ee_extra(x), 'wb').write(r.content)
         
         print(f"The module '{x}' was successfully installed!")
+        
 
+@Extra.add("JavaScript", "eejs2py", "uninstall")
+def uninstall(x: str):
+    """Uninstall an Earth Engine JavaScript module.
+
+    The specified module will be uninstalled.
+
+    Args:
+        x: str    
+
+    Examples:
+        >>> import ee
+        >>> from ee_extra import Extra
+        >>> ee.Initialize()
+        >>> Extra.JavaScript.eejs2py.uninstall("users/dmlmont/spectral:spectral")        
+    """
+    if _check_if_module_exists(x):
+        
+        os.remove(_convert_path_to_ee_extra(x))
+        
+        print(f"The module '{x}' was successfully uninstalled!")
+        
+    else:    
+                
+        print(f"The module '{x}' is not installed!")
+        
 
 @Extra.add("JavaScript", "eejs2py", "evaluate")
 def evaluate(x: str) -> EvalJs:

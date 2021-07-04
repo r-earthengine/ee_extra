@@ -4,7 +4,7 @@ implemented:
 
 I. Evaluate JS code
 
-- evalJS: Evaluate a JS string code.
+- evaluate: Evaluate a JS string code.
 """
 
 import ee
@@ -21,6 +21,7 @@ def _convert_path_to_ee_sources(path: str) -> str:
 
     Args:
         path: str
+        
     Returns:
         An ee-sources module url.
     """    
@@ -43,46 +44,100 @@ def _convert_path_to_ee_extra(path: str) -> str:
 
     Args:
         path: str
+        
     Returns:
         An ee_extra modules path.
     """
-    return os.path.join(_get_ee_sources_path(), path + ".js")
+    if path.endswith('.js'):
+        
+        ee_extra_path =  os.path.join(_get_ee_sources_path(), path.replace(":","/"))
+        
+    else:
+        
+        ee_extra_path = os.path.join(_get_ee_sources_path(), path.replace(":","/") + ".js")
+    
+    return ee_extra_path
 
 
 def _check_if_module_exists(path: str) -> bool:
-    """Check if the specified module has been installed in ee_extra.
+    """Check if an Earth Engine module has been installed in ee_extra.
 
     Args:
         path: str
+        
     Returns:
         Whether the module has been installed.
     """
     return os.path.exists(_convert_path_to_ee_extra(path))
 
 
-@Extra.add("JavaScript", "eejs2py", "install")
-def install(x: str):
+def _open_module_as_str(path: str) -> str:
+    """Open a module as a string.
+
+    Args:
+        path: str
+        
+    Returns:
+        Specified module as a string.
+    """
+    if _check_if_module_exists(path):
+        
+        with open(_convert_path_to_ee_extra(path), 'r') as file:
+            module = file.read()
+            
+        return module        
+        
+    else:
+    
+        raise Exception(f"The module '{path}' is not installed!")
+        
+
+def _get_dependencies(path: str) -> list:
+    """Get the dependencies of an Earth Engine module.
+
+    Args:
+        path: str
+        
+    Returns:
+        List of dependencies.
+    """
+    if _check_if_module_exists(path):
+        
+        module = _open_module_as_str(path)
+        
+        dependencies = re.findall(r'require\((.*?)\)',module)
+        dependenciesClean = []
+        
+        for dep in dependencies:
+            dependenciesClean.append(dep.replace('"',"").replace("'",""))
+            
+        return dependenciesClean    
+        
+    else:
+    
+        raise Exception(f"The module '{path}' is not installed!")
+    
+
+def _install(x: str, update: bool):
     """Install an Earth Engine JavaScript module.
 
     The specified module will be installed in the ee_extra module path.
 
     Args:
         x: str    
-
-    Examples:
-        >>> import ee
-        >>> from ee_extra import Extra
-        >>> ee.Initialize()
-        >>> Extra.JavaScript.eejs2py.install("users/dmlmont/spectral:spectral")        
+        update: bool    
     """
-    if _check_if_module_exists(x):
+    if _check_if_module_exists(x) and not update:
         
         print(f"The module '{x}' is already installed!")
         
     else:
         
+        print(f"Downloading '{x}'...")
+        
         ee_sources = _get_ee_sources_path()
-        module_folder = os.path.join(ee_sources, x.split(":")[0])
+        #module_folder = os.path.join(ee_sources, x.split(":")[0])
+        module_folder = os.path.join(ee_sources, "/".join(x.replace(":","/").split("/")[:-1]))
         
         if not os.path.isdir(module_folder):        
             os.makedirs(module_folder)
@@ -92,13 +147,53 @@ def install(x: str):
         open(_convert_path_to_ee_extra(x), 'wb').write(r.content)
         
         print(f"The module '{x}' was successfully installed!")
+   
         
+@Extra.add("JavaScript", "eejs2py", "install")
+def install(x: str, update: bool = False) -> list:
+    """Install an Earth Engine modue and its dependencies.
 
+    The specified dependencies will be installed in the ee_extra module path.
+
+    Args:
+        x: str   
+        update: bool
+
+    Examples:
+        >>> import ee
+        >>> from ee_extra import Extra
+        >>> ee.Initialize()
+        >>> Extra.JavaScript.eejs2py.install("users/dmlmont/spectral:spectral")        
+    """        
+    deps = [x]
+    
+    def _install_dependencies(x: list, update: bool, installed: list):
+        
+        if len(x) > 0:
+            
+            for dep in x:
+                
+                if dep not in installed:
+                                    
+                    _install(dep, update)
+                    print(f"Checking dependencies for {dep}...")
+                    x.extend(_get_dependencies(dep))
+                    installed.append(dep)
+                    x = [item for item in x if item not in installed]                    
+                    _install_dependencies(x, update, installed)
+            
+        else:
+            
+            print(f"All dependencies were successfully installed!") 
+    
+    return _install_dependencies(deps, update, [])
+
+    
 @Extra.add("JavaScript", "eejs2py", "uninstall")
 def uninstall(x: str):
     """Uninstall an Earth Engine JavaScript module.
 
-    The specified module will be uninstalled.
+    The specified module will be uninstalled. Dependencies won't be uninstalled.
 
     Args:
         x: str    

@@ -151,7 +151,7 @@ def _install(x: str, update: bool):
         
 @Extra.add("JavaScript", "eejs2py", "install")
 def install(x: str, update: bool = False) -> list:
-    """Install dependencies of an Earth Engine JavaScript module.
+    """Install an Earth Engine modue and its dependencies.
 
     The specified dependencies will be installed in the ee_extra module path.
 
@@ -193,7 +193,7 @@ def install(x: str, update: bool = False) -> list:
 def uninstall(x: str):
     """Uninstall an Earth Engine JavaScript module.
 
-    The specified module will be uninstalled.
+    The specified module will be uninstalled. Dependencies won't be uninstalled.
 
     Args:
         x: str    
@@ -215,6 +215,92 @@ def uninstall(x: str):
         print(f"The module '{x}' is not installed!")
         
 
+@Extra.add("JavaScript", "eejs2py", "require")
+def require(x: str) -> EvalJs:
+    """Evaluate an Earth Engine module.
+
+    Returns an EvalJs object hosting all EE objects evaluated
+    in the Earth Engine module.
+    The EE objects can be accessed using dot notation.
+
+    Args:
+        x: str
+        
+    Returns:
+        An EvalJs object hosting all EE objects evaluated in the Earth Engine module.
+
+    Examples:
+        >>> import ee
+        >>> from ee_extra import Extra
+        >>> ee.Initialize()
+        >>> spectral = Extra.JavaScript.eejs2py.require("users/dmlmont/spectral:spectral")
+    """    
+    def _require(module):
+        
+        x = _open_module_as_str(module)
+    
+        # 1. Replace arrays for EE Objects
+        # --------------------------------
+        # EE doesn't recognize JS Arrays directly,
+        # therefore, they are evaluated outside
+        lists = re.findall(r'\[(.*?)\]',x)
+        listsFull = []
+
+        for l in lists:
+            try:
+                listsFull.append(list(map(float,l.split(","))))
+            except:
+                listsFull.append(l.replace('"',"").replace("'","").split(","))
+
+        listsBrackets = {}
+        counter = 0
+
+        for i in lists:
+            listsBrackets["eeExtraObject" + str(counter)] = "[" + i + "]"
+            counter += 1
+
+        for key, value in listsBrackets.items():
+            x = x.replace(value,key)
+
+        listsToEval = {}
+        counter = 0
+
+        for i in listsFull:
+            listsToEval["eeExtraObject" + str(counter)] = ee.List(i)
+            counter += 1
+
+        # 2. Add EE to the context
+        # ------------------------
+        # EvalJS doesn't know what ee is,
+        # therefore, we have to give it as a context
+        listsToEval["ee"] = ee
+        
+        # 3. Add empty exports
+        # ------------------------
+        # EvalJS doesn't know what exports is,
+        # therefore, we have to give it as a context
+        listsToEval["exports"] = {}
+        
+        # 4. Add require function
+        # ------------------------
+        # If there are nested requirements
+        # Add this function as a recursion
+        if len(_get_dependencies(module)) > 0:
+            
+            listsToEval["require"] = _require
+            
+        # 5. Evaluate the JS code
+        # -----------------------
+        # Give all the context needed and
+        # evaluate the JS code
+        context = EvalJs(listsToEval)  
+        context.execute(x)
+        
+        return context.exports
+        
+    return _require(x)
+    
+    
 @Extra.add("JavaScript", "eejs2py", "evaluate")
 def evaluate(x: str) -> EvalJs:
     """Evaluate a JS code inside the Earth Engine session.
@@ -224,6 +310,7 @@ def evaluate(x: str) -> EvalJs:
 
     Args:
         x: str
+        
     Returns:
         An EvalJs object hosting all EE objects evaluated.
 

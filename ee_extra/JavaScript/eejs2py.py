@@ -213,10 +213,10 @@ def uninstall(x: str):
     else:    
                 
         print(f"The module '{x}' is not installed!")
-        
+    
 
-@Extra.add("JavaScript", "eejs2py", "require")
-def require(x: str) -> EvalJs:
+@Extra.add("JavaScript", "eejs2py", "junction")
+def junction(x: str) -> str:
     """Evaluate an Earth Engine module.
 
     Returns an EvalJs object hosting all EE objects evaluated
@@ -234,71 +234,158 @@ def require(x: str) -> EvalJs:
         >>> from ee_extra import Extra
         >>> ee.Initialize()
         >>> spectral = Extra.JavaScript.eejs2py.require("users/dmlmont/spectral:spectral")
-    """    
-    def _require(module):
+    """
+    module = _open_module_as_str(x)
         
-        x = _open_module_as_str(module)
+    module = re.sub(re.compile("/\*.*?\*/",re.DOTALL) ,"" ,module)
+    module = re.sub(re.compile("//.*?\n" ) ,"" ,module)
+        
+    lines = module.split("\n")
+
+    counter = 0
+
+    while any([line for line in lines if "require(" in line]):
+
+        newLines = []
+
+        for line in lines:
+            if "require(" in line:
+                var = re.findall(r'var(.*?)=',line)[0].replace(" ","")
+                newText = _open_module_as_str(re.findall(r'require\((.*?)\)',line)[0].replace('"',"").replace("'",""))
+                newText = re.sub(re.compile("/\*.*?\*/",re.DOTALL) ,"" ,newText)
+                newText = re.sub(re.compile("//.*?\n" ) ,"" ,newText)
+                newText = newText.replace("exports",f"eeExtraExports{counter}")  
+                newLines.append("var eeExtraExports" + str(counter) +" = {};")
+                newLines.extend(newText.split("\n"))        
+                newLines.append(f"var {var} = eeExtraExports{counter}")
+                counter += 1
+            else:
+                newLines.append(line)
+
+            lines = newLines
+                
+    return "\n".join(lines)
+
+
+def _junction(x: str) -> str:
+    """Evaluate an Earth Engine module.
+
+    Returns an EvalJs object hosting all EE objects evaluated
+    in the Earth Engine module.
+    The EE objects can be accessed using dot notation.
+
+    Args:
+        x: str
+        
+    Returns:
+        An EvalJs object hosting all EE objects evaluated in the Earth Engine module.
+
+    Examples:
+        >>> import ee
+        >>> from ee_extra import Extra
+        >>> ee.Initialize()
+        >>> spectral = Extra.JavaScript.eejs2py.require("users/dmlmont/spectral:spectral")
+    """
+    module = _open_module_as_str(x)
+        
+    module = re.sub(re.compile("/\*.*?\*/",re.DOTALL) ,"" ,module)
+    module = re.sub(re.compile("//.*?\n" ) ,"" ,module)
+        
+    lines = module.split("\n")
+
+    counter = 0
+
+    while any([line for line in lines if "require(" in line]):
+
+        newLines = []
+
+        for line in lines:
+            if "require(" in line:
+                var = re.findall(r'var(.*?)=',line)[0].replace(" ","")
+                newText = _open_module_as_str(re.findall(r'require\((.*?)\)',line)[0].replace('"',"").replace("'",""))
+                newText = re.sub(re.compile("/\*.*?\*/",re.DOTALL) ,"" ,newText)
+                newText = re.sub(re.compile("//.*?\n" ) ,"" ,newText)
+                newText = newText.replace("exports",f"eeExtraExports{counter}")  
+                newLines.append("var eeExtraExports" + str(counter) +" = {};")
+                newLines.extend(newText.split("\n"))        
+                newLines.append(f"var {var} = eeExtraExports{counter}")
+                counter += 1
+            else:
+                newLines.append(line)
+
+            lines = newLines
+                
+    return "\n".join(lines)
     
-        # 1. Replace arrays for EE Objects
-        # --------------------------------
-        # EE doesn't recognize JS Arrays directly,
-        # therefore, they are evaluated outside
-        lists = re.findall(r'\[(.*?)\]',x)
-        listsFull = []
 
-        for l in lists:
-            try:
-                listsFull.append(list(map(float,l.split(","))))
-            except:
-                listsFull.append(l.replace('"',"").replace("'","").split(","))
+@Extra.add("JavaScript", "eejs2py", "require")
+def require(x: str) -> EvalJs:
+    """Evaluate a JS code inside the Earth Engine session.
 
-        listsBrackets = {}
-        counter = 0
+    Returns an EvalJs object hosting all EE objects evaluated.
+    The EE objects can be accessed using dot notation.
 
-        for i in lists:
-            listsBrackets["eeExtraObject" + str(counter)] = "[" + i + "]"
-            counter += 1
-
-        for key, value in listsBrackets.items():
-            x = x.replace(value,key)
-
-        listsToEval = {}
-        counter = 0
-
-        for i in listsFull:
-            listsToEval["eeExtraObject" + str(counter)] = ee.List(i)
-            counter += 1
-
-        # 2. Add EE to the context
-        # ------------------------
-        # EvalJS doesn't know what ee is,
-        # therefore, we have to give it as a context
-        listsToEval["ee"] = ee
+    Args:
+        x: str
         
-        # 3. Add empty exports
-        # ------------------------
-        # EvalJS doesn't know what exports is,
-        # therefore, we have to give it as a context
-        listsToEval["exports"] = {}
-        
-        # 4. Add require function
-        # ------------------------
-        # If there are nested requirements
-        # Add this function as a recursion
-        if len(_get_dependencies(module)) > 0:
+    Returns:
+        An EvalJs object hosting all EE objects evaluated.
+
+    Examples:
+        >>> import ee
+        >>> from ee_extra import Extra
+        >>> ee.Initialize()
+        >>> jscode = "var S2 = ee.ImageCollection('COPERNICUS/S2_SR').first()"
+        >>> js = Extra.javaScript.eejs2py.evaluate(jscode)
+        >>> js.S2
+        <ee.image.Image at 0x7fe082c40e80>
+    """   
+    x = _junction(x)
+    # 1. Replace arrays for EE Objects
+    # --------------------------------
+    # EE doesn't recognize JS Arrays directly,
+    # therefore, they are evaluated outside
+    lists = re.findall(r'\[(.*?)\]',x)
+    listsFull = []
+    
+    for l in lists:
+        try:
+            listsFull.append(list(map(float,l.split(","))))
+        except:
+            listsFull.append(l.replace('"',"").replace("'","").split(","))
             
-            listsToEval["require"] = _require
-            
-        # 5. Evaluate the JS code
-        # -----------------------
-        # Give all the context needed and
-        # evaluate the JS code
-        context = EvalJs(listsToEval)  
-        context.execute(x)
+    listsBrackets = {}
+    counter = 0
+    
+    for i in lists:
+        listsBrackets["eeExtraObject" + str(counter)] = "[" + i + "]"
+        counter += 1
         
-        return context.exports
+    for key, value in listsBrackets.items():
+        x = x.replace(value,key)
         
-    return _require(x)
+    listsToEval = {}
+    counter = 0
+    
+    for i in listsFull:
+        listsToEval["eeExtraObject" + str(counter)] = ee.List(i)
+        counter += 1
+    
+    # 2. Add EE to the context
+    # ------------------------
+    # EvalJS doesn't know what ee is,
+    # therefore, we have to give it as a context
+    listsToEval["ee"] = ee
+    listsToEval["exports"] = {}
+    
+    # 3. Evaluate the JS code
+    # -----------------------
+    # Give all the context needed and
+    # evaluate the JS code
+    context = EvalJs(listsToEval)  
+    context.execute(x)
+    
+    return context
     
     
 @Extra.add("JavaScript", "eejs2py", "evaluate")

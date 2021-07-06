@@ -9,6 +9,7 @@ I. Evaluate JS code
 
 import ee
 import re
+import json
 from ee_extra import Extra
 from js2py import EvalJs
 import requests
@@ -25,7 +26,7 @@ def _convert_path_to_ee_sources(path: str) -> str:
     Returns:
         An ee-sources module url.
     """    
-    return os.path.join("https://storage.googleapis.com/ee-sources/", path.replace(":","/"))
+    return os.path.join("https://storage.googleapis.com/ee-sources/", path.replace(":", "/"))
 
 
 def _get_ee_sources_path() -> str:
@@ -50,7 +51,7 @@ def _convert_path_to_ee_extra(path: str) -> str:
     """
     if path.endswith('.js'):
         
-        ee_extra_path =  os.path.join(_get_ee_sources_path(), path.replace(":","/"))
+        ee_extra_path = os.path.join(_get_ee_sources_path(), path.replace(":","/"))
         
     else:
         
@@ -136,7 +137,7 @@ def _install(x: str, update: bool):
         print(f"Downloading '{x}'...")
         
         ee_sources = _get_ee_sources_path()
-        #module_folder = os.path.join(ee_sources, x.split(":")[0])
+        # module_folder = os.path.join(ee_sources, x.split(":")[0])
         module_folder = os.path.join(ee_sources, "/".join(x.replace(":","/").split("/")[:-1]))
         
         if not os.path.isdir(module_folder):        
@@ -184,7 +185,7 @@ def install(x: str, update: bool = False) -> list:
             
         else:
             
-            print(f"All dependencies were successfully installed!") 
+            print(f"All dependencies were successfully installed!")
     
     return _install_dependencies(deps, update, [])
 
@@ -237,8 +238,8 @@ def junction(x: str) -> str:
     """
     module = _open_module_as_str(x)
         
-    module = re.sub(re.compile("/\*.*?\*/",re.DOTALL) ,"" ,module)
-    module = re.sub(re.compile("//.*?\n" ) ,"" ,module)
+    module = re.sub(re.compile("/\*.*?\*/", re.DOTALL), "", module)
+    module = re.sub(re.compile("//.*?\n" ), "" , module)
         
     lines = module.split("\n")
 
@@ -250,7 +251,7 @@ def junction(x: str) -> str:
 
         for line in lines:
             if "require(" in line:
-                var = re.findall(r'var(.*?)=',line)[0].replace(" ","")
+                var = re.findall(r'var(.*?)=', line)[0].replace(" ","")
                 newText = _open_module_as_str(re.findall(r'require\((.*?)\)',line)[0].replace('"',"").replace("'",""))
                 newText = re.sub(re.compile("/\*.*?\*/",re.DOTALL) ,"" ,newText)
                 newText = re.sub(re.compile("//.*?\n" ) ,"" ,newText)
@@ -263,8 +264,18 @@ def junction(x: str) -> str:
                 newLines.append(line)
 
             lines = newLines
-                
-    return "\n".join(lines)
+    
+    # replacing nested double quotes
+    raw_file = "\n".join(lines)
+    regex_exp = r'(:\s+")(.*(?:\n(?!\s*"[^"\n:]+":).*)*)",$'
+    final_file = re.sub(
+        pattern=regex_exp,
+        repl=lambda x: '{}{}",'.format(x.group(1), x.group(2).replace('"', "'")),
+        string=raw_file,
+        flags=re.M
+    )
+                    
+    return final_file
 
 
 def _junction(x: str) -> str:
@@ -314,8 +325,19 @@ def _junction(x: str) -> str:
                 newLines.append(line)
 
             lines = newLines
-                
-    return "\n".join(lines)
+    
+    # replacing nested double quotes
+    raw_file = "\n".join(lines)
+    regex_exp = r'(:\s+")(.*(?:\n(?!\s*"[^"\n:]+":).*)*)",$'
+    final_file = re.sub(
+        pattern=regex_exp,
+        repl=lambda x: '{}{}",'.format(x.group(1), x.group(2).replace('"', "'")),
+        string=raw_file,
+        flags=re.M
+    )
+                    
+    return final_file
+
     
 
 @Extra.add("JavaScript", "eejs2py", "require")
@@ -341,35 +363,36 @@ def require(x: str) -> EvalJs:
         <ee.image.Image at 0x7fe082c40e80>
     """   
     x = _junction(x)
+    
     # 1. Replace arrays for EE Objects
     # --------------------------------
     # EE doesn't recognize JS Arrays directly,
-    # therefore, they are evaluated outside
-    lists = re.findall(r'\[(.*?)\]',x)
-    listsFull = []
-    
-    for l in lists:
-        try:
-            listsFull.append(list(map(float,l.split(","))))
-        except:
-            listsFull.append(l.replace('"',"").replace("'","").split(","))
-            
-    listsBrackets = {}
-    counter = 0
-    
-    for i in lists:
-        listsBrackets["eeExtraObject" + str(counter)] = "[" + i + "]"
-        counter += 1
-        
-    for key, value in listsBrackets.items():
-        x = x.replace(value,key)
-        
+    ## therefore, they are evaluated outside
+    #lists = re.findall(r'\[(.*?)\]', x)
+    #listsFull = []
+    #
+    #for l in lists:
+    #    try:
+    #        listsFull.append(list(map(float,l.split(","))))
+    #    except:
+    #        listsFull.append(l.replace('"',"").replace("'","").split(","))
+    #        
+    #listsBrackets = {}
+    #counter = 0
+    #
+    #for i in lists:
+    #    listsBrackets["eeExtraObject" + str(counter)] = "[" + i + "]"
+    #    counter += 1
+    #    
+    #for key, value in listsBrackets.items():
+    #    x = x.replace(value, key)
+    #    
     listsToEval = {}
-    counter = 0
-    
-    for i in listsFull:
-        listsToEval["eeExtraObject" + str(counter)] = ee.List(i)
-        counter += 1
+    #counter = 0
+    #
+    #for i in listsFull:
+    #    listsToEval["eeExtraObject" + str(counter)] = ee.List(i)
+    #    counter += 1
     
     # 2. Add EE to the context
     # ------------------------
@@ -382,7 +405,7 @@ def require(x: str) -> EvalJs:
     # -----------------------
     # Give all the context needed and
     # evaluate the JS code
-    context = EvalJs(listsToEval)  
+    context = EvalJs(listsToEval)
     context.execute(x)
     
     return context

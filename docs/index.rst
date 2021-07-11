@@ -23,7 +23,7 @@ Welcome to eeExtra!
 .. image:: https://img.shields.io/badge/GEE%20Community-Developer%20Resources-00b6ff.svg
         :target: https://developers.google.com/earth-engine/tutorials/community/developer-resources
         
-.. image:: https://img.shields.io/twitter/follow/dmlmont?style=social
+.. image:: https://img.shields.io/twitter/follow/csaybar?style=social
         :target: https://twitter.com/csaybar        
 
 .. image:: https://img.shields.io/twitter/follow/dmlmont?style=social
@@ -50,7 +50,7 @@ Welcome to eeExtra!
 
 - `Overview`_
 - `Google Earth Engine Community: Developer Resources`_
-- `Powerhouse of`_
+- `Powerhouse of...`_
 - `Installation`_
 - `License`_
 - `How to cite`_
@@ -72,7 +72,7 @@ There are a lot of fantastic third-party GEE packages and projects around GitHub
 Google Earth Engine Community: Developer Resources
 -----------------------------------------------------
 
-The ee_extra Python package can be found indirectly in the `Earth Engine Community: Developer Resources <https://developers.google.com/earth-engine/tutorials/community/developer-resources>`_ as the powerhouse of `eemont <https://github.com/davemlz/eemont>`_, `rgee <https://github.com/r-spatial/rgee>`_ and rgeeExtra <https://github.com/r-earthengine/rgeeExtra>`_.
+The ee_extra Python package can be found indirectly in the `Earth Engine Community: Developer Resources <https://developers.google.com/earth-engine/tutorials/community/developer-resources>`_ as the powerhouse of `eemont <https://github.com/davemlz/eemont>`_, `rgee <https://github.com/r-spatial/rgee>`_ and `rgeeExtra <https://github.com/r-earthengine/rgeeExtra>`_.
 
 
 Powerhouse of...

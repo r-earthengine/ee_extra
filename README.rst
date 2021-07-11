@@ -1,5 +1,5 @@
-Welcome to eeExtra!
-===================
+eeExtra
+========
 
 .. image:: https://img.shields.io/pypi/v/ee_extra.svg
         :target: https://pypi.python.org/pypi/ee_extra

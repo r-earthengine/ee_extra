@@ -9,5 +9,6 @@ Extra.Image.basic
 .. autosummary::
    :toctree: stubs
 
-   minValue
-   maxValue
+   minvalue   
+   maxvalue
+   

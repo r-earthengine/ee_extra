@@ -4,8 +4,8 @@ eeExtra
 .. image:: https://img.shields.io/pypi/v/ee_extra.svg
         :target: https://pypi.python.org/pypi/ee_extra
         
-.. image:: https://img.shields.io/badge/License-MIT-blue.svg
-        :target: https://opensource.org/licenses/MIT
+.. image:: https://img.shields.io/badge/License-Apache%202.0-blue.svg
+        :target: https://opensource.org/licenses/Apache-2.0
         
 .. image:: https://readthedocs.org/projects/ee-extra/badge/?version=latest
         :target: https://ee-extra.readthedocs.io/en/latest/?badge=latest
@@ -65,6 +65,9 @@ Overview
 
 There are a lot of fantastic third-party GEE packages and projects around GitHub. However, most of them are coded in JavaScript or in a Python code style that is not straightforward to translate to R, Julia, or other programming languages. The main goal of **ee_extra** is to guarantee a smooth import of these projects. We re-wrote the most popular JavaScript and Python EE algorithms minimizing the dependencies to just two Python packages: **earthengine-api** and **NumPy**. Third-party GEE tools that can not meet this stipulation will not be added to **ee_extra**. Additionally, rigorous checking of code style (**black**) and documentation style (**darglint**) will be carried out to guarantee a smooth conversion of Python documentation into, for instance, R documentation (**rgee::ee_help**).
 
+.. image:: https://user-images.githubusercontent.com/16768318/119165340-ad784f80-ba5d-11eb-8d00-699eac93fb2c.png
+    :alt: ee_extra
+
 
 Google Earth Engine Community: Developer Resources
 -----------------------------------------------------
@@ -116,7 +119,7 @@ Install the latest eemont version from conda-forge by running (SOON):
 License
 -------
 
-The project is licensed under the MIT license.
+The project is licensed under the Apache v.2.0 license.
 
 
 How to cite

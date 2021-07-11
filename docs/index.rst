@@ -41,6 +41,15 @@ Welcome to eeExtra!
   
 **A ninja Python package behind rgee, rgeeExtra and eemont.** 
 
+
+.. toctree::   
+   :maxdepth: 2
+   :caption: API Reference
+   :hidden:      
+   
+   modules/index
+
+
 - GitHub: `https://github.com/r-earthengine/ee_extra <https://github.com/r-earthengine/ee_extra>`_
 - Documentation: `https://ee-extra.readthedocs.io/ <https://ee-extra.readthedocs.io/>`_
 - PyPI: `https://pypi.org/project/ee-extra/ <https://pypi.org/project/ee-extra/>`_

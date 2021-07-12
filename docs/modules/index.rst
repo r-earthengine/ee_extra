@@ -1,10 +1,10 @@
 API Reference
 ================
 
-.. toctree::
-   :caption: Modules
-   :maxdepth: 3
-   :hidden:
+.. toctree::   
+   :maxdepth: 2
+   :caption: API Reference
+   :hidden:      
    
    image_basic
    javascript_eejs2py

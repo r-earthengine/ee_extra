@@ -2,8 +2,7 @@ API Reference
 ================
 
 .. toctree::   
-   :maxdepth: 2
-   :caption: API Reference
+   :maxdepth: 4   
    :hidden:      
    
    image_basic

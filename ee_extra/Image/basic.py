@@ -38,7 +38,6 @@ import ee
 from ee_extra import Extra
 
 
-@Extra.add("Image", "Basic", "minvalue")
 def minvalue(x: ee.Image, scale: Optional[float] = None) -> float:
     """Get a minimum value.
 
@@ -85,9 +84,10 @@ def minvalue(x: ee.Image, scale: Optional[float] = None) -> float:
 
     return minval
 
-@Extra.add("Image", "Basic", "maxvalue")
+
 def maxvalue(x: ee.Image, scale: Optional[float] = None) -> float:
-    """Get a maximum value.
+    """
+    Get a maximum value.
 
     Returns the maximum value of an ee.Image. The return value
     will be an approximation if the polygon (x.geometry())
@@ -95,8 +95,8 @@ def maxvalue(x: ee.Image, scale: Optional[float] = None) -> float:
 
     Args:
         x: An ee.Image.
-        scale: A nominal scale in meters of the projection
-            to work in. Defaults image x$geometry()$projection()$nominalScale().
+        scale: A nominal scale in meters of the projection to work in.
+            Defaults image x$geometry()$projection()$nominalScale().
 
     Returns:
         An float number describing the x (ee.Image) maximum value.

@@ -150,7 +150,7 @@ def _install(x: str, update: bool):
         print(f"The module '{x}' was successfully installed!")
    
         
-@Extra.add("JavaScript", "eejs2py", "install")
+#@Extra.add("JavaScript", "eejs2py", "install")
 def install(x: str, update: bool = False) -> list:
     """Install an Earth Engine modue and its dependencies.
 
@@ -190,7 +190,7 @@ def install(x: str, update: bool = False) -> list:
     return _install_dependencies(deps, update, [])
 
     
-@Extra.add("JavaScript", "eejs2py", "uninstall")
+#@Extra.add("JavaScript", "eejs2py", "uninstall")
 def uninstall(x: str):
     """Uninstall an Earth Engine JavaScript module.
 
@@ -216,7 +216,7 @@ def uninstall(x: str):
         print(f"The module '{x}' is not installed!")
     
 
-@Extra.add("JavaScript", "eejs2py", "junction")
+#@Extra.add("JavaScript", "eejs2py", "junction")
 def junction(x: str) -> str:
     """Evaluate an Earth Engine module.
 
@@ -340,7 +340,7 @@ def _junction(x: str) -> str:
 
     
 
-@Extra.add("JavaScript", "eejs2py", "require")
+#@Extra.add("JavaScript", "eejs2py", "require")
 def require(x: str) -> EvalJs:
     """Evaluate a JS code inside the Earth Engine session.
 
@@ -411,7 +411,7 @@ def require(x: str) -> EvalJs:
     return context
     
     
-@Extra.add("JavaScript", "eejs2py", "evaluate")
+#@Extra.add("JavaScript", "eejs2py", "evaluate")
 def evaluate(x: str) -> EvalJs:
     """Evaluate a JS code inside the Earth Engine session.
 

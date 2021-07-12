@@ -9,6 +9,9 @@ Extra.JavaScript.eejs2py
 .. autosummary::
    :toctree: stubs
 
-   install   
-   uninstall
+   evaluate
+   install
    junction
+   uninstall
+   require
+   

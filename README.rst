@@ -11,10 +11,10 @@ eeExtra
         :target: https://ee-extra.readthedocs.io/en/latest/?badge=latest
         :alt: Documentation Status 
         
-.. image:: https://img.shields.io/badge/David-buy%20me%20a%20coffee-pink.svg
+.. image:: https://img.shields.io/badge/David-buy%20me%20a%20coffee-ff69b4.svg
         :target: https://www.buymeacoffee.com/davemlz
         
-.. image:: https://img.shields.io/badge/Cesar-buy%20me%20a%20coffee-pink.svg
+.. image:: https://img.shields.io/badge/Cesar-buy%20me%20a%20coffee-ff69b4.svg
         :target: https://www.buymeacoffee.com/csay
         
 .. image:: https://static.pepy.tech/personalized-badge/ee_extra?period=total&units=international_system&left_color=grey&right_color=green&left_text=Downloads

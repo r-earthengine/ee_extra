@@ -1,4 +1,4 @@
-name: Awesome Spectral Indices
+name: update_awesome_spectral_indices
 on:
   workflow_dispatch:
   schedule:

@@ -1,4 +1,4 @@
-name: update_gee_stac_scale_offset
+name: Scale N Offset Parameters
 on:
   workflow_dispatch:
   schedule:

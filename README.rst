@@ -9,7 +9,16 @@ eeExtra
         
 .. image:: https://readthedocs.org/projects/ee-extra/badge/?version=latest
         :target: https://ee-extra.readthedocs.io/en/latest/?badge=latest
-        :alt: Documentation Status 
+        :alt: Documentation Status
+
+.. image:: https://github.com/r-earthengine/ee_extra/actions/workflows/update_awesome_spectral_indices.yml/badge.svg
+        :target: https://github.com/r-earthengine/ee_extra/actions/workflows/update_awesome_spectral_indices.yml
+
+.. image:: https://github.com/r-earthengine/ee_extra/actions/workflows/update_gee_stac_ids.yml/badge.svg
+        :target: https://github.com/r-earthengine/ee_extra/actions/workflows/update_gee_stac_ids.yml
+
+.. image:: https://github.com/r-earthengine/ee_extra/actions/workflows/update_gee_stac_scale_offset.yml/badge.svg
+        :target: https://github.com/r-earthengine/ee_extra/actions/workflows/update_gee_stac_scale_offset.yml
         
 .. image:: https://img.shields.io/badge/David-buy%20me%20a%20coffee-ff69b4.svg
         :target: https://www.buymeacoffee.com/davemlz

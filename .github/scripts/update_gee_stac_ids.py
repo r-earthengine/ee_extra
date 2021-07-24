@@ -23,5 +23,5 @@ for dataset in eeCatalog['links']:
                     datasetDict['sci:citation'] = 'Citation not available'                
                 eeDict[datasetResponse['id']] = datasetDict
 # Save the list as a json file
-with open('./eemont/data/ee-catalog-ids.json','w') as fp:
+with open('./ee_extra/data/ee-catalog-ids.json','w') as fp:
     json.dump(eeDict, fp, indent = 4, sort_keys = True)

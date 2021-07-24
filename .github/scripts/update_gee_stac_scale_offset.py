@@ -16,7 +16,7 @@ for dataset in datasets:
     eeScaleDict[dataset] = datasetScaleDict
     eeOffsetDict[dataset] = datasetOffsetDict
 # Save the dicts as json files
-with open('./eemont/data/ee-catalog-scale.json','w') as fp:
+with open('./ee_extra/data/ee-catalog-scale.json','w') as fp:
     json.dump(eeScaleDict, fp, indent = 4, sort_keys = True)
-with open('./eemont/data/ee-catalog-offset.json','w') as fp:
+with open('./ee_extra/data/ee-catalog-offset.json','w') as fp:
     json.dump(eeOffsetDict, fp, indent = 4, sort_keys = True)

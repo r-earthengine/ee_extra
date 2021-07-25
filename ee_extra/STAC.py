@@ -14,10 +14,10 @@ warnings.simplefilter("always", UserWarning)
 def _get_platform_STAC(args: Union[ee.Image, ee.ImageCollection]) -> dict:
     """Gets the platform (satellite) of an image (or image collection) and wheter if it is a Surface Reflectance product.
 
-    Args:    
+    Args:
         args : An Image or Image Collection to get the platform from.
 
-    Returns:    
+    Returns:
         Platform and product of the Image (or Image Collection).
     """
     eeExtraDir = os.path.dirname(pkg_resources.resource_filename("ee_extra", "ee_extra.py"))
@@ -33,9 +33,7 @@ def _get_platform_STAC(args: Union[ee.Image, ee.ImageCollection]) -> dict:
 
     for platform in platforms:
 
-        if eeDict[platform]["gee:type"] == "image_collection" and isinstance(
-            args, ee.image.Image
-        ):
+        if eeDict[platform]["gee:type"] == "image_collection" and isinstance(args, ee.image.Image):
             pltID = "/".join(ID.split("/")[:-1])
         elif eeDict[platform]["gee:type"] == "image" and isinstance(
             args, ee.imagecollection.ImageCollection
@@ -61,12 +59,12 @@ def _get_platform_STAC(args: Union[ee.Image, ee.ImageCollection]) -> dict:
 def getSTAC(x: Union[ee.Image, ee.ImageCollection]) -> dict:
     """Gets the STAC of the specified platform.
 
-    Args:    
+    Args:
         x : Image or image collection to get the STAC from.
 
-    Returns:    
+    Returns:
         STAC of the ee.Image or ee.ImageCollection dataset.
-        
+
     Examples:
         >>> import ee
         >>> from ee_extra.STAC import getSTAC
@@ -95,7 +93,7 @@ def getScaleParams(x: Union[ee.Image, ee.ImageCollection]) -> dict:
 
     Returns:
         Dictionary with the scale parameters for each band.
-        
+
     Examples:
         >>> import ee
         >>> from ee_extra.STAC import getScaleParams
@@ -125,9 +123,9 @@ def getOffsetParams(x: Union[ee.Image, ee.ImageCollection]) -> dict:
     Args:
         x : Image or image collection to get the offset parameters from.
 
-    Returns: 
+    Returns:
         Dictionary with the offset parameters for each band.
-        
+
     Examples:
         >>> import ee
         >>> from ee_extra.STAC import getOffsetParams
@@ -159,7 +157,7 @@ def scaleAndOffset(x: Union[ee.Image, ee.ImageCollection]) -> Union[ee.Image, ee
 
     Returns:
         Scaled image or image collection.
-        
+
     Examples:
         >>> import ee
         >>> from ee_extra.STAC import scaleAndOffset
@@ -192,17 +190,17 @@ def scaleAndOffset(x: Union[ee.Image, ee.ImageCollection]) -> Union[ee.Image, ee
             scaled = x.map(scaleOffset)
 
         return scaled
-    
-    
+
+
 def getDOI(x: Union[ee.Image, ee.ImageCollection]) -> str:
     """Gets the DOI of the specified platform, if available.
 
     Args:
         x : Image or Image Collection to get the DOI from.
 
-    Returns:    
+    Returns:
         DOI of the ee.Image or ee.ImageCollection dataset.
-        
+
     Examples:
         >>> import ee
         >>> from ee_extra.STAC import getDOI
@@ -229,7 +227,7 @@ def getCitation(x: Union[ee.Image, ee.ImageCollection]) -> str:
 
     Returns:
         Citation of the ee.Image or ee.ImageCollection dataset.
-        
+
     Examples:
         >>> import ee
         >>> from ee_extra.STAC import getCitation

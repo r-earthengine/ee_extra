@@ -2,7 +2,7 @@
 ee_extra Extensions.
 """
 
-__version__ = '0.0.2'
+__version__ = "0.0.2"
 
 
 class Container(dict):
@@ -61,12 +61,14 @@ class ExtraFunctions:
                     self.functions = merge(self.functions, container_fun)
                 else:
                     container_mod[module] = container_fun
-                    self.functions = merge(self.functions, container_mod)                
+                    self.functions = merge(self.functions, container_mod)
             else:
                 container_mod[module] = container_fun
                 container_sub[subpackage] = container_mod
-                self.functions = merge(self.functions, container_sub)                
+                self.functions = merge(self.functions, container_sub)
+
         return wrapper
+
 
 # Dictionary to save functions
 Extra = ExtraFunctions()

@@ -8,20 +8,16 @@ import re
 from typing import Optional, Union
 from ee_extra.STAC import _get_platform_STAC
 
-def _get_expression_map(img, platformDict):
-    """Gets the dictionary required for the map parameter in ee.Image.expression() method.
 
-    Parameters
-    ----------
-    img : ee.Image
-        Image to get the dictionary from.
-    platformDict : dict
-        Dictionary retrieved from the _get_platform() method.
+def _get_expression_map(img: ee.Image, platformDict: dict) -> dict:
+    """Gets the dictionary required for the map parameter i n ee.Image.expression() method.
 
-    Returns
-    -------
-    dict
-        Map dictionary for ee.Image.expression.
+    Args:
+        img : Image to get the dictionary from.
+        platformDict : Dictionary retrieved from the _get_STAC_platform() method.
+
+    Returns:
+        Map dictionary for the ee.Image.expression() method.
     """
 
     def lookupS2(img):
@@ -135,24 +131,18 @@ def _get_expression_map(img, platformDict):
     }
 
     if platformDict["platform"] not in list(lookupPlatform.keys()):
-        raise Exception(
-            "Sorry, satellite platform not supported for index computation!"
-        )
+        raise Exception("Sorry, satellite platform not supported for index computation!")
 
     return lookupPlatform[platformDict["platform"]](img)
 
 
-def _get_indices(online):
+def _get_indices(online: bool) -> dict:
     """Retrieves the dictionary of indices used for the index() method in ee.Image and ee.ImageCollection classes.
 
-    Parameters
-    ----------
-    online : boolean
-        Wheter to retrieve the most recent list of indices directly from the GitHub repository and not from the local copy.
+    Args:
+        online : Wheter to retrieve the most recent list of indices directly from the GitHub repository and not from the local copy.
 
-    Returns
-    -------
-    dict
+    Returns:
         Indices.
     """
     if online:
@@ -160,9 +150,7 @@ def _get_indices(online):
             "https://raw.githubusercontent.com/davemlz/awesome-ee-spectral-indices/main/output/spectral-indices-dict.json"
         ).json()
     else:
-        eeExtraDir = os.path.dirname(
-            pkg_resources.resource_filename("ee_extra", "ee_extra.py")
-        )
+        eeExtraDir = os.path.dirname(pkg_resources.resource_filename("ee_extra", "ee_extra.py"))
         dataPath = os.path.join(eeExtraDir, "data/spectral-indices-dict.json")
         f = open(dataPath)
         indices = json.load(f)
@@ -170,27 +158,20 @@ def _get_indices(online):
     return indices["SpectralIndices"]
 
 
-def _get_kernel_image(img, lookup, kernel, sigma, a, b):
+def _get_kernel_image(
+    img: ee.Image, lookup: dict, kernel: str, sigma: Union[str, float], a: str, b: str
+) -> ee.Image:
     """Creates an ee.Image representing a kernel computed on bands [a] and [b].
 
-    Parameters
-    ----------
-    img : ee.Image
-        Image to compute the kernel on.
-    lookup : dict
-        Dictionary retrieved from _get_expression_map().
-    kernel : str
-        Kernel to use.
-    sigma : str | float
-        Length-scale parameter. Used for kernel = 'RBF'.
-    a : str
-        Key of the first band to use.
-    b : str
-        Key of the second band to use.
+    Args:
+        img : Image to compute the kernel on.
+        lookup : Dictionary retrieved from _get_expression_map().
+        kernel : Kernel to use.
+        sigma : Length-scale parameter. Used for kernel = 'RBF'.
+        a : Key of the first band to use.
+        b : Key of the second band to use.
 
-    Returns
-    -------
-    ee.Image
+    Returns:
         Kernel image.
     """
     if a not in list(lookup.keys()) or b not in list(lookup.keys()):
@@ -209,16 +190,13 @@ def _get_kernel_image(img, lookup, kernel, sigma, a, b):
         return img.expression(kernels[kernel], lookup)
 
 
-def _remove_none_dict(dictionary):
+def _remove_none_dict(dictionary: dict) -> dict:
     """Removes elements from a dictionary with None values.
 
-    Parameters
-    ----------
-    dictionary : dict
+    Args:
+        dictionary : Dictionary to remove None values.
 
-    Returns
-    -------
-    dict
+    Returns:
         Curated dictionary.
     """
     newDictionary = dict(dictionary)
@@ -228,23 +206,18 @@ def _remove_none_dict(dictionary):
     return newDictionary
 
 
-def _get_kernel_parameters(img, lookup, kernel, sigma):
+def _get_kernel_parameters(
+    img: ee.Image, lookup: dict, kernel: str, sigma: Union[str, float]
+) -> dict:
     """Gets the additional kernel parameters to compute kernel indices.
 
-    Parameters
-    ----------
-    img : ee.Image
-        Image to compute the kernel parameters on.
-    lookup : dict
-        Dictionary retrieved from _get_expression_map().
-    kernel : str
-        Kernel to use.
-    sigma : str | float
-        Length-scale parameter. Used for kernel = 'RBF'.
+    Args:
+        img : Image to compute the kernel parameters on.
+        lookup : Dictionary retrieved from _get_expression_map().
+        kernel : Kernel to use.
+        sigma : Length-scale parameter. Used for kernel = 'RBF'.
 
-    Returns
-    -------
-    dict
+    Returns:
         Kernel parameters.
     """
     kernelParameters = {

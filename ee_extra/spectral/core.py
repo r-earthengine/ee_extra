@@ -6,8 +6,15 @@ import warnings
 import requests
 import re
 from typing import Optional, Union
-from ee_extra.spectral.utils import _get_expression_map, _get_indices, _get_kernel_image, _remove_none_dict, _get_kernel_parameters
+from ee_extra.spectral.utils import (
+    _get_expression_map,
+    _get_indices,
+    _get_kernel_image,
+    _remove_none_dict,
+    _get_kernel_parameters,
+)
 from ee_extra.STAC import _get_platform_STAC
+
 
 def spectralIndices(
     x: Union[ee.Image, ee.ImageCollection],
@@ -29,8 +36,8 @@ def spectralIndices(
 ) -> Union[ee.Image, ee.ImageCollection]:
     """Computes one or more spectral indices (indices are added as bands) for an image oir image collection.
 
-    Args:    
-        x : Image or Image Collectionto compute indices on. Must be scaled to [0,1].        
+    Args:
+        x : Image or Image Collectionto compute indices on. Must be scaled to [0,1].
         index : Index or list of indices to compute.
         G : Gain factor. Used just for index = 'EVI'.
         C1 : Coefficient 1 for the aerosol resistance term. Used just for index = 'EVI'.
@@ -61,10 +68,10 @@ def spectralIndices(
 
     if isinstance(sigma, int) or isinstance(sigma, float):
         if sigma < 0:
-            raise Exception("[sigma] must be positive!")
+            raise Exception(f"[sigma] must be positive! Value passed: sigma = {sigma}")
 
     if p <= 0 or c < 0:
-        raise Exception("[p] and [c] must be positive!")
+        raise Exception(f"[p] and [c] must be positive! Values passed: p = {p}, c = {c}")
 
     additionalParameters = {
         "g": float(G),
@@ -105,9 +112,7 @@ def spectralIndices(
 
     for idx in index:
         if idx not in list(spectralIndices.keys()):
-            warnings.warn(
-                "Index " + idx + " is not a built-in index and it won't be computed!"
-            )
+            warnings.warn(f"Index {idx} is not a built-in index and it won't be computed!")
         else:
 
             def temporalIndex(img):
@@ -117,19 +122,16 @@ def spectralIndices(
                 lookupDic = {**lookupDic, **kernelParameters}
                 lookupDicCurated = _remove_none_dict(lookupDic)
                 if all(
-                    band in list(lookupDicCurated.keys())
-                    for band in spectralIndices[idx]["bands"]
+                    band in list(lookupDicCurated.keys()) for band in spectralIndices[idx]["bands"]
                 ):
                     return img.addBands(
-                        img.expression(
-                            spectralIndices[idx]["formula"], lookupDicCurated
-                        ).rename(idx)
+                        img.expression(spectralIndices[idx]["formula"], lookupDicCurated).rename(
+                            idx
+                        )
                     )
                 else:
                     warnings.warn(
-                        "This platform doesn't have the required bands for "
-                        + idx
-                        + " computation!"
+                        f"This platform doesn't have the required bands for {idx} computation!"
                     )
                     return img
 
@@ -144,12 +146,12 @@ def spectralIndices(
 def indices(online: Optional[bool] = False) -> dict:
     """Gets the dictionary of available indices.
 
-    Args:    
+    Args:
         online : Whether to retrieve the most recent list of indices directly from the GitHub repository and not from the local copy.
 
     Returns:
         Dictionary of available indices.
-    
+
     Examples:
         >>> import ee
         >>> from ee_extra.spectral.core import indices
@@ -168,7 +170,7 @@ def indices(online: Optional[bool] = False) -> dict:
 def listIndices(online: Optional[bool] = False) -> list:
     """Gets the list of available indices.
 
-    Args:    
+    Args:
         online : Whether to retrieve the most recent list of indices directly from the GitHub repository and not from the local copy.
 
     Returns:

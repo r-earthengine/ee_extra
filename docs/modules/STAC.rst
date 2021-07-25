@@ -1,7 +1,7 @@
 Extra.STAC
 ==========
 
-.. currentmodule:: ee_extra.STAC
+.. currentmodule:: ee_extra.STAC.core
 
 .. autosummary::
    :toctree: stubs

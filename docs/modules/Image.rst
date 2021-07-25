@@ -1,7 +1,7 @@
 Extra.Image
 ===========
 
-.. currentmodule:: ee_extra.Image
+.. currentmodule:: ee_extra.Image.basic
 
 .. autosummary::
    :toctree: stubs

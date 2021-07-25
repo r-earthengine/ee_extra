@@ -5,55 +5,9 @@ import os
 import warnings
 import requests
 import re
+from ee_extra.STAC.utils import _get_platform_STAC
+from ee_extra.utils import _load_JSON
 from typing import Optional, Union
-
-
-warnings.simplefilter("always", UserWarning)
-
-
-def _get_platform_STAC(args: Union[ee.Image, ee.ImageCollection]) -> dict:
-    """Gets the platform (satellite) of an image (or image collection) and wheter if it is a Surface Reflectance product.
-
-    Args:
-        args : An Image or Image Collection to get the platform from.
-
-    Returns:
-        Platform and product of the Image (or Image Collection).
-    """
-    eeExtraDir = os.path.dirname(pkg_resources.resource_filename("ee_extra", "ee_extra.py"))
-    dataPath = os.path.join(eeExtraDir, "data/ee-catalog-ids.json")
-
-    f = open(dataPath)
-    eeDict = json.load(f)
-    platforms = list(eeDict.keys())
-
-    ID = args.get("system:id").getInfo()
-
-    plt = None
-
-    for platform in platforms:
-
-        if eeDict[platform]["gee:type"] == "image_collection" and isinstance(args, ee.image.Image):
-            pltID = "/".join(ID.split("/")[:-1])
-        elif eeDict[platform]["gee:type"] == "image" and isinstance(
-            args, ee.imagecollection.ImageCollection
-        ):
-            pass
-        else:
-            pltID = ID
-
-        if platform == pltID:
-            plt = pltID
-
-        if "_SR" in pltID:
-            platformDict = {"platform": plt, "sr": True}
-        else:
-            platformDict = {"platform": plt, "sr": False}
-
-    if plt is None:
-        raise Exception("Sorry, satellite platform not supported!")
-
-    return platformDict
 
 
 def getSTAC(x: Union[ee.Image, ee.ImageCollection]) -> dict:
@@ -67,19 +21,13 @@ def getSTAC(x: Union[ee.Image, ee.ImageCollection]) -> dict:
 
     Examples:
         >>> import ee
-        >>> from ee_extra.STAC import getSTAC
+        >>> from ee_extra.STAC.core import getSTAC
         >>> ee.Initialize()
         >>> S2 = ee.ImageCollection("COPERNICUS/S2_SR")
         >>> getSTAC(S2)
     """
     platformDict = _get_platform_STAC(x)
-
-    eeExtraDir = os.path.dirname(pkg_resources.resource_filename("ee_extra", "ee_extra.py"))
-    dataPath = os.path.join(eeExtraDir, "data/ee-catalog-ids.json")
-
-    f = open(dataPath)
-    eeDict = json.load(f)
-
+    eeDict = _load_JSON()
     STAC = requests.get(eeDict[platformDict["platform"]]["href"]).json()
 
     return STAC
@@ -96,18 +44,13 @@ def getScaleParams(x: Union[ee.Image, ee.ImageCollection]) -> dict:
 
     Examples:
         >>> import ee
-        >>> from ee_extra.STAC import getScaleParams
+        >>> from ee_extra.STAC.core import getScaleParams
         >>> ee.Initialize()
         >>> S2 = ee.ImageCollection("COPERNICUS/S2_SR")
         >>> getScaleParams(S2)
     """
     platformDict = _get_platform_STAC(x)
-
-    eeExtraDir = os.path.dirname(pkg_resources.resource_filename("ee_extra", "ee_extra.py"))
-    dataPath = os.path.join(eeExtraDir, "data/ee-catalog-scale.json")
-
-    f = open(dataPath)
-    eeDict = json.load(f)
+    eeDict = _load_JSON("ee-catalog-scale.json")
     platforms = list(eeDict.keys())
 
     if platformDict["platform"] not in platforms:
@@ -128,18 +71,13 @@ def getOffsetParams(x: Union[ee.Image, ee.ImageCollection]) -> dict:
 
     Examples:
         >>> import ee
-        >>> from ee_extra.STAC import getOffsetParams
+        >>> from ee_extra.STAC.core import getOffsetParams
         >>> ee.Initialize()
         >>> S2 = ee.ImageCollection("COPERNICUS/S2_SR")
         >>> getOffsetParams(S2)
     """
     platformDict = _get_platform_STAC(x)
-
-    eeExtraDir = os.path.dirname(pkg_resources.resource_filename("ee_extra", "ee_extra.py"))
-    dataPath = os.path.join(eeExtraDir, "data/ee-catalog-offset.json")
-
-    f = open(dataPath)
-    eeDict = json.load(f)
+    eeDict = _load_JSON("ee-catalog-offset.json")
     platforms = list(eeDict.keys())
 
     if platformDict["platform"] not in platforms:
@@ -160,7 +98,7 @@ def scaleAndOffset(x: Union[ee.Image, ee.ImageCollection]) -> Union[ee.Image, ee
 
     Examples:
         >>> import ee
-        >>> from ee_extra.STAC import scaleAndOffset
+        >>> from ee_extra.STAC.core import scaleAndOffset
         >>> ee.Initialize()
         >>> S2 = ee.ImageCollection("COPERNICUS/S2_SR")
         >>> scaleAndOffset(S2)
@@ -203,18 +141,13 @@ def getDOI(x: Union[ee.Image, ee.ImageCollection]) -> str:
 
     Examples:
         >>> import ee
-        >>> from ee_extra.STAC import getDOI
+        >>> from ee_extra.STAC.core import getDOI
         >>> ee.Initialize()
         >>> S2 = ee.ImageCollection("COPERNICUS/S2_SR")
         >>> getDOI(S2)
     """
     platformDict = _get_platform_STAC(x)
-
-    eeExtraDir = os.path.dirname(pkg_resources.resource_filename("ee_extra", "ee_extra.py"))
-    dataPath = os.path.join(eeExtraDir, "data/ee-catalog-ids.json")
-
-    f = open(dataPath)
-    eeDict = json.load(f)
+    eeDict = _load_JSON()
 
     return eeDict[platformDict["platform"]]["sci:doi"]
 
@@ -230,17 +163,12 @@ def getCitation(x: Union[ee.Image, ee.ImageCollection]) -> str:
 
     Examples:
         >>> import ee
-        >>> from ee_extra.STAC import getCitation
+        >>> from ee_extra.STAC.core import getCitation
         >>> ee.Initialize()
         >>> S2 = ee.ImageCollection("COPERNICUS/S2_SR")
         >>> getCitation(S2)
     """
     platformDict = _get_platform_STAC(x)
-
-    eeExtraDir = os.path.dirname(pkg_resources.resource_filename("ee_extra", "ee_extra.py"))
-    dataPath = os.path.join(eeExtraDir, "data/ee-catalog-ids.json")
-
-    f = open(dataPath)
-    eeDict = json.load(f)
+    eeDict = _load_JSON()
 
     return eeDict[platformDict["platform"]]["sci:citation"]

@@ -6,7 +6,7 @@ import warnings
 import requests
 import re
 from typing import Optional, Union
-from ee_extra.STAC import _get_platform_STAC
+from ee_extra.STAC.utils import _get_platform_STAC
 
 
 def closest(

@@ -4,6 +4,8 @@ ee_extra Extensions.
 
 __version__ = "0.0.2"
 
+warnings.simplefilter("always", UserWarning)
+
 
 class Container(dict):
     """Container of classes and methods."""

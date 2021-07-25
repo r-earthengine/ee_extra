@@ -6,7 +6,8 @@ import warnings
 import requests
 import re
 from typing import Optional, Union
-from ee_extra.STAC import _get_platform_STAC
+from ee_extra.STAC.utils import _get_platform_STAC
+from ee_extra.utils import _load_JSON
 
 
 def _get_expression_map(img: ee.Image, platformDict: dict) -> dict:
@@ -150,10 +151,7 @@ def _get_indices(online: bool) -> dict:
             "https://raw.githubusercontent.com/davemlz/awesome-ee-spectral-indices/main/output/spectral-indices-dict.json"
         ).json()
     else:
-        eeExtraDir = os.path.dirname(pkg_resources.resource_filename("ee_extra", "ee_extra.py"))
-        dataPath = os.path.join(eeExtraDir, "data/spectral-indices-dict.json")
-        f = open(dataPath)
-        indices = json.load(f)
+        indices = _load_JSON("spectral-indices-dict.json")
 
     return indices["SpectralIndices"]
 

@@ -6,14 +6,14 @@ import warnings
 import requests
 import re
 from typing import Optional, Union
-from ee_extra.spectral.utils import (
+from ee_extra.Spectral.utils import (
     _get_expression_map,
     _get_indices,
     _get_kernel_image,
     _remove_none_dict,
     _get_kernel_parameters,
 )
-from ee_extra.STAC import _get_platform_STAC
+from ee_extra.STAC.utils import _get_platform_STAC
 
 
 def spectralIndices(
@@ -59,7 +59,7 @@ def spectralIndices(
 
     Examples:
         >>> import ee
-        >>> from ee_extra.spectral.core import spectralIndices
+        >>> from ee_extra.Spectral.core import spectralIndices
         >>> ee.Initialize()
         >>> S2 = ee.ImageCollection("COPERNICUS/S2_SR")
         >>> spectralIndices(S2,["NDVI","SAVI"],L = 0.5)
@@ -154,7 +154,7 @@ def indices(online: Optional[bool] = False) -> dict:
 
     Examples:
         >>> import ee
-        >>> from ee_extra.spectral.core import indices
+        >>> from ee_extra.Spectral.core import indices
         >>> ee.Initialize()
         >>> ind = indices()
         >>> ind.BAIS2.long_name
@@ -178,7 +178,7 @@ def listIndices(online: Optional[bool] = False) -> list:
 
     Examples:
         >>> import ee
-        >>> from ee_extra.spectral.core import listIndices
+        >>> from ee_extra.Spectral.core import listIndices
         >>> ee.Initialize()
         >>> listIndices()
         ['BNDVI','CIG','CVI','EVI','EVI2','GBNDVI','GNDVI',...]

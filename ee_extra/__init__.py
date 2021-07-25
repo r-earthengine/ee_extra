@@ -78,7 +78,7 @@ Extra = ExtraFunctions()
 from ee_extra.Image.basic import *
 from ee_extra.ImageCollection.core import *
 from ee_extra.JavaScript.eejs2py import *
-from ee_extra.Spectral import *
+from ee_extra.Spectral import core
 from ee_extra.STAC import core
 
 Extra = Extra.functions

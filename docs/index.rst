@@ -158,7 +158,7 @@ Do you like using ee_extra and think it is useful? Share the love by citing it t
    
 If required, here is the BibTex for both papers!::
 
-   @article{Montero2021,
+   @Article{Montero2021,
      doi = {10.21105/joss.03168},
      url = {https://doi.org/10.21105/joss.03168},
      year = {2021},

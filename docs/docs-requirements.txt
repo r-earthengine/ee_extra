@@ -3,4 +3,5 @@ recommonmark
 sphinxcontrib-autoprogram
 sphinx-autodoc-typehints
 sphinx-press-theme
+pydata_sphinx_theme
 google-auth<2.0dev

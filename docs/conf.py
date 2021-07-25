@@ -61,14 +61,16 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'press'
+html_theme = "pydata_sphinx_theme"
 
-html_theme_options = {
-  "external_links": [
-      ("GitHub", "https://github.com/r-earthengine/ee_extra"),
-      ("eemont", "https://github.com/davemlz/eemont"),
-      ("rgeeExtra", "https://github.com/r-earthengine/rgeeExtra"),
-  ]
+html_theme_options = {    
+    "icon_links": [
+        {
+            "name": "GitHub",
+            "url": "https://github.com/r-earthengine/ee_extra",
+            "icon": "fab fa-github-square",
+        },
+    ],    
 }
 
 

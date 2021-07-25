@@ -17,10 +17,12 @@ sys.path.insert(0, os.path.abspath('..'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'ee_extra'
+project = 'eeExtra'
 copyright = '2021, Cesar Aybar and David Montero Loaiza'
 author = 'Cesar Aybar and David Montero Loaiza'
 
+# The full version, including alpha/beta/rc tags
+release = '0.0.2'
 
 # -- General configuration ---------------------------------------------------
 
@@ -36,17 +38,17 @@ extensions = [
     "sphinx_rtd_theme",
     'sphinx.ext.autosummary',
     'sphinx.ext.autosectionlabel',    
-    #'sphinx_autodoc_typehints'
+    'sphinx_autodoc_typehints'
 ]
 
-#autodoc_default_flags = ['members']
-#autosummary_generate = True
+autodoc_default_flags = ['members']
+autosummary_generate = True
 
-#napoleon_use_param = True
-#napoleon_use_rtype = True
-#napoleon_preprocess_types = True
-#napoleon_attr_annotations = True
-#autodoc_typehints = "signature"
+napoleon_use_param = True
+napoleon_use_rtype = True
+napoleon_preprocess_types = True
+napoleon_attr_annotations = True
+autodoc_typehints = "signature"
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -70,6 +72,11 @@ html_theme_options = {
             "name": "GitHub",
             "url": "https://github.com/r-earthengine/ee_extra",
             "icon": "fab fa-github-square",
+        },
+        {
+            "name": "Twitter",
+            "url": "https://twitter.com/csaybar",
+            "icon": "fab fa-twitter-square",
         },
     ],    
 }

@@ -1,6 +1,6 @@
 sphinx>=1.4, !=1.5.4
 recommonmark
 sphinxcontrib-autoprogram
-#sphinx-autodoc-typehints
+sphinx-autodoc-typehints
 pydata-sphinx-theme
 google-auth<2.0dev

@@ -103,14 +103,15 @@ The ee_extra Python package can be found indirectly in the `Earth Engine Communi
 Powerhouse of...
 --------------------
 
-Currently, ee_extra works as the powerhouse of the following packages:
+.. raw:: html
 
-- **Python**:
-    - `eemont <https://github.com/davemlz/eemont>`_: A Python package that extends Google Earth Engine.
-    
-- **R**:
-    - `rgee <https://github.com/r-spatial/rgee>`_: Google Earth Engine for R.
-    - `rgeeExtra <https://github.com/r-earthengine/rgeeExtra>`_: High-level functions to process spatial and simple Earth Engine objects.
+        <embed>
+          <p align="center">
+            <a href="https://r-spatial.github.io/rgee/"><img src="https://user-images.githubusercontent.com/16768318/118376965-5f7dca80-b5cb-11eb-9a82-47876680a3e6.png" height="200px"/></a>
+            <a href="http://r-earthengine.github.io/rgeeExtra/"><img src="https://user-images.githubusercontent.com/16768318/118376968-63a9e800-b5cb-11eb-83e7-3f36299e17cb.png" height="200px"/></a>
+            <a href="https://github.com/davemlz/eemont"><img src="https://raw.githubusercontent.com/davemlz/davemlz/main/eemont.png" height="200px"/></a>
+          </p>
+        </embed>
 
 
 Installation

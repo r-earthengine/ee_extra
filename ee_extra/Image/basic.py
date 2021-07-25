@@ -35,7 +35,6 @@ VI. Accessing values of ee.Image object cells
 
 from typing import Optional
 import ee
-from ee_extra import Extra
 
 
 def minvalue(x: ee.Image, scale: Optional[float] = None) -> float:

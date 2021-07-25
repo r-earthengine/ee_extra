@@ -1,6 +1,16 @@
 Welcome to eeExtra!
 ===================
 
+.. raw:: html
+
+        <embed>
+          <p align="center">
+            <a href="https://github.com/r-earthengine/ee_extra"><img src="https://raw.githubusercontent.com/davemlz/davemlz/main/eeExtra.png" height="200px"/></a>
+            <br>
+            <b>A ninja Python package behind <a href="https://github.com/r-spatial/rgee">rgee</a>, <a href="https://github.com/r-earthengine/rgeeExtra">rgeeExtra</a> and <a href="https://github.com/davemlz/eemont">eemont</a></b>
+          </p>
+        </embed>
+
 .. image:: https://img.shields.io/pypi/v/ee_extra.svg
         :target: https://pypi.python.org/pypi/ee_extra
         
@@ -48,9 +58,6 @@ Welcome to eeExtra!
     :target: https://github.com/psf/black
   
   
-**A ninja Python package behind rgee, rgeeExtra and eemont.** 
-
-
 .. toctree::   
    :maxdepth: 2
    :caption: API Reference

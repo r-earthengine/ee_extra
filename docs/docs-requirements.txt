@@ -2,6 +2,5 @@ sphinx>=1.4, !=1.5.4
 recommonmark
 sphinxcontrib-autoprogram
 sphinx-autodoc-typehints
-sphinx-press-theme
-pydata_sphinx_theme
+pydata-sphinx-theme
 google-auth<2.0dev

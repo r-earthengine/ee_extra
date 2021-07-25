@@ -39,14 +39,14 @@ extensions = [
     'sphinx_autodoc_typehints'
 ]
 
-#autodoc_default_flags = ['members']
-#autosummary_generate = True
+autodoc_default_flags = ['members']
+autosummary_generate = True
 
-#napoleon_use_param = True
-#napoleon_use_rtype = True
-#napoleon_preprocess_types = True
-#napoleon_attr_annotations = True
-#autodoc_typehints = "signature"
+napoleon_use_param = True
+napoleon_use_rtype = True
+napoleon_preprocess_types = True
+napoleon_attr_annotations = True
+autodoc_typehints = "signature"
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']

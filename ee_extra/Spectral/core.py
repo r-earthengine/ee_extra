@@ -1,6 +1,5 @@
 import ee
 import json
-import pkg_resources
 import os
 import warnings
 import requests
@@ -18,10 +17,10 @@ from ee_extra.STAC.utils import _get_platform_STAC
 
 def spectralIndices(
     x: Union[ee.Image, ee.ImageCollection],
-    index: Optonal[Union[str, list[str]]] = "NDVI",
+    index: Optional[Union[str, list[str]]] = "NDVI",
     G: Optional[Union[float, int]] = 2.5,
     C1: Optional[Union[float, int]] = 6.0,
-    C2: Opional[Union[float, int]] = 7.5,
+    C2: Optional[Union[float, int]] = 7.5,
     L: Optional[Union[float, int]] = 1.0,
     cexp: Optional[Union[float, int]] = 1.16,
     nexp: Optional[Union[float, int]] = 2.0,

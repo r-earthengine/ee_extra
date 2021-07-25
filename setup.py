@@ -29,7 +29,7 @@ setup(
     
     package_data={'ee_extra': ['data/*.json']},
 
-    install_requires=['earthengine-api','js2py','numpy'],
+    install_requires=['earthengine-api','js2py','numpy','requests'],
 
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',

@@ -174,3 +174,20 @@ def getCitation(x: Union[ee.Image, ee.ImageCollection]) -> str:
     eeDict = _load_JSON()
 
     return eeDict[platformDict["platform"]]["sci:citation"]
+
+
+def listDatasets() -> list:
+    """Returns all datasets from the GEE STAC as a list.
+
+    Returns:
+        List of all datasets from the GEE STAC.
+
+    Examples:
+        >>> import ee
+        >>> from ee_extra.STAC.core import listDatasets
+        >>> ee.Initialize()
+        >>> listDatasets()
+    """    
+    eeDict = _load_JSON()
+
+    return list(eeDict.keys())

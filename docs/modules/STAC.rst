@@ -11,4 +11,5 @@ Extra.STAC
    getOffsetParams   
    getScaleParams
    getSTAC
+   listDatasets
    scaleAndOffset

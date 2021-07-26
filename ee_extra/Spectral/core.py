@@ -4,7 +4,7 @@ import os
 import warnings
 import requests
 import re
-from typing import Optional, Union
+from typing import Optional, Union, Any
 from ee_extra.Spectral.utils import (
     _get_expression_map,
     _get_indices,
@@ -31,7 +31,7 @@ def spectralIndices(
     sigma: Union[float, str] = "0.5 * (a + b)",
     p: Union[float, int] = 2,
     c: Union[float, int] = 1.0,
-    online: bool = False,
+    online: Any = False,
 ) -> Union[ee.Image, ee.ImageCollection]:
     """Computes one or more spectral indices (indices are added as bands) for an image oir image collection.
 
@@ -142,7 +142,7 @@ def spectralIndices(
     return x
 
 
-def indices(online: bool = False) -> dict:
+def indices(online: Any = False) -> dict:
     """Gets the dictionary of available indices.
 
     Args:
@@ -166,7 +166,7 @@ def indices(online: bool = False) -> dict:
     return _get_indices(online)
 
 
-def listIndices(online: bool = False) -> list:
+def listIndices(online: Any = False) -> list:
     """Gets the list of available indices.
 
     Args:

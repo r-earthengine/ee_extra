@@ -4,7 +4,7 @@ import os
 import warnings
 import requests
 import re
-from typing import Optional, Union, Any
+from typing import Optional, Union, Any, List
 from ee_extra.Spectral.utils import (
     _get_expression_map,
     _get_indices,
@@ -17,7 +17,7 @@ from ee_extra.STAC.utils import _get_platform_STAC
 
 def spectralIndices(
     x: Union[ee.Image, ee.ImageCollection],
-    index: Union[str, list[str]] = "NDVI",
+    index: Union[str, List[str]] = "NDVI",
     G: Union[float, int] = 2.5,
     C1: Union[float, int] = 6.0,
     C2: Union[float, int] = 7.5,
@@ -31,7 +31,7 @@ def spectralIndices(
     sigma: Union[float, str] = "0.5 * (a + b)",
     p: Union[float, int] = 2,
     c: Union[float, int] = 1.0,
-    online: Any = False,
+    online: bool = False,
 ) -> Union[ee.Image, ee.ImageCollection]:
     """Computes one or more spectral indices (indices are added as bands) for an image oir image collection.
 
@@ -142,7 +142,7 @@ def spectralIndices(
     return x
 
 
-def indices(online: Any = False) -> dict:
+def indices(online: bool = False) -> dict:
     """Gets the dictionary of available indices.
 
     Args:
@@ -166,7 +166,7 @@ def indices(online: Any = False) -> dict:
     return _get_indices(online)
 
 
-def listIndices(online: Any = False) -> list:
+def listIndices(online: bool = False) -> list:
     """Gets the list of available indices.
 
     Args:

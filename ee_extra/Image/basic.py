@@ -34,6 +34,7 @@ VI. Accessing values of ee.Image object cells
 """
 
 from typing import Optional
+
 import ee
 
 

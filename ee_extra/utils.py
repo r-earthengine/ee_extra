@@ -1,7 +1,9 @@
+from typing import Any, Optional, Union
+
 import json
-import pkg_resources
 import os
-from typing import Optional, Union, Any
+
+import pkg_resources
 
 
 def _load_JSON(x: Optional[str] = "ee-catalog-ids.json") -> Any:

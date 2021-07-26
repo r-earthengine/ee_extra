@@ -1,5 +1,7 @@
-import requests
 import json
+
+import requests
+
 # Request ee catalog
 eeCatalog = requests.get('https://earthengine-stac.storage.googleapis.com/catalog/catalog.json').json()
 # Get the datasets

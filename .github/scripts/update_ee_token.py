@@ -1,4 +1,5 @@
 import os
+
 # Token from SECRETS
 credentials = '{"refresh_token":"%s"}' % os.environ["EE_TOKEN"]
 # We need this location to save the token

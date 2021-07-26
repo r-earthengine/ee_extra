@@ -1,16 +1,18 @@
-import ee
+from typing import Any, List, Optional, Union
+
 import json
 import os
-import warnings
-import requests
 import re
-from typing import Optional, Union, Any, List
+import warnings
+
+import ee
+import requests
 from ee_extra.Spectral.utils import (
     _get_expression_map,
     _get_indices,
     _get_kernel_image,
-    _remove_none_dict,
     _get_kernel_parameters,
+    _remove_none_dict,
 )
 from ee_extra.STAC.utils import _get_platform_STAC
 

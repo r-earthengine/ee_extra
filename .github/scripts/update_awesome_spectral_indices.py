@@ -1,5 +1,7 @@
-import requests
 import json
+
+import requests
+
 # Request Awesome List of Spectral Indices
 awesomeSpectralIndices = requests.get('https://raw.githubusercontent.com/davemlz/awesome-ee-spectral-indices/main/output/spectral-indices-dict.json').json()
 # Save the dict as json file

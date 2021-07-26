@@ -7,14 +7,15 @@ I. Evaluate JS code
 - evaluate: Evaluate a JS string code.
 """
 
-import ee
-import re
 import json
+import os
+import re
+
+import ee
+import pkg_resources
+import requests
 from ee_extra import Extra
 from js2py import EvalJs
-import requests
-import pkg_resources
-import os
 
 
 def _convert_path_to_ee_sources(path: str) -> str:

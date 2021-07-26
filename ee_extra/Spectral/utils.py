@@ -1,11 +1,13 @@
-import ee
-import json
-import pkg_resources
-import os
-import warnings
-import requests
-import re
 from typing import Optional, Union
+
+import json
+import os
+import re
+import warnings
+
+import ee
+import pkg_resources
+import requests
 from ee_extra.STAC.utils import _get_platform_STAC
 from ee_extra.utils import _load_JSON
 

@@ -18,6 +18,9 @@
         :target: https://ee-extra.readthedocs.io/en/latest/?badge=latest
         :alt: Documentation Status
 
+.. image:: https://github.com/r-earthengine/ee_extra/actions/workflows/tests.yml/badge.svg
+        :target: https://github.com/r-earthengine/ee_extra/actions/workflows/tests.yml
+
 .. image:: https://github.com/r-earthengine/ee_extra/actions/workflows/update_awesome_spectral_indices.yml/badge.svg
         :target: https://github.com/r-earthengine/ee_extra/actions/workflows/update_awesome_spectral_indices.yml
 

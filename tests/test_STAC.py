@@ -6,33 +6,14 @@ ee.Initialize()
 
 point = ee.Geometry.Point([-76.21, 3.45])
 
-datasets = [
-    "COPERNICUS/S2",
-    "COPERNICUS/S2_SR",
-    "LANDSAT/LC08/C01/T1_SR",
-    "LANDSAT/LC08/C01/T2_SR",
-    "LANDSAT/LC08/C02/T1_L2",
-    "LANDSAT/LE07/C01/T1_SR",
-    "LANDSAT/LE07/C01/T2_SR",
-    "LANDSAT/LE07/C02/T1_L2",
-    "LANDSAT/LT05/C01/T1_SR",
-    "LANDSAT/LT05/C01/T2_SR",
-    "LANDSAT/LT04/C01/T1_SR",
-    "LANDSAT/LT04/C01/T2_SR",
-    "MODIS/006/MOD09GQ",
-    "MODIS/006/MYD09GQ",
-    "MODIS/006/MOD09GA",
-    "MODIS/006/MYD09GA",
-    "MODIS/006/MOD09Q1",
-    "MODIS/006/MYD09Q1",
-    "MODIS/006/MOD09A1",
-    "MODIS/006/MYD09A1",
-    "MODIS/006/MCD43A4",
-]
-
+datasets = listDatasets()
 
 class Test(unittest.TestCase):
     """Tests for ee_extra package."""
+
+    def test_listDatasets(self):
+        """Test the listDatasets() method"""
+        self.assertIsInstance(listDatasets(), list)
 
     def test_getCitation(self):
         """Test the getCitation() method"""

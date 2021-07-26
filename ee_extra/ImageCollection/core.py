@@ -12,8 +12,8 @@ from ee_extra.STAC.utils import _get_platform_STAC
 def closest(
     x: ee.ImageCollection,
     date: Union[ee.Date, str],
-    tolerance: Optional[Union[float, int]] = 1,
-    unit: Optional[str] = "month",
+    tolerance: Union[float, int] = 1,
+    unit: str = "month",
 ) -> ee.ImageCollection:
     """Gets the closest image (or set of images if the collection intersects a region that requires multiple scenes) to the specified date.
 

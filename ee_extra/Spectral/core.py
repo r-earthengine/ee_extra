@@ -17,21 +17,21 @@ from ee_extra.STAC.utils import _get_platform_STAC
 
 def spectralIndices(
     x: Union[ee.Image, ee.ImageCollection],
-    index: Optional[Union[str, list[str]]] = "NDVI",
-    G: Optional[Union[float, int]] = 2.5,
-    C1: Optional[Union[float, int]] = 6.0,
-    C2: Optional[Union[float, int]] = 7.5,
-    L: Optional[Union[float, int]] = 1.0,
-    cexp: Optional[Union[float, int]] = 1.16,
-    nexp: Optional[Union[float, int]] = 2.0,
-    alpha: Optional[Union[float, int]] = 0.1,
-    slope: Optional[Union[float, int]] = 1.0,
-    intercept: Optional[Union[float, int]] = 0.0,
-    kernel: Optional[str] = "RBF",
-    sigma: Optional[Union[float, str]] = "0.5 * (a + b)",
-    p: Optional[Union[float, int]] = 2,
-    c: Optional[Union[float, int]] = 1.0,
-    online: Optional[bool] = False,
+    index: Union[str, list[str]] = "NDVI",
+    G: Union[float, int] = 2.5,
+    C1: Union[float, int] = 6.0,
+    C2: Union[float, int] = 7.5,
+    L: Union[float, int] = 1.0,
+    cexp: Union[float, int] = 1.16,
+    nexp: Union[float, int] = 2.0,
+    alpha: Union[float, int] = 0.1,
+    slope: Union[float, int] = 1.0,
+    intercept: Union[float, int] = 0.0,
+    kernel: str = "RBF",
+    sigma: Union[float, str] = "0.5 * (a + b)",
+    p: Union[float, int] = 2,
+    c: Union[float, int] = 1.0,
+    online: bool = False,
 ) -> Union[ee.Image, ee.ImageCollection]:
     """Computes one or more spectral indices (indices are added as bands) for an image oir image collection.
 
@@ -142,7 +142,7 @@ def spectralIndices(
     return x
 
 
-def indices(online: Optional[bool] = False) -> dict:
+def indices(online: bool = False) -> dict:
     """Gets the dictionary of available indices.
 
     Args:
@@ -166,7 +166,7 @@ def indices(online: Optional[bool] = False) -> dict:
     return _get_indices(online)
 
 
-def listIndices(online: Optional[bool] = False) -> list:
+def listIndices(online: bool = False) -> list:
     """Gets the list of available indices.
 
     Args:

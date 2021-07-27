@@ -151,7 +151,6 @@ def _install(x: str, update: bool):
         print(f"The module '{x}' was successfully installed!")
 
 
-# @Extra.add("JavaScript", "eejs2py", "install")
 def install(x: str, update: bool = False) -> list:
     """Install an Earth Engine modue and its dependencies.
 
@@ -191,7 +190,6 @@ def install(x: str, update: bool = False) -> list:
     return _install_dependencies(deps, update, [])
 
 
-# @Extra.add("JavaScript", "eejs2py", "uninstall")
 def uninstall(x: str):
     """Uninstall an Earth Engine JavaScript module.
 
@@ -217,7 +215,6 @@ def uninstall(x: str):
         print(f"The module '{x}' is not installed!")
 
 
-# @Extra.add("JavaScript", "eejs2py", "junction")
 def junction(x: str) -> str:
     """Evaluate an Earth Engine module.
 
@@ -279,6 +276,159 @@ def junction(x: str) -> str:
     )
 
     return final_file
+
+
+def translate(x: str) -> str:
+    """Translates a JavaScript script to a Python script.
+
+    Args:
+        x : A JavaScript script.
+
+    Returns:
+        A Python script.
+
+    Examples:
+        >>> import ee
+        >>> from ee_extra.JavaScript.eejs2py import translate
+        >>> ee.Initialize()
+        >>> translate("var x = ee.ImageCollection('COPERNICUS/S2_SR')")
+    """
+
+    def variable_definition(x):
+        lines = x.split("\n")
+        newLines = []
+        for line in lines:
+            pattern = r"var(.*?)="
+            var_name = re.findall(pattern, line)
+            if len(var_name) > 0:
+                line = line.replace(f"var{var_name[0]}=", f'{var_name[0].replace(" ","")} =')
+            newLines.append(line)
+        return "\n".join(newLines)
+
+    def logical_operators_boolean_null_comments(x):
+        reserved = {
+            ".and": ".And",
+            ".or": ".Or",
+            ".not": ".Not",
+            "true": "True",
+            "false": "False",
+            "null": "None",
+            "//": "#",
+            ";": "",
+        }
+        for key, item in reserved.items():
+            x = x.replace(key, item)
+        return x
+
+    def multiline_method_chain(x):
+        lines = x.split("\n")
+        for i in range(len(lines)):
+            if lines[i].replace(" ", "").startswith("."):
+                lines[i - 1] = lines[i - 1] + " \\"
+        return "\n".join(lines)
+
+    def function_definition(x):
+        lines = x.split("\n")
+        newLines = []
+        for line in lines:
+            if "function" in line and "#" not in line:
+                if "=" in line:
+                    pattern = r"(.*?)="
+                    fun_name = re.findall(pattern, line)[0].replace(" ", "")
+                    line = (
+                        line.replace(" ", "")
+                        .replace(f"{fun_name}=function(", f"def {fun_name}(")
+                        .replace("{", ":")
+                    )
+                    newLines.append(line)
+                else:
+                    pattern = r"function(.*?)\("
+                    fun_name = re.findall(pattern, line)[0].replace(" ", "")
+                    line = (
+                        line.replace(" ", "")
+                        .replace(f"function{fun_name}(", f"def {fun_name}(")
+                        .replace("{", ":")
+                    )
+                    newLines.append(line)
+            else:
+                newLines.append(line)
+        return "\n".join(newLines)
+
+    def delete_brackets(x):
+        counter = 0
+        newString = ""
+        for char in x:
+            if char == "{":
+                counter += 1
+            elif char == "}":
+                counter -= 1
+            if counter >= 0:
+                newString += char
+            else:
+                counter = 0
+        return newString
+
+    def dictionary_keys(x):
+        x = x.replace("\n", "eeExtraJLE")
+        dicts = re.findall(r"{.*?}", x)
+        for d in dicts:
+            di = d.replace("{", "").replace("}", "")
+            keyItems = di.split(",")
+            newKeyItems = []
+            for ki in keyItems:
+                ki = ki.split(":")
+                ki[0] = (
+                    ki[0]
+                    .replace("eeExtraJLE", "")
+                    .replace("'", "")
+                    .replace('"', "")
+                    .replace(" ", "")
+                )
+                ki[1] = ki[1].replace("eeExtraJLE", "")
+                ki = f"'{ki[0]}':{ki[1]}"
+                newKeyItems.append(ki)
+            newDict = "{" + ",".join(newKeyItems) + "}"
+            x = x.replace(d, newDict).replace("eeExtraJLE", "\n")
+        return x
+
+    def dictionary_object_access(x):
+        pattern = r"\.(.*)"
+        matches = re.findall(pattern, x)
+        if len(matches) > 0:
+            for match in matches:
+                if "(" not in match and ")" not in match and len(match) > 0:
+                    x = x.replace(f".{match}", f"['{match}']")
+        return x
+
+    def keyword_arguments_object(x):
+        pattern = r"\((.*){(.*)}(.*)\)"
+        matches = re.findall(pattern, x, re.DOTALL)
+        if len(matches) > 0:
+            for match in matches:
+                match = list(match)[1]
+                x = x.replace("{" + match + "}", "**{" + match + "}")
+        return x
+
+    def anonymous_function_mapping(x):
+        pattern = r"\.map\((.*)function\((.*)\)"
+        matches = re.findall(pattern, x)
+        if len(matches) > 0:
+            for match in matches:
+                match = list(match)[1]
+                x = x.replace(f".map(function({match})", f".map(lambda {match}:")
+        return x
+
+    x = variable_definition(x)
+    x = logical_operators_boolean_null_comments(x)
+    x = multiline_method_chain(x)
+    x = function_definition(x)
+    x = delete_brackets(x)
+    x = dictionary_keys(x)
+    x = dictionary_object_access(x)
+    x = keyword_arguments_object(x)
+    x = anonymous_function_mapping(x)
+
+    return x
 
 
 def _junction(x: str) -> str:

@@ -187,7 +187,7 @@ def listDatasets() -> list:
         >>> from ee_extra.STAC.core import listDatasets
         >>> ee.Initialize()
         >>> listDatasets()
-    """    
+    """
     eeDict = _load_JSON()
 
     return list(eeDict.keys())

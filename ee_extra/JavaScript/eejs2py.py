@@ -315,6 +315,7 @@ def translate(x: str) -> str:
             "null": "None",
             "//": "#",
             ";": "",
+            "!": " not ",
         }
         for key, item in reserved.items():
             x = x.replace(key, item)
@@ -405,8 +406,8 @@ def translate(x: str) -> str:
         matches = re.findall(pattern, x, re.DOTALL)
         if len(matches) > 0:
             for match in matches:
-                match = list(match)[1]
-                x = x.replace("{" + match + "}", "**{" + match + "}")
+                match = list(match)
+                x = x.replace("{" + match[1] + "}", "**{" + match[1] + "}")
         return x
 
     def anonymous_function_mapping(x):
@@ -414,8 +415,27 @@ def translate(x: str) -> str:
         matches = re.findall(pattern, x)
         if len(matches) > 0:
             for match in matches:
-                match = list(match)[1]
-                x = x.replace(f".map(function({match})", f".map(lambda {match}:")
+                match = list(match)
+                x = x.replace(f".map(function({match[1]})", f".map(lambda {match[1]}:")
+        return x
+
+    def if_statement(x):
+        pattern = r"if(.*?)\((.*)\)(.*){"
+        matches = re.findall(pattern, x)
+        if len(matches) > 0:
+            for match in matches:
+                match = list(match)
+                x = x.replace(
+                    "if" + match[0] + "(" + match[1] + ")" + match[2] + "{", f"if {match[1]}:"
+                )
+        return x
+
+    def array_isArray(x):
+        pattern = r"Array\.isArray\((.*?)\)"
+        matches = re.findall(pattern, x)
+        if len(matches) > 0:
+            for match in matches:
+                x = x.replace(f"Array.isArray({match})", f"isinstance({match},list)")
         return x
 
     x = variable_definition(x)
@@ -427,6 +447,9 @@ def translate(x: str) -> str:
     x = dictionary_object_access(x)
     x = keyword_arguments_object(x)
     x = anonymous_function_mapping(x)
+    x = if_statement(x)
+    x = delete_brackets(x)
+    x = array_isArray(x)
 
     return x
 

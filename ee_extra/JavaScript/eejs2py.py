@@ -29,7 +29,7 @@ from js2py import EvalJs
 
 def _convert_path_to_ee_sources(path: str) -> str:
     """Get the remote module path from the 'ee-sources' GCS bucket.
-    
+
     Args:
         path: str
 
@@ -379,26 +379,19 @@ def translate(x: str) -> str:
         return newString
 
     def dictionary_keys(x):
-        x = x.replace("\n", "eeExtraJLE")
-        dicts = re.findall(r"{.*?}", x)
-        for d in dicts:
-            di = d.replace("{", "").replace("}", "")
-            keyItems = di.split(",")
-            newKeyItems = []
-            for ki in keyItems:
-                ki = ki.split(":")
-                ki[0] = (
-                    ki[0]
-                    .replace("eeExtraJLE", "")
-                    .replace("'", "")
-                    .replace('"', "")
-                    .replace(" ", "")
-                )
-                ki[1] = ki[1].replace("eeExtraJLE", "")
-                ki = f"'{ki[0]}':{ki[1]}"
-                newKeyItems.append(ki)
-            newDict = "{" + ",".join(newKeyItems) + "}"
-            x = x.replace(d, newDict).replace("eeExtraJLE", "\n")
+        pattern = r"{(.*?)}"
+        dicts = re.findall(pattern, x, re.DOTALL)
+        if len(dicts) > 0:
+            for dic in dicts:
+                items = dic.split(",")
+                for item in items:
+                    pattern = r"(.*):(.*)"
+                    item = re.findall(pattern, item)
+                    if len(item) > 0:
+                        for i in item:
+                            i = list(i)
+                            j = i[0].replace('"', "").replace("'", "").replace(" ", "")
+                            x = x.replace(f"{i[0]}:{i[1]}", f"'{j}':{i[1]}")
         return x
 
     def dictionary_object_access(x):

@@ -495,19 +495,17 @@ def translate(x: str) -> str:
                 start = i[1]
                 i = i[0]
                 # Get the end/stop value
-                if ">" in match[2] or "<" in match[2] or "=" in match[2]:
-                    end = (
-                        match[2]
-                        .replace("=", " ")
-                        .replace(">", " ")
-                        .replace("<", " ")
-                        .replace("  ", " ")
-                        .split(" ")[-1]
-                        .split(".")[0]
-                    )
+                end = (
+                    match[2]
+                    .replace("=", " ")
+                    .replace(">", " ")
+                    .replace("<", " ")
+                    .replace("  ", " ")
+                    .split(" ")[-1]
+                )
+                if "." in end:
+                    end = end.split(".")[0]
                     end = f"len({end})"
-                else:
-                    end = match[2].replace(" ", "")
                 # Get the step value
                 if "++" in match[3]:
                     step = 1

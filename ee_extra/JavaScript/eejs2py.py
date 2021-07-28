@@ -303,17 +303,34 @@ def translate(x: str) -> str:
         >>> translate("var x = ee.ImageCollection('COPERNICUS/S2_SR')")
     """
 
-    def variable_definition(x):
-        lines = x.split("\n")
-        newLines = []
-        for line in lines:
-            pattern = r"var(.*?)="
-            var_name = re.findall(pattern, line)
-            if len(var_name) > 0:
-                line = line.replace(f"var{var_name[0]}=", f'{var_name[0].replace(" ","")} =')
-            newLines.append(line)
-        return "\n".join(newLines)
+    # FUNCIONA
+    # Elimina llaves "}" de sobra
+    def delete_brackets(x):
+        counter = 0
+        newString = ""
+        for char in x:
+            if char == "{":
+                counter += 1
+            elif char == "}":
+                counter -= 1
+            if counter >= 0:
+                newString += char
+            else:
+                counter = 0
+        return newString
 
+    # FUNCIONA
+    # Cambia "var x = 1" por "x = 1"
+    def variable_definition(x):
+        pattern = r"var(.*?)="
+        matches = re.findall(pattern, x, re.DOTALL)
+        if len(matches) > 0:
+            for match in matches:
+                x = x.replace(f"var{match}=", f"{match.replace(' ','')} =")
+        return x
+
+    # FUNCIONA
+    # Cambia las funciones reservadas y otros
     def logical_operators_boolean_null_comments(x):
         reserved = {
             ".and": ".And",
@@ -323,13 +340,25 @@ def translate(x: str) -> str:
             "false": "False",
             "null": "None",
             "//": "#",
-            ";": "",
             "!": " not ",
         }
         for key, item in reserved.items():
             x = x.replace(key, item)
         return x
 
+    # FUNCIONA
+    # Anade comentarios multilinea con "#"
+    def multiline_comments(x):
+        pattern = r"/\*(.*?)\*/"
+        matches = re.findall(pattern, x, re.DOTALL)
+        if len(matches) > 0:
+            for match in matches:
+                x = x.replace(match, match.replace("\n", "\n#"))
+        x = x.replace("/*", "#")
+        return x
+
+    # FUNCIONA
+    # Adiciona "\\" a las lineas anteriores de method chaining multilinea
     def multiline_method_chain(x):
         lines = x.split("\n")
         for i in range(len(lines)):
@@ -337,6 +366,8 @@ def translate(x: str) -> str:
                 lines[i - 1] = lines[i - 1] + " \\"
         return "\n".join(lines)
 
+    # FUNCIONA
+    # Cambia "var f = function(x){" o "function f(x){" por "def f(x):"
     def function_definition(x):
         lines = x.split("\n")
         newLines = []
@@ -362,22 +393,10 @@ def translate(x: str) -> str:
                     newLines.append(line)
             else:
                 newLines.append(line)
-        return "\n".join(newLines)
+        return delete_brackets("\n".join(newLines))
 
-    def delete_brackets(x):
-        counter = 0
-        newString = ""
-        for char in x:
-            if char == "{":
-                counter += 1
-            elif char == "}":
-                counter -= 1
-            if counter >= 0:
-                newString += char
-            else:
-                counter = 0
-        return newString
-
+    # FUNCIONA
+    # Cambia "{x = 1}" por "{'x' = 1}"
     def dictionary_keys(x):
         pattern = r"{(.*?)}"
         dicts = re.findall(pattern, x, re.DOTALL)
@@ -394,15 +413,30 @@ def translate(x: str) -> str:
                             x = x.replace(f"{i[0]}:{i[1]}", f"'{j}':{i[1]}")
         return x
 
+    # NECESITA REVISION
+    # Debe cambiar el acceso a los diccionarios. Es capaz de cambiar "exports.x = 1" por "exports['x'] = 1"
+    # Pero cuando hay otros puntos en el texto tambien los cambia, como "https://google.com" por "https://google['com']"
+    # Esto es un error.
     def dictionary_object_access(x):
         pattern = r"\.(.*)"
         matches = re.findall(pattern, x)
         if len(matches) > 0:
             for match in matches:
-                if "(" not in match and ")" not in match and len(match) > 0:
+                if "=" in match:
+                    splitted = match.split("=")
+                    key = splitted[0].replace(" ", "")
+                    x = x.replace(f".{match}", f"['{key}'] ={splitted[1]}")
+                elif (
+                    "(" not in match
+                    and ")" not in match
+                    and len(match) > 0
+                    and not any(char.isdigit() for char in match)
+                ):
                     x = x.replace(f".{match}", f"['{match}']")
         return x
 
+    # FUNCIONA
+    # Cambia "f({x = 1})" por "f(**{x = 1})"
     def keyword_arguments_object(x):
         pattern = r"\((.*){(.*)}(.*)\)"
         matches = re.findall(pattern, x, re.DOTALL)
@@ -412,6 +446,9 @@ def translate(x: str) -> str:
                 x = x.replace("{" + match[1] + "}", "**{" + match[1] + "}")
         return x
 
+    # NECESITA REVISION
+    # Debe cambiar "ee.ImageCollection(x).map(function(x) { return x })" por "ee.ImageCollection(x).map(lambda x: x)"
+    # pero se que no esta completo
     def anonymous_function_mapping(x):
         pattern = r"\.map\((.*)function\((.*)\)"
         matches = re.findall(pattern, x)
@@ -421,6 +458,8 @@ def translate(x: str) -> str:
                 x = x.replace(f".map(function({match[1]})", f".map(lambda {match[1]}:")
         return x
 
+    # FUNCIONA
+    # Cambia "if(x){" por "if x:"
     def if_statement(x):
         pattern = r"if(.*?)\((.*)\)(.*){"
         matches = re.findall(pattern, x)
@@ -430,8 +469,10 @@ def translate(x: str) -> str:
                 x = x.replace(
                     "if" + match[0] + "(" + match[1] + ")" + match[2] + "{", f"if {match[1]}:"
                 )
-        return x
+        return delete_brackets(x)
 
+    # FUNCIONA
+    # Cambia "Array.isArray(x)" por "isinstance(x,list)"
     def array_isArray(x):
         pattern = r"Array\.isArray\((.*?)\)"
         matches = re.findall(pattern, x)
@@ -440,18 +481,72 @@ def translate(x: str) -> str:
                 x = x.replace(f"Array.isArray({match})", f"isinstance({match},list)")
         return x
 
+    # FUNCIONA
+    # Cambia "for(var i = 0;i < x.length;i++){" por "for i in range(0,len(x),1):"
+    def for_loop(x):
+        pattern = r"for(.*)\((.*);(.*);(.*)\)(.*){"
+        matches = re.findall(pattern, x)
+        if len(matches) > 0:
+            for match in matches:
+                match = list(match)
+                # Get the start value and the iter name
+                i = match[1].replace("var ", "")
+                i = i.replace(" ", "").split("=")
+                start = i[1]
+                i = i[0]
+                # Get the end/stop value
+                if ">" in match[2] or "<" in match[2] or "=" in match[2]:
+                    end = (
+                        match[2]
+                        .replace("=", " ")
+                        .replace(">", " ")
+                        .replace("<", " ")
+                        .replace("  ", " ")
+                        .split(" ")[-1]
+                        .split(".")[0]
+                    )
+                    end = f"len({end})"
+                else:
+                    end = match[2].replace(" ", "")
+                # Get the step value
+                if "++" in match[3]:
+                    step = 1
+                elif "--" in match[3]:
+                    step = -1
+                elif "+=" in match[3]:
+                    step = match[3].replace(" ", "").split("+=")[-1]
+                elif "-=" in match[3]:
+                    step = match[3].replace(" ", "").split("+=")[-1]
+                    step = f"-{step}"
+                x = x.replace(
+                    "for"
+                    + match[0]
+                    + "("
+                    + match[1]
+                    + ";"
+                    + match[2]
+                    + ";"
+                    + match[3]
+                    + ")"
+                    + match[4]
+                    + "{",
+                    f"for {i} in range({start},{end},{step}):",
+                )
+        x = x.replace(";", "")
+        return delete_brackets(x)
+
     x = variable_definition(x)
     x = logical_operators_boolean_null_comments(x)
+    x = multiline_comments(x)
     x = multiline_method_chain(x)
     x = function_definition(x)
-    x = delete_brackets(x)
     x = dictionary_keys(x)
     x = dictionary_object_access(x)
     x = keyword_arguments_object(x)
     x = anonymous_function_mapping(x)
     x = if_statement(x)
-    x = delete_brackets(x)
     x = array_isArray(x)
+    x = for_loop(x)
 
     return x
 

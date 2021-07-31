@@ -303,24 +303,25 @@ def translate(x: str) -> str:
         >>> translate("var x = ee.ImageCollection('COPERNICUS/S2_SR')")
     """
 
-    # FUNCIONA
-    # Elimina llaves "}" de sobra
+    # 1. Remove curly braces
+    # For example: "obj={'b':'a'}}" --> "obj={'b':'a'}"
     def delete_brackets(x):
         counter = 0
-        newString = ""
+        newstring = ""
         for char in x:
             if char == "{":
                 counter += 1
             elif char == "}":
                 counter -= 1
             if counter >= 0:
-                newString += char
+                newstring += char
             else:
                 counter = 0
-        return newString
+        return newstring
 
-    # FUNCIONA
-    # Cambia "var x = 1" por "x = 1"
+    
+    # 2. Remove reserved keyword "var"
+    # For example: "var x = 1" --> "x = 1"
     def variable_definition(x):
         pattern = r"var(.*?)="
         matches = re.findall(pattern, x, re.DOTALL)
@@ -329,8 +330,8 @@ def translate(x: str) -> str:
                 x = x.replace(f"var{match}=", f"{match.replace(' ','')} =")
         return x
 
-    # FUNCIONA
-    # Cambia las funciones reservadas y otros
+    # 3. Change logical operators, boolean, null and comments
+    # For example: "m = s.and(that);" -> "m = s.And(that)"
     def logical_operators_boolean_null_comments(x):
         reserved = {
             ".and": ".And",
@@ -346,8 +347,7 @@ def translate(x: str) -> str:
             x = x.replace(key, item)
         return x
 
-    # FUNCIONA
-    # Anade comentarios multilinea con "#"
+    # 4. /* . . . */ : Replace "/*" by "#".
     def multiline_comments(x):
         pattern = r"/\*(.*?)\*/"
         matches = re.findall(pattern, x, re.DOTALL)
@@ -356,9 +356,8 @@ def translate(x: str) -> str:
                 x = x.replace(match, match.replace("\n", "\n#"))
         x = x.replace("/*", "#")
         return x
-
-    # FUNCIONA
-    # Adiciona "\\" a las lineas anteriores de method chaining multilinea
+    
+    # 5. /* ... */: Add "#" to each line of the multiline comment block.
     def multiline_method_chain(x):
         lines = x.split("\n")
         for i in range(len(lines)):
@@ -366,37 +365,89 @@ def translate(x: str) -> str:
                 lines[i - 1] = lines[i - 1] + " \\"
         return "\n".join(lines)
 
-    # FUNCIONA
-    # Cambia "var f = function(x){" o "function f(x){" por "def f(x):"
-    def function_definition(x):
-        lines = x.split("\n")
-        newLines = []
-        for line in lines:
-            if "function" in line and "#" not in line:
-                if "=" in line:
-                    pattern = r"(.*?)="
-                    fun_name = re.findall(pattern, line)[0].replace(" ", "")
-                    line = (
-                        line.replace(" ", "")
-                        .replace(f"{fun_name}=function(", f"def {fun_name}(")
-                        .replace("{", ":")
-                    )
-                    newLines.append(line)
-                else:
-                    pattern = r"function(.*?)\("
-                    fun_name = re.findall(pattern, line)[0].replace(" ", "")
-                    line = (
-                        line.replace(" ", "")
-                        .replace(f"function{fun_name}(", f"def {fun_name}(")
-                        .replace("{", ":")
-                    )
-                    newLines.append(line)
-            else:
-                newLines.append(line)
-        return delete_brackets("\n".join(newLines))
+    # 6. Replace Js function style to Python function style.
+    # For example: "var f = function(x){" or "function f(x){" by "def f(x):"        
+    def random_fn_name():
+        # body (7)
+        body_list = list()
+        for x in range(9):
+            body_list.append(random.choice(string.ascii_letters))
+        base = "".join(body_list)
+    
+        # number (4)
+        tail_list = list()
+        for x in range(6):
+            tail_list.append(random.choice(string.ascii_letters+"123456789"))    
+    return base+tail
 
-    # FUNCIONA
-    # Cambia "{x = 1}" por "{'x' = 1}"
+
+    def indentify_js_functions(x):
+        pattern = r"^(?:[\s]+)?(?:var|)?(?:[\x00-\x7F.][^\s]+(?:\.)?)?(?:\s)?(?:[\x00-\x7F][^\s]+\s?=)?\s?(?:[\x00-\x7F][^\s]+\s+\:\s+)?(?:function\s?)?(?:[\x00-\x7F][^\s]+)?\s?\(.*\)\s?(?:.+)?([=>]:)?\{(?:(?:[^}{]+|\{(?:[^}{]+|\{[^}{]*\})*\})*\}(?:\s?\(.*\)\s?\)\s?)?)?(?:\;)?"
+        matches = re.finditer(pattern, x, re.MULTILINE)
+
+        js_functions = list()
+        for _, item in enumerate(matches):
+            js_functions.append(item.group())
+            
+        # It is a function with name?
+        return js_functions
+
+    def from_js_to_py_fn(js_function):
+        # 1. get function name
+        pattern = r"var\s*([\x00-\x7F][^\s]+)\s*=\s*function|function\s*([\x00-\x7F][^\s]+)\s*\(.*\)\s*{"
+        regex_result = re.findall(pattern, js_function)
+        
+        # if it is a anonymous function
+        if len(regex_result) == 0:
+            anonymous = True
+            function_name = random_fn_name()
+        else:
+            anonymous = False
+            function_name = "".join(regex_result[0])
+        
+        # 2. get args
+        pattern = r"function\s*[\x00-\x7F][^\s]*\s*\(\s*([^)]+?)\s*\)\s*{|function\(\s*([^)]+?)\s*\)\s*"
+        args_name = "".join(re.findall(pattern, js_function)[0])
+        
+        # 3. get body
+        pattern = r"({(?>[^{}]+|(?R))*})"
+        body = regex.search(pattern, js_function)[0][1:-1]
+        if not body[0] == "\n":
+        body = "\n    " + body
+        
+        # 3. py function info
+        py_info = {
+            'fun_name': function_name,
+            "args_name": args_name, 
+            "fun_py_style": f"def {function_name}({args_name}):{body}\n",
+            "anonymous": anonymous
+        }
+        
+        return py_info
+
+
+    def function_definition(x):
+        # 1. Identify all the Javascript functions
+        js_functions = indentify_js_functions(x)
+        
+        # 2. Python function list
+        py_functions_list = list()
+        #js_function = js_functions[5]
+        
+        for js_function in js_functions:
+            
+            # 3. Remove Javascript function by Python function
+            py_function = from_js_to_py_fn(js_function)
+            
+            if py_function["anonymous"]:
+                x = x.replace(js_function, py_function["fun_name"])
+                x = "\n" + py_function["fun_py_style"] + "\n" + x
+            else:
+                x = x.replace(js_function, "\n" + py_function["fun_py_style"])            
+        return x
+
+
+    # # 7. Change "{x = 1}" by "{'x' = 1}".
     def dictionary_keys(x):
         pattern = r"{(.*?)}"
         dicts = re.findall(pattern, x, re.DOTALL)

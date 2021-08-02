@@ -447,75 +447,59 @@ if __name__ == "__main__":
     msg = """ 
     function projectCloudShadow(cloudMask, cloudHeight, φ, θ) {
         cloudHeight = ee.Number(cloudHeight);
-
         // convert to radians
         var π = Math.PI;
         θ = ee.Number(0.5).multiply(π).subtract(ee.Number(θ).multiply(π).divide(180.0));
         φ = ee.Number(φ).multiply(π).divide(180.0).add(ee.Number(0.5).multiply(π));
-
         // compute shadow offset (vector length)
         var offset = θ.tan().multiply(cloudHeight);
-
         // compute x, y components of the vector
         var proj = cloudMask.projection();
         var nominalScale = proj.nominalScale();
         var x = φ.cos().multiply(offset).divide(nominalScale).round();
         var y = φ.sin().multiply(offset).divide(nominalScale).round();
-
         return cloudMask.changeProj(proj, proj.translate(x, y)).set('height', cloudHeight)
     }
-
-
     function castCloudShadows(cloudMask, cloudHeights, sunAzimuth, sunZenith) {
-    return cloudHeights.map(function (cloudHeight) {
-        return projectCloudShadow(cloudMask, cloudHeight, sunAzimuth, sunZenith);
-    });
+        return cloudHeights.map(function (cloudHeight) {
+            return projectCloudShadow(cloudMask, cloudHeight, sunAzimuth, sunZenith);
+        });
     }
 
-
-    function castCloudShadows(cloudMask, cloudHeights, sunAzimuth, sunZenith) {
-    function cesar(a) { return false}
-    
     function lesly(b) { 
         var cesar = 1;
         
         for (let i = 0; i < 9; i++) {
-        str = str + i;
+            str = str + i;
         }
         
-        return false
+        return false        
     }
-    }
-
-
     function computeCloudShadowMask(sunElevation, sunAzimuth, cloudMask, options) {
-    var maxCloudHeight = 8000 // in image pixel units
-    var cloudHeightStep = 200
-    var radiusDilate = 10
-    var radiusErode = 3
-    
-    if(options) {
-        maxCloudHeight = options.maxCloudHeight || maxCloudHeight
-        cloudHeightStep = options.cloudHeightStep || cloudHeightStep
-        radiusDilate = options.radiusDilate || radiusDilate
-        radiusErode = options.radiusErode || radiusErode
+        var maxCloudHeight = 8000 // in image pixel units
+        var cloudHeightStep = 200
+        var radiusDilate = 10
+        var radiusErode = 3
+        
+        if(options) {
+            maxCloudHeight = options.maxCloudHeight || maxCloudHeight
+            cloudHeightStep = options.cloudHeightStep || cloudHeightStep
+            radiusDilate = options.radiusDilate || radiusDilate
+            radiusErode = options.radiusErode || radiusErode
+        }
+        
+        // generate cloud heights
+        var cloudHeights = ee.List.sequence(100, maxCloudHeight, cloudHeightStep);
+        
+        // cast cloud shadows
+        var cloudShadowMask = ee.ImageCollection(castCloudShadows(cloudMask, cloudHeights, sunAzimuth, sunElevation)).max();
+        
+        // remove clouds
+        cloudShadowMask = cloudShadowMask.updateMask(cloudMask.not());
+        return cloudShadowMask;
     }
-    
-    // generate cloud heights
-    var cloudHeights = ee.List.sequence(100, maxCloudHeight, cloudHeightStep);
-    
-    // cast cloud shadows
-    var cloudShadowMask = ee.ImageCollection(castCloudShadows(cloudMask, cloudHeights, sunAzimuth, sunElevation)).max();
-    
-    // remove clouds
-    cloudShadowMask = cloudShadowMask.updateMask(cloudMask.not());
-
-    return cloudShadowMask;
-    }
-
     exports.computeCloudShadowMask = computeCloudShadowMask
     """
-
     with open("test3.py", "w") as file:
         file.write(translate(msg))
     print("Done!")

@@ -1,24 +1,26 @@
-"""Utils module store the auxiliary functions to translate JavaScript to Python."""
+"""Auxiliary module store functions to translate JavaScript to Python."""
 
+from black import format_str, FileMode
 import regex
 import random
 import string
 import re
 
-def normalize_fn_style(x):
+# 1. Normalize function name
+# For example: "var exp = function(x){ }" --> "function exp(x) { }"
+def normalize_fn_style(x: str) -> str:
     """Normalize Javascript function style
 
     var xx = function(x){} --> function xx(x){}
     
     Args:
-        x (str): [description]
+        x (str): A Js script as string.
 
     Returns:
         [str]: Python string
     """
     pattern = "var\s*(.*[^\s])\s*=\s*function"
-    matches = re.finditer(pattern, x, re.MULTILINE)
-    js_functions = list()
+    matches = re.finditer(pattern, x, re.MULTILINE)    
     for _, item in enumerate(matches):
         match = item.group(0)
         group = item.group(1)
@@ -26,7 +28,7 @@ def normalize_fn_style(x):
     return x
 
 
-# 1. Remove curly braces
+# 2. Remove curly braces
 # For example: "obj={'b':'a'}}" --> "obj={'b':'a'}"
 def delete_brackets(x):
     counter = 0
@@ -43,7 +45,7 @@ def delete_brackets(x):
     return newstring
 
 
-# 2. Remove reserved keyword "var"
+# 3. Remove reserved keyword "var"
 # For example: "var x = 1" --> "x = 1"
 def variable_definition(x):
     pattern = r"var(.*?)="
@@ -54,25 +56,26 @@ def variable_definition(x):
     return x
 
 
-# 3. Change logical operators, boolean, null and comments
+# 4. Change logical operators, boolean, null and comments
 # For example: "m = s.and(that);" -> "m = s.And(that)"
-def logical_operators_boolean_null_comments(x):
+def logical_operators_boolean_null_comments(x):    
     reserved = {
-        ".and": ".And",
-        ".or": ".Or",
-        ".not": ".Not",
-        "true": "True",
-        "false": "False",
-        "null": "None",
+        ".and\(": ".And(",
+        ".or\(": ".Or(",
+        ".not\(": ".Not(",
+        "\strue\s|\strue\n": "True",
+        "\sfalse\s|\sfalse\n": "False",
+        "\snull\s|\snull\n": "None",
         "//": "#",
-        "!": " not ",
-    }
+        "!": " not "
+    }    
     for key, item in reserved.items():
-        x = x.replace(key, item)
+        x = re.sub(key, item, x)
+        #x = x.replace(key, item)
     return x
 
 
-# 4. /* . . . */ : Replace "/*" by "#".
+# 5. /* . . . */ : Replace "/*" by "#".
 def multiline_comments(x):
     pattern = r"/\*(.*?)\*/"
     matches = re.findall(pattern, x, re.DOTALL)
@@ -92,10 +95,9 @@ def multiline_method_chain(x):
     return "\n".join(lines)
 
 
-# 6. Replace Js function style to Python function style.
-# For example: "var f = function(x){" or "function f(x){" by "def f(x):"        
+# 7. Random name generator
 def random_fn_name():
-    
+    """Generate a random name"""        
     # body (7)
     body_list = list()
     for x in range(9):
@@ -110,8 +112,18 @@ def random_fn_name():
     return base + tail
 
 
-def indentify_js_functions(x):
-    pattern = r"function\s*([\x00-\x7F][^\s]+)?\s*\((?:[^)(]+|\((?:[^)(]+|\([^)(]*\))*\))*\)\s*\{(?:[^}{]+|\{(?:[^}{]+|\{[^}{]*\})*\})*\}"
+# 8. Identify all the functions
+def indentify_js_functions(x:str) -> list:
+    """Identify all the functions in a Javascript file
+
+    Args:
+        x (str): A Js script as string.
+
+    Returns:
+        [list]: A list with all the functions names.
+    """
+    pattern = r"function\s*([A-z0-9]+)?\s*\((?:[^)(]+|\((?:[^)(]+|\([^)(]*\))*\))*\)\s*\{(?:[^}{]+|\{(?:[^}{]+|\{[^}{]*\})*\})*\}"
+
     matches = re.finditer(pattern, x, re.MULTILINE)
     js_functions = list()
     for _, item in enumerate(matches):
@@ -121,7 +133,8 @@ def indentify_js_functions(x):
     return js_functions
 
 
-def from_js_to_py_fn1(js_function):
+# 9. Convert simple JavaScript functions to Python
+def from_js_to_py_fn_simple(js_function):
     """From Javascript to Python 1order
 
     Args:
@@ -161,54 +174,29 @@ def from_js_to_py_fn1(js_function):
         "fun_py_style": f"def {function_name}({args_name}):{body}\n",
         "anonymous": anonymous
     }
-    
-    return py_info    
+    return py_info
 
-
-def from_js_to_py_fn(js_function):
-    """From Javascript to Python 1 or 2 order
-
-    Args:
-        js_function (str): A Python string
-
-    Returns:
-        [dict]: Dictionary with py information
-    """    
-    # It is a second order function?
-    nreturns = re.findall(r"return\s", js_function)
-    if len(nreturns) > 1:
-        py_fn_result = from_js_to_py_fn1(js_function)
-        fn_name = py_fn_result["fun_name"]
-        fn_args = py_fn_result["args_name"]
-        fpython_main = f"def {fn_name}({fn_args}):\n"
-        
-        # Get the body
-        py_functions = from_js_to_py_fn1(py_fn_result["body"])
-        
-        # Particular cases
-        ## Case #1
-        # "return cloudHeights.map(function (cloudHeight) {\n return projectCloudShadow(cloudMask)})"            
-        pattern = "function\s*([\x00-\x7F][^\s]+)?\s*\((?:[^)(]+|\((?:[^)(]+|\([^)(]*\))*\))*\)\s*\{(?:[^}{]+|\{(?:[^}{]+|\{[^}{]*\})*\})*\}"
-        js_function = re.search(pattern, py_fn_result["body"])[0]
-        x = x.replace(js_function, py_functions)
-
-        
-        
-        return 
-    else:
-        return from_js_to_py_fn1(js_function)
 
 def fix_identation(x):
+    """Fix identation of a Python script"""
     ident_base = "    "
     brace_counter = 0
     
+    # if first element of the string is \n remove!
+    if x[0] == "\n":
+        x = x[1:]
+        
     # remove multiple \n by just one
     pattern = r"\n+"
     x = re.sub(pattern, r"\n", x)
 
+    # Detect the spaces of the first identation
     x = regex.sub(r"\n\s+", "\n", x)
-
+    
+    
+    
     # fix nested identation
+    brace_counter = 0
     word_list = list()
     for word in x:
         if word in "{":
@@ -219,61 +207,87 @@ def fix_identation(x):
             word_list.append(word)
         else:
             if word in "\n":
-                word = "\n" + ident_base*(brace_counter + 1)
+                word = "\n" + ident_base*(brace_counter)
                 word_list.append(word)
             else:
                 word_list.append(word)
     x_fix = "".join(word_list)
-            
+
     return x_fix
 
+
 def add_identation(x):
+    """Add extra identation in a Python function body"""
     pattern = "\n"
     # identation in the body
     body_id = re.sub(pattern, r"\n    ", x)
     # identation in the header
     return "\n    " + body_id
 
-def remove_identation_second_return(x):
-    pattern = "    return "
-    # split according to returns
-    fn_groups = x.split(pattern)
-    if len(fn_groups) != 3:
-        raise ValueError("Invalid number of returns. Please open an issue in GH.")      
-    return fn_groups[0] + pattern + fn_groups[1] + "return " + fn_groups[2]
+
+def check_nested_fn_complexity(x):
+    """Thi is useful to avoid errors related to catastrophic backtracking"""
+    pattern = "\s{16}function"
+    if re.search(pattern, x):
+        raise ValueError("This module does not support 4-level nested functions.")    
+    return False
 
 
+def remove_extra_spaces(x):
+    """Remove \n and \s if they are at the begining of the string"""
+    if x[0] == "\n":        
+        # Remove spaces at the beginning
+        word_list = list()
+        forward_counter = 0
+        for word in x:
+            if (word == "\n" or word.isspace()) and forward_counter == 0:
+                pass
+            else:
+                forward_counter = -1
+                word_list.append(word)
+        
+        # Remove spaces at the end
+        back_counter = 0
+        while back_counter <= 0:
+            counter = back_counter - 1
+            if word_list[counter] == " ":
+                del(word_list[counter])                
+            else:
+                back_counter = 1
+        return "".join(word_list)
+    return x
 
 def function_definition(x):
+    
+    # Check nested functionn complexity
+    check_nested_fn_complexity(x)
+    
     # 1. Identify all the Javascript functions
     js_functions = indentify_js_functions(x)
-    for js_function in js_functions:    
+    
+    #js_function = js_functions[0]
+    
+    for js_function in js_functions:
         nreturns = re.findall(r"return\s", js_function)        
         # 2. if a nested function?
         if len(nreturns) > 1:
             # 3. From js function by Python function (1 order)
-            py_function = from_js_to_py_fn1(js_function)
+            py_function = from_js_to_py_fn_simple(js_function)
             f_name = py_function["fun_name"]
             f_args = py_function["args_name"]
             header = f"def {f_name}({f_args}):\n    "
             
             # 4. From js function by Python function (2 order)
-            py_body = fix_identation(py_function["body"])
+            new_body = remove_extra_spaces(py_function["body"])
+            py_body = fix_identation(new_body)
             second_group = function_definition(py_body)
             second_group = add_identation(second_group)
             
-            # Special Case #1
-            # remove extra space in return
-            # \ndef FZEgLgBAUzt7Sg6(cloudHeight):\n    return projectCloudShadow(cloudMask);\n    \n\n    return cloudHeights.map(FZEgLgBAUzt7Sg6);\n    
-            nreturns = re.findall(r"return\s", js_function)
-            if len(nreturns) > 1:
-                second_group = remove_identation_second_return(second_group)
-                
             x = x.replace(js_function, header + second_group)
-        else:
+        else:            
             # 3. Remove Javascript function by Python function
-            py_function = from_js_to_py_fn1(js_function)
-            py_function_f = fix_identation(py_function["fun_py_style"])
+            py_function = from_js_to_py_fn_simple(js_function)
+            py_function_f = py_function["fun_py_style"]
             if py_function["anonymous"]:
                 x = x.replace(js_function, py_function["fun_name"])                                
                 x = "\n" + py_function_f + "\n" + x
@@ -433,73 +447,23 @@ def translate(x: str) -> str:
     x = logical_operators_boolean_null_comments(x)
     x = multiline_comments(x)
     x = multiline_method_chain(x)
-    x = function_definition(x)       
+    x = function_definition(x)
     x = dictionary_keys(x)
     x = dictionary_object_access(x)
-    x = keyword_arguments_object(x)    
+    x = keyword_arguments_object(x)
     x = if_statement(x)
     x = array_isArray(x)
     x = for_loop(x)
-        
-    return x
+    x_black = format_str(x, mode=FileMode())
+    
+    return x_black
 
 if __name__ == "__main__":
-    msg = """ 
-    function projectCloudShadow(cloudMask, cloudHeight, φ, θ) {
-        cloudHeight = ee.Number(cloudHeight);
-        // convert to radians
-        var π = Math.PI;
-        θ = ee.Number(0.5).multiply(π).subtract(ee.Number(θ).multiply(π).divide(180.0));
-        φ = ee.Number(φ).multiply(π).divide(180.0).add(ee.Number(0.5).multiply(π));
-        // compute shadow offset (vector length)
-        var offset = θ.tan().multiply(cloudHeight);
-        // compute x, y components of the vector
-        var proj = cloudMask.projection();
-        var nominalScale = proj.nominalScale();
-        var x = φ.cos().multiply(offset).divide(nominalScale).round();
-        var y = φ.sin().multiply(offset).divide(nominalScale).round();
-        return cloudMask.changeProj(proj, proj.translate(x, y)).set('height', cloudHeight)
-    }
+    x = """
     function castCloudShadows(cloudMask, cloudHeights, sunAzimuth, sunZenith) {
         return cloudHeights.map(function (cloudHeight) {
             return projectCloudShadow(cloudMask, cloudHeight, sunAzimuth, sunZenith);
         });
     }
-
-    function lesly(b) { 
-        var cesar = 1;
-        
-        for (let i = 0; i < 9; i++) {
-            str = str + i;
-        }
-        
-        return false        
-    }
-    function computeCloudShadowMask(sunElevation, sunAzimuth, cloudMask, options) {
-        var maxCloudHeight = 8000 // in image pixel units
-        var cloudHeightStep = 200
-        var radiusDilate = 10
-        var radiusErode = 3
-        
-        if(options) {
-            maxCloudHeight = options.maxCloudHeight || maxCloudHeight
-            cloudHeightStep = options.cloudHeightStep || cloudHeightStep
-            radiusDilate = options.radiusDilate || radiusDilate
-            radiusErode = options.radiusErode || radiusErode
-        }
-        
-        // generate cloud heights
-        var cloudHeights = ee.List.sequence(100, maxCloudHeight, cloudHeightStep);
-        
-        // cast cloud shadows
-        var cloudShadowMask = ee.ImageCollection(castCloudShadows(cloudMask, cloudHeights, sunAzimuth, sunElevation)).max();
-        
-        // remove clouds
-        cloudShadowMask = cloudShadowMask.updateMask(cloudMask.not());
-        return cloudShadowMask;
-    }
-    exports.computeCloudShadowMask = computeCloudShadowMask
     """
-    with open("test3.py", "w") as file:
-        file.write(translate(msg))
-    print("Done!")
+    translate(x)

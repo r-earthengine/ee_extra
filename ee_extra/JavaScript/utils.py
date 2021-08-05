@@ -318,24 +318,44 @@ def dictionary_keys(x):
 # Debe cambiar el acceso a los diccionarios. Es capaz de cambiar "exports.x = 1" por "exports['x'] = 1"
 # Pero cuando hay otros puntos en el texto tambien los cambia, como "https://google.com" por "https://google['com']"
 # Esto es un error.
-def dictionary_object_access(x):
-    pattern = r"\.(.*)"
-    matches = re.findall(pattern, x)
-    if len(matches) > 0:
-        for match in matches:
-            if "=" in match:
-                splitted = match.split("=")
-                key = splitted[0].replace(" ", "")
-                x = x.replace(f".{match}", f"['{key}'] ={splitted[1]}")
-            elif (
-                "(" not in match
-                and ")" not in match
-                and len(match) > 0
-                and not any(char.isdigit() for char in match)
-            ):
-                x = x.replace(f".{match}", f"['{match}']")
-    return x
+def is_float(x):
+    try:
+        float(x)
+        return True
+    except ValueError:
+        return False    
 
+def dictionary_object_access(x):
+    # Search in all lines .. it matchs <name>.<name> 
+    pattern = r"^(?=.*[\x00-\x7F][^\s]+\.[\x00-\x7F][^\s]+)(?!.*http).*$"
+    matches = re.findall(pattern, x, re.MULTILINE)
+    
+    for match in matches:
+        # Search in one line.
+        pattern = r"\w+\.\w+."
+        matches_at_line = re.findall(pattern, match)
+        
+        #match_line = matches_at_line[0]
+        for match_line in matches_at_line:
+            
+            # If is a number pass
+            if is_float(match_line[:-1]):
+                continue
+            
+            # If is a method or a function
+            if (match_line[-1] == "(") or ("ee." in match_line[:-1]):
+                continue
+            
+            # If is a math
+            if "Math." in match_line[:-1]:
+                new_word = match_line[:-1].lower()
+                x = x.replace(match_line[:-1], new_word)
+            else:
+                nlist = match_line[:-1].split(".")
+                new_word = "%s[\"%s\"]" % (nlist[0], nlist[1])
+                x = x.replace(match_line, new_word)
+                
+    return x
 
 # FUNCIONA
 # Cambia "f({x = 1})" por "f(**{x = 1})"
@@ -426,6 +446,16 @@ def for_loop(x):
     x = x.replace(";", "")
     return delete_brackets(x)
 
+
+def add_packages(x):
+    py_packages = "import ee\nimport math\n"
+    user_dict = "from collections import UserDict\n\nexports = UserDict()\n"
+    return py_packages + user_dict + x
+
+# TODO work on it!
+def extra_work(x):
+    return x.replace("||", " or ")
+
 def translate(x: str) -> str:
     """Translates a JavaScript script to a Python script.
 
@@ -454,6 +484,8 @@ def translate(x: str) -> str:
     x = if_statement(x)
     x = array_isArray(x)
     x = for_loop(x)
+    x = add_packages(x)
+    x = extra_work(x)
     x_black = format_str(x, mode=FileMode())
     
     return x_black

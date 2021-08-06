@@ -372,6 +372,14 @@ def keyword_arguments_object(x):
 # FUNCIONA
 # Cambia "if(x){" por "if x:"
 def if_statement(x):
+    pattern = r"}(.*?)else(.*?)if(.*?){"
+    matches = re.findall(pattern, x)
+    if len(matches) > 0:
+        for match in matches:
+            match = list(match)
+            x = x.replace(
+                "}" + match[0] + "else" + match[1] + "if" + match[2] + "{", f"elif {match[2]}:"
+            )    
     pattern = r"if(.*?)\((.*)\)(.*){"
     matches = re.findall(pattern, x)
     if len(matches) > 0:
@@ -379,6 +387,14 @@ def if_statement(x):
             match = list(match)
             x = x.replace(
                 "if" + match[0] + "(" + match[1] + ")" + match[2] + "{", f"if {match[1]}:"
+            )
+    pattern = r"}(.*?)else(.*?){"
+    matches = re.findall(pattern, x)    
+    if len(matches) > 0:
+        for match in matches:
+            match = list(match)
+            x = x.replace(
+                "}" + match[0] + "else" + match[1] + "{", "else:"
             )
     return delete_brackets(x)
 

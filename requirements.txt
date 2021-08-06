@@ -1,3 +1,4 @@
+black
 earthengine-api
 js2py
 numpy

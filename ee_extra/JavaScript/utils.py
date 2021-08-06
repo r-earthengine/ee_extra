@@ -58,17 +58,18 @@ def variable_definition(x):
 
 # 4. Change logical operators, boolean, null and comments
 # For example: "m = s.and(that);" -> "m = s.And(that)"
-def logical_operators_boolean_null_comments(x):    
+def logical_operators_boolean_null_comments(x):
     reserved = {
-        ".and\(": ".And(",
-        ".or\(": ".Or(",
-        ".not\(": ".Not(",
-        "\strue\s|\strue\n": "True",
-        "\sfalse\s|\sfalse\n": "False",
+        "\.and\(": ".And(",
+        "\.or\(": ".Or(",
+        "\.not\(": ".Not(",
+        "\strue\s|\strue\n|\strue\)|,true\)": "True",
+        "\sfalse\s|\sfalse\n|\sfalse\)|,false\)": "False",
         "\snull\s|\snull\n": "None",
         "//": "#",
         "!": " not "
-    }    
+    }
+    
     for key, item in reserved.items():
         x = re.sub(key, item, x)
         #x = x.replace(key, item)
@@ -330,6 +331,7 @@ def dictionary_object_access(x):
     pattern = r"^(?=.*[\x00-\x7F][^\s]+\.[\x00-\x7F][^\s]+)(?!.*http).*$"
     matches = re.findall(pattern, x, re.MULTILINE)
     
+    # match = matches[3]
     for match in matches:
         # Search in one line.
         pattern = r"\w+\.\w+."
@@ -353,7 +355,7 @@ def dictionary_object_access(x):
             else:
                 nlist = match_line[:-1].split(".")
                 new_word = "%s[\"%s\"]" % (nlist[0], nlist[1])
-                x = x.replace(match_line, new_word)
+                x = x.replace(match_line[:-1], new_word)
                 
     return x
 
@@ -472,7 +474,7 @@ def add_packages(x):
 def extra_work(x):
     return x.replace("||", " or ")
 
-def translate(x: str) -> str:
+def translate(x: str, black: bool = True) -> str:
     """Translates a JavaScript script to a Python script.
 
     Args:
@@ -502,9 +504,10 @@ def translate(x: str) -> str:
     x = array_isArray(x)    
     x = add_packages(x)
     x = extra_work(x)
-    x_black = format_str(x, mode=FileMode())
+    if black:
+        x = format_str(x, mode=FileMode())
     
-    return x_black
+    return x
 
 if __name__ == "__main__":
     x = """

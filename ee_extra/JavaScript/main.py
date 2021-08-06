@@ -23,7 +23,7 @@ def ee_translate(x: str) -> str:
     return translate(x)
     
 
-def ee_js_to_py(in_file: str, out_file: str) -> bool:
+def ee_js_to_py(in_file: str, out_file: str, black: bool = True) -> bool:
     """Convert an EE JavaScript file to an EE Python file.
 
     Args:
@@ -37,7 +37,7 @@ def ee_js_to_py(in_file: str, out_file: str) -> bool:
     with open(in_file, 'r') as f_in:
         js_file = f_in.read()
     
-    py_file = translate(js_file)
+    py_file = translate(js_file, black)
     
     with open(out_file, 'w') as f_out:
         f_out.write(py_file)

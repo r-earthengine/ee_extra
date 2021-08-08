@@ -63,8 +63,10 @@ def logical_operators_boolean_null_comments(x):
         "\.and\(": ".And(",
         "\.or\(": ".Or(",
         "\.not\(": ".Not(",
-        "\strue\s|\strue\n|\strue\)|,true\)": "True",
-        "\sfalse\s|\sfalse\n|\sfalse\)|,false\)": "False",
+        "\strue\s|\strue\n": "True",
+        "\strue\)|,true\)": "True)",
+        "\sfalse\s|\sfalse\n": "False",
+        "\sfalse\)|,false\)": "False)",
         "\snull\s|\snull\n": "None",
         "//": "#",
         "!": " not "

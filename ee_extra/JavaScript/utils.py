@@ -139,16 +139,21 @@ def indentify_js_functions(x:str) -> list:
 # 9. Convert simple JavaScript functions to Python
 def from_js_to_py_fn_simple(js_function):
     """From Javascript to Python 1order
-
+    js_function
     Args:
         js_function (str): A Python string
 
     Returns:
         [dict]: Dictionary with py information
     """
+    # if it is a anonymous function
+    pattern = r"function.*{"
+    match = re.search(pattern, js_function, re.MULTILINE)
+    
+    
     # 1. get function name
-    pattern = r"function\s*([\x00-\x7F][^\s]+)\s*\(.*\)\s*{"
-    regex_result = re.findall(pattern, js_function)
+    pattern = r"function\s*([\x00-\x7F][^\s]+)\s*\(.*\)\s*{"        
+    regex_result = re.findall(pattern, match.group(0))
     
     # if it is a anonymous function
     if len(regex_result) == 0:
@@ -328,12 +333,27 @@ def is_float(x):
     except ValueError:
         return False    
 
+
+def dict_replace(x, match, word, new_word):
+    """Replace name.name only if they are not inside quotation marks"""
+    def inside_quoation_marks(x, word):
+        pattern = r"([\"'])(?:(?=(\\?))\2.)*?\1"
+        if re.search(pattern, x):
+            qm_word = re.search(pattern, x).group(0)
+            return word in qm_word
+        else:
+            return x
+    if inside_quoation_marks(match, word):
+        return x
+    else:
+        return x.replace(word, new_word)
+
 def dictionary_object_access(x):
     # Search in all lines .. it matchs <name>.<name> 
     pattern = r"^(?=.*[\x00-\x7F][^\s]+\.[\x00-\x7F][^\s]+)(?!.*http).*$"
     matches = re.findall(pattern, x, re.MULTILINE)
     
-    # match = matches[3]
+    # match = matches[1]
     for match in matches:
         # Search in one line.
         pattern = r"\w+\.\w+."
@@ -351,14 +371,17 @@ def dictionary_object_access(x):
                 continue
             
             # If is a math
-            if "Math." in match_line[:-1]:
-                new_word = match_line[:-1].lower()
-                x = x.replace(match_line[:-1], new_word)
-            else:
+            if "Math." in match_line:
+                new_word = match_line.lower()
+                x = dict_replace(x, match, match_line, new_word)
+            elif match_line[-1] == ")":
                 nlist = match_line[:-1].split(".")
                 new_word = "%s[\"%s\"]" % (nlist[0], nlist[1])
-                x = x.replace(match_line[:-1], new_word)
-                
+                x = dict_replace(x, match, match_line[:-1], new_word)
+            else:
+                nlist = match_line.split(".")
+                new_word = "%s[\"%s\"]" % (nlist[0], nlist[1])
+                x = dict_replace(x, match, match_line, new_word)
     return x
 
 # FUNCIONA
@@ -478,7 +501,9 @@ def add_packages(x):
 
 # TODO work on it!
 def extra_work(x):
-    return x.replace("||", " or ")
+    x = x.replace("||", " or ")
+    x = x.replace("===", " == ")
+    return x
 
 def translate(x: str, black: bool = True) -> str:
     """Translates a JavaScript script to a Python script.

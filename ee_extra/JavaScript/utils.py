@@ -364,12 +364,11 @@ def dictionary_object_access(x):
 # FUNCIONA
 # Cambia "f({x = 1})" por "f(**{x = 1})"
 def keyword_arguments_object(x):
-    pattern = r"\((.*?){(.*)}(.*)\)"
-    matches = re.findall(pattern, x, re.DOTALL)
+    pattern = r"\({(.*?)}\)"
+    matches = re.findall(pattern, x, re.DOTALL)    
     if len(matches) > 0:
-        for match in matches:
-            match = list(match)
-            x = x.replace(match[0] + "{" + match[1] + "}", "**{" + match[1] + "}")
+        for match in matches:        
+            x = x.replace("{" + match + "}", "**{" + match + "}")
     pattern = r"ee\.Dictionary\(\*\*{"
     matches = re.findall(pattern, x, re.DOTALL)    
     if len(matches) > 0:

@@ -265,7 +265,29 @@ def remove_extra_spaces(x):
         return "".join(word_list)
     return x
 
+
+## exports.addBand = function(landsat){ var wrap = function(image){ return 0;} return 0;}
+def remove_assignment_specialcase_01(x):
+    # does anonymous function asignation exists?
+    pattern01 = r"exports.*=.*function\(.*\).*{"
+    exports_lines = re.findall(pattern01, x)
+    
+    if len(exports_lines) > 0:     
+        for exports_line in exports_lines:
+            export_str = re.findall("(exports.*)=", exports_line)[0]
+            rname = random_fn_name()
+            pattern02 = export_str + "=.*function"
+            x = re.sub(pattern02, ("function " + rname), x)
+            
+            # add export at the end of the file
+            x = x + "\n" +  export_str + " = " + rname
+    return x
+
 def function_definition(x):
+    
+    # Special case #01:
+    # function(landsat){ var wrap = function(image){ return 0;} return 0;}
+    x = remove_assignment_specialcase_01(x)
     
     # Check nested functionn complexity
     check_nested_fn_complexity(x)
@@ -342,7 +364,7 @@ def dict_replace(x, match, word, new_word):
             qm_word = re.search(pattern, x).group(0)
             return word in qm_word
         else:
-            return x
+            return False
     if inside_quoation_marks(match, word):
         return x
     else:
@@ -353,15 +375,19 @@ def dictionary_object_access(x):
     pattern = r"^(?=.*[\x00-\x7F][^\s]+\.[\x00-\x7F][^\s]+)(?!.*http).*$"
     matches = re.findall(pattern, x, re.MULTILINE)
     
-    # match = matches[1]
+    match  = ""
+    # match = matches[7]
     for match in matches:
+        if len(match) > 0:
+            if match[0] == "#":
+                continue
+        
         # Search in one line.
         pattern = r"\w+\.\w+."
         matches_at_line = re.findall(pattern, match)
         
         #match_line = matches_at_line[0]
         for match_line in matches_at_line:
-            
             # If is a number pass
             if is_float(match_line[:-1]):
                 continue
@@ -369,12 +395,12 @@ def dictionary_object_access(x):
             # If is a method or a function
             if (match_line[-1] == "(") or ("ee." in match_line[:-1]):
                 continue
-            
+                        
             # If is a math
             if "Math." in match_line:
                 new_word = match_line.lower()
                 x = dict_replace(x, match, match_line, new_word)
-            elif match_line[-1] == ")":
+            elif match_line[-1] in "),|&*+-~/%<>^=!":
                 nlist = match_line[:-1].split(".")
                 new_word = "%s[\"%s\"]" % (nlist[0], nlist[1])
                 x = dict_replace(x, match, match_line[:-1], new_word)

@@ -11,6 +11,7 @@ from ee_extra.JavaScript.install import (
     _convert_path_to_ee_extra,
 )
 from box import Box
+from ee_extra.JavaScript.utils import translate
 
 
 def evaluate(x: str) -> EvalJs:
@@ -182,7 +183,7 @@ def require(x: str):
     if not _check_if_python_module_exists(x):
 
         with open(_convert_path_to_ee_extra_python_module(x), "w") as file:
-            file.write(ee_translate(junction(x)))
+            file.write(translate(junction(x)))
 
     sys.path.append(_convert_path_to_ee_extra_python_module(x))
 

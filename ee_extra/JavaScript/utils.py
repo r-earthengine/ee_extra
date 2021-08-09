@@ -167,7 +167,7 @@ def from_js_to_py_fn_simple(js_function):
     
     # 1. get function name
     pattern = r"function\s*([\x00-\x7F][^\s]+)\s*\(.*\)\s*{"        
-    regex_result = re.findall(pattern, match.group(0))
+    regex_result = re.findall(pattern, fn_header)
     
     # if it is a anonymous function
     if len(regex_result) == 0:

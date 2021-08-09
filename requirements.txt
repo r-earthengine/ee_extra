@@ -1,5 +1,6 @@
 black
 earthengine-api
+python-box
 js2py
 numpy
 requests

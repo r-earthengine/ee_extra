@@ -8,6 +8,7 @@ import requests
 import pathlib
 import re
 
+
 def _convert_path_to_ee_sources(path: str) -> str:
     """Get the remote module path from the 'ee-sources' GCS bucket.
 
@@ -18,7 +19,7 @@ def _convert_path_to_ee_sources(path: str) -> str:
         An ee-sources module url.
     """
     bpath = path.replace(":", "/")
-    eempath = f"https://storage.googleapis.com/ee-sources/{bpath}"        
+    eempath = f"https://storage.googleapis.com/ee-sources/{bpath}"
     return eempath
 
 
@@ -29,7 +30,7 @@ def _get_ee_sources_path() -> str:
         The ee-sources folder path.
     """
     ee_extra_py_file = pkg_resources.resource_filename("ee_extra", "ee_extra.py")
-    pkgdir = pathlib.Path(ee_extra_py_file).parent    
+    pkgdir = pathlib.Path(ee_extra_py_file).parent
     return pkgdir.joinpath("ee-sources").as_posix()
 
 
@@ -43,10 +44,12 @@ def _convert_path_to_ee_extra(path: str) -> str:
         An ee_extra modules path.
     """
     if path.endswith(".js"):
-        ee_extra_path = pathlib.Path(_get_ee_sources_path()).joinpath(path.replace(":", "/"))        
+        ee_extra_path = pathlib.Path(_get_ee_sources_path()).joinpath(path.replace(":", "/"))
     else:
-        ee_extra_path = pathlib.Path(_get_ee_sources_path()).joinpath(path.replace(":", "/") + ".js")        
-    
+        ee_extra_path = pathlib.Path(_get_ee_sources_path()).joinpath(
+            path.replace(":", "/") + ".js"
+        )
+
     return ee_extra_path
 
 
@@ -124,10 +127,12 @@ def _install(x: str, update: bool):
         print(f"Downloading '{x}'...")
 
         ee_sources = _get_ee_sources_path()
-        
+
         # Local path
-        module_folder = pathlib.Path(ee_sources).joinpath("/".join(x.replace(":", "/").split("/")[:-1]))
-        
+        module_folder = pathlib.Path(ee_sources).joinpath(
+            "/".join(x.replace(":", "/").split("/")[:-1])
+        )
+
         if not module_folder.exists():
             module_folder.mkdir(parents=True, exist_ok=True)
         r = requests.get(_convert_path_to_ee_sources(x))
@@ -157,7 +162,7 @@ def install(x: str, update: bool = False) -> list:
     def _install_dependencies(x: list, update: bool, installed: list):
 
         if len(x) > 0:
-            
+
             for dep in x:
 
                 if dep not in installed:
@@ -175,6 +180,7 @@ def install(x: str, update: bool = False) -> list:
 
     return _install_dependencies(deps, update, [])
 
+
 def rmtree(path):
     """Iterative delete of files using pathlib"""
     for p in path.iterdir():
@@ -183,6 +189,7 @@ def rmtree(path):
         else:
             p.unlink()
     path.rmdir()
+
 
 def uninstall(x: str):
     """Uninstall an Earth Engine JavaScript module.
@@ -203,8 +210,9 @@ def uninstall(x: str):
         print(f"The module '{x}' was successfully uninstalled!")
     else:
         print(f"The module '{x}' is not installed!")
-    
-if __name__ == "__main__":    
+
+
+if __name__ == "__main__":
     path = "users/dmlmont/spectral:spectral"
     install(x=path)
     uninstall(x=path)

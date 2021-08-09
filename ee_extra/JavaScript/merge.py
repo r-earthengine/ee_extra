@@ -2,8 +2,16 @@
 
 import ee
 import re
+import pathlib
+import sys
 from js2py import EvalJs
-from ee_extra.JavaScript.install import _open_module_as_str
+from ee_extra.JavaScript.install import (
+    _open_module_as_str,
+    _get_ee_sources_path,
+    _convert_path_to_ee_extra,
+)
+from box import Box
+
 
 def evaluate(x: str) -> EvalJs:
     """Evaluate a JS code inside the Earth Engine session.
@@ -72,6 +80,7 @@ def evaluate(x: str) -> EvalJs:
 
     return context
 
+
 def junction(x: str) -> str:
     """Evaluate an Earth Engine module.
 
@@ -93,7 +102,7 @@ def junction(x: str) -> str:
     module = _open_module_as_str(x)
 
     module = re.sub(re.compile("/\*.*?\*/", re.DOTALL), "", module)
-    #module = re.sub(re.compile("//.*?\n"), "", module)
+    # module = re.sub(re.compile("//.*?\n"), "", module)
 
     lines = module.split("\n")
 
@@ -110,7 +119,7 @@ def junction(x: str) -> str:
                     re.findall(r"require\((.*?)\)", line)[0].replace('"', "").replace("'", "")
                 )
                 newText = re.sub(re.compile("/\*.*?\*/", re.DOTALL), "", newText)
-                #newText = re.sub(re.compile("//.*?\n"), "", newText)
+                # newText = re.sub(re.compile("//.*?\n"), "", newText)
                 newText = newText.replace("exports", f"eeExtraExports{counter}")
                 newLines.append("var eeExtraExports" + str(counter) + " = {};")
                 newLines.extend(newText.split("\n"))
@@ -134,111 +143,58 @@ def junction(x: str) -> str:
     return final_file
 
 
-def _junction(x: str) -> str:
-    """Evaluate an Earth Engine module.
-
-    Returns an EvalJs object hosting all EE objects evaluated
-    in the Earth Engine module.
-    The EE objects can be accessed using dot notation.
+def _convert_path_to_ee_extra_python_module(path: str) -> str:
+    """Convert an Earth Engine module path into an ee_extra python module path to import it later.
 
     Args:
-        x: str
+        path: str
 
     Returns:
-        An EvalJs object hosting all EE objects evaluated in the Earth Engine module.
-
-    Examples:
-        >>> import ee
-        >>> from ee_extra import Extra
-        >>> ee.Initialize()
-        >>> spectral = Extra.JavaScript.eejs2py.require("users/dmlmont/spectral:spectral")
+        An ee_extra python module path.
     """
-    module = _open_module_as_str(x)
+    path = _convert_path_to_ee_extra(path)
+    path = "/".join(str(path).split("/")[:-1]) + "/module.py"
 
-    module = re.sub(re.compile("/\*.*?\*/", re.DOTALL), "", module)
-    module = re.sub(re.compile("//.*?\n"), "", module)
-
-    lines = module.split("\n")
-
-    counter = 0
-
-    while any([line for line in lines if "require(" in line]):
-
-        newLines = []
-
-        for line in lines:
-            if "require(" in line:
-                var = re.findall(r"var(.*?)=", line)[0].replace(" ", "")
-                newText = _open_module_as_str(
-                    re.findall(r"require\((.*?)\)", line)[0].replace('"', "").replace("'", "")
-                )
-                newText = re.sub(re.compile("/\*.*?\*/", re.DOTALL), "", newText)
-                newText = re.sub(re.compile("//.*?\n"), "", newText)
-                newText = newText.replace("exports", f"eeExtraExports{counter}")
-                newLines.append("var eeExtraExports" + str(counter) + " = {};")
-                newLines.extend(newText.split("\n"))
-                newLines.append(f"var {var} = eeExtraExports{counter}")
-                counter += 1
-            else:
-                newLines.append(line)
-
-            lines = newLines
-
-    # replacing nested double quotes
-    raw_file = "\n".join(lines)
-    regex_exp = r'(:\s+")(.*(?:\n(?!\s*"[^"\n:]+":).*)*)",$'
-    final_file = re.sub(
-        pattern=regex_exp,
-        repl=lambda x: '{}{}",'.format(x.group(1), x.group(2).replace('"', "'")),
-        string=raw_file,
-        flags=re.M,
-    )
-
-    return final_file
+    return path
 
 
-# @Extra.add("JavaScript", "eejs2py", "require")
-def require(x: str) -> EvalJs:
-    """Evaluate a JS code inside the Earth Engine session.
-
-    Returns an EvalJs object hosting all EE objects evaluated.
-    The EE objects can be accessed using dot notation.
+def _check_if_python_module_exists(path: str) -> bool:
+    """Check if an Earth Engine python module has been created from a JavaScript module in ee_extra.
 
     Args:
-        x: str
+        path: str
 
     Returns:
-        An EvalJs object hosting all EE objects evaluated.
-
-    Examples:
-        >>> import ee
-        >>> from ee_extra import Extra
-        >>> ee.Initialize()
-        >>> jscode = "var S2 = ee.ImageCollection('COPERNICUS/S2_SR').first()"
-        >>> js = Extra.javaScript.eejs2py.evaluate(jscode)
-        >>> js.S2
-        <ee.image.Image at 0x7fe082c40e80>
+        Whether the python module has been created.
     """
-    x = _junction(x)
+    return pathlib.Path(_convert_path_to_ee_extra_python_module(path)).exists()
 
-    listsToEval = {}
-    
-    
-    listsToEval["ee"] = ee
-    listsToEval["exports"] = {}
 
-    # 3. Evaluate the JS code
-    # -----------------------
-    # Give all the context needed and
-    # evaluate the JS code
-    context = EvalJs(listsToEval)
-    context.execute(x)
+def require(x: str):
+    """Require a JavaScript module as a python module.
 
-    return context
+    Args:
+        path: str
+
+    Returns:
+        A python module.
+    """
+    if not _check_if_python_module_exists(x):
+
+        with open(_convert_path_to_ee_extra_python_module(x), "w") as file:
+            file.write(ee_translate(junction(x)))
+
+    sys.path.append(_convert_path_to_ee_extra_python_module(x))
+
+    from module import exports
+
+    return Box(exports, frozen_box=True)
+
 
 if __name__ == "__main__":
     from ee_extra.JavaScript.install import install
-    jscode = "users/dmlmont/spectral:spectral"    
+
+    jscode = "users/dmlmont/spectral:spectral"
     install(jscode)
     jscode_sf = require(jscode)
     jscode_sf.ee

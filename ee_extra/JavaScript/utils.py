@@ -269,7 +269,7 @@ def remove_extra_spaces(x):
 ## exports.addBand = function(landsat){ var wrap = function(image){ return 0;} return 0;}
 def remove_assignment_specialcase_01(x):
     # does anonymous function asignation exists?
-    pattern01 = r"exports.*=.*function\(.*\).*{"
+    pattern01 = r"exports.*=.*function.*\("
     exports_lines = re.findall(pattern01, x)
     
     if len(exports_lines) > 0:     
@@ -295,7 +295,7 @@ def function_definition(x):
     # 1. Identify all the Javascript functions
     js_functions = indentify_js_functions(x)
     
-    #js_function = js_functions[0]
+    # js_function = js_functions[0]
     
     for js_function in js_functions:
         nreturns = re.findall(r"return\s", js_function)        

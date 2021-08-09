@@ -402,11 +402,13 @@ def dictionary_object_access(x):
                 x = dict_replace(x, match, match_line, new_word)
             elif match_line[-1] in "),|&*+-~/%<>^=!":
                 nlist = match_line[:-1].split(".")
-                new_word = "%s[\"%s\"]" % (nlist[0], nlist[1])
+                arg_nospace = re.sub(r"\s", "", nlist[1])
+                new_word = "%s[\"%s\"]" % (nlist[0], arg_nospace)
                 x = dict_replace(x, match, match_line[:-1], new_word)
             else:
                 nlist = match_line.split(".")
-                new_word = "%s[\"%s\"]" % (nlist[0], nlist[1])
+                arg_nospace = re.sub(r"\s", "", nlist[1])
+                new_word = "%s[\"%s\"]" % (nlist[0], arg_nospace)
                 x = dict_replace(x, match, match_line, new_word)
     return x
 

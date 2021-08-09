@@ -94,7 +94,10 @@ def multiline_method_chain(x):
     lines = x.split("\n")
     for i in range(len(lines)):
         if lines[i].replace(" ", "").startswith("."):
-            lines[i - 1] = lines[i - 1] + " \\"
+            j = 1
+            while lines[i - j].replace(" ","").startswith("#"):
+                j = j + 1
+            lines[i - j] = lines[i - j] + " \\"
     return "\n".join(lines)
 
 

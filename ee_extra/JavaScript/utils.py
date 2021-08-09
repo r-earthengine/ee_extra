@@ -152,14 +152,22 @@ def from_js_to_py_fn_simple(js_function):
     Returns:
         [dict]: Dictionary with py information
     """
-    # if it is a anonymous function
-    pattern = r"function.*{"
-    match = re.search(pattern, js_function, re.MULTILINE)
-    
+    # Get function header
+    heard_func = list()
+    for word in js_function:
+        if word == "{":
+            heard_func.append("{")
+            break            
+        elif word == "\n":
+            continue
+        else:
+            heard_func.append(word)
+            
+    fn_header = "".join(heard_func)
     
     # 1. get function name
     pattern = r"function\s*([\x00-\x7F][^\s]+)\s*\(.*\)\s*{"        
-    regex_result = re.findall(pattern, match.group(0))
+    regex_result = re.findall(pattern, fn_header)
     
     # if it is a anonymous function
     if len(regex_result) == 0:
@@ -389,7 +397,7 @@ def dictionary_object_access(x):
                 continue
         
         # Search in one line.
-        pattern = r"\w+\.\w+."
+        pattern = r"[A-Za-zΑ-Ωα-ωίϊΐόάέύϋΰήώ\[\]]+\.[A-Za-zΑ-Ωα-ωίϊΐόάέύϋΰήώ\[\]]+"
         matches_at_line = re.findall(pattern, match)
         
         #match_line = matches_at_line[0]

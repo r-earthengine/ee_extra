@@ -93,7 +93,7 @@ def junction(x: str) -> str:
     module = _open_module_as_str(x)
 
     module = re.sub(re.compile("/\*.*?\*/", re.DOTALL), "", module)
-    module = re.sub(re.compile("//.*?\n"), "", module)
+    #module = re.sub(re.compile("//.*?\n"), "", module)
 
     lines = module.split("\n")
 
@@ -110,7 +110,7 @@ def junction(x: str) -> str:
                     re.findall(r"require\((.*?)\)", line)[0].replace('"', "").replace("'", "")
                 )
                 newText = re.sub(re.compile("/\*.*?\*/", re.DOTALL), "", newText)
-                newText = re.sub(re.compile("//.*?\n"), "", newText)
+                #newText = re.sub(re.compile("//.*?\n"), "", newText)
                 newText = newText.replace("exports", f"eeExtraExports{counter}")
                 newLines.append("var eeExtraExports" + str(counter) + " = {};")
                 newLines.extend(newText.split("\n"))

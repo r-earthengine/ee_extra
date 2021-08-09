@@ -75,6 +75,9 @@ def logical_operators_boolean_null_comments(x):
     for key, item in reserved.items():
         x = re.sub(key, item, x)
         #x = x.replace(key, item)
+    # Correct https://
+    x = x.replace("https:#","https://")
+    x = x.replace("http:#","http://")
     return x
 
 
@@ -337,7 +340,7 @@ def dictionary_keys(x):
         for dic in dicts:
             items = dic.split(",")
             for item in items:
-                pattern = r"(.*):(.*)"
+                pattern = r"(.*?):(.*)"
                 item = re.findall(pattern, item)
                 if len(item) > 0:
                     for i in item:

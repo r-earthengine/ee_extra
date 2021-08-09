@@ -12,7 +12,7 @@ def normalize_fn_style(x: str) -> str:
     """Normalize Javascript function style
 
     var xx = function(x){} --> function xx(x){}
-    
+
     Args:
         x (str): A Js script as string.
 
@@ -20,7 +20,7 @@ def normalize_fn_style(x: str) -> str:
         [str]: Python string
     """
     pattern = "var\s*(.*[^\s])\s*=\s*function"
-    matches = re.finditer(pattern, x, re.MULTILINE)    
+    matches = re.finditer(pattern, x, re.MULTILINE)
     for _, item in enumerate(matches):
         match = item.group(0)
         group = item.group(1)
@@ -69,15 +69,15 @@ def logical_operators_boolean_null_comments(x):
         "\sfalse\)|,false\)": "False)",
         "\snull\s|\snull\n": "None",
         "//": "#",
-        "!": " not "
+        "!": " not ",
     }
-    
+
     for key, item in reserved.items():
         x = re.sub(key, item, x)
-        #x = x.replace(key, item)
+        # x = x.replace(key, item)
     # Correct https://
-    x = x.replace("https:#","https://")
-    x = x.replace("http:#","http://")
+    x = x.replace("https:#", "https://")
+    x = x.replace("http:#", "http://")
     return x
 
 
@@ -98,7 +98,7 @@ def multiline_method_chain(x):
     for i in range(len(lines)):
         if lines[i].replace(" ", "").startswith("."):
             j = 1
-            while lines[i - j].replace(" ","").startswith("#"):
+            while lines[i - j].replace(" ", "").startswith("#"):
                 j = j + 1
             lines[i - j] = lines[i - j] + " \\"
     return "\n".join(lines)
@@ -106,23 +106,23 @@ def multiline_method_chain(x):
 
 # 7. Random name generator
 def random_fn_name():
-    """Generate a random name"""        
+    """Generate a random name"""
     # body (7)
     body_list = list()
     for x in range(9):
         body_list.append(random.choice(string.ascii_letters))
     base = "".join(body_list)
-    
+
     # number (4)
     tail_list = list()
     for x in range(6):
-        tail_list.append(random.choice(string.ascii_letters+"123456789"))    
+        tail_list.append(random.choice(string.ascii_letters + "123456789"))
     tail = "".join(tail_list)
     return base + tail
 
 
 # 8. Identify all the functions
-def indentify_js_functions(x:str) -> list:
+def indentify_js_functions(x: str) -> list:
     """Identify all the functions in a Javascript file
 
     Args:
@@ -137,7 +137,7 @@ def indentify_js_functions(x:str) -> list:
     js_functions = list()
     for _, item in enumerate(matches):
         js_functions.append(item.group())
-        
+
     # It is a function with name?
     return js_functions
 
@@ -155,12 +155,11 @@ def from_js_to_py_fn_simple(js_function):
     # if it is a anonymous function
     pattern = r"function.*{"
     match = re.search(pattern, js_function, re.MULTILINE)
-    
-    
+
     # 1. get function name
-    pattern = r"function\s*([\x00-\x7F][^\s]+)\s*\(.*\)\s*{"        
+    pattern = r"function\s*([\x00-\x7F][^\s]+)\s*\(.*\)\s*{"
     regex_result = re.findall(pattern, match.group(0))
-    
+
     # if it is a anonymous function
     if len(regex_result) == 0:
         anonymous = True
@@ -168,25 +167,25 @@ def from_js_to_py_fn_simple(js_function):
     else:
         anonymous = False
         function_name = "".join(regex_result[0])
-    
+
     # 2. get args
     pattern = r"function\s*[\x00-\x7F][^\s]*\s*\(\s*([^)]+?)\s*\)\s*{|function\(\s*([^)]+?)\s*\)\s*"
     args_name = "".join(re.findall(pattern, js_function)[0])
-    
+
     # 3. get body
     pattern = r"({(?>[^{}]+|(?R))*})"
     body = regex.search(pattern, js_function)[0][1:-1]
-    
+
     if not body[0] == "\n":
         body = "\n    " + body
-    
+
     # 3. py function info
     py_info = {
-        'fun_name': function_name,
-        "args_name": args_name, 
+        "fun_name": function_name,
+        "args_name": args_name,
         "body": body,
         "fun_py_style": f"def {function_name}({args_name}):{body}\n",
-        "anonymous": anonymous
+        "anonymous": anonymous,
     }
     return py_info
 
@@ -195,20 +194,18 @@ def fix_identation(x):
     """Fix identation of a Python script"""
     ident_base = "    "
     brace_counter = 0
-    
+
     # if first element of the string is \n remove!
     if x[0] == "\n":
         x = x[1:]
-        
+
     # remove multiple \n by just one
     pattern = r"\n+"
     x = re.sub(pattern, r"\n", x)
 
     # Detect the spaces of the first identation
     x = regex.sub(r"\n\s+", "\n", x)
-    
-    
-    
+
     # fix nested identation
     brace_counter = 0
     word_list = list()
@@ -221,7 +218,7 @@ def fix_identation(x):
             word_list.append(word)
         else:
             if word in "\n":
-                word = "\n" + ident_base*(brace_counter)
+                word = "\n" + ident_base * (brace_counter)
                 word_list.append(word)
             else:
                 word_list.append(word)
@@ -243,13 +240,13 @@ def check_nested_fn_complexity(x):
     """Thi is useful to avoid errors related to catastrophic backtracking"""
     pattern = "\s{16}function"
     if re.search(pattern, x):
-        raise ValueError("This module does not support 4-level nested functions.")    
+        raise ValueError("This module does not support 4-level nested functions.")
     return False
 
 
 def remove_extra_spaces(x):
     """Remove \n and \s if they are at the begining of the string"""
-    if x[0] == "\n":        
+    if x[0] == "\n":
         # Remove spaces at the beginning
         word_list = list()
         forward_counter = 0
@@ -259,13 +256,13 @@ def remove_extra_spaces(x):
             else:
                 forward_counter = -1
                 word_list.append(word)
-        
+
         # Remove spaces at the end
         back_counter = 0
         while back_counter <= 0:
             counter = back_counter - 1
             if word_list[counter] == " ":
-                del(word_list[counter])                
+                del word_list[counter]
             else:
                 back_counter = 1
         return "".join(word_list)
@@ -277,34 +274,35 @@ def remove_assignment_specialcase_01(x):
     # does anonymous function asignation exists?
     pattern01 = r"exports.*=.*function.*\("
     exports_lines = re.findall(pattern01, x)
-    
-    if len(exports_lines) > 0:     
+
+    if len(exports_lines) > 0:
         for exports_line in exports_lines:
             export_str = re.findall("(exports.*)=", exports_line)[0]
             rname = random_fn_name()
             pattern02 = export_str + "=.*function"
             x = re.sub(pattern02, ("function " + rname), x)
-            
+
             # add export at the end of the file
-            x = x + "\n" +  export_str + " = " + rname
+            x = x + "\n" + export_str + " = " + rname
     return x
 
+
 def function_definition(x):
-    
+
     # Special case #01:
     # function(landsat){ var wrap = function(image){ return 0;} return 0;}
     x = remove_assignment_specialcase_01(x)
-    
+
     # Check nested functionn complexity
     check_nested_fn_complexity(x)
-    
+
     # 1. Identify all the Javascript functions
     js_functions = indentify_js_functions(x)
-    
+
     # js_function = js_functions[0]
-    
+
     for js_function in js_functions:
-        nreturns = re.findall(r"return\s", js_function)        
+        nreturns = re.findall(r"return\s", js_function)
         # 2. if a nested function?
         if len(nreturns) > 1:
             # 3. From js function by Python function (1 order)
@@ -312,20 +310,20 @@ def function_definition(x):
             f_name = py_function["fun_name"]
             f_args = py_function["args_name"]
             header = f"def {f_name}({f_args}):\n    "
-            
+
             # 4. From js function by Python function (2 order)
             new_body = remove_extra_spaces(py_function["body"])
             py_body = fix_identation(new_body)
             second_group = function_definition(py_body)
             second_group = add_identation(second_group)
-            
+
             x = x.replace(js_function, header + second_group)
-        else:            
+        else:
             # 3. Remove Javascript function by Python function
             py_function = from_js_to_py_fn_simple(js_function)
             py_function_f = py_function["fun_py_style"]
             if py_function["anonymous"]:
-                x = x.replace(js_function, py_function["fun_name"])                                
+                x = x.replace(js_function, py_function["fun_name"])
                 x = "\n" + py_function_f + "\n" + x
             else:
                 x = x.replace(js_function, "\n" + py_function_f)
@@ -359,11 +357,12 @@ def is_float(x):
         float(x)
         return True
     except ValueError:
-        return False    
+        return False
 
 
 def dict_replace(x, match, word, new_word):
     """Replace name.name only if they are not inside quotation marks"""
+
     def inside_quoation_marks(x, word):
         pattern = r"([\"'])(?:(?=(\\?))\2.)*?\1"
         if re.search(pattern, x):
@@ -371,37 +370,39 @@ def dict_replace(x, match, word, new_word):
             return word in qm_word
         else:
             return False
+
     if inside_quoation_marks(match, word):
         return x
     else:
         return x.replace(word, new_word)
 
+
 def dictionary_object_access(x):
-    # Search in all lines .. it matchs <name>.<name> 
+    # Search in all lines .. it matchs <name>.<name>
     pattern = r"^(?=.*[\x00-\x7F][^\s]+\.[\x00-\x7F][^\s]+)(?!.*http).*$"
     matches = re.findall(pattern, x, re.MULTILINE)
-    
-    match  = ""
+
+    match = ""
     # match = matches[7]
     for match in matches:
         if len(match) > 0:
             if match[0] == "#":
                 continue
-        
+
         # Search in one line.
         pattern = r"\w+\.\w+."
         matches_at_line = re.findall(pattern, match)
-        
-        #match_line = matches_at_line[0]
+
+        # match_line = matches_at_line[0]
         for match_line in matches_at_line:
             # If is a number pass
             if is_float(match_line[:-1]):
                 continue
-            
+
             # If is a method or a function
             if (match_line[-1] == "(") or ("ee." in match_line[:-1]):
                 continue
-                        
+
             # If is a math
             if "Math." in match_line:
                 new_word = match_line.lower()
@@ -409,27 +410,28 @@ def dictionary_object_access(x):
             elif match_line[-1] in "),|&*+-~/%<>^=!":
                 nlist = match_line[:-1].split(".")
                 arg_nospace = re.sub(r"\s", "", nlist[1])
-                new_word = "%s[\"%s\"]" % (nlist[0], arg_nospace)
+                new_word = '%s["%s"]' % (nlist[0], arg_nospace)
                 x = dict_replace(x, match, match_line[:-1], new_word)
             else:
                 nlist = match_line.split(".")
                 arg_nospace = re.sub(r"\s", "", nlist[1])
-                new_word = "%s[\"%s\"]" % (nlist[0], arg_nospace)
+                new_word = '%s["%s"]' % (nlist[0], arg_nospace)
                 x = dict_replace(x, match, match_line, new_word)
     return x
+
 
 # FUNCIONA
 # Cambia "f({x = 1})" por "f(**{x = 1})"
 def keyword_arguments_object(x):
     pattern = r"\({(.*?)}\)"
-    matches = re.findall(pattern, x, re.DOTALL)    
+    matches = re.findall(pattern, x, re.DOTALL)
     if len(matches) > 0:
-        for match in matches:        
+        for match in matches:
             x = x.replace("{" + match + "}", "**{" + match + "}")
     pattern = r"ee\.Dictionary\(\*\*{"
-    matches = re.findall(pattern, x, re.DOTALL)    
+    matches = re.findall(pattern, x, re.DOTALL)
     if len(matches) > 0:
-        for match in matches:       
+        for match in matches:
             x = x.replace(match, "ee.Dictionary({")
     return x
 
@@ -444,7 +446,7 @@ def if_statement(x):
             match = list(match)
             x = x.replace(
                 "}" + match[0] + "else" + match[1] + "if" + match[2] + "{", f"elif {match[2]}:"
-            )    
+            )
     pattern = r"if(.*?)\((.*)\)(.*){"
     matches = re.findall(pattern, x)
     if len(matches) > 0:
@@ -454,13 +456,11 @@ def if_statement(x):
                 "if" + match[0] + "(" + match[1] + ")" + match[2] + "{", f"if {match[1]}:"
             )
     pattern = r"}(.*?)else(.*?){"
-    matches = re.findall(pattern, x)    
+    matches = re.findall(pattern, x)
     if len(matches) > 0:
         for match in matches:
             match = list(match)
-            x = x.replace(
-                "}" + match[0] + "else" + match[1] + "{", "else:"
-            )
+            x = x.replace("}" + match[0] + "else" + match[1] + "{", "else:")
     return delete_brackets(x)
 
 
@@ -533,11 +533,13 @@ def add_packages(x):
     user_dict = "from collections import UserDict\n\nexports = UserDict()\n"
     return py_packages + user_dict + x
 
+
 # TODO work on it!
 def extra_work(x):
     x = x.replace("||", " or ")
     x = x.replace("===", " == ")
     return x
+
 
 def translate(x: str, black: bool = True) -> str:
     """Translates a JavaScript script to a Python script.
@@ -554,7 +556,7 @@ def translate(x: str, black: bool = True) -> str:
         >>> ee.Initialize()
         >>> translate("var x = ee.ImageCollection('COPERNICUS/S2_SR')")
     """
-    
+
     x = normalize_fn_style(x)
     x = variable_definition(x)
     x = logical_operators_boolean_null_comments(x)
@@ -566,13 +568,14 @@ def translate(x: str, black: bool = True) -> str:
     x = dictionary_object_access(x)
     x = keyword_arguments_object(x)
     x = if_statement(x)
-    x = array_isArray(x)    
+    x = array_isArray(x)
     x = add_packages(x)
     x = extra_work(x)
     if black:
         x = format_str(x, mode=FileMode())
-    
+
     return x
+
 
 if __name__ == "__main__":
     x = """

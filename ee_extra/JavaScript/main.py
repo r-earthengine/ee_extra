@@ -9,6 +9,7 @@ I. Functions
 """
 
 from ee_extra import translate
+from ee_extra.JavaScript.merge import require
 
 
 def ee_translate(x: str) -> str:
@@ -18,10 +19,10 @@ def ee_translate(x: str) -> str:
         x (str): EE Js module as a string.
 
     Returns:
-        str: EE Python script.    
+        str: EE Python script.
     """
     return translate(x)
-    
+
 
 def ee_js_to_py(in_file: str, out_file: str, black: bool = True) -> bool:
     """Convert an EE JavaScript file to an EE Python file.
@@ -33,19 +34,28 @@ def ee_js_to_py(in_file: str, out_file: str, black: bool = True) -> bool:
     Returns:
         bool: Return True if the conversion is successful.
     """
-    
-    with open(in_file, 'r') as f_in:
+
+    with open(in_file, "r") as f_in:
         js_file = f_in.read()
-    
+
     py_file = translate(js_file, black)
-    
-    with open(out_file, 'w') as f_out:
+
+    with open(out_file, "w") as f_out:
         f_out.write(py_file)
-    
+
     return True
 
-def require(x: str) -> str:
-    pass    
+
+def ee_require(x: str):
+    """Requires a JavaScript module as a python module.
+
+    Args:
+        x (str): EE Js module as a string.
+
+    Returns:
+        module: Python module.
+    """
+    return require(x)
 
 
 if __name__ == "__main__":

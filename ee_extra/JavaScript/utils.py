@@ -157,18 +157,18 @@ def from_js_to_py_fn_simple(js_function):
     for word in js_function:
         if word == "{":
             heard_func.append("{")
-            break            
+            break
         elif word == "\n":
             continue
         else:
             heard_func.append(word)
-            
+
     fn_header = "".join(heard_func)
-    
+
     # 1. get function name
-    pattern = r"function\s*([\x00-\x7F][^\s]+)\s*\(.*\)\s*{"        
+    pattern = r"function\s*([\x00-\x7F][^\s]+)\s*\(.*\)\s*{"
     regex_result = re.findall(pattern, fn_header)
-    
+
     # if it is a anonymous function
     if len(regex_result) == 0:
         anonymous = True
@@ -283,7 +283,7 @@ def remove_assignment_specialcase_01(x):
     # does anonymous function asignation exists?
     pattern01 = r"exports.*=.*function.*\("
     exports_lines = re.findall(pattern01, x)
-    
+
     if len(exports_lines) > 0:
         for exports_line in exports_lines:
             export_str = re.findall("(exports.*)=", exports_line)[0]

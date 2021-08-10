@@ -14,6 +14,15 @@ from box import Box
 from ee_extra.JavaScript.utils import translate
 
 
+class BoxDict(Box):
+    def __repr__(self):
+        keys = list(self.keys())
+        toShow = dict()
+        for key in keys:
+            toShow[key] = type(self[key])
+        return str(toShow)
+
+
 def evaluate(x: str) -> EvalJs:
     """Evaluate a JS code inside the Earth Engine session.
 
@@ -180,22 +189,13 @@ def require(x: str):
     Returns:
         A python module.
     """
-    module = translate(junction(x))    
+    module = translate(junction(x))
 
     exports = dict()
 
-    exec(module,exports)
+    exec(module, exports)
 
-    class BoxDict(Box):
-
-        def __repr__(self):
-            keys = list(self.keys())
-            toShow = dict()
-            for key in keys:
-                toShow[key] = type(self[key])
-            return str(toShow)
-
-    return BoxDict(exports["exports"], frozen_box = True)
+    return BoxDict(exports["exports"], frozen_box=True)
 
 
 if __name__ == "__main__":

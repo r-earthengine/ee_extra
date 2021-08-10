@@ -180,16 +180,13 @@ def require(x: str):
     Returns:
         A python module.
     """
-    if not _check_if_python_module_exists(x):
+    module = translate(junction(x))    
 
-        with open(_convert_path_to_ee_extra_python_module(x), "w") as file:
-            file.write(translate(junction(x)))
+    exports = dict()
 
-    sys.path.append(_convert_path_to_ee_extra_python_module(x))
+    exec(module,exports)
 
-    from module import exports
-
-    return Box(exports, frozen_box=True)
+    return Box(exports["exports"], frozen_box = True)
 
 
 if __name__ == "__main__":

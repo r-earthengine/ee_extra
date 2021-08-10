@@ -14,6 +14,15 @@ from box import Box
 from ee_extra.JavaScript.utils import translate
 
 
+class BoxDict(Box):
+    def __repr__(self):
+        keys = list(self.keys())
+        toShow = dict()
+        for key in keys:
+            toShow[key] = type(self[key])
+        return str(toShow)
+
+
 def evaluate(x: str) -> EvalJs:
     """Evaluate a JS code inside the Earth Engine session.
 

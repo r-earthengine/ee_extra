@@ -283,7 +283,7 @@ def remove_assignment_specialcase_01(x):
     # does anonymous function asignation exists?
     pattern01 = r"exports.*=.*function.*\("
     exports_lines = re.findall(pattern01, x)
-
+    
     if len(exports_lines) > 0:
         for exports_line in exports_lines:
             export_str = re.findall("(exports.*)=", exports_line)[0]
@@ -392,14 +392,14 @@ def dictionary_object_access(x):
     matches = re.findall(pattern, x, re.MULTILINE)
 
     match = ""
-    # match = matches[7]
+    # match = matches[2]
     for match in matches:
         if len(match) > 0:
             if match[0] == "#":
                 continue
 
         # Search in one line.
-        pattern = r"[A-Za-zΑ-Ωα-ωίϊΐόάέύϋΰήώ\[\]]+\.[A-Za-zΑ-Ωα-ωίϊΐόάέύϋΰήώ\[\]]+"
+        pattern = r"[A-Za-z0-9Α-Ωα-ωίϊΐόάέύϋΰήώ\[\]_]+\.[A-Za-z0-9Α-Ωα-ωίϊΐόάέύϋΰήώ\[\]_]+"
         matches_at_line = re.findall(pattern, match)
 
         # match_line = matches_at_line[0]

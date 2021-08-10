@@ -186,7 +186,16 @@ def require(x: str):
 
     exec(module,exports)
 
-    return Box(exports["exports"], frozen_box = True)
+    class SuperBox(Box):
+
+        def __repr__(self):
+            keys = list(self.keys())
+            toShow = dict()
+            for key in keys:
+                toShow[key] = type(self[key])
+            return str(toShow)
+
+    return SuperBox(exports["exports"], frozen_box = True)
 
 
 if __name__ == "__main__":

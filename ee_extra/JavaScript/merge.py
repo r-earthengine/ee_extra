@@ -186,7 +186,7 @@ def require(x: str):
 
     exec(module,exports)
 
-    class SuperBox(Box):
+    class BoxDict(Box):
 
         def __repr__(self):
             keys = list(self.keys())
@@ -195,7 +195,7 @@ def require(x: str):
                 toShow[key] = type(self[key])
             return str(toShow)
 
-    return SuperBox(exports["exports"], frozen_box = True)
+    return BoxDict(exports["exports"], frozen_box = True)
 
 
 if __name__ == "__main__":

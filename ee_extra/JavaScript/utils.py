@@ -115,7 +115,7 @@ def random_fn_name():
 
     # number (4)
     tail_list = list()
-    for x in range(6):
+    for x in range(8):
         tail_list.append(random.choice(string.ascii_letters + "123456789"))
     tail = "".join(tail_list)
     return base + tail
@@ -157,18 +157,18 @@ def from_js_to_py_fn_simple(js_function):
     for word in js_function:
         if word == "{":
             heard_func.append("{")
-            break            
+            break
         elif word == "\n":
             continue
         else:
             heard_func.append(word)
-            
+
     fn_header = "".join(heard_func)
-    
+
     # 1. get function name
-    pattern = r"function\s*([\x00-\x7F][^\s]+)\s*\(.*\)\s*{"        
+    pattern = r"function\s*([\x00-\x7F][^\s]+)\s*\(.*\)\s*{"
     regex_result = re.findall(pattern, fn_header)
-    
+
     # if it is a anonymous function
     if len(regex_result) == 0:
         anonymous = True
@@ -283,7 +283,7 @@ def remove_assignment_specialcase_01(x):
     # does anonymous function asignation exists?
     pattern01 = r"exports.*=.*function.*\("
     exports_lines = re.findall(pattern01, x)
-    
+
     if len(exports_lines) > 0:
         for exports_line in exports_lines:
             export_str = re.findall("(exports.*)=", exports_line)[0]
@@ -357,11 +357,8 @@ def dictionary_keys(x):
     return x
 
 
-# NECESITA REVISION
-# Debe cambiar el acceso a los diccionarios. Es capaz de cambiar "exports.x = 1" por "exports['x'] = 1"
-# Pero cuando hay otros puntos en el texto tambien los cambia, como "https://google.com" por "https://google['com']"
-# Esto es un error.
 def is_float(x):
+    """Is a string a float?. Return a bool."""
     try:
         float(x)
         return True
@@ -387,6 +384,8 @@ def dict_replace(x, match, word, new_word):
 
 
 def dictionary_object_access(x):
+    """Replace <name01>.<name02> only when name01 is a dictionary"""
+
     # Search in all lines .. it matchs <name>.<name>
     pattern = r"^(?=.*[\x00-\x7F][^\s]+\.[\x00-\x7F][^\s]+)(?!.*http).*$"
     matches = re.findall(pattern, x, re.MULTILINE)
@@ -429,8 +428,7 @@ def dictionary_object_access(x):
     return x
 
 
-# FUNCIONA
-# Cambia "f({x = 1})" por "f(**{x = 1})"
+# Change "f({x = 1})" por "f(**{x = 1})"
 def keyword_arguments_object(x):
     pattern = r"\({(.*?)}\)"
     matches = re.findall(pattern, x, re.DOTALL)
@@ -445,8 +443,7 @@ def keyword_arguments_object(x):
     return x
 
 
-# FUNCIONA
-# Cambia "if(x){" por "if x:"
+# Change "if(x){" por "if x:"
 def if_statement(x):
     pattern = r"}(.*?)else(.*?)if(.*?){"
     matches = re.findall(pattern, x)
@@ -473,8 +470,7 @@ def if_statement(x):
     return delete_brackets(x)
 
 
-# FUNCIONA
-# Cambia "Array.isArray(x)" por "isinstance(x,list)"
+# Change "Array.isArray(x)" por "isinstance(x,list)"
 def array_isArray(x):
     pattern = r"Array\.isArray\((.*?)\)"
     matches = re.findall(pattern, x)
@@ -484,8 +480,7 @@ def array_isArray(x):
     return x
 
 
-# FUNCIONA
-# Cambia "for(var i = 0;i < x.length;i++){" por "for i in range(0,len(x),1):"
+# Change "for(var i = 0;i < x.length;i++){" por "for i in range(0,len(x),1):"
 def for_loop(x):
     pattern = r"for(.*)\((.*);(.*);(.*)\)(.*){"
     matches = re.findall(pattern, x)
@@ -538,16 +533,10 @@ def for_loop(x):
 
 
 def add_packages(x):
+    """add ee and math packages to the code. UserDict is used by default."""
     py_packages = "import ee\nimport math\n"
     user_dict = "from collections import UserDict\n\nexports = UserDict()\n"
     return py_packages + user_dict + x
-
-
-# TODO work on it!
-def extra_work(x):
-    x = x.replace("||", " or ")
-    x = x.replace("===", " == ")
-    return x
 
 
 def translate(x: str, black: bool = True) -> str:
@@ -579,7 +568,7 @@ def translate(x: str, black: bool = True) -> str:
     x = if_statement(x)
     x = array_isArray(x)
     x = add_packages(x)
-    x = extra_work(x)
+
     if black:
         x = format_str(x, mode=FileMode())
 

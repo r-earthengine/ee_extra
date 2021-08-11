@@ -1,7 +1,7 @@
 eeExtra
 =======
 
-**A ninja Python package behind** `rgee <https://github.com/r-spatial/rgee>`, `rgeeExtra <https://github.com/r-earthengine/rgeeExtra>` **and** `eemont <https://github.com/davemlz/eemont>`
+A ninja Python package behind `rgee <https://github.com/r-spatial/rgee>`, `rgeeExtra <https://github.com/r-earthengine/rgeeExtra>` and `eemont <https://github.com/davemlz/eemont>`
 
 .. image:: https://img.shields.io/pypi/v/ee_extra.svg
         :target: https://pypi.python.org/pypi/ee_extra

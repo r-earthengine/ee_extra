@@ -1,12 +1,7 @@
-.. raw:: html
+eeExtra
+=======
 
-        <embed>
-          <p align="center">
-            <a href="https://github.com/r-earthengine/ee_extra"><img src="https://raw.githubusercontent.com/davemlz/davemlz/main/eeExtra.png" height="200px"/></a>
-            <br>
-            <b>A ninja Python package behind <a href="https://github.com/r-spatial/rgee">rgee</a>, <a href="https://github.com/r-earthengine/rgeeExtra">rgeeExtra</a> and <a href="https://github.com/davemlz/eemont">eemont</a></b>
-          </p>
-        </embed>
+**A ninja Python package behind** `rgee <https://github.com/r-spatial/rgee>`, `rgeeExtra <https://github.com/r-earthengine/rgeeExtra>` **and** `eemont <https://github.com/davemlz/eemont>`
 
 .. image:: https://img.shields.io/pypi/v/ee_extra.svg
         :target: https://pypi.python.org/pypi/ee_extra
@@ -95,15 +90,9 @@ The ee_extra Python package can be found indirectly in the `Earth Engine Communi
 Powerhouse of...
 --------------------
 
-.. raw:: html
-
-        <embed>
-          <p align="center">
-            <a href="https://r-spatial.github.io/rgee/"><img src="https://user-images.githubusercontent.com/16768318/118376965-5f7dca80-b5cb-11eb-9a82-47876680a3e6.png" height="200px"/></a>
-            <a href="http://r-earthengine.github.io/rgeeExtra/"><img src="https://user-images.githubusercontent.com/16768318/118376968-63a9e800-b5cb-11eb-83e7-3f36299e17cb.png" height="200px"/></a>
-            <a href="https://github.com/davemlz/eemont"><img src="https://raw.githubusercontent.com/davemlz/davemlz/main/eemont.png" height="200px"/></a>
-          </p>
-        </embed>
+- `rgee <https://github.com/r-spatial/rgee>`
+- `rgeeExtra <https://github.com/r-earthengine/rgeeExtra>`
+- `eemont <https://github.com/davemlz/eemont>`
 
 
 Installation

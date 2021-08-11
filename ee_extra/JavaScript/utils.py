@@ -63,17 +63,17 @@ def logical_operators_boolean_null_comments(x):
         "\.and\(": ".And(",
         "\.or\(": ".Or(",
         "\.not\(": ".Not(",
-        "\strue\s|\strue\n": "True",
-        "\strue\)|,true\)": "True)",
-        "\sfalse\s|\sfalse\n": "False",
-        "\sfalse\)|,false\)": "False)",
-        "\snull\s|\snull\n": "None",
+        "(?<![a-zA-Z])true(?![a-zA-Z])": "True",
+        "(?<![a-zA-Z])false(?![a-zA-Z])": "False",
+        "(?<![a-zA-Z])null(?![a-zA-Z])": "None",
         "//": "#",
         "!": " not ",
+        "\|\|": " or ",
+        "===": " == "
     }
 
     for key, item in reserved.items():
-        x = re.sub(key, item, x)
+        x = regex.sub(key, item, x)
         # x = x.replace(key, item)
     # Correct https://
     x = x.replace("https:#", "https://")
@@ -281,12 +281,12 @@ def remove_extra_spaces(x):
 ## exports.addBand = function(landsat){ var wrap = function(image){ return 0;} return 0;}
 def remove_assignment_specialcase_01(x):
     # does anonymous function asignation exists?
-    pattern01 = r"exports.*=.*function.*\("
+    pattern01 = r"[exports|eeExtraExports].*=.*function.*\("
     exports_lines = re.findall(pattern01, x)
-
+    
     if len(exports_lines) > 0:
         for exports_line in exports_lines:
-            export_str = re.findall("(exports.*)=", exports_line)[0]
+            export_str = re.findall("([exports|eeExtraExports].*)=", exports_line)[0]
             rname = random_fn_name()
             pattern02 = export_str + "=.*function"
             x = re.sub(pattern02, ("function " + rname), x)
@@ -299,7 +299,7 @@ def remove_assignment_specialcase_01(x):
 def function_definition(x):
 
     # Special case #01:
-    # function(landsat){ var wrap = function(image){ return 0;} return 0;}
+    # export.css = function(landsat){ var wrap = function(image){ return 0;} return 0;}
     x = remove_assignment_specialcase_01(x)
 
     # Check nested functionn complexity
@@ -389,18 +389,29 @@ def dictionary_object_access(x):
     # Search in all lines .. it matchs <name>.<name>
     pattern = r"^(?=.*[\x00-\x7F][^\s]+\.[\x00-\x7F][^\s]+)(?!.*http).*$"
     matches = re.findall(pattern, x, re.MULTILINE)
-
-    match = ""
-    # match = matches[2]
+    
+    # match = matches[0]
     for match in matches:
         if len(match) > 0:
             if match[0] == "#":
                 continue
 
         # Search in one line.
-        pattern = r"[A-Za-z0-9Α-Ωα-ωίϊΐόάέύϋΰήώ\[\]_]+\.[A-Za-z0-9Α-Ωα-ωίϊΐόάέύϋΰήώ\[\]_]+"
-        matches_at_line = re.findall(pattern, match)
-
+        pattern1 = r"[A-Za-z0-9Α-Ωα-ωίϊΐόάέύϋΰήώ\[\]_]+\.[A-Za-z0-9Α-Ωα-ωίϊΐόάέύϋΰήώ\[\]_]+"
+        pattern2 = pattern1 + "."
+        
+        # <name>.<name> dicts take a decision based on the next letter but when 
+        # the next letter is a \n it cause problems. When this happens we add a ')'        
+        matches_at_line1 = re.findall(pattern1, match)
+        matches_at_line2 = re.findall(pattern2, match)
+        
+        matches_at_line = list()
+        for _, y in zip(matches_at_line1, matches_at_line2):
+            if _ == y:
+                matches_at_line.append(y + ")")
+            else:
+                matches_at_line.append(y)
+        
         # match_line = matches_at_line[0]
         for match_line in matches_at_line:
             # If is a number pass
@@ -408,23 +419,18 @@ def dictionary_object_access(x):
                 continue
 
             # If is a method or a function
-            if (match_line[-1] == "(") or ("ee." in match_line[:-1]):
+            if ("(" in match_line[-1]) or ("ee." in match_line[:-1]):
                 continue
 
             # If is a math
             if "Math." in match_line:
                 new_word = match_line.lower()
                 x = dict_replace(x, match, match_line, new_word)
-            elif match_line[-1] in "),|&*+-~/%<>^=!":
+            else:
                 nlist = match_line[:-1].split(".")
                 arg_nospace = re.sub(r"\s", "", nlist[1])
                 new_word = '%s["%s"]' % (nlist[0], arg_nospace)
                 x = dict_replace(x, match, match_line[:-1], new_word)
-            else:
-                nlist = match_line.split(".")
-                arg_nospace = re.sub(r"\s", "", nlist[1])
-                new_word = '%s["%s"]' % (nlist[0], arg_nospace)
-                x = dict_replace(x, match, match_line, new_word)
     return x
 
 

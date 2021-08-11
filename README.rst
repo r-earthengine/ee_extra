@@ -90,10 +90,9 @@ The ee_extra Python package can be found indirectly in the `Earth Engine Communi
 Powerhouse of...
 --------------------
 
-- `rgee <https://github.com/r-spatial/rgee>`
-- `rgeeExtra <https://github.com/r-earthengine/rgeeExtra>`
-- `eemont <https://github.com/davemlz/eemont>`
-
+- `rgee <https://github.com/r-spatial/rgee>`_
+- `rgeeExtra <https://github.com/r-earthengine/rgeeExtra>`_
+- `eemont <https://github.com/davemlz/eemont>`_
 
 Installation
 ------------

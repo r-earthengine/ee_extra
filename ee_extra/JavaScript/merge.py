@@ -131,7 +131,7 @@ def junction(x: str) -> str:
                 newText = re.sub(re.compile("/\*.*?\*/", re.DOTALL), "", newText)
                 # newText = re.sub(re.compile("//.*?\n"), "", newText)
                 newText = newText.replace("exports", f"eeExtraExports{counter}")
-                newLines.append("var eeExtraExports" + str(counter) + " = UserDict();")
+                newLines.append("var eeExtraExports" + str(counter) + " = AttrDict();")
                 newLines.extend(newText.split("\n"))
                 newLines.append(f"var {var} = eeExtraExports{counter}")
                 counter += 1

@@ -539,10 +539,12 @@ def for_loop(x):
 
 
 def add_packages(x):
-    """add ee and math packages to the code. UserDict is used by default."""
+    """add ee and math packages to the code. AttrDict is used by default."""
     py_packages = "import ee\nimport math\n"
-    user_dict = "from collections import UserDict\n\nexports = UserDict()\n"
-    return py_packages + user_dict + x
+    user_dict = "\nclass AttrDict(dict):\n    def __init__(self, *args, **kwargs):\n        super(AttrDict, self)" +\
+                ".__init__(*args, **kwargs)\n        self.__dict__ = self\n"
+    exports_dict = "\nexports = AttrDict()\n"
+    return py_packages + user_dict + exports_dict + x
 
 
 def translate(x: str, black: bool = True) -> str:

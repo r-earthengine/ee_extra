@@ -14,7 +14,7 @@ def read(filename):
 
 setup(
     name="ee_extra",
-    version="0.0.2",
+    version="0.0.4",
     url="https://github.com/r-earthengine/ee_extra",
     license="Apache 2.0",
     author="Cesar Aybar and David Montero Loaiza",

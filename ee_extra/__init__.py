@@ -2,7 +2,7 @@
 ee_extra Extensions.
 """
 
-__version__ = "0.0.2"
+__version__ = "0.0.4"
 
 # warnings.simplefilter("always", UserWarning)
 

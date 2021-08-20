@@ -1,5 +1,7 @@
-import ee
 import unittest
+
+import ee
+
 from ee_extra.ImageCollection.core import *
 
 ee.Initialize()

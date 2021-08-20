@@ -23,7 +23,14 @@ setup(
     long_description=read("README.rst"),
     packages=find_packages(exclude=("tests",), include=["ee_extra", "ee_extra.*"]),
     package_data={"ee_extra": ["data/*.json"]},
-    install_requires=["black", "earthengine-api", "js2py", "numpy", "requests", "python-box"],
+    install_requires=[
+        "black",
+        "earthengine-api",
+        "js2py",
+        "numpy",
+        "requests",
+        "python-box",
+    ],
     classifiers=[
         "Development Status :: 2 - Pre-Alpha",
         "License :: OSI Approved :: MIT License",

@@ -1,16 +1,18 @@
 """Merge Javascript module in one file"""
 
-import ee
-import re
 import pathlib
+import re
 import sys
-from js2py import EvalJs
-from ee_extra.JavaScript.install import (
-    _open_module_as_str,
-    _get_ee_sources_path,
-    _convert_path_to_ee_extra,
-)
+
+import ee
 from box import Box
+from js2py import EvalJs
+
+from ee_extra.JavaScript.install import (
+    _convert_path_to_ee_extra,
+    _get_ee_sources_path,
+    _open_module_as_str,
+)
 from ee_extra.JavaScript.utils import translate
 
 
@@ -126,7 +128,9 @@ def junction(x: str) -> str:
             if "require(" in line:
                 var = re.findall(r"var(.*?)=", line)[0].replace(" ", "")
                 newText = _open_module_as_str(
-                    re.findall(r"require\((.*?)\)", line)[0].replace('"', "").replace("'", "")
+                    re.findall(r"require\((.*?)\)", line)[0]
+                    .replace('"', "")
+                    .replace("'", "")
                 )
                 newText = re.sub(re.compile("/\*.*?\*/", re.DOTALL), "", newText)
                 # newText = re.sub(re.compile("//.*?\n"), "", newText)

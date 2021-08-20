@@ -1,13 +1,13 @@
-from typing import Optional, Union
-
 import json
 import os
 import re
 import warnings
+from typing import Optional, Union
 
 import ee
 import pkg_resources
 import requests
+
 from ee_extra.STAC.utils import _get_platform_STAC
 from ee_extra.utils import _load_JSON
 
@@ -89,7 +89,9 @@ def getOffsetParams(x: Union[ee.Image, ee.ImageCollection]) -> dict:
         return eeDict[platformDict["platform"]]
 
 
-def scaleAndOffset(x: Union[ee.Image, ee.ImageCollection]) -> Union[ee.Image, ee.ImageCollection]:
+def scaleAndOffset(
+    x: Union[ee.Image, ee.ImageCollection]
+) -> Union[ee.Image, ee.ImageCollection]:
     """Scales and offsets bands on an Image or Image Collection.
 
     Args:

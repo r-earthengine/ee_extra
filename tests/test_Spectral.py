@@ -1,5 +1,7 @@
-import ee
 import unittest
+
+import ee
+
 from ee_extra.Spectral.core import *
 
 ee.Initialize()
@@ -39,7 +41,9 @@ class Test(unittest.TestCase):
         for dataset in datasets:
             with self.subTest(i=dataset):
                 x = ee.ImageCollection(dataset).filterBounds(point)
-                self.assertIsInstance(spectralIndices(x, "all"), ee.imagecollection.ImageCollection)
+                self.assertIsInstance(
+                    spectralIndices(x, "all"), ee.imagecollection.ImageCollection
+                )
                 self.assertIsInstance(spectralIndices(x.first(), "all"), ee.image.Image)
 
     def test_indices(self):

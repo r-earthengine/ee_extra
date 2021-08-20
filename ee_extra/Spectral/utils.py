@@ -1,13 +1,13 @@
-from typing import Optional, Union
-
 import json
 import os
 import re
 import warnings
+from typing import Optional, Union
 
 import ee
 import pkg_resources
 import requests
+
 from ee_extra.STAC.utils import _get_platform_STAC
 from ee_extra.utils import _load_JSON
 
@@ -134,7 +134,9 @@ def _get_expression_map(img: ee.Image, platformDict: dict) -> dict:
     }
 
     if platformDict["platform"] not in list(lookupPlatform.keys()):
-        raise Exception("Sorry, satellite platform not supported for index computation!")
+        raise Exception(
+            "Sorry, satellite platform not supported for index computation!"
+        )
 
     return lookupPlatform[platformDict["platform"]](img)
 

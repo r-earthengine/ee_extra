@@ -1,13 +1,13 @@
-from typing import Optional, Union
-
 import json
 import os
 import re
 import warnings
+from typing import Optional, Union
 
 import ee
 import pkg_resources
 import requests
+
 from ee_extra.utils import _load_JSON
 
 
@@ -29,7 +29,9 @@ def _get_platform_STAC(args: Union[ee.Image, ee.ImageCollection]) -> dict:
 
     for platform in platforms:
 
-        if eeDict[platform]["gee:type"] == "image_collection" and isinstance(args, ee.image.Image):
+        if eeDict[platform]["gee:type"] == "image_collection" and isinstance(
+            args, ee.image.Image
+        ):
             pltID = "/".join(ID.split("/")[:-1])
         elif eeDict[platform]["gee:type"] == "image" and isinstance(
             args, ee.imagecollection.ImageCollection

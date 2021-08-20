@@ -1,12 +1,12 @@
-from typing import Any, List, Optional, Union
-
 import json
 import os
 import re
 import warnings
+from typing import Any, List, Optional, Union
 
 import ee
 import requests
+
 from ee_extra.Spectral.utils import (
     _get_expression_map,
     _get_indices,
@@ -72,7 +72,9 @@ def spectralIndices(
             raise Exception(f"[sigma] must be positive! Value passed: sigma = {sigma}")
 
     if p <= 0 or c < 0:
-        raise Exception(f"[p] and [c] must be positive! Values passed: p = {p}, c = {c}")
+        raise Exception(
+            f"[p] and [c] must be positive! Values passed: p = {p}, c = {c}"
+        )
 
     additionalParameters = {
         "g": float(G),
@@ -113,7 +115,9 @@ def spectralIndices(
 
     for idx in index:
         if idx not in list(spectralIndices.keys()):
-            warnings.warn(f"Index {idx} is not a built-in index and it won't be computed!")
+            warnings.warn(
+                f"Index {idx} is not a built-in index and it won't be computed!"
+            )
         else:
 
             def temporalIndex(img):
@@ -123,12 +127,13 @@ def spectralIndices(
                 lookupDic = {**lookupDic, **kernelParameters}
                 lookupDicCurated = _remove_none_dict(lookupDic)
                 if all(
-                    band in list(lookupDicCurated.keys()) for band in spectralIndices[idx]["bands"]
+                    band in list(lookupDicCurated.keys())
+                    for band in spectralIndices[idx]["bands"]
                 ):
                     return img.addBands(
-                        img.expression(spectralIndices[idx]["formula"], lookupDicCurated).rename(
-                            idx
-                        )
+                        img.expression(
+                            spectralIndices[idx]["formula"], lookupDicCurated
+                        ).rename(idx)
                     )
                 else:
                     warnings.warn(

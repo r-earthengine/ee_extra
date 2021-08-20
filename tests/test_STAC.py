@@ -1,5 +1,7 @@
-import ee
 import unittest
+
+import ee
+
 from ee_extra.STAC.core import *
 
 ee.Initialize()
@@ -83,7 +85,9 @@ class Test(unittest.TestCase):
         for dataset in datasets:
             with self.subTest(dataset=dataset):
                 x = ee.ImageCollection(dataset).filterBounds(point)
-                self.assertIsInstance(scaleAndOffset(x), ee.imagecollection.ImageCollection)
+                self.assertIsInstance(
+                    scaleAndOffset(x), ee.imagecollection.ImageCollection
+                )
                 self.assertIsInstance(scaleAndOffset(x.first()), ee.image.Image)
 
 

@@ -1,10 +1,12 @@
 """Auxiliary module store functions to translate JavaScript to Python."""
 
-from black import format_str, FileMode
-import regex
 import random
-import string
 import re
+import string
+
+import regex
+from black import FileMode, format_str
+
 
 # 1. Normalize function name
 # For example: "var exp = function(x){ }" --> "function exp(x) { }"
@@ -69,7 +71,7 @@ def logical_operators_boolean_null_comments(x):
         "//": "#",
         "!": " not ",
         "\|\|": " or ",
-        "===": " == "
+        "===": " == ",
     }
 
     for key, item in reserved.items():
@@ -283,7 +285,7 @@ def remove_assignment_specialcase_01(x):
     # does anonymous function asignation exists?
     pattern01 = r"[exports|eeExtraExports].*=.*function.*\("
     exports_lines = re.findall(pattern01, x)
-    
+
     if len(exports_lines) > 0:
         for exports_line in exports_lines:
             export_str = re.findall("([exports|eeExtraExports].*)=", exports_line)[0]
@@ -389,7 +391,7 @@ def dictionary_object_access(x):
     # Search in all lines .. it matchs <name>.<name>
     pattern = r"^(?=.*[\x00-\x7F][^\s]+\.[\x00-\x7F][^\s]+)(?!.*http).*$"
     matches = re.findall(pattern, x, re.MULTILINE)
-    
+
     # match = matches[0]
     for match in matches:
         if len(match) > 0:
@@ -397,21 +399,23 @@ def dictionary_object_access(x):
                 continue
 
         # Search in one line.
-        pattern1 = r"[A-Za-z0-9Α-Ωα-ωίϊΐόάέύϋΰήώ\[\]_]+\.[A-Za-z0-9Α-Ωα-ωίϊΐόάέύϋΰήώ\[\]_]+"
+        pattern1 = (
+            r"[A-Za-z0-9Α-Ωα-ωίϊΐόάέύϋΰήώ\[\]_]+\.[A-Za-z0-9Α-Ωα-ωίϊΐόάέύϋΰήώ\[\]_]+"
+        )
         pattern2 = pattern1 + "."
-        
-        # <name>.<name> dicts take a decision based on the next letter but when 
-        # the next letter is a \n it cause problems. When this happens we add a ')'        
+
+        # <name>.<name> dicts take a decision based on the next letter but when
+        # the next letter is a \n it cause problems. When this happens we add a ')'
         matches_at_line1 = re.findall(pattern1, match)
         matches_at_line2 = re.findall(pattern2, match)
-        
+
         matches_at_line = list()
         for _, y in zip(matches_at_line1, matches_at_line2):
             if _ == y:
                 matches_at_line.append(y + ")")
             else:
                 matches_at_line.append(y)
-        
+
         # match_line = matches_at_line[0]
         for match_line in matches_at_line:
             # If is a number pass
@@ -457,7 +461,8 @@ def if_statement(x):
         for match in matches:
             match = list(match)
             x = x.replace(
-                "}" + match[0] + "else" + match[1] + "if" + match[2] + "{", f"elif {match[2]}:"
+                "}" + match[0] + "else" + match[1] + "if" + match[2] + "{",
+                f"elif {match[2]}:",
             )
     pattern = r"if(.*?)\((.*)\)(.*){"
     matches = re.findall(pattern, x)
@@ -465,7 +470,8 @@ def if_statement(x):
         for match in matches:
             match = list(match)
             x = x.replace(
-                "if" + match[0] + "(" + match[1] + ")" + match[2] + "{", f"if {match[1]}:"
+                "if" + match[0] + "(" + match[1] + ")" + match[2] + "{",
+                f"if {match[1]}:",
             )
     pattern = r"}(.*?)else(.*?){"
     matches = re.findall(pattern, x)
@@ -541,8 +547,10 @@ def for_loop(x):
 def add_packages(x):
     """add ee and math packages to the code. AttrDict is used by default."""
     py_packages = "import ee\nimport math\n"
-    user_dict = "\nclass AttrDict(dict):\n    def __init__(self, *args, **kwargs):\n        super(AttrDict, self)" +\
-                ".__init__(*args, **kwargs)\n        self.__dict__ = self\n"
+    user_dict = (
+        "\nclass AttrDict(dict):\n    def __init__(self, *args, **kwargs):\n        super(AttrDict, self)"
+        + ".__init__(*args, **kwargs)\n        self.__dict__ = self\n"
+    )
     exports_dict = "\nexports = AttrDict()\n"
     return py_packages + user_dict + exports_dict + x
 

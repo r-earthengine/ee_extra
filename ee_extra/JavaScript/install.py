@@ -3,10 +3,11 @@ a JavaScript Earth Enginemodule.
 """
 
 
-import pkg_resources
-import requests
 import pathlib
 import re
+
+import pkg_resources
+import requests
 
 
 def _convert_path_to_ee_sources(path: str) -> str:
@@ -44,7 +45,9 @@ def _convert_path_to_ee_extra(path: str) -> str:
         An ee_extra modules path.
     """
     if path.endswith(".js"):
-        ee_extra_path = pathlib.Path(_get_ee_sources_path()).joinpath(path.replace(":", "/"))
+        ee_extra_path = pathlib.Path(_get_ee_sources_path()).joinpath(
+            path.replace(":", "/")
+        )
     else:
         ee_extra_path = pathlib.Path(_get_ee_sources_path()).joinpath(
             path.replace(":", "/") + ".js"

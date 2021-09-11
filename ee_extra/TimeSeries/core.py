@@ -74,6 +74,8 @@ def getTimeSeriesByRegion(
         if not isinstance(bands, list):
             bands = [bands]
         x = x.select(bands)
+    else:
+        bands = x.first().bandNames().getInfo()
 
     if not isinstance(reducer, list):
         reducer = [reducer]
@@ -189,6 +191,8 @@ def getTimeSeriesByRegions(
         if not isinstance(bands, list):
             bands = [bands]
         x = x.select(bands)
+    else:
+        bands = x.first().bandNames().getInfo()
 
     if not isinstance(reducer, list):
         reducer = [reducer]

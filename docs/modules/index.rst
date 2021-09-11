@@ -11,3 +11,4 @@ API Reference
    JavaScript
    Spectral
    STAC
+   TimeSeries

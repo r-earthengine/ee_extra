@@ -56,21 +56,3 @@ def ee_require(x: str):
         module: Python module.
     """
     return require(x)
-
-
-if __name__ == "__main__":
-    message = """
-    function castCloudShadows(cloudMask, cloudHeights, sunAzimuth, sunZenith) {
-    var cesaar = function(x) {
-        var lesly = function(x) {
-            return 1
-        }
-        var test=1
-        return 1
-    }    
-    return cloudHeights.map(function (cloudHeight) {
-        return projectCloudShadow(cloudMask, cloudHeight, sunAzimuth, sunZenith);            
-    });
-    }
-    """
-    ee_translate(message)

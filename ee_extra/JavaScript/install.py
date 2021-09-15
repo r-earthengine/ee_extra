@@ -112,7 +112,7 @@ def _get_dependencies(path: str) -> list:
         raise Exception(f"The module '{path}' is not installed!")
 
 
-def _install(x: str, update: bool):
+def _install(x: str, update: bool, quiet: bool = False):
     """Install an Earth Engine JavaScript module.
 
     The specified module will be installed in the ee_extra module path.
@@ -123,11 +123,11 @@ def _install(x: str, update: bool):
     """
     if _check_if_module_exists(x) and not update:
 
-        print(f"The module '{x}' is already installed!")
+        quiet or print(f"The module '{x}' is already installed!")
 
     else:
 
-        print(f"Downloading '{x}'...")
+        quiet or print(f"Downloading '{x}'...")
 
         ee_sources = _get_ee_sources_path()
 
@@ -142,10 +142,10 @@ def _install(x: str, update: bool):
 
         open(_convert_path_to_ee_extra(x), "wb").write(r.content)
 
-        print(f"The module '{x}' was successfully installed!")
+        quiet or print(f"The module '{x}' was successfully installed!")
 
 
-def install(x: str, update: bool = False) -> list:
+def install(x: str, update: bool = False,quiet: bool = False) -> list:
     """Install an Earth Engine modue and its dependencies.
 
     The specified dependencies will be installed in the ee_extra module path.
@@ -170,8 +170,8 @@ def install(x: str, update: bool = False) -> list:
 
                 if dep not in installed:
 
-                    _install(dep, update)
-                    print(f"Checking dependencies for {dep}...")
+                    _install(dep, update, quiet)
+                    quiet or print(f"Checking dependencies for {dep}...")
                     x.extend(_get_dependencies(dep))
                     installed.append(dep)
                     x = [item for item in x if item not in installed]
@@ -179,7 +179,7 @@ def install(x: str, update: bool = False) -> list:
 
         else:
 
-            print(f"All dependencies were successfully installed!")
+            quiet or print(f"All dependencies were successfully installed!")
 
     return _install_dependencies(deps, update, [])
 
@@ -194,7 +194,7 @@ def rmtree(path):
     path.rmdir()
 
 
-def uninstall(x: str):
+def uninstall(x: str, quiet: bool = False):
     """Uninstall an Earth Engine JavaScript module.
 
     The specified module will be uninstalled. Dependencies won't be uninstalled.
@@ -210,6 +210,6 @@ def uninstall(x: str):
     """
     if _check_if_module_exists(x):
         rmtree(_convert_path_to_ee_extra(x).parent)
-        print(f"The module '{x}' was successfully uninstalled!")
+        quiet or print(f"The module '{x}' was successfully uninstalled!")
     else:
-        print(f"The module '{x}' is not installed!")
+        quiet or print(f"The module '{x}' is not installed!")

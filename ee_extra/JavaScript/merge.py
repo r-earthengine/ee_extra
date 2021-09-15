@@ -208,12 +208,3 @@ def require(x: str):
             return str(toShow)
 
     return BoxDict(exports["exports"], frozen_box=True)
-
-
-if __name__ == "__main__":
-    from ee_extra.JavaScript.install import install
-
-    jscode = "users/dmlmont/spectral:spectral"
-    install(jscode)
-    jscode_sf = require(jscode)
-    jscode_sf.ee

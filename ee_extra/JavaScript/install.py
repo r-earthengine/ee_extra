@@ -213,9 +213,3 @@ def uninstall(x: str):
         print(f"The module '{x}' was successfully uninstalled!")
     else:
         print(f"The module '{x}' is not installed!")
-
-
-if __name__ == "__main__":
-    path = "users/dmlmont/spectral:spectral"
-    install(x=path)
-    uninstall(x=path)

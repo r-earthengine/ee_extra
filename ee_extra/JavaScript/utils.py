@@ -589,14 +589,3 @@ def translate(x: str, black: bool = True) -> str:
         x = format_str(x, mode=FileMode())
 
     return x
-
-
-if __name__ == "__main__":
-    x = """
-    function castCloudShadows(cloudMask, cloudHeights, sunAzimuth, sunZenith) {
-        return cloudHeights.map(function (cloudHeight) {
-            return projectCloudShadow(cloudMask, cloudHeight, sunAzimuth, sunZenith);
-        });
-    }
-    """
-    translate(x)

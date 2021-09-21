@@ -4,3 +4,4 @@ sphinxcontrib-autoprogram
 sphinx-autodoc-typehints
 pydata-sphinx-theme
 google-auth<2.0dev
+protobuf<3.18.0,>=3.12.0

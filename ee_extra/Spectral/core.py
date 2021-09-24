@@ -212,7 +212,7 @@ def tasseledCap(
 
     Args:
         x : Image or Image Collection to calculate tasseled cap components for. Must 
-        belong to a supported platform.
+            belong to a supported platform.
 
     Returns:
         Image or Image Collection with the tasseled cap components as new bands.
@@ -245,7 +245,7 @@ def tasseledCap(
         >>> import ee
         >>> from ee_extra.Spectral.core import tasseledCap
         >>> ee.Initialize()
-        >>> img = ee.Image("")
+        >>> img = ee.Image("LANDSAT/LT05/C01/T1/LT05_044034_20081011")
         >>> img = tasseledCap(img)
     """
     platformDict = _get_platform_STAC(x)

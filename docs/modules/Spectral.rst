@@ -9,3 +9,4 @@ Extra.Spectral
    indices
    listIndices
    spectralIndices
+   tasseledCap

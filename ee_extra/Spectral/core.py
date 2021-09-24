@@ -196,10 +196,10 @@ def listIndices(online: bool = False) -> list:
 def tasseledCap(
     x: Union[ee.Image, ee.ImageCollection]
 ) -> Union[ee.Image, ee.ImageCollection]:
-    """Calculates tasseled cap brightness, wetness, and greeness components for an image 
+    """Calculates tasseled cap brightness, wetness, and greeness components for an image
     or image collection.
 
-    Tasseled cap transformations are applied using coefficients published for these 
+    Tasseled cap transformations are applied using coefficients published for these
     supported platforms:
 
     * Sentinel-2 MSI Level 1C [1]_
@@ -211,7 +211,7 @@ def tasseledCap(
     * MODIS NBAR [7]_
 
     Args:
-        x : Image or Image Collection to calculate tasseled cap components for. Must 
+        x : Image or Image Collection to calculate tasseled cap components for. Must
             belong to a supported platform.
 
     Returns:

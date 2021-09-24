@@ -252,13 +252,13 @@ def _get_tc_coefficients(platformDict: dict) -> dict:
 
     Coefficients are provided for the following platforms:
 
-    * Sentinel-2 MSI Level 1C [1]_
-    * Landsat 8 OLI TOA [2]_
-    * Landsat 7 ETM+ TOA [3]_
-    * Landsat 5 TM Raw DN [4]_
+    # * Sentinel-2 MSI Level 1C [1]_
+    # * Landsat 8 OLI TOA [2]_
+    # * Landsat 7 ETM+ TOA [3]_
+    # * Landsat 5 TM Raw DN [4]_
     * Landsat 4 TM Raw DN [5]_
     * Landsat 4 TM Surface Reflectance [6]_
-    * MODIS NBAR [7]_
+    # * MODIS NBAR [7]_
 
     Args:
         platformDict : Dictionary retrieved from the _get_STAC_platform() method.
@@ -379,10 +379,10 @@ def _get_tc_coefficients(platformDict: dict) -> dict:
     }
 
     LANDSAT4_SR = {
-        "bands": ("B1", "B2", "B3", "B4", "B5", "B7"),
+        "bands": ("SR_B1", "SR_B2", "SR_B3", "SR_B4", "SR_B5", "SR_B7"),
         "TCB": (0.2043, 0.4158, 0.5524, 0.5741, 0.3124, 0.2303),
-        "TCG": (-0.1603, -0.2819, -0.4934, 0.7940, 0.0002, 0.1446),
-        "TCW": (0.0315, 0.2021, 0.3102, 0.1594, 0.6806, -0.6109),
+        "TCG": (-0.1603, -0.2819, -0.4934, 0.7940, -0.0002, -0.1446),
+        "TCW": (0.0315, 0.2021, 0.3102, 0.1594, -0.6806, -0.6109),
     }
 
     LANDSAT5_DN = {

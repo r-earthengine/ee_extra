@@ -32,6 +32,23 @@ datasets = [
     "MODIS/006/MCD43A4",
 ]
 
+tasseledcap_datasets = [
+    "COPERNICUS/S2",
+    "MODIS/006/MCD43A4",
+    "LANDSAT/LC08/C01/T1_TOA",
+    "LANDSAT/LC08/C01/T1_RT_TOA",
+    "LANDSAT/LC08/C01/T2_TOA",
+    "LANDSAT/LE07/C01/T1_TOA",
+    "LANDSAT/LE07/C01/T1_RT_TOA",
+    "LANDSAT/LE07/C01/T2_TOA",
+    "LANDSAT/LT05/C01/T1",
+    "LANDSAT/LT05/C01/T2",
+    "LANDSAT/LT04/C02/T1_L2",
+    "LANDSAT/LT04/C02/T2_L2",
+    "LANDSAT/LT04/C01/T1",
+    "LANDSAT/LT04/C01/T2",
+]
+
 
 class Test(unittest.TestCase):
     """Tests for ee_extra package."""
@@ -55,6 +72,16 @@ class Test(unittest.TestCase):
         """Test the listIndices() method"""
         self.assertIsInstance(listIndices(), list)
         self.assertIsInstance(listIndices(True), list)
+
+    def test_tasseledCap(self):
+        """Test the tasseledCap() method"""
+        for dataset in tasseledcap_datasets:
+            with self.subTest(i=dataset):
+                x = ee.ImageCollection(dataset).filterBounds(point).limit(10)
+                self.assertIsInstance(tasseledCap(x), ee.imagecollection.ImageCollection)
+
+                x = ee.ImageCollection(dataset).filterBounds(point).first()
+                self.assertIsInstance(tasseledCap(x), ee.image.Image)
 
 
 if __name__ == "__main__":

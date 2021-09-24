@@ -252,19 +252,20 @@ def _get_tc_coefficients(platformDict: dict) -> dict:
 
     Coefficients are provided for the following platforms:
 
-    # * Sentinel-2 MSI Level 1C [1]_
-    # * Landsat 8 OLI TOA [2]_
-    # * Landsat 7 ETM+ TOA [3]_
-    # * Landsat 5 TM Raw DN [4]_
+    * Sentinel-2 MSI Level 1C [1]_
+    * Landsat 8 OLI TOA [2]_
+    * Landsat 7 ETM+ TOA [3]_
+    * Landsat 5 TM Raw DN [4]_
     * Landsat 4 TM Raw DN [5]_
     * Landsat 4 TM Surface Reflectance [6]_
-    # * MODIS NBAR [7]_
+    * MODIS NBAR [7]_
 
     Args:
         platformDict : Dictionary retrieved from the _get_STAC_platform() method.
 
     Returns:
-        Map dictionary for the ee.Image.expression() method.
+        Map dictionary with band names and corresponding coefficients for brightness
+        greenness, and wetness. 
 
     Raises:
         Exception : If the platform has no supported coefficients.

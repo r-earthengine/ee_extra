@@ -8,6 +8,9 @@ ee.Initialize()
 
 point = ee.Geometry.Point([-76.21, 3.45])
 
+# MYD Products are not in the GEE STAC anymore.
+# They're commented for now.
+
 datasets = [
     "COPERNICUS/S2",
     "COPERNICUS/S2_SR",
@@ -22,13 +25,13 @@ datasets = [
     "LANDSAT/LT04/C01/T1_SR",
     "LANDSAT/LT04/C01/T2_SR",
     "MODIS/006/MOD09GQ",
-    "MODIS/006/MYD09GQ",
+    #"MODIS/006/MYD09GQ",
     "MODIS/006/MOD09GA",
-    "MODIS/006/MYD09GA",
+    #"MODIS/006/MYD09GA",
     "MODIS/006/MOD09Q1",
-    "MODIS/006/MYD09Q1",
+    #"MODIS/006/MYD09Q1",
     "MODIS/006/MOD09A1",
-    "MODIS/006/MYD09A1",
+    #"MODIS/006/MYD09A1",
     "MODIS/006/MCD43A4",
 ]
 

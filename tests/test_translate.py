@@ -1,23 +1,26 @@
 from ee_extra import translate
 from pprint import pprint
 import unittest
-import ee
-
-ee.Initialize()
-
 class Test(unittest.TestCase):
     """Tests translate package"""
     def test_plus_sign01(self):
         """Test translation of plus sign"""
         text = """
-        var uri = 'gs://gcp-public-data-landsat/LC08/01/001/002/' +
-            'LC08_L1GT_001002_20160817_20170322_01_T2/' +
-            'LC08_L1GT_001002_20160817_20170322_01_T2_B5.TIF';
+        var dasdas = 2
+        var uri = 'gs://gcp-public-data-landsat/LC08/01/001/002/' +  
+            'LC08_L1GT_001002_20160817_20170322_01_T2/' +  
+            'LC08_L1GT_001002_20160817_20170322_01_T2_B5.TIF';  
         var cloudImage = ee.Image.loadGeoTIFF(uri);
         print(cloudImage);
+        var uri2 = 'gs://gcp-public-data-landsat/LC08/01/001/002/' +  
+            'LC08_L1GT_001002_20160817_20170322_01_T2/'    
+            
+        var uri2 = 'gs://gcp-public-data-landsat/LC08/01/001/002/' +  
+            'LC08_L1GT_001002_20160817_20170322_01_T2/'    
         """
-        self.assertIsInstance(translate(text), str)
-        
+        text = text.replace("\n    ", "")
+        self.assertIsInstance(translate(text, black=False), str)
+    
     def test_plus_sign02(self):
         """Test translation of plus sign"""
 
@@ -48,7 +51,8 @@ class Test(unittest.TestCase):
         '</ColorMap>' +
         '</RasterSymbolizer>';
         """
-        self.assertIsInstance(translate(text), str)
+        text = text.replace("\n    ", "")
+        self.assertIsInstance(translate(text, black=False), str)
 
     def test_dot_conversion01(self):
         """Test translation of plus dot sign"""

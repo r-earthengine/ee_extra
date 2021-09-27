@@ -3,6 +3,7 @@
 import random
 import re
 import string
+from operator import add
 
 import regex
 from black import FileMode, format_str
@@ -555,6 +556,142 @@ def add_packages(x):
     return py_packages + user_dict + exports_dict + x
 
 
+# If a line ends with equal merge it with the new line
+def ends_with_equal(x):
+    # get True is "=" is the last character
+    last_is_plus = lambda x: x[-1] == "="
+    
+    # Remove all whitespace at the end.
+    lines = [regex.sub(r'\s+S*$', '', line) for line in x.split("\n")]
+    
+    # Get "1" is the last chr is "=" otherwise get "0"
+    is_last_chr_plus = list()
+    for line in lines:
+        if len(line) > 0:
+            cond = str(int(last_is_plus(line)))
+        else:
+            cond = "0"
+        is_last_chr_plus.append(cond)
+    subgroups = "".join(is_last_chr_plus) # e.g. "011000100"
+    
+    # If no "=", then return the original string
+    if int(subgroups) == 0:
+        return x
+    
+    # Create subgroups
+    # Some lines finish with "+" identiy those lines and create subgroups.
+    save_breaks_01 = []
+    save_breaks_02 = []
+    for index in range(0, len(subgroups) - 1):
+        if subgroups[index] == "1" and subgroups[index-1] == "0":
+            save_breaks_01.append(index)
+        if subgroups[index] == "1" and subgroups[index+1] == "0":
+            save_breaks_02.append(index)
+    final_subgroups = [
+        list(range(save_breaks_01[index], save_breaks_02[index] + 2)) 
+        for index in range(len(save_breaks_01))
+    ]  # e.g. [[0, 1, 2], [3, 4, 5], [6, 7, 8]]
+    
+    # Identify the lines that not end in"+" 
+    # Identify the lines that not end in"+" 
+    flat_final_groups = sum(final_subgroups, [])
+    no_plus_lines = [
+        index for index in range(len(lines)) if not index in flat_final_groups
+    ]
+
+    no_plus_lines.insert(0, - 1) # add negative threshold
+    no_plus_lines.insert(len(lines), len(lines) + 100) # add positive threshold
+    
+    # Merge no_plus_lines and final_subgroups
+    position_to_add_subgroups = [
+        index
+        for index in range(len(no_plus_lines) - 1)
+        if (no_plus_lines[index] + 1) != no_plus_lines[index+1] 
+    ]
+    norm_v = list(range(1, len(position_to_add_subgroups)+ 1))
+    position_to_add_subgroups = list(map(add, position_to_add_subgroups, norm_v))
+
+    for index in range(len(final_subgroups)):
+        no_plus_lines.insert(position_to_add_subgroups[index], final_subgroups[index])
+    no_plus_lines.pop(0)
+    no_plus_lines.pop(-1)
+    
+    # Create the new x string
+    final_x = list()
+    for index in no_plus_lines:
+        if isinstance(index, list):
+            final_x.append("".join([lines[index2] for index2 in index]))
+        else:
+            final_x.append(lines[index])
+    return "\n".join(final_x)
+
+# If a line from file ends in a "+", merge with the next line.
+def ends_with_plus(x):
+    # get True is "+" is the last character
+    last_is_plus = lambda x: x[-1] == "+"
+    
+    # Remove all whitespace at the end.
+    lines = [regex.sub(r'\s+S*$', '', line) for line in x.split("\n")]
+    
+    # Get "1" is the last chr is "+" otherwise get "0"
+    is_last_chr_plus = list()
+    for line in lines:
+        if len(line) > 0:
+            cond = str(int(last_is_plus(line)))
+        else:
+            cond = "0"
+        is_last_chr_plus.append(cond)
+    subgroups = "".join(is_last_chr_plus) # e.g. "011000100"
+    
+    # If no "+", then return the original string
+    if int(subgroups) == 0:
+        return x
+    
+    # Create subgroups
+    # Some lines finish with "+" identiy those lines and create subgroups.
+    save_breaks_01 = []
+    save_breaks_02 = []
+    for index in range(0, len(subgroups) - 1):
+        if subgroups[index] == "1" and subgroups[index-1] == "0":
+            save_breaks_01.append(index)
+        if subgroups[index] == "1" and subgroups[index+1] == "0":
+            save_breaks_02.append(index)
+    final_subgroups = [
+        list(range(save_breaks_01[index], save_breaks_02[index] + 2)) 
+        for index in range(len(save_breaks_01))
+    ]  # e.g. [[0, 1, 2], [3, 4, 5], [6, 7, 8]]
+    
+    # Identify the lines that not end in"+" 
+    flat_final_groups = sum(final_subgroups, [])
+    no_plus_lines = [
+        index for index in range(len(lines)) if not index in flat_final_groups
+    ]
+    no_plus_lines.insert(0, - 1) # add negative threshold
+    no_plus_lines.insert(len(lines), len(lines) + 100) # add positive threshold
+    
+    # Merge no_plus_lines and final_subgroups
+    position_to_add_subgroups = [
+        index
+        for index in range(len(no_plus_lines) - 1)
+        if (no_plus_lines[index] + 1) != no_plus_lines[index+1] 
+    ]
+    norm_v = list(range(1, len(position_to_add_subgroups)+ 1))
+    position_to_add_subgroups = list(map(add, position_to_add_subgroups, norm_v))
+
+    for index in range(len(final_subgroups)):
+        no_plus_lines.insert(position_to_add_subgroups[index], final_subgroups[index])
+    no_plus_lines.pop(0)
+    no_plus_lines.pop(-1)
+    
+    # Create the new x string
+    final_x = list()
+    for index in no_plus_lines:
+        if isinstance(index, list):
+            final_x.append("".join([lines[index2] for index2 in index]))
+        else:
+            final_x.append(lines[index])
+    return "\n".join(final_x)
+
 def translate(x: str, black: bool = True) -> str:
     """Translates a JavaScript script to a Python script.
 
@@ -570,7 +707,6 @@ def translate(x: str, black: bool = True) -> str:
         >>> ee.Initialize()
         >>> translate("var x = ee.ImageCollection('COPERNICUS/S2_SR')")
     """
-
     x = normalize_fn_style(x)
     x = variable_definition(x)
     x = logical_operators_boolean_null_comments(x)
@@ -584,7 +720,9 @@ def translate(x: str, black: bool = True) -> str:
     x = if_statement(x)
     x = array_isArray(x)
     x = add_packages(x)
-
+    x = ends_with_plus(x)
+    x = ends_with_equal(x)
+    
     if black:
         x = format_str(x, mode=FileMode())
 

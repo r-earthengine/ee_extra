@@ -1,6 +1,7 @@
 from ee_extra import translate
 from pprint import pprint
 import unittest
+import ee
 
 ee.Initialize()
 

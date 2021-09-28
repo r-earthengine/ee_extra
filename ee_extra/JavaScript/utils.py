@@ -95,7 +95,75 @@ def multiline_comments(x):
     return x
 
 
-# 5. /* ... */: Add "#" to each line of the multiline comment block.
+# If a line from file ends in a "+", merge with the next line.
+def starts_with_plus(x):
+    # get True is "+" is the last character
+    first_is_dot = lambda x: x[0] == "."
+    
+    # Remove all whitespace at the end.
+    lines = [regex.sub(r'^\s+S*', '', line) for line in x.split("\n")]
+    
+    # Get "1" is the first chr is "." otherwise get "0"
+    is_first_chr_dot = list()
+    for line in lines:
+        if len(line) > 0:
+            cond = str(int(first_is_dot(line)))
+        else:
+            cond = "0"
+        is_first_chr_dot.append(cond)
+    subgroups = "".join(is_first_chr_dot) # e.g. "011000100"
+    
+    # If no "." at the begining, then return the original string
+    if int(subgroups) == 0:
+        return x
+    
+    # Create subgroups
+    # Some lines finish with "+" identiy those lines and create subgroups.
+    save_breaks_01 = []
+    save_breaks_02 = []
+    for index in range(0, len(subgroups) - 1):
+        if subgroups[index] == "1" and subgroups[index-1] == "0":
+            save_breaks_01.append(index)
+        if subgroups[index] == "1" and subgroups[index+1] == "0":
+            save_breaks_02.append(index)
+    final_subgroups = [
+        list(range(save_breaks_01[index] - 1, save_breaks_02[index] + 1)) 
+        for index in range(len(save_breaks_01))
+    ]  # e.g. [[0, 1, 2], [3, 4, 5], [6, 7, 8]]
+    
+    # Identify the lines that not starts with "." 
+    flat_final_groups = sum(final_subgroups, [])
+    no_plus_lines = [
+        index for index in range(len(lines)) if not index in flat_final_groups
+    ]
+    no_plus_lines.insert(0, - 1) # add negative threshold
+    no_plus_lines.insert(len(lines), len(lines) + 100) # add positive threshold
+    
+    # Merge no_plus_lines and final_subgroups
+    position_to_add_subgroups = [
+        index
+        for index in range(len(no_plus_lines) - 1)
+        if (no_plus_lines[index] + 1) != no_plus_lines[index+1] 
+    ]
+    norm_v = list(range(1, len(position_to_add_subgroups)+ 1))
+    position_to_add_subgroups = list(map(add, position_to_add_subgroups, norm_v))
+
+    for index in range(len(final_subgroups)):
+        no_plus_lines.insert(position_to_add_subgroups[index], final_subgroups[index])
+    no_plus_lines.pop(0)
+    no_plus_lines.pop(-1)
+    
+    # Create the new x string
+    final_x = list()
+    for index in no_plus_lines:
+        if isinstance(index, list):
+            final_x.append("".join([lines[index2] for index2 in index]))
+        else:
+            final_x.append(lines[index])
+    return "\n".join(final_x)
+
+
+# 5.Add \ to the next line
 def multiline_method_chain(x):
     lines = x.split("\n")
     for i in range(len(lines)):
@@ -393,38 +461,42 @@ def dictionary_object_access(x):
     pattern = r"^(?=.*[\x00-\x7F][^\s]+\.[\x00-\x7F][^\s]+)(?!.*http).*$"
     matches = re.findall(pattern, x, re.MULTILINE)
 
-    # match = matches[0]
+    # match = matches[1]
     for match in matches:
         if len(match) > 0:
             if match[0] == "#":
                 continue
 
-        # Search in one line.
+        # Search in one specific line.
         pattern1 = (
             r"[A-Za-z0-9Α-Ωα-ωίϊΐόάέύϋΰήώ\[\]_]+\.[A-Za-z0-9Α-Ωα-ωίϊΐόάέύϋΰήώ\[\]_]+"
         )
         pattern2 = pattern1 + "."
 
-        # <name>.<name> dicts take a decision based on the next letter but when
-        # the next letter is a \n it cause problems. When this happens we add a ')'
+        # This bunch of code take a decision based on the next letter. However, if the
+        # next letter is a \n it could cause problems. When this happens we add a ')' to 
+        # the end of the line.
         matches_at_line1 = re.findall(pattern1, match)
         matches_at_line2 = re.findall(pattern2, match)
 
         matches_at_line = list()
-        for _, y in zip(matches_at_line1, matches_at_line2):
-            if _ == y:
-                matches_at_line.append(y + ")")
+        for m1, m2 in zip(matches_at_line1, matches_at_line2):
+            if m1 == m2:
+                matches_at_line.append(m2 + ")")
             else:
-                matches_at_line.append(y)
+                matches_at_line.append(m2)
 
-        # match_line = matches_at_line[0]
+        # remove square brackets (It is important to fix ee.Geometry.* issues)
+        matches_at_line = [x.replace("]", "").replace("[", "") for x in matches_at_line]        
+                
+        # match_line = matches_at_line[1]
         for match_line in matches_at_line:
             # If is a number pass
             if is_float(match_line[:-1]):
                 continue
 
-            # If is a method or a function
-            if ("(" in match_line[-1]) or ("ee." in match_line[:-1]):
+            # If is a method or a function, does not consider Math.* methods
+            if (("(" in match_line[-1]) or ("ee." in match_line[:-1])) and (not "Math." in match_line):
                 continue
 
             # If is a math
@@ -443,11 +515,13 @@ def dictionary_object_access(x):
 def keyword_arguments_object(x):
     pattern = r"\({(.*?)}\)"
     matches = re.findall(pattern, x, re.DOTALL)
+    matches = list(set(matches)) # Remove duplicate matches (See Test:test_line_breaks01)
     if len(matches) > 0:
         for match in matches:
             x = x.replace("{" + match + "}", "**{" + match + "}")
     pattern = r"ee\.Dictionary\(\*\*{"
     matches = re.findall(pattern, x, re.DOTALL)
+    matches = list(set(matches)) # Remove duplicate matches (See Test:test_line_breaks01)
     if len(matches) > 0:
         for match in matches:
             x = x.replace(match, "ee.Dictionary({")
@@ -711,7 +785,10 @@ def translate(x: str, black: bool = True) -> str:
     x = variable_definition(x)
     x = logical_operators_boolean_null_comments(x)
     x = multiline_comments(x)
-    x = multiline_method_chain(x)
+    x = starts_with_plus(x)
+    x = ends_with_plus(x)
+    x = ends_with_equal(x)    
+    # x = multiline_method_chain(x)  ## Acording to me this is not necessary if we merge lines with 'starts_with_plus'.
     x = for_loop(x)
     x = function_definition(x)
     x = dictionary_keys(x)
@@ -720,10 +797,6 @@ def translate(x: str, black: bool = True) -> str:
     x = if_statement(x)
     x = array_isArray(x)
     x = add_packages(x)
-    x = ends_with_plus(x)
-    x = ends_with_equal(x)
-    
     if black:
         x = format_str(x, mode=FileMode())
-
     return x

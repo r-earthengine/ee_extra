@@ -71,7 +71,7 @@ class Test(unittest.TestCase):
         });
         print('Linear ring region and specified crs', thumbnail3);
         """
-        self.assertIsInstance(translate(text), str)
+        self.assertIsInstance(translate(text, black=False), str)
 
     def test_line_breaks01(self):
         text = """
@@ -87,7 +87,7 @@ class Test(unittest.TestCase):
                     .focal_min({kernel: kernel, iterations: 2})
                     .focal_max({kernel: kernel, iterations: 2});
         """
-        self.assertIsInstance(translate(text), str)
+        self.assertIsInstance(translate(text, black=False), str)
     
     def test_external_libs_01(self):
         text = """
@@ -108,7 +108,7 @@ class Test(unittest.TestCase):
         var gearys = nir.subtract(neighs).pow(2).reduce(ee.Reducer.sum())
                     .divide(Math.pow(9, 2));
         """
-        self.assertIsInstance(translate(text), str)
+        self.assertIsInstance(translate(text, black=False), str)
 
     def test_dot_conversion02(self):
         text = """
@@ -141,7 +141,7 @@ class Test(unittest.TestCase):
         maxDistance: 80 * 1000  // 80 kilometers
         });
         """
-        self.assertIsInstance(translate(text), str)
+        self.assertIsInstance(translate(text, black=False), str)
 
 if __name__ == "__main__":
     unittest.main()

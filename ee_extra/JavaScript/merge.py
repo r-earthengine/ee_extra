@@ -8,11 +8,9 @@ import ee
 from box import Box
 from js2py import EvalJs
 
-from ee_extra.JavaScript.install import (
-    _convert_path_to_ee_extra,
-    _get_ee_sources_path,
-    _open_module_as_str,
-)
+from ee_extra.JavaScript.install import (_convert_path_to_ee_extra,
+                                         _get_ee_sources_path,
+                                         _open_module_as_str)
 from ee_extra.JavaScript.utils import translate
 
 

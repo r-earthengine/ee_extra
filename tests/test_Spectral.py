@@ -25,13 +25,13 @@ datasets = [
     "LANDSAT/LT04/C01/T1_SR",
     "LANDSAT/LT04/C01/T2_SR",
     "MODIS/006/MOD09GQ",
-    #"MODIS/006/MYD09GQ",
+    # "MODIS/006/MYD09GQ",
     "MODIS/006/MOD09GA",
-    #"MODIS/006/MYD09GA",
+    # "MODIS/006/MYD09GA",
     "MODIS/006/MOD09Q1",
-    #"MODIS/006/MYD09Q1",
+    # "MODIS/006/MYD09Q1",
     "MODIS/006/MOD09A1",
-    #"MODIS/006/MYD09A1",
+    # "MODIS/006/MYD09A1",
     "MODIS/006/MCD43A4",
 ]
 
@@ -81,7 +81,9 @@ class Test(unittest.TestCase):
         for dataset in tasseledcap_datasets:
             with self.subTest(i=dataset):
                 x = ee.ImageCollection(dataset).filterBounds(point).limit(10)
-                self.assertIsInstance(tasseledCap(x), ee.imagecollection.ImageCollection)
+                self.assertIsInstance(
+                    tasseledCap(x), ee.imagecollection.ImageCollection
+                )
 
                 x = ee.ImageCollection(dataset).filterBounds(point).first()
                 self.assertIsInstance(tasseledCap(x), ee.image.Image)

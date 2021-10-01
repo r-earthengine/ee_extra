@@ -1,20 +1,23 @@
+import warnings
+from typing import Optional, Union
+
 import ee
-from typing import Union, Optional
 
 from ee_extra.STAC.utils import _get_platform_STAC
 
+
 def maskClouds(
-    x: Union[ee.Image,ee.ImageCollection],
+    x: Union[ee.Image, ee.ImageCollection],
     method: str = "cloud_prob",
-    prob: Union[int,float] = 60,
+    prob: Union[int, float] = 60,
     maskCirrus: bool = True,
     maskShadows: bool = True,
     scaledImage: bool = False,
     dark: float = 0.15,
     cloudDist: int = 1000,
     buffer: int = 250,
-    cdi Optional[float] = None,
-) -> Union[ee.Image,ee.ImageCollection]:
+    cdi: Optional[float] = None,
+) -> Union[ee.Image, ee.ImageCollection]:
     """Masks clouds and shadows in an image or image collection (valid just for Surface Reflectance products).
 
     Parameters:
@@ -35,7 +38,7 @@ def maskClouds(
             A cdi = None means that the index is not used. For more info see 'Frantz, D., HaS, E., Uhl, A., Stoffels, J., Hill, J. 2018. Improvement of the Fmask algorithm for Sentinel-2 images:
             Separating clouds from bright surfaces based on parallax effects. Remote Sensing of Environment 2015: 471-481'.
             This parameter is ignored for Landsat products.
-    
+
     Returns:
         Cloud-shadow masked image or image collection.
     """

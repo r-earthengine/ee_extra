@@ -145,7 +145,7 @@ def _install(x: str, update: bool, quiet: bool = False):
         quiet or print(f"The module '{x}' was successfully installed!")
 
 
-def install(x: str, update: bool = False,quiet: bool = False) -> list:
+def install(x: str, update: bool = False, quiet: bool = False) -> list:
     """Install an Earth Engine modue and its dependencies.
 
     The specified dependencies will be installed in the ee_extra module path.

@@ -265,7 +265,7 @@ def _get_tc_coefficients(platformDict: dict) -> dict:
 
     Returns:
         Map dictionary with band names and corresponding coefficients for brightness
-        greenness, and wetness. 
+        greenness, and wetness.
 
     Raises:
         Exception : If the platform has no supported coefficients.

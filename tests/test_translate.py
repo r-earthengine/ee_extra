@@ -1,8 +1,12 @@
-from ee_extra import translate
-from pprint import pprint
 import unittest
+from pprint import pprint
+
+from ee_extra import translate
+
+
 class Test(unittest.TestCase):
     """Tests translate package"""
+
     def test_plus_sign01(self):
         """Test translation of plus sign"""
         text = """
@@ -20,7 +24,7 @@ class Test(unittest.TestCase):
         """
         text = text.replace("\n    ", "")
         self.assertIsInstance(translate(text, black=False), str)
-    
+
     def test_plus_sign02(self):
         """Test translation of plus sign"""
 
@@ -88,7 +92,7 @@ class Test(unittest.TestCase):
                     .focal_max({kernel: kernel, iterations: 2});
         """
         self.assertIsInstance(translate(text, black=False), str)
-    
+
     def test_external_libs_01(self):
         text = """
         // Create a list of weights for a 9x9 kernel.
@@ -142,6 +146,7 @@ class Test(unittest.TestCase):
         });
         """
         self.assertIsInstance(translate(text, black=False), str)
+
 
 if __name__ == "__main__":
     unittest.main()

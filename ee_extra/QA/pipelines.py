@@ -1,10 +1,14 @@
-import ee
 from typing import Union
+
+import ee
 
 from ee_extra.QA.clouds import maskClouds
 from ee_extra.STAC.core import scaleAndOffset
 
-def preprocess(x: Union[ee.Image,ee.ImageCollection], **kwargs) -> Union[ee.Image,ee.ImageCollection]:
+
+def preprocess(
+    x: Union[ee.Image, ee.ImageCollection], **kwargs
+) -> Union[ee.Image, ee.ImageCollection]:
     """Pre-process the image, or image collection: masks clouds and shadows, and scales and offsets the image, or image collection.
 
     Parameters:

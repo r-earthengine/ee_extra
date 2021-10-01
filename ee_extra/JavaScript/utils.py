@@ -99,10 +99,10 @@ def multiline_comments(x):
 def starts_with_plus(x):
     # get True is "+" is the last character
     first_is_dot = lambda x: x[0] == "."
-    
+
     # Remove all whitespace at the end.
-    lines = [regex.sub(r'^\s+S*', '', line) for line in x.split("\n")]
-    
+    lines = [regex.sub(r"^\s+S*", "", line) for line in x.split("\n")]
+
     # Get "1" is the first chr is "." otherwise get "0"
     is_first_chr_dot = list()
     for line in lines:
@@ -111,48 +111,48 @@ def starts_with_plus(x):
         else:
             cond = "0"
         is_first_chr_dot.append(cond)
-    subgroups = "".join(is_first_chr_dot) # e.g. "011000100"
-    
+    subgroups = "".join(is_first_chr_dot)  # e.g. "011000100"
+
     # If no "." at the begining, then return the original string
     if int(subgroups) == 0:
         return x
-    
+
     # Create subgroups
     # Some lines finish with "+" identiy those lines and create subgroups.
     save_breaks_01 = []
     save_breaks_02 = []
     for index in range(0, len(subgroups) - 1):
-        if subgroups[index] == "1" and subgroups[index-1] == "0":
+        if subgroups[index] == "1" and subgroups[index - 1] == "0":
             save_breaks_01.append(index)
-        if subgroups[index] == "1" and subgroups[index+1] == "0":
+        if subgroups[index] == "1" and subgroups[index + 1] == "0":
             save_breaks_02.append(index)
     final_subgroups = [
-        list(range(save_breaks_01[index] - 1, save_breaks_02[index] + 1)) 
+        list(range(save_breaks_01[index] - 1, save_breaks_02[index] + 1))
         for index in range(len(save_breaks_01))
     ]  # e.g. [[0, 1, 2], [3, 4, 5], [6, 7, 8]]
-    
-    # Identify the lines that not starts with "." 
+
+    # Identify the lines that not starts with "."
     flat_final_groups = sum(final_subgroups, [])
     no_plus_lines = [
         index for index in range(len(lines)) if not index in flat_final_groups
     ]
-    no_plus_lines.insert(0, - 1) # add negative threshold
-    no_plus_lines.insert(len(lines), len(lines) + 100) # add positive threshold
-    
+    no_plus_lines.insert(0, -1)  # add negative threshold
+    no_plus_lines.insert(len(lines), len(lines) + 100)  # add positive threshold
+
     # Merge no_plus_lines and final_subgroups
     position_to_add_subgroups = [
         index
         for index in range(len(no_plus_lines) - 1)
-        if (no_plus_lines[index] + 1) != no_plus_lines[index+1] 
+        if (no_plus_lines[index] + 1) != no_plus_lines[index + 1]
     ]
-    norm_v = list(range(1, len(position_to_add_subgroups)+ 1))
+    norm_v = list(range(1, len(position_to_add_subgroups) + 1))
     position_to_add_subgroups = list(map(add, position_to_add_subgroups, norm_v))
 
     for index in range(len(final_subgroups)):
         no_plus_lines.insert(position_to_add_subgroups[index], final_subgroups[index])
     no_plus_lines.pop(0)
     no_plus_lines.pop(-1)
-    
+
     # Create the new x string
     final_x = list()
     for index in no_plus_lines:
@@ -474,7 +474,7 @@ def dictionary_object_access(x):
         pattern2 = pattern1 + "."
 
         # This bunch of code take a decision based on the next letter. However, if the
-        # next letter is a \n it could cause problems. When this happens we add a ')' to 
+        # next letter is a \n it could cause problems. When this happens we add a ')' to
         # the end of the line.
         matches_at_line1 = re.findall(pattern1, match)
         matches_at_line2 = re.findall(pattern2, match)
@@ -487,8 +487,8 @@ def dictionary_object_access(x):
                 matches_at_line.append(m2)
 
         # remove square brackets (It is important to fix ee.Geometry.* issues)
-        matches_at_line = [x.replace("]", "").replace("[", "") for x in matches_at_line]        
-                
+        matches_at_line = [x.replace("]", "").replace("[", "") for x in matches_at_line]
+
         # match_line = matches_at_line[1]
         for match_line in matches_at_line:
             # If is a number pass
@@ -496,7 +496,9 @@ def dictionary_object_access(x):
                 continue
 
             # If is a method or a function, does not consider Math.* methods
-            if (("(" in match_line[-1]) or ("ee." in match_line[:-1])) and (not "Math." in match_line):
+            if (("(" in match_line[-1]) or ("ee." in match_line[:-1])) and (
+                not "Math." in match_line
+            ):
                 continue
 
             # If is a math
@@ -515,13 +517,17 @@ def dictionary_object_access(x):
 def keyword_arguments_object(x):
     pattern = r"\({(.*?)}\)"
     matches = re.findall(pattern, x, re.DOTALL)
-    matches = list(set(matches)) # Remove duplicate matches (See Test:test_line_breaks01)
+    matches = list(
+        set(matches)
+    )  # Remove duplicate matches (See Test:test_line_breaks01)
     if len(matches) > 0:
         for match in matches:
             x = x.replace("{" + match + "}", "**{" + match + "}")
     pattern = r"ee\.Dictionary\(\*\*{"
     matches = re.findall(pattern, x, re.DOTALL)
-    matches = list(set(matches)) # Remove duplicate matches (See Test:test_line_breaks01)
+    matches = list(
+        set(matches)
+    )  # Remove duplicate matches (See Test:test_line_breaks01)
     if len(matches) > 0:
         for match in matches:
             x = x.replace(match, "ee.Dictionary({")
@@ -634,10 +640,10 @@ def add_packages(x):
 def ends_with_equal(x):
     # get True is "=" is the last character
     last_is_plus = lambda x: x[-1] == "="
-    
+
     # Remove all whitespace at the end.
-    lines = [regex.sub(r'\s+S*$', '', line) for line in x.split("\n")]
-    
+    lines = [regex.sub(r"\s+S*$", "", line) for line in x.split("\n")]
+
     # Get "1" is the last chr is "=" otherwise get "0"
     is_last_chr_plus = list()
     for line in lines:
@@ -646,50 +652,50 @@ def ends_with_equal(x):
         else:
             cond = "0"
         is_last_chr_plus.append(cond)
-    subgroups = "".join(is_last_chr_plus) # e.g. "011000100"
-    
+    subgroups = "".join(is_last_chr_plus)  # e.g. "011000100"
+
     # If no "=", then return the original string
     if int(subgroups) == 0:
         return x
-    
+
     # Create subgroups
     # Some lines finish with "+" identiy those lines and create subgroups.
     save_breaks_01 = []
     save_breaks_02 = []
     for index in range(0, len(subgroups) - 1):
-        if subgroups[index] == "1" and subgroups[index-1] == "0":
+        if subgroups[index] == "1" and subgroups[index - 1] == "0":
             save_breaks_01.append(index)
-        if subgroups[index] == "1" and subgroups[index+1] == "0":
+        if subgroups[index] == "1" and subgroups[index + 1] == "0":
             save_breaks_02.append(index)
     final_subgroups = [
-        list(range(save_breaks_01[index], save_breaks_02[index] + 2)) 
+        list(range(save_breaks_01[index], save_breaks_02[index] + 2))
         for index in range(len(save_breaks_01))
     ]  # e.g. [[0, 1, 2], [3, 4, 5], [6, 7, 8]]
-    
-    # Identify the lines that not end in"+" 
-    # Identify the lines that not end in"+" 
+
+    # Identify the lines that not end in"+"
+    # Identify the lines that not end in"+"
     flat_final_groups = sum(final_subgroups, [])
     no_plus_lines = [
         index for index in range(len(lines)) if not index in flat_final_groups
     ]
 
-    no_plus_lines.insert(0, - 1) # add negative threshold
-    no_plus_lines.insert(len(lines), len(lines) + 100) # add positive threshold
-    
+    no_plus_lines.insert(0, -1)  # add negative threshold
+    no_plus_lines.insert(len(lines), len(lines) + 100)  # add positive threshold
+
     # Merge no_plus_lines and final_subgroups
     position_to_add_subgroups = [
         index
         for index in range(len(no_plus_lines) - 1)
-        if (no_plus_lines[index] + 1) != no_plus_lines[index+1] 
+        if (no_plus_lines[index] + 1) != no_plus_lines[index + 1]
     ]
-    norm_v = list(range(1, len(position_to_add_subgroups)+ 1))
+    norm_v = list(range(1, len(position_to_add_subgroups) + 1))
     position_to_add_subgroups = list(map(add, position_to_add_subgroups, norm_v))
 
     for index in range(len(final_subgroups)):
         no_plus_lines.insert(position_to_add_subgroups[index], final_subgroups[index])
     no_plus_lines.pop(0)
     no_plus_lines.pop(-1)
-    
+
     # Create the new x string
     final_x = list()
     for index in no_plus_lines:
@@ -699,14 +705,15 @@ def ends_with_equal(x):
             final_x.append(lines[index])
     return "\n".join(final_x)
 
+
 # If a line from file ends in a "+", merge with the next line.
 def ends_with_plus(x):
     # get True is "+" is the last character
     last_is_plus = lambda x: x[-1] == "+"
-    
+
     # Remove all whitespace at the end.
-    lines = [regex.sub(r'\s+S*$', '', line) for line in x.split("\n")]
-    
+    lines = [regex.sub(r"\s+S*$", "", line) for line in x.split("\n")]
+
     # Get "1" is the last chr is "+" otherwise get "0"
     is_last_chr_plus = list()
     for line in lines:
@@ -715,48 +722,48 @@ def ends_with_plus(x):
         else:
             cond = "0"
         is_last_chr_plus.append(cond)
-    subgroups = "".join(is_last_chr_plus) # e.g. "011000100"
-    
+    subgroups = "".join(is_last_chr_plus)  # e.g. "011000100"
+
     # If no "+", then return the original string
     if int(subgroups) == 0:
         return x
-    
+
     # Create subgroups
     # Some lines finish with "+" identiy those lines and create subgroups.
     save_breaks_01 = []
     save_breaks_02 = []
     for index in range(0, len(subgroups) - 1):
-        if subgroups[index] == "1" and subgroups[index-1] == "0":
+        if subgroups[index] == "1" and subgroups[index - 1] == "0":
             save_breaks_01.append(index)
-        if subgroups[index] == "1" and subgroups[index+1] == "0":
+        if subgroups[index] == "1" and subgroups[index + 1] == "0":
             save_breaks_02.append(index)
     final_subgroups = [
-        list(range(save_breaks_01[index], save_breaks_02[index] + 2)) 
+        list(range(save_breaks_01[index], save_breaks_02[index] + 2))
         for index in range(len(save_breaks_01))
     ]  # e.g. [[0, 1, 2], [3, 4, 5], [6, 7, 8]]
-    
-    # Identify the lines that not end in"+" 
+
+    # Identify the lines that not end in"+"
     flat_final_groups = sum(final_subgroups, [])
     no_plus_lines = [
         index for index in range(len(lines)) if not index in flat_final_groups
     ]
-    no_plus_lines.insert(0, - 1) # add negative threshold
-    no_plus_lines.insert(len(lines), len(lines) + 100) # add positive threshold
-    
+    no_plus_lines.insert(0, -1)  # add negative threshold
+    no_plus_lines.insert(len(lines), len(lines) + 100)  # add positive threshold
+
     # Merge no_plus_lines and final_subgroups
     position_to_add_subgroups = [
         index
         for index in range(len(no_plus_lines) - 1)
-        if (no_plus_lines[index] + 1) != no_plus_lines[index+1] 
+        if (no_plus_lines[index] + 1) != no_plus_lines[index + 1]
     ]
-    norm_v = list(range(1, len(position_to_add_subgroups)+ 1))
+    norm_v = list(range(1, len(position_to_add_subgroups) + 1))
     position_to_add_subgroups = list(map(add, position_to_add_subgroups, norm_v))
 
     for index in range(len(final_subgroups)):
         no_plus_lines.insert(position_to_add_subgroups[index], final_subgroups[index])
     no_plus_lines.pop(0)
     no_plus_lines.pop(-1)
-    
+
     # Create the new x string
     final_x = list()
     for index in no_plus_lines:
@@ -765,6 +772,7 @@ def ends_with_plus(x):
         else:
             final_x.append(lines[index])
     return "\n".join(final_x)
+
 
 def translate(x: str, black: bool = True) -> str:
     """Translates a JavaScript script to a Python script.
@@ -787,7 +795,7 @@ def translate(x: str, black: bool = True) -> str:
     x = multiline_comments(x)
     x = starts_with_plus(x)
     x = ends_with_plus(x)
-    x = ends_with_equal(x)    
+    x = ends_with_equal(x)
     # x = multiline_method_chain(x)  ## Acording to me this is not necessary if we merge lines with 'starts_with_plus'.
     x = for_loop(x)
     x = function_definition(x)

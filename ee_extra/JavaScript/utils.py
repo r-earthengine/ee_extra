@@ -1,29 +1,37 @@
-"""Auxiliary module store functions to translate JavaScript to Python."""
+"""Auxiliary module with functions to translate JavaScript scripts to Python."""
 
-import random
-import re
-import string
-from operator import add
-
-import regex
 from black import FileMode, format_str
+from jsbeautifier import beautify
+from ee_extra import (
+    from_bin_to_list,
+    func_translate,
+    fix_for_loop,
+    fix_while_loop,
+    delete_brackets,
+    var_remove,
+    fix_inline_iterators,
+)
+import regex
 
 
-# 1. Normalize function name
-# For example: "var exp = function(x){ }" --> "function exp(x) { }"
-def normalize_fn_style(x: str) -> str:
-    """Normalize Javascript function style
+def normalize_fn_name(x: str) -> str:
+    """Normalize Javascript function name
 
     var xx = function(x){} --> function xx(x){}
 
     Args:
-        x (str): A Js script as string.
+        x (str): A string with Javascript syntax.
 
     Returns:
         [str]: Python string
+
+    Examples:
+        >>> from ee_extra import normalize_fn_name
+        >>> normalize_fn_name("var exp = function(x){'hi'}")
+        >>> # function exp(x){'hi'}
     """
     pattern = "var\s*(.*[^\s])\s*=\s*function"
-    matches = re.finditer(pattern, x, re.MULTILINE)
+    matches = regex.finditer(pattern, x, regex.MULTILINE)
     for _, item in enumerate(matches):
         match = item.group(0)
         group = item.group(1)
@@ -31,37 +39,23 @@ def normalize_fn_style(x: str) -> str:
     return x
 
 
-# 2. Remove curly braces
-# For example: "obj={'b':'a'}}" --> "obj={'b':'a'}"
-def delete_brackets(x):
-    counter = 0
-    newstring = ""
-    for char in x:
-        if char == "{":
-            counter += 1
-        elif char == "}":
-            counter -= 1
-        if counter >= 0:
-            newstring += char
-        else:
-            counter = 0
-    return newstring
+def change_operators(x):
+    """Change logical operators, boolean, null and comments
 
+        m = s.and(that); -> m = s.And(that)
 
-# 3. Remove reserved keyword "var"
-# For example: "var x = 1" --> "x = 1"
-def variable_definition(x):
-    pattern = r"var(.*?)="
-    matches = re.findall(pattern, x, re.DOTALL)
-    if len(matches) > 0:
-        for match in matches:
-            x = x.replace(f"var{match}=", f"{match.replace(' ','')} =")
-    return x
+    Args:
+        x (str): A string with Javascript syntax.
 
+    Returns:
+        [str]: Python string
 
-# 4. Change logical operators, boolean, null and comments
-# For example: "m = s.and(that);" -> "m = s.And(that)"
-def logical_operators_boolean_null_comments(x):
+    Examples:
+        >>> from ee_extra import change_operators
+        >>> change_operators("s.and(that);")
+        >>> # m = s.And(that)
+    """
+
     reserved = {
         "\.and\(": ".And(",
         "\.or\(": ".Or(",
@@ -77,17 +71,28 @@ def logical_operators_boolean_null_comments(x):
 
     for key, item in reserved.items():
         x = regex.sub(key, item, x)
-        # x = x.replace(key, item)
     # Correct https://
     x = x.replace("https:#", "https://")
     x = x.replace("http:#", "http://")
     return x
 
 
-# 5. /* . . . */ : Replace "/*" by "#".
-def multiline_comments(x):
+def fix_multiline_comments(x):
+    """Replace "/*" or "*/ by "#".
+
+    Args:
+        x (str): A string with Javascript syntax.
+
+    Returns:
+        [str]: Python string
+
+    Examples:
+        >>> from ee_extra import fix_multiline_comments
+        >>> fix_multiline_comments("/* hola lesly */")
+        >>> # # hola lesly */
+    """
     pattern = r"/\*(.*?)\*/"
-    matches = re.findall(pattern, x, re.DOTALL)
+    matches = regex.findall(pattern, x, regex.DOTALL)
     if len(matches) > 0:
         for match in matches:
             x = x.replace(match, match.replace("\n", "\n#"))
@@ -95,9 +100,24 @@ def multiline_comments(x):
     return x
 
 
-# If a line from file ends in a "+", merge with the next line.
-def starts_with_plus(x):
-    # get True is "+" is the last character
+def line_starts_with_dot(x):
+    """If a line starts with a dot, merge with the previous line.
+
+    var csaybar = ee.Image(0)  --> var csaybar = ee.Image(0).add(10)
+                    .add(10)
+
+    Args:
+        x (str): A string with Javascript syntax.
+
+    Returns:
+        [str]: Python string
+
+    Examples:
+        >>> from ee_extra import line_starts_with_dot
+        >>> line_starts_with_dot("var cesar = ee.Image(0)\n    .add(10)\n    .add(100)")
+        >>> # 'var cesar = ee.Image(0).add(10).add(100)'
+    """
+    # get True is "." is the first character
     first_is_dot = lambda x: x[0] == "."
 
     # Remove all whitespace at the end.
@@ -117,45 +137,13 @@ def starts_with_plus(x):
     if int(subgroups) == 0:
         return x
 
-    # Create subgroups
-    # Some lines finish with "+" identiy those lines and create subgroups.
-    save_breaks_01 = []
-    save_breaks_02 = []
-    for index in range(0, len(subgroups) - 1):
-        if subgroups[index] == "1" and subgroups[index - 1] == "0":
-            save_breaks_01.append(index)
-        if subgroups[index] == "1" and subgroups[index + 1] == "0":
-            save_breaks_02.append(index)
-    final_subgroups = [
-        list(range(save_breaks_01[index] - 1, save_breaks_02[index] + 1))
-        for index in range(len(save_breaks_01))
-    ]  # e.g. [[0, 1, 2], [3, 4, 5], [6, 7, 8]]
-
-    # Identify the lines that not starts with "."
-    flat_final_groups = sum(final_subgroups, [])
-    no_plus_lines = [
-        index for index in range(len(lines)) if not index in flat_final_groups
-    ]
-    no_plus_lines.insert(0, -1)  # add negative threshold
-    no_plus_lines.insert(len(lines), len(lines) + 100)  # add positive threshold
-
-    # Merge no_plus_lines and final_subgroups
-    position_to_add_subgroups = [
-        index
-        for index in range(len(no_plus_lines) - 1)
-        if (no_plus_lines[index] + 1) != no_plus_lines[index + 1]
-    ]
-    norm_v = list(range(1, len(position_to_add_subgroups) + 1))
-    position_to_add_subgroups = list(map(add, position_to_add_subgroups, norm_v))
-
-    for index in range(len(final_subgroups)):
-        no_plus_lines.insert(position_to_add_subgroups[index], final_subgroups[index])
-    no_plus_lines.pop(0)
-    no_plus_lines.pop(-1)
+    # If the next line starts with ".", merge with the previous line.
+    subgroups = subgroups.replace("01", "11")
+    merge_rule = from_bin_to_list(subgroups)
 
     # Create the new x string
     final_x = list()
-    for index in no_plus_lines:
+    for index in merge_rule:
         if isinstance(index, list):
             final_x.append("".join([lines[index2] for index2 in index]))
         else:
@@ -163,115 +151,119 @@ def starts_with_plus(x):
     return "\n".join(final_x)
 
 
-# 5.Add \ to the next line
-def multiline_method_chain(x):
-    lines = x.split("\n")
-    for i in range(len(lines)):
-        if lines[i].replace(" ", "").startswith("."):
-            j = 1
-            while lines[i - j].replace(" ", "").startswith("#"):
-                j = j + 1
-            lines[i - j] = lines[i - j] + " \\"
-    return "\n".join(lines)
+def ends_with_plus(x):
+    """If a line ends in a "+", merge with the next line.
 
-
-# 7. Random name generator
-def random_fn_name():
-    """Generate a random name"""
-    # body (7)
-    body_list = list()
-    for x in range(9):
-        body_list.append(random.choice(string.ascii_letters))
-    base = "".join(body_list)
-
-    # number (4)
-    tail_list = list()
-    for x in range(8):
-        tail_list.append(random.choice(string.ascii_letters + "123456789"))
-    tail = "".join(tail_list)
-    return base + tail
-
-
-# 8. Identify all the functions
-def indentify_js_functions(x: str) -> list:
-    """Identify all the functions in a Javascript file
+    "hola" + \n "mundo"  --> "hola" + "mundo"
 
     Args:
-        x (str): A Js script as string.
+        x (str): A string with Javascript syntax.
 
     Returns:
-        [list]: A list with all the functions names.
+        [str]: Python string
+
+    Examples:
+        >>> from ee_extra import ends_with_plus
+        >>> ends_with_plus('"hola" + \n "mundo"')
+        >>> # '"hola" + "mundo"'
     """
-    pattern = r"function\s*([A-z0-9]+)?\s*\((?:[^)(]+|\((?:[^)(]+|\([^)(]*\))*\))*\)\s*\{(?:[^}{]+|\{(?:[^}{]+|\{[^}{]*\})*\})*\}"
+    # get True is "+" is the last character
+    last_is_plus = lambda x: x[-1] == "+"
 
-    matches = re.finditer(pattern, x, re.MULTILINE)
-    js_functions = list()
-    for _, item in enumerate(matches):
-        js_functions.append(item.group())
+    # Remove all whitespace at the end.
+    lines = [regex.sub(r"\s+S*$", "", line) for line in x.split("\n")]
 
-    # It is a function with name?
-    return js_functions
-
-
-# 9. Convert simple JavaScript functions to Python
-def from_js_to_py_fn_simple(js_function):
-    """From Javascript to Python 1order
-    js_function
-    Args:
-        js_function (str): A Python string
-
-    Returns:
-        [dict]: Dictionary with py information
-    """
-    # Get function header
-    heard_func = list()
-    for word in js_function:
-        if word == "{":
-            heard_func.append("{")
-            break
-        elif word == "\n":
-            continue
+    # Get "1" is the last chr is "+" otherwise get "0"
+    is_last_chr_plus = list()
+    for line in lines:
+        if len(line) > 0:
+            cond = str(int(last_is_plus(line)))
         else:
-            heard_func.append(word)
+            cond = "0"
+        is_last_chr_plus.append(cond)
+    subgroups = "".join(is_last_chr_plus)  # e.g. "011000100"
 
-    fn_header = "".join(heard_func)
+    # If no "+", then return the original string
+    if int(subgroups) == 0:
+        return x
 
-    # 1. get function name
-    pattern = r"function\s*([\x00-\x7F][^\s]+)\s*\(.*\)\s*{"
-    regex_result = re.findall(pattern, fn_header)
+    # Merge the current line with the next line if '10'
+    subgroups = subgroups.replace("10", "11")
+    merge_rule = from_bin_to_list(subgroups)
 
-    # if it is a anonymous function
-    if len(regex_result) == 0:
-        anonymous = True
-        function_name = random_fn_name()
-    else:
-        anonymous = False
-        function_name = "".join(regex_result[0])
+    # Create the new x string
+    final_x = list()
+    for index in merge_rule:
+        if isinstance(index, list):
+            final_x.append("".join([lines[index2] for index2 in index]))
+        else:
+            final_x.append(lines[index])
+    return "\n".join(final_x)
 
-    # 2. get args
-    pattern = r"function\s*[\x00-\x7F][^\s]*\s*\(\s*([^)]+?)\s*\)\s*{|function\(\s*([^)]+?)\s*\)\s*"
-    args_name = "".join(re.findall(pattern, js_function)[0])
 
-    # 3. get body
-    pattern = r"({(?>[^{}]+|(?R))*})"
-    body = regex.search(pattern, js_function)[0][1:-1]
+def ends_with_equal(x):
+    """If a line ends in a "=", merge with the next line.
 
-    if not body[0] == "\n":
-        body = "\n    " + body
+    var x = \n ee.Image(0)  --> var x = ee.Image(0)
 
-    # 3. py function info
-    py_info = {
-        "fun_name": function_name,
-        "args_name": args_name,
-        "body": body,
-        "fun_py_style": f"def {function_name}({args_name}):{body}\n",
-        "anonymous": anonymous,
-    }
-    return py_info
+    Args:
+        x (str): A string with Javascript syntax.
+
+    Returns:
+        [str]: Python string
+
+    Examples:
+        >>> from ee_extra import ends_with_equal
+        >>> ends_with_equal('var x = \n ee.Image(0)')
+        >>> # var x = ee.Image(0)
+    """
+    # get True is "=" is the last character
+    last_is_plus = lambda x: x[-1] == "="
+
+    # Remove all whitespace at the end.
+    lines = [regex.sub(r"\s+S*$", "", line) for line in x.split("\n")]
+
+    # Get "1" is the last chr is "=" otherwise get "0"
+    is_last_chr_plus = list()
+    for line in lines:
+        if len(line) > 0:
+            cond = str(int(last_is_plus(line)))
+        else:
+            cond = "0"
+        is_last_chr_plus.append(cond)
+    subgroups = "".join(is_last_chr_plus)  # e.g. "011000100"
+
+    # If no "=", then return the original string
+    if int(subgroups) == 0:
+        return x
+
+    # Merge the current line with the next line if '10'
+    subgroups = subgroups.replace("10", "11")
+    merge_rule = from_bin_to_list(subgroups)
+
+    # Create the new x string
+    final_x = list()
+    for index in merge_rule:
+        if isinstance(index, list):
+            final_x.append("".join([lines[index2] for index2 in index]))
+        else:
+            final_x.append(lines[index])
+    return "\n".join(final_x)
 
 
 def fix_identation(x):
-    """Fix identation of a Python script"""
+    """Fix Python string identation
+
+    Args:
+        x (str): A string with Python syntax.
+
+    Returns:
+        [str]: Python string
+
+    Examples:
+        >>> from ee_extra import fix_identation
+        >>> fix_identation("if(i==10){\ni}")
+    """
     ident_base = "    "
     brace_counter = 0
 
@@ -281,7 +273,7 @@ def fix_identation(x):
 
     # remove multiple \n by just one
     pattern = r"\n+"
-    x = re.sub(pattern, r"\n", x)
+    x = regex.sub(pattern, r"\n", x)
 
     # Detect the spaces of the first identation
     x = regex.sub(r"\n\s+", "\n", x)
@@ -308,20 +300,23 @@ def fix_identation(x):
 
 
 def add_identation(x):
-    """Add extra identation in a Python function body"""
+    """Add extra identation in a Python function body
+
+    Args:
+        x (str): A string with Python syntax.
+
+    Returns:
+        [str]: Python string
+
+    Examples:
+        >>> from ee_extra import add_identation
+        >>> add_identation("if(i==10){\ni}")
+    """
     pattern = "\n"
     # identation in the body
-    body_id = re.sub(pattern, r"\n    ", x)
+    body_id = regex.sub(pattern, r"\n    ", x)
     # identation in the header
     return "\n    " + body_id
-
-
-def check_nested_fn_complexity(x):
-    """Thi is useful to avoid errors related to catastrophic backtracking"""
-    pattern = "\s{16}function"
-    if re.search(pattern, x):
-        raise ValueError("This module does not support 4-level nested functions.")
-    return False
 
 
 def remove_extra_spaces(x):
@@ -349,77 +344,16 @@ def remove_extra_spaces(x):
     return x
 
 
-## exports.addBand = function(landsat){ var wrap = function(image){ return 0;} return 0;}
-def remove_assignment_specialcase_01(x):
-    # does anonymous function asignation exists?
-    pattern01 = r"[exports|eeExtraExports].*=.*function.*\("
-    exports_lines = re.findall(pattern01, x)
-
-    if len(exports_lines) > 0:
-        for exports_line in exports_lines:
-            export_str = re.findall("([exports|eeExtraExports].*)=", exports_line)[0]
-            rname = random_fn_name()
-            pattern02 = export_str + "=.*function"
-            x = re.sub(pattern02, ("function " + rname), x)
-
-            # add export at the end of the file
-            x = x + "\n" + export_str + " = " + rname
-    return x
-
-
-def function_definition(x):
-
-    # Special case #01:
-    # export.css = function(landsat){ var wrap = function(image){ return 0;} return 0;}
-    x = remove_assignment_specialcase_01(x)
-
-    # Check nested functionn complexity
-    check_nested_fn_complexity(x)
-
-    # 1. Identify all the Javascript functions
-    js_functions = indentify_js_functions(x)
-
-    # js_function = js_functions[0]
-
-    for js_function in js_functions:
-        nreturns = re.findall(r"return\s", js_function)
-        # 2. if a nested function?
-        if len(nreturns) > 1:
-            # 3. From js function by Python function (1 order)
-            py_function = from_js_to_py_fn_simple(js_function)
-            f_name = py_function["fun_name"]
-            f_args = py_function["args_name"]
-            header = f"def {f_name}({f_args}):\n    "
-
-            # 4. From js function by Python function (2 order)
-            new_body = remove_extra_spaces(py_function["body"])
-            py_body = fix_identation(new_body)
-            second_group = function_definition(py_body)
-            second_group = add_identation(second_group)
-
-            x = x.replace(js_function, header + second_group)
-        else:
-            # 3. Remove Javascript function by Python function
-            py_function = from_js_to_py_fn_simple(js_function)
-            py_function_f = py_function["fun_py_style"]
-            if py_function["anonymous"]:
-                x = x.replace(js_function, py_function["fun_name"])
-                x = "\n" + py_function_f + "\n" + x
-            else:
-                x = x.replace(js_function, "\n" + py_function_f)
-    return x
-
-
 # 7. Change "{x = 1}" by "{'x' = 1}".
 def dictionary_keys(x):
     pattern = r"{(.*?)}"
-    dicts = re.findall(pattern, x, re.DOTALL)
+    dicts = regex.findall(pattern, x, regex.DOTALL)
     if len(dicts) > 0:
         for dic in dicts:
             items = dic.split(",")
             for item in items:
                 pattern = r"(.*?):(.*)"
-                item = re.findall(pattern, item)
+                item = regex.findall(pattern, item)
                 if len(item) > 0:
                     for i in item:
                         i = list(i)
@@ -442,8 +376,8 @@ def dict_replace(x, match, word, new_word):
 
     def inside_quoation_marks(x, word):
         pattern = r"([\"'])(?:(?=(\\?))\2.)*?\1"
-        if re.search(pattern, x):
-            qm_word = re.search(pattern, x).group(0)
+        if regex.search(pattern, x):
+            qm_word = regex.search(pattern, x).group(0)
             return word in qm_word
         else:
             return False
@@ -459,7 +393,7 @@ def dictionary_object_access(x):
 
     # Search in all lines .. it matchs <name>.<name>
     pattern = r"^(?=.*[\x00-\x7F][^\s]+\.[\x00-\x7F][^\s]+)(?!.*http).*$"
-    matches = re.findall(pattern, x, re.MULTILINE)
+    matches = regex.findall(pattern, x, regex.MULTILINE)
 
     # match = matches[1]
     for match in matches:
@@ -476,8 +410,8 @@ def dictionary_object_access(x):
         # This bunch of code take a decision based on the next letter. However, if the
         # next letter is a \n it could cause problems. When this happens we add a ')' to
         # the end of the line.
-        matches_at_line1 = re.findall(pattern1, match)
-        matches_at_line2 = re.findall(pattern2, match)
+        matches_at_line1 = regex.findall(pattern1, match)
+        matches_at_line2 = regex.findall(pattern2, match)
 
         matches_at_line = list()
         for m1, m2 in zip(matches_at_line1, matches_at_line2):
@@ -507,7 +441,7 @@ def dictionary_object_access(x):
                 x = dict_replace(x, match, match_line, new_word)
             else:
                 nlist = match_line[:-1].split(".")
-                arg_nospace = re.sub(r"\s", "", nlist[1])
+                arg_nospace = regex.sub(r"\s", "", nlist[1])
                 new_word = '%s["%s"]' % (nlist[0], arg_nospace)
                 x = dict_replace(x, match, match_line[:-1], new_word)
     return x
@@ -516,7 +450,7 @@ def dictionary_object_access(x):
 # Change "f({x = 1})" por "f(**{x = 1})"
 def keyword_arguments_object(x):
     pattern = r"\({(.*?)}\)"
-    matches = re.findall(pattern, x, re.DOTALL)
+    matches = regex.findall(pattern, x, regex.DOTALL)
     matches = list(
         set(matches)
     )  # Remove duplicate matches (See Test:test_line_breaks01)
@@ -524,7 +458,7 @@ def keyword_arguments_object(x):
         for match in matches:
             x = x.replace("{" + match + "}", "**{" + match + "}")
     pattern = r"ee\.Dictionary\(\*\*{"
-    matches = re.findall(pattern, x, re.DOTALL)
+    matches = regex.findall(pattern, x, regex.DOTALL)
     matches = list(
         set(matches)
     )  # Remove duplicate matches (See Test:test_line_breaks01)
@@ -537,7 +471,7 @@ def keyword_arguments_object(x):
 # Change "if(x){" por "if x:"
 def if_statement(x):
     pattern = r"}(.*?)else(.*?)if(.*?){"
-    matches = re.findall(pattern, x)
+    matches = regex.findall(pattern, x)
     if len(matches) > 0:
         for match in matches:
             match = list(match)
@@ -546,7 +480,7 @@ def if_statement(x):
                 f"elif {match[2]}:",
             )
     pattern = r"if(.*?)\((.*)\)(.*){"
-    matches = re.findall(pattern, x)
+    matches = regex.findall(pattern, x)
     if len(matches) > 0:
         for match in matches:
             match = list(match)
@@ -555,7 +489,7 @@ def if_statement(x):
                 f"if {match[1]}:",
             )
     pattern = r"}(.*?)else(.*?){"
-    matches = re.findall(pattern, x)
+    matches = regex.findall(pattern, x)
     if len(matches) > 0:
         for match in matches:
             match = list(match)
@@ -566,63 +500,11 @@ def if_statement(x):
 # Change "Array.isArray(x)" por "isinstance(x,list)"
 def array_isArray(x):
     pattern = r"Array\.isArray\((.*?)\)"
-    matches = re.findall(pattern, x)
+    matches = regex.findall(pattern, x)
     if len(matches) > 0:
         for match in matches:
             x = x.replace(f"Array.isArray({match})", f"isinstance({match},list)")
     return x
-
-
-# Change "for(var i = 0;i < x.length;i++){" por "for i in range(0,len(x),1):"
-def for_loop(x):
-    pattern = r"for(.*)\((.*);(.*);(.*)\)(.*){"
-    matches = re.findall(pattern, x)
-    if len(matches) > 0:
-        for match in matches:
-            match = list(match)
-            # Get the start value and the iter name
-            i = match[1].replace("var ", "")
-            i = i.replace(" ", "").split("=")
-            start = i[1]
-            i = i[0]
-            # Get the end/stop value
-            end = (
-                match[2]
-                .replace("=", " ")
-                .replace(">", " ")
-                .replace("<", " ")
-                .replace("  ", " ")
-                .split(" ")[-1]
-            )
-            if "." in end:
-                end = end.split(".")[0]
-                end = f"len({end})"
-            # Get the step value
-            if "++" in match[3]:
-                step = 1
-            elif "--" in match[3]:
-                step = -1
-            elif "+=" in match[3]:
-                step = match[3].replace(" ", "").split("+=")[-1]
-            elif "-=" in match[3]:
-                step = match[3].replace(" ", "").split("+=")[-1]
-                step = f"-{step}"
-            x = x.replace(
-                "for"
-                + match[0]
-                + "("
-                + match[1]
-                + ";"
-                + match[2]
-                + ";"
-                + match[3]
-                + ")"
-                + match[4]
-                + "{",
-                f"for {i} in range({start},{end},{step}):",
-            )
-    x = x.replace(";", "")
-    return delete_brackets(x)
 
 
 def add_packages(x):
@@ -636,145 +518,7 @@ def add_packages(x):
     return py_packages + user_dict + exports_dict + x
 
 
-# If a line ends with equal merge it with the new line
-def ends_with_equal(x):
-    # get True is "=" is the last character
-    last_is_plus = lambda x: x[-1] == "="
-
-    # Remove all whitespace at the end.
-    lines = [regex.sub(r"\s+S*$", "", line) for line in x.split("\n")]
-
-    # Get "1" is the last chr is "=" otherwise get "0"
-    is_last_chr_plus = list()
-    for line in lines:
-        if len(line) > 0:
-            cond = str(int(last_is_plus(line)))
-        else:
-            cond = "0"
-        is_last_chr_plus.append(cond)
-    subgroups = "".join(is_last_chr_plus)  # e.g. "011000100"
-
-    # If no "=", then return the original string
-    if int(subgroups) == 0:
-        return x
-
-    # Create subgroups
-    # Some lines finish with "+" identiy those lines and create subgroups.
-    save_breaks_01 = []
-    save_breaks_02 = []
-    for index in range(0, len(subgroups) - 1):
-        if subgroups[index] == "1" and subgroups[index - 1] == "0":
-            save_breaks_01.append(index)
-        if subgroups[index] == "1" and subgroups[index + 1] == "0":
-            save_breaks_02.append(index)
-    final_subgroups = [
-        list(range(save_breaks_01[index], save_breaks_02[index] + 2))
-        for index in range(len(save_breaks_01))
-    ]  # e.g. [[0, 1, 2], [3, 4, 5], [6, 7, 8]]
-
-    # Identify the lines that not end in"+"
-    # Identify the lines that not end in"+"
-    flat_final_groups = sum(final_subgroups, [])
-    no_plus_lines = [
-        index for index in range(len(lines)) if not index in flat_final_groups
-    ]
-
-    no_plus_lines.insert(0, -1)  # add negative threshold
-    no_plus_lines.insert(len(lines), len(lines) + 100)  # add positive threshold
-
-    # Merge no_plus_lines and final_subgroups
-    position_to_add_subgroups = [
-        index
-        for index in range(len(no_plus_lines) - 1)
-        if (no_plus_lines[index] + 1) != no_plus_lines[index + 1]
-    ]
-    norm_v = list(range(1, len(position_to_add_subgroups) + 1))
-    position_to_add_subgroups = list(map(add, position_to_add_subgroups, norm_v))
-
-    for index in range(len(final_subgroups)):
-        no_plus_lines.insert(position_to_add_subgroups[index], final_subgroups[index])
-    no_plus_lines.pop(0)
-    no_plus_lines.pop(-1)
-
-    # Create the new x string
-    final_x = list()
-    for index in no_plus_lines:
-        if isinstance(index, list):
-            final_x.append("".join([lines[index2] for index2 in index]))
-        else:
-            final_x.append(lines[index])
-    return "\n".join(final_x)
-
-
-# If a line from file ends in a "+", merge with the next line.
-def ends_with_plus(x):
-    # get True is "+" is the last character
-    last_is_plus = lambda x: x[-1] == "+"
-
-    # Remove all whitespace at the end.
-    lines = [regex.sub(r"\s+S*$", "", line) for line in x.split("\n")]
-
-    # Get "1" is the last chr is "+" otherwise get "0"
-    is_last_chr_plus = list()
-    for line in lines:
-        if len(line) > 0:
-            cond = str(int(last_is_plus(line)))
-        else:
-            cond = "0"
-        is_last_chr_plus.append(cond)
-    subgroups = "".join(is_last_chr_plus)  # e.g. "011000100"
-
-    # If no "+", then return the original string
-    if int(subgroups) == 0:
-        return x
-
-    # Create subgroups
-    # Some lines finish with "+" identiy those lines and create subgroups.
-    save_breaks_01 = []
-    save_breaks_02 = []
-    for index in range(0, len(subgroups) - 1):
-        if subgroups[index] == "1" and subgroups[index - 1] == "0":
-            save_breaks_01.append(index)
-        if subgroups[index] == "1" and subgroups[index + 1] == "0":
-            save_breaks_02.append(index)
-    final_subgroups = [
-        list(range(save_breaks_01[index], save_breaks_02[index] + 2))
-        for index in range(len(save_breaks_01))
-    ]  # e.g. [[0, 1, 2], [3, 4, 5], [6, 7, 8]]
-
-    # Identify the lines that not end in"+"
-    flat_final_groups = sum(final_subgroups, [])
-    no_plus_lines = [
-        index for index in range(len(lines)) if not index in flat_final_groups
-    ]
-    no_plus_lines.insert(0, -1)  # add negative threshold
-    no_plus_lines.insert(len(lines), len(lines) + 100)  # add positive threshold
-
-    # Merge no_plus_lines and final_subgroups
-    position_to_add_subgroups = [
-        index
-        for index in range(len(no_plus_lines) - 1)
-        if (no_plus_lines[index] + 1) != no_plus_lines[index + 1]
-    ]
-    norm_v = list(range(1, len(position_to_add_subgroups) + 1))
-    position_to_add_subgroups = list(map(add, position_to_add_subgroups, norm_v))
-
-    for index in range(len(final_subgroups)):
-        no_plus_lines.insert(position_to_add_subgroups[index], final_subgroups[index])
-    no_plus_lines.pop(0)
-    no_plus_lines.pop(-1)
-
-    # Create the new x string
-    final_x = list()
-    for index in no_plus_lines:
-        if isinstance(index, list):
-            final_x.append("".join([lines[index2] for index2 in index]))
-        else:
-            final_x.append(lines[index])
-    return "\n".join(final_x)
-
-
-def translate(x: str, black: bool = True) -> str:
+def translate(x: str, black: bool = True, quiet: bool = True) -> str:
     """Translates a JavaScript script to a Python script.
 
     Args:
@@ -785,20 +529,34 @@ def translate(x: str, black: bool = True) -> str:
 
     Examples:
         >>> import ee
-        >>> from ee_extra.JavaScript.eejs2py import translate
-        >>> ee.Initialize()
+        >>> from ee_extra import translate
         >>> translate("var x = ee.ImageCollection('COPERNICUS/S2_SR')")
     """
-    x = normalize_fn_style(x)
-    x = variable_definition(x)
-    x = logical_operators_boolean_null_comments(x)
-    x = multiline_comments(x)
-    x = starts_with_plus(x)
+    # 1. reformat and re-indent ugly JavaScript
+    x = beautify(x)
+    # 2. reformat Js function definition style (from var fun = function(bla, bla) -> function fun(bla, bla)).
+    x = normalize_fn_name(x)
+    # 3. Remove var keyword.
+    x = var_remove(x)
+    # 4. Change logical operators, boolean, null, comments and others.
+    x = change_operators(x)
+    # 5. Change multiline jscript comments to just '#'.
+    x = fix_multiline_comments(x)
+    # 6. If line starts with ".", then merge it with the previous one.
+    x = line_starts_with_dot(x)
+    # 7. If a line ends with "+", then merge it with the next one.
     x = ends_with_plus(x)
+    # 8. If a line ends with "=", then merge it with the next one.
     x = ends_with_equal(x)
-    # x = multiline_method_chain(x)  ## Acording to me this is not necessary if we merge lines with 'starts_with_plus'.
-    x = for_loop(x)
-    x = function_definition(x)
+    # 9. Change e.g. "for(var i = 0;i < x.length;i++)" to "for i in range(0,len(x),1):"
+    x = fix_for_loop(x)
+    # 10. Change e.g. "while (i > 10)" to "while i>10:"
+    x = fix_while_loop(x)
+    # 11. Change lines like var i++ to var i = i + 1.
+    x = fix_inline_iterators(x)
+    # 12. Delete extra brackets.
+    x = delete_brackets(x)
+    x = func_translate(x)
     x = dictionary_keys(x)
     x = dictionary_object_access(x)
     x = keyword_arguments_object(x)

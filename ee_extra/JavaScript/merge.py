@@ -191,6 +191,7 @@ def require(x: str):
     Returns:
         A python module.
     """
+    # x = junction(x)
     module = translate(junction(x))
 
     exports = dict()

@@ -2,7 +2,6 @@
 a JavaScript Earth Enginemodule.
 """
 
-
 import pathlib
 import re
 
@@ -19,8 +18,11 @@ def _convert_path_to_ee_sources(path: str) -> str:
     Returns:
         An ee-sources module url.
     """
-    bpath = path.replace(":", "/")
-    eempath = f"https://storage.googleapis.com/ee-sources/{bpath}"
+    if path.startswith("http"):
+        eempath = path
+    else:
+        bpath = path.replace(":", "/")
+        eempath = f"https://storage.googleapis.com/ee-sources/{bpath}"
     return eempath
 
 
@@ -44,15 +46,19 @@ def _convert_path_to_ee_extra(path: str) -> str:
     Returns:
         An ee_extra modules path.
     """
-    if path.endswith(".js"):
+    if path.startswith("http"):
         ee_extra_path = pathlib.Path(_get_ee_sources_path()).joinpath(
-            path.replace(":", "/")
+            "EXTERNAL_" + pathlib.Path(path).stem + "/" + pathlib.Path(path).name
         )
     else:
-        ee_extra_path = pathlib.Path(_get_ee_sources_path()).joinpath(
-            path.replace(":", "/") + ".js"
-        )
-
+        if path.endswith(".js"):
+            ee_extra_path = pathlib.Path(_get_ee_sources_path()).joinpath(
+                path.replace(":", "/")
+            )
+        else:
+            ee_extra_path = pathlib.Path(_get_ee_sources_path()).joinpath(
+                path.replace(":", "/") + ".js"
+            )
     return ee_extra_path
 
 
@@ -122,19 +128,24 @@ def _install(x: str, update: bool, quiet: bool = False):
         update: bool
     """
     if _check_if_module_exists(x) and not update:
-
-        quiet or print(f"The module '{x}' is already installed!")
+        if not quiet:
+            print(f"The module '{x}' is already installed!")
 
     else:
-
-        quiet or print(f"Downloading '{x}'...")
+        if not quiet:
+            print(f"Downloading '{x}'...")
 
         ee_sources = _get_ee_sources_path()
 
         # Local path
-        module_folder = pathlib.Path(ee_sources).joinpath(
-            "/".join(x.replace(":", "/").split("/")[:-1])
-        )
+        if x.startswith("http"):
+            module_folder = pathlib.Path(ee_sources).joinpath(
+                "EXTERNAL/" + pathlib.Path(x).stem
+            )
+        else:
+            module_folder = pathlib.Path(ee_sources).joinpath(
+                "/".join(x.replace(":", "/").split("/")[:-1])
+            )
 
         if not module_folder.exists():
             module_folder.mkdir(parents=True, exist_ok=True)
@@ -142,7 +153,8 @@ def _install(x: str, update: bool, quiet: bool = False):
 
         open(_convert_path_to_ee_extra(x), "wb").write(r.content)
 
-        quiet or print(f"The module '{x}' was successfully installed!")
+        if not quiet:
+            print(f"The module '{x}' was successfully installed!")
 
 
 def install(x: str, update: bool = False, quiet: bool = False) -> list:
@@ -165,13 +177,11 @@ def install(x: str, update: bool = False, quiet: bool = False) -> list:
     def _install_dependencies(x: list, update: bool, installed: list):
 
         if len(x) > 0:
-
             for dep in x:
-
                 if dep not in installed:
-
                     _install(dep, update, quiet)
-                    quiet or print(f"Checking dependencies for {dep}...")
+                    if not quiet:
+                        print(f"Checking dependencies for {dep}...")
                     x.extend(_get_dependencies(dep))
                     installed.append(dep)
                     x = [item for item in x if item not in installed]
@@ -181,7 +191,7 @@ def install(x: str, update: bool = False, quiet: bool = False) -> list:
 
             quiet or print(f"All dependencies were successfully installed!")
 
-    return _install_dependencies(deps, update, [])
+    return _install_dependencies(x=deps, update=update, installed=[])
 
 
 def rmtree(path):

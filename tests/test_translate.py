@@ -1,6 +1,5 @@
-import unittest
-from pprint import pprint
-
+from ee_extra.JavaScript.merge import require
+from ee_extra.JavaScript.install import install
 from ee_extra import translate
 
 
@@ -146,7 +145,129 @@ class Test(unittest.TestCase):
         });
         """
         self.assertIsInstance(translate(text, black=False), str)
+    def test_iterators(self):
+        """Test iterators"""
+        text = """
+        // normal loops
+        var numbers = [45, 4, 9, 16, 25];
 
+        // case01
+        for (var i = 0; i < 5; i++) {
+        numbers[i]
+        }
 
+        // case02
+        for (var i = 0; i < 5; i++) { numbers[i]
+        }
+
+        // case03
+        for (var i = 0; i <= 5; i++)
+        {
+        numbers[i]
+        }
+
+        // case04
+        for (var i = 0; i < 5; i++) 
+            numbers[i]
+
+        // case05
+        for (var i = 0; i < 5; i++) numbers[i]    
+
+        // case06
+        for (var i = 0; var lesly = 10; i < 5; i++) 
+            numbers[i]
+
+        // case07
+        var i = 0;
+        var len = numbers.length;
+        var text = "";
+        for (; i < len; ) {
+        text += numbers[i] + "<br>";
+        // print(text)
+        i++;
+        }
+
+        // case08
+        for (var i = 0, len = numbers.length, text = ""; i < len; i++) {
+        text += numbers[i] + "<br>";
+        }
+
+        ////////////
+        // in loops
+        ////////////
+        var person = {fname:"John", lname:"Doe", age:25};
+        var text = "";
+        for (var x in person) {
+        text += person[x];
+        }
+
+        ////////////
+        // while loops
+        ////////////
+        var i = 0;
+        var text = "";
+        while (i < 10) {
+        text += "The number is " + i;
+        print(text)
+        i++;
+        }
+
+        ////////////
+        // switch
+        ////////////
+        var day;
+        switch (new Date().getDay()) {
+        case 0:
+            day = "Sunday";
+            break;
+        case 1:
+            day = "Monday";
+            break;
+        case 2:
+            day = "Tuesday";
+            break;
+        case 3:
+            day = "Wednesday";
+            break;
+        case 4:
+            day = "Thursday";
+            break;
+        case 5:
+            day = "Friday";
+            break;
+        case 6:
+            day = "Saturday";
+        }
+        print(day)
+        """
+        self.assertIsInstance(translate(text, black=False), str)
+    def test_module_01(self):
+        """Testing Temperature modules"""
+        jsmodule = 'users/sofiaermida/landsat_smw_lst:modules/Landsat_LST.js'
+        install(jsmodule)
+        pymodule = require(jsmodule)
+        self.assertIsInstance(pymodule, dict)
+        
+    def test_module_02(self):
+        """Testing Temperature modules"""
+        jsmodule = 'users/joselucassafanelli/TAGEE:TAGEE-functions'
+        install(jsmodule)
+        pymodule = require(jsmodule)
+        self.assertIsInstance(pymodule, dict)
+        
+    def test_module_03(self):
+        """Testing Temperature modules"""
+        jsmodule = 'users/andreasvollrath/radar:slope_correction_lib.js'
+        install(jsmodule)
+        pymodule = require(jsmodule)
+        self.assertIsInstance(pymodule, dict)
+
+    def test_module_04(self):
+        """Testing Temperature modules"""
+        jsmodule = 'https://raw.githubusercontent.com/eMapR/LT-GEE/master/LandTrendr.js'
+        install(jsmodule, update=True)
+        pymodule = require(jsmodule)
+        self.assertIsInstance(pymodule, dict)    
+        
 if __name__ == "__main__":
     unittest.main()

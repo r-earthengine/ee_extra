@@ -11,7 +11,7 @@ In JavaScript there is three diferent ways of GEE users define functions:
         ic.map(function(x) {return x})
     
     3. GEE users define function after export (we hate u!).
-        exports.addBand = function(landsat){ var wrap = function(image){ return 0;} return 0;}
+        exports.addBand = function(landsat){ var wrap = function(image){ return 0;} return 0;}        
 
 This module try to convert all theses cases to Python. If you consider that
 there is more cases that must be added to the module, please, contact us by
@@ -118,8 +118,19 @@ def from_js_to_py_fn_simple(js_function):
 
     # 4. get args
     pattern = r"function\s*[\x00-\x7F][^\s]*\s*\(\s*([^)]+?)\s*\)\s*{|function\(\s*([^)]+?)\s*\)\s*"
-    args_name = "".join(regex.findall(pattern, fn_header)[0])
-
+    int_args = regex.findall(pattern, fn_header)
+    if int_args == []:
+        args_name = ""
+    else:
+        args_name = "".join(int_args[0])
+        new_args = list()
+        for arg in args_name.split(","):
+            if "=" not in arg:
+                new_args.append(arg.strip() + "='__None'")
+            else:
+                new_args.append(arg.strip())
+        args_name = ", ".join(new_args)
+    
     # 5. get body
     pattern = r"({(?>[^{}]+|(?R))*})"
     body = regex.search(pattern, fn_header)[0][1:-1].rstrip()
@@ -265,14 +276,16 @@ def func_translate_case01(x):
     lines = x.split("\n")
     lines = func_detector(lines)
     lines = func_detector_recursive(lines)
+    #testss = [index for index, line in enumerate(lines) if isinstance(line, list)]
+    #for xxx in testss:
+    #    to_fn_python([lines[xxx][:27]])
+    
     return "\n".join(to_fn_python(lines))
 
 
 # --------------------------------------------------------------------------
 # Second Case ---------------------------------------------------------------
 # --------------------------------------------------------------------------
-
-
 def get_text_in_map(x):
     """
     This function count the number of '(' and ')' after a wild
@@ -342,8 +355,19 @@ def from_mapjs_to_py_fn_simple(js_function):
 
     # 4. get args
     pattern = r"function\s*[\x00-\x7F][^\s]*\s*\(\s*([^)]+?)\s*\)\s*{|function\(\s*([^)]+?)\s*\)\s*"
-    args_name = "".join(regex.findall(pattern, fn_header)[0])
-
+    int_args = regex.findall(pattern, fn_header)
+    if int_args == []:
+        args_name = ""
+    else:
+        args_name = "".join(int_args[0])
+        new_args = list()
+        for arg in args_name.split(","):
+            if "=" not in arg:
+                new_args.append(arg.strip() + "='__None'")
+            else:
+                new_args.append(arg.strip())
+        args_name = ", ".join(new_args)
+    
     # 5. get body
     pattern = r"({(?>[^{}]+|(?R))*})"
     body = regex.search(pattern, fn_header)[0][1:-1].rstrip()
@@ -386,7 +410,7 @@ def mapfunc_detector(lines):
         >>> #  ['ic.map(function(x){return x})']]
     """
     # Function detector -------------------------------------------------------
-    pattern = r".*map\(.*function.*{"
+    pattern = r".*map\(.*function.*{|.*forEach\(.*function.*{"
     counter = 0  # curly brackets counter
     subgroup = list("0" * len(lines))
     for index, line in enumerate(lines):
@@ -543,7 +567,7 @@ def func_translate_case03(x):
     """
     # does anonymous function asignation exists?
     lines = x.split("\n")
-
+    
     # Does the line starts with "exports" or "eeExtraExports"?
     pattern01 = r"(?:^|\W)exports|eeExtraExports(?:$|\W)"
     lines_to_work = [
@@ -567,7 +591,7 @@ def func_translate_case03(x):
                 x = x + "\n" + export_str + " = " + rname
 
                 # Run func_translate_case01
-                x = func_translate_case01(x)
+                # x = func_translate_case01(x)
     return x
 
 

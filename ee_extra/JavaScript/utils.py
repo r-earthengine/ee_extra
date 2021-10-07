@@ -13,6 +13,102 @@ from ee_extra import (
 )
 import regex
 
+def typeof(x):
+    """ Python version of Javascript typeof
+               
+    Args:
+        x (str): A string with Javascript syntax to evaluate.
+
+    Returns:
+        [str]: Python string
+
+    Examples:
+        >>> from ee_extra import typeof
+        >>> typeof(1204)
+        >>> # 'number'
+    """    
+    if x == '__None':
+        return "undefined"
+    elif x == None:
+        return "object"
+    elif isinstance(x, bool):
+        return "boolean"  
+    elif isinstance(x, (int, float)):
+        return "number"
+    elif isinstance(x, str):
+        return "string"
+    elif hasattr(x, '__call__'):
+        return "function"
+    else:
+        return "object"
+
+def fix_typeof(x):
+    """ Change typeof lesly to typeof(lesly)
+               
+    Args:
+        x (str): A string with Javascript syntax.
+
+    Returns:
+        [str]: Python string
+
+    Examples:
+        >>> from ee_extra import fix_typeof
+        >>> fix_typeof("typeof lesly")
+        >>> # typeof(lesly)
+    """    
+    typeof_cases = regex.findall(r'typeof\s*[A-Za-z0-9Α-Ωα-ωίϊΐόάέύϋΰήώ\[\]_]*', x)
+    if typeof_cases == []:
+        return x
+    else:
+        for typeof_case in typeof_cases:
+            x = x.replace(typeof_case, "typeof(%s)" % typeof_case.split(" ")[1])
+    return x
+
+
+# maybe we can do it better, but for now it should works
+def fix_sugar_if(x):
+    """
+    Change [if (condition) ? true_value : false_value] -->
+           [true_value if condition else false_value]
+
+    Args:
+        x (str): A string with Javascript syntax.
+
+    Returns:
+        [str]: Python string
+
+    Examples:
+        >>> from ee_extra import fix_sugar_if
+        >>> fix_sugar_if("maskThese = (typeof msk !== 'undefined') ?  msk : [];")
+        >>> # maskThese = msk if (typeof msk !== 'undefined') else [];
+    """
+    lines = x.split("\n")
+    condition01 = "\(.*\).*\?.*:.*"
+    sugar_lines = [line for line in lines if regex.search(condition01, line)]    
+    if sugar_lines == []:
+        return x
+    else:
+        for sugar_line in sugar_lines:
+            if " = " in sugar_line:
+                # initial space
+                whitespace_cond = "^\s*"
+                init_space = regex.findall(whitespace_cond, sugar_line)[0]
+                
+                # is there a assignment?
+                condition02 = "(.*)\s+=\s+"
+                matches = regex.findall(condition02, sugar_line, regex.MULTILINE)
+                varname = matches[0].strip() + " = "
+            else:
+                varname = ""
+            # sugar syntax is: if (condition) ? true_value : false_value
+            condition03 = "=(.*)\?(.*):(.*)"
+            ifcondition, dotrue, dofalse = regex.findall(condition03, sugar_line, regex.MULTILINE)[0]
+                        
+            # fix the if condition
+            ifcondition = ifcondition.strip()
+            new_line = "%s%s%s if %s else %s" % (init_space, varname, dotrue.strip(), ifcondition, dofalse.strip())
+            x = x.replace(sugar_line, new_line)
+    return x
 
 def normalize_fn_name(x: str) -> str:
     """Normalize Javascript function name
@@ -55,8 +151,10 @@ def change_operators(x):
         >>> change_operators("s.and(that);")
         >>> # m = s.And(that)
     """
-
-    reserved = {
+    from collections import OrderedDict
+    reserved = OrderedDict({
+        "===": " == ",
+        "!==": " != ",
         "\.and\(": ".And(",
         "\.or\(": ".Or(",
         "\.not\(": ".Not(",
@@ -64,11 +162,10 @@ def change_operators(x):
         "(?<![a-zA-Z])false(?![a-zA-Z])": "False",
         "(?<![a-zA-Z])null(?![a-zA-Z])": "None",
         "//": "#",
-        "!": " not ",
-        "\|\|": " or ",
-        "===": " == ",
-    }
-
+        "!(\w)": " not ",
+        "\|\|": " or "
+    })
+    
     for key, item in reserved.items():
         x = regex.sub(key, item, x)
     # Correct https://
@@ -100,6 +197,39 @@ def fix_multiline_comments(x):
     return x
 
 
+def delete_inline_comments(x):
+    """ Delete comments inline
+    
+    lesly.add(0) # holi --> lesly.add(0)
+    
+    Args:
+        x (str): A string with Javascript syntax.
+
+    Returns:
+        [str]: Python string
+
+    Examples:
+        >>> from ee_extra import delete_inline_comments
+        >>> delete_inline_comments('var x = \n ee.Image(0) # lesly')
+        >>> # var x = \n ee.Image(0)    
+    """
+    lines = x.split("\n")
+    newlines = []
+    for line in lines:
+        if line == "":
+            newlines.append("")
+            continue
+        if line[0] == '#':
+            newlines.append(line)
+        else:
+            if "#" in line:
+                michi_index = [index for index, lchr in enumerate(line) if lchr == "#"][0]
+                newlines.append(line[:michi_index].rstrip()) 
+            else:
+                newlines.append(line)               
+    return "\n".join(newlines)
+
+
 def line_starts_with_dot(x):
     """If a line starts with a dot, merge with the previous line.
 
@@ -121,13 +251,13 @@ def line_starts_with_dot(x):
     first_is_dot = lambda x: x[0] == "."
 
     # Remove all whitespace at the end.
-    lines = [regex.sub(r"^\s+S*", "", line) for line in x.split("\n")]
-
+    lines = [line.rstrip() for line in x.split("\n")]
+    
     # Get "1" is the first chr is "." otherwise get "0"
     is_first_chr_dot = list()
     for line in lines:
         if len(line) > 0:
-            cond = str(int(first_is_dot(line)))
+            cond = str(int(first_is_dot(line.strip())))
         else:
             cond = "0"
         is_first_chr_dot.append(cond)
@@ -171,13 +301,13 @@ def ends_with_plus(x):
     last_is_plus = lambda x: x[-1] == "+"
 
     # Remove all whitespace at the end.
-    lines = [regex.sub(r"\s+S*$", "", line) for line in x.split("\n")]
-
+    lines = [line.rstrip() for line in x.split("\n")]
+    
     # Get "1" is the last chr is "+" otherwise get "0"
     is_last_chr_plus = list()
     for line in lines:
         if len(line) > 0:
-            cond = str(int(last_is_plus(line)))
+            cond = str(int(last_is_plus(line.strip())))
         else:
             cond = "0"
         is_last_chr_plus.append(cond)
@@ -218,16 +348,16 @@ def ends_with_equal(x):
         >>> # var x = ee.Image(0)
     """
     # get True is "=" is the last character
-    last_is_plus = lambda x: x[-1] == "="
+    last_is_equal = lambda x: x[-1] == "="
 
     # Remove all whitespace at the end.
-    lines = [regex.sub(r"\s+S*$", "", line) for line in x.split("\n")]
+    lines = [line.rstrip() for line in x.split("\n")]
 
     # Get "1" is the last chr is "=" otherwise get "0"
     is_last_chr_plus = list()
     for line in lines:
         if len(line) > 0:
-            cond = str(int(last_is_plus(line)))
+            cond = str(int(last_is_equal(line)))
         else:
             cond = "0"
         is_last_chr_plus.append(cond)
@@ -346,7 +476,7 @@ def remove_extra_spaces(x):
 
 # 7. Change "{x = 1}" by "{'x' = 1}".
 def dictionary_keys(x):
-    pattern = r"{(.*?)}"
+    pattern = r"{(.*?)}" # Get the data inside curly brackets
     dicts = regex.findall(pattern, x, regex.DOTALL)
     if len(dicts) > 0:
         for dic in dicts:
@@ -513,9 +643,17 @@ def add_packages(x):
     user_dict = (
         "\nclass AttrDict(dict):\n    def __init__(self, *args, **kwargs):\n        super(AttrDict, self)"
         + ".__init__(*args, **kwargs)\n        self.__dict__ = self\n"
-    )
+    )        
     exports_dict = "\nexports = AttrDict()\n"
-    return py_packages + user_dict + exports_dict + x
+    typeof_func = (
+        '\ndef typeof(x):\n    if x == \'__None\':\n        return "undefined"\n' +
+        '    elif x == None:\n        return "object"\n    elif isinstance(x, bool):\n' +
+        '        return "boolean"  \n    elif isinstance(x, (int, float)):\n        ' +
+        'return "number"\n    elif isinstance(x, str):\n        return "string"\n    ' +
+        'elif hasattr(x, \'__call__\'):\n        return "function"\n    ' +
+        'else:\n        return "object"    \n'    
+    )    
+    return py_packages + user_dict + typeof_func + exports_dict + x
 
 
 def translate(x: str, black: bool = True, quiet: bool = True) -> str:
@@ -534,6 +672,10 @@ def translate(x: str, black: bool = True, quiet: bool = True) -> str:
     """
     # 1. reformat and re-indent ugly JavaScript
     x = beautify(x)
+    # 2. Fix typeof change typeof x to typeof(x)
+    x = fix_typeof(x)
+    # 3. Change [if (condition) ? true_value : false_value] to [true_value if condition else false_value]    
+    x = fix_sugar_if(x)
     # 2. reformat Js function definition style (from var fun = function(bla, bla) -> function fun(bla, bla)).
     x = normalize_fn_name(x)
     # 3. Remove var keyword.
@@ -557,12 +699,13 @@ def translate(x: str, black: bool = True, quiet: bool = True) -> str:
     # 12. Delete extra brackets.
     x = delete_brackets(x)
     x = func_translate(x)
+    x = if_statement(x)
     x = dictionary_keys(x)
     x = dictionary_object_access(x)
-    x = keyword_arguments_object(x)
-    x = if_statement(x)
+    x = keyword_arguments_object(x)    
     x = array_isArray(x)
     x = add_packages(x)
-    if black:
-        x = format_str(x, mode=FileMode())
+    x = x.replace(";", "")
+    if black:        
+        x = format_str(x, mode=FileMode())    
     return x

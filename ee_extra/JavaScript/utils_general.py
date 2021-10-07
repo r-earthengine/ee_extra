@@ -70,9 +70,22 @@ def var_remove(x):
         >>> var_remove("var cesar = 10")
         >>> # cesar = 10
     """
-    pattern = r"var(.*?)="
-    matches = regex.findall(pattern, x, regex.DOTALL)
-    var_names = [regex.sub("\s+", "", match) for match in matches]
+    # remove single declarations
+    # from "var lesly;" to ""
+    pattern01 = r"\s*var\s+"
+    lines = x.split("\n")
+    new_lines = []
+    for line in lines:
+        if regex.match(pattern01, line):
+            new_lines.append(line)                
+        else:
+            new_lines.append(line)
+    x = "\n".join(new_lines)
+    
+    # does it your word assignment a keyword?
+    pattern02 = r"var(\s+[A-Za-z0-9Α-Ωα-ωίϊΐόάέύϋΰήώ\[\]_]+)\s*[=|in]"
+    matches = regex.findall(pattern02, x)
+    var_names = [match for match in matches]
 
     if set(var_names) & set(keyword.kwlist) != set():
         raise NameError(
@@ -82,7 +95,8 @@ def var_remove(x):
 
     if not matches == []:
         for match in matches:
-            x = x.replace(f"var{match}=", f"{match.replace(' ','')} =")
+            if " in " not in match:                
+                x = x.replace(f"var{match}", f"{match.replace(' ','')}")
     return x
 
 

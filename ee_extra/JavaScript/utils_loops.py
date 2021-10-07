@@ -4,7 +4,7 @@ Auxiliary module with functions to translate JavaScript loops to Python.
 In GEE JavaScript there is four diferent ways to define a loop:
 
     1. JS loop FOR.
-    2. JS loop FOR IN.
+    2. JS loop FOR IN.    
     3. JS loop WHILE.
     4. JS loop SWITCH.
 
@@ -39,7 +39,7 @@ def fix_case03_loop(x):
     # Is a line with a for loop?
     for line in lines:
         # 1. Get the text inside parenthesis (ignore nested parenthesis)
-        condition_01 = "(?<=for.*\()(?:[^()]+|\([^)]+\))+(?=\))"
+        condition_01 = "(?<=for\s*\()(?:[^()]+|\([^)]+\))+(?=\))"
         matches = list(regex.finditer(condition_01, line))
         if matches == []:
             fulfill_condition.append(False)
@@ -99,6 +99,7 @@ def fix_while_loop(x):
         # 1. Get the text inside parenthesis (ignore nested parenthesis)
         condition_01 = "(?<=while.*\()(?:[^()]+|\([^)]+\))+(?=\))"
         matches = list(regex.finditer(condition_01, line))
+        initial_white_space = regex.findall("^\s*", line)[0]
         if matches == []:
             list_while_solver.append(line)
             continue
@@ -114,7 +115,7 @@ def fix_while_loop(x):
 
         # what is there after closing the parenthesis?
         while_condition = regex.findall("\).*", line)[0][1:].strip()
-
+        python_while_loop = initial_white_space + python_while_loop + "\n"
         # Case 01
         if while_condition == "{":
             list_while_solver.append(python_while_loop)
@@ -146,21 +147,30 @@ def fix_for_loop(x):
     lines = x.split("\n")
 
     list_for_solver = list()
-    # line = lines[7]
+    
+    # line = lines[4]    
     for line in lines:
         # 1. Get the text inside parenthesis (ignore nested parenthesis)
-        condition_01 = "(?<=for.*\()(?:[^()]+|\([^)]+\))+(?=\))"
+        condition_01 = "(?<=for\s*\()(?:[^()]+|\([^)]+\))+(?=\))"
         matches = list(regex.finditer(condition_01, line))
         if matches == []:
             list_for_solver.append(line)
-            continue
-
+            continue                
+        # get the text inside for loop parenthesis
         for match in matches:
-            for_loop_body = match.group()  # get the match
+            for_loop_body = match.group()
 
+        # initial space
+        initial_white_space = regex.findall("^\s*", line)[0]
+        
+        
         ## Match for in
         if " in " in for_loop_body:
             python_for_loop = "for %s:" % for_loop_body.replace("var ", "")
+        
+        ## if the condition below is true, it means that the argument is True.
+        if for_loop_body.split(";")[0] == for_loop_body:
+            python_for_loop = "for %s:" % for_loop_body
         else:
             # 2. Get the groups
             for_loop_vars = for_loop_body.split(";")
@@ -246,7 +256,7 @@ def fix_for_loop(x):
 
         # what is there after closing the parenthesis?
         for_condition = regex.findall("\).*", line)[0][1:].strip()
-
+        python_for_loop = initial_white_space + python_for_loop
         # Case 01
         if for_condition == "{":
             list_for_solver.append(python_for_loop)

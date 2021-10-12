@@ -10,8 +10,10 @@ from ee_extra import (
     delete_brackets,
     var_remove,
     fix_inline_iterators,
+    translate_string
 )
 import regex
+
 
 def typeof(x):
     """ Python version of Javascript typeof
@@ -637,14 +639,14 @@ def array_isArray(x):
     return x
 
 
-def add_packages(x):
+def add_packages(x, extra_funcs=""):
     """add ee and math packages to the code. AttrDict is used by default."""
-    py_packages = "import ee\nimport math\n"
+    py_packages = "import ee\nimport math\nimport inspect\nimport locale\nimport regex"
     user_dict = (
         "\nclass AttrDict(dict):\n    def __init__(self, *args, **kwargs):\n        super(AttrDict, self)"
         + ".__init__(*args, **kwargs)\n        self.__dict__ = self\n"
     )        
-    exports_dict = "\nexports = AttrDict()\n"
+    exports_dict = "exports = AttrDict()\n"
     typeof_func = (
         '\ndef typeof(x):\n    if x == \'__None\':\n        return "undefined"\n' +
         '    elif x == None:\n        return "object"\n    elif isinstance(x, bool):\n' +
@@ -653,7 +655,7 @@ def add_packages(x):
         'elif hasattr(x, \'__call__\'):\n        return "function"\n    ' +
         'else:\n        return "object"    \n'    
     )    
-    return py_packages + user_dict + typeof_func + exports_dict + x
+    return py_packages + user_dict + extra_funcs + typeof_func + exports_dict + x
 
 
 def translate(x: str, black: bool = True, quiet: bool = True) -> str:
@@ -674,7 +676,9 @@ def translate(x: str, black: bool = True, quiet: bool = True) -> str:
     x = beautify(x)
     # 2. Fix typeof change typeof x to typeof(x)
     x = fix_typeof(x)
-    # 3. Change [if (condition) ? true_value : false_value] to [true_value if condition else false_value]    
+    # 3. Fix JavaScript string methods
+    x, localfucs = translate_string(x)
+    # # 3. Change [if (condition) ? true_value : false_value] to [true_value if condition else false_value]    
     x = fix_sugar_if(x)
     # 2. reformat Js function definition style (from var fun = function(bla, bla) -> function fun(bla, bla)).
     x = normalize_fn_name(x)
@@ -704,7 +708,7 @@ def translate(x: str, black: bool = True, quiet: bool = True) -> str:
     x = dictionary_object_access(x)
     x = keyword_arguments_object(x)    
     x = array_isArray(x)
-    x = add_packages(x)
+    x = add_packages(x, localfucs)
     x = x.replace(";", "")
     if black:        
         x = format_str(x, mode=FileMode())    

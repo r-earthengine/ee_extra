@@ -29,12 +29,9 @@ setup(
         "numpy",
         "requests",
         "python-box",
+        "regex"
     ],
-    extras_require={
-	"dev": [
-		"black"
-	]
-    },
+    extras_require={"dev": ["black"]},
     classifiers=[
         "Development Status :: 2 - Pre-Alpha",
         "License :: OSI Approved :: MIT License",

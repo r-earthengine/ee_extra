@@ -1,7 +1,8 @@
 """ Functions used in 'utils.py', 'utils_general.py', and 'utils_loops.py'."""
-from itertools import islice, zip_longest
-import regex
 import keyword
+from itertools import islice, zip_longest
+
+import regex
 
 
 def from_bin_to_list(x):
@@ -77,11 +78,11 @@ def var_remove(x):
     new_lines = []
     for line in lines:
         if regex.match(pattern01, line):
-            new_lines.append(line)                
+            new_lines.append(line)
         else:
             new_lines.append(line)
     x = "\n".join(new_lines)
-    
+
     # does it your word assignment a keyword?
     pattern02 = r"var(\s+[A-Za-z0-9Α-Ωα-ωίϊΐόάέύϋΰήώ\[\]_]+)\s*[=|in]"
     matches = regex.findall(pattern02, x)
@@ -95,7 +96,7 @@ def var_remove(x):
 
     if not matches == []:
         for match in matches:
-            if " in " not in match:                
+            if " in " not in match:
                 x = x.replace(f"var{match}", f"{match.replace(' ','')}")
     return x
 

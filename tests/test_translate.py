@@ -1,6 +1,7 @@
-from ee_extra.JavaScript.merge import require
-from ee_extra.JavaScript.install import install
+# from ee_extra.JavaScript.merge import require
+# from ee_extra.JavaScript.install import install
 from ee_extra import translate
+import unittest
 
 
 class Test(unittest.TestCase):
@@ -242,6 +243,7 @@ class Test(unittest.TestCase):
         print(day)
         """
         self.assertIsInstance(translate(text, black=False), str)
+
     def test_ltrend_01(self):
         """LandTrendr function"""
         text = """
@@ -259,6 +261,7 @@ class Test(unittest.TestCase):
         exports.harmonizationRoy = harmonizationRoy;        
         """
         self.assertIsInstance(translate(text, black=False), str)
+
     def test_ltrend_02(self):
         """LandTrendr function"""
         text = """
@@ -285,6 +288,7 @@ class Test(unittest.TestCase):
         exports.buildSensorYearCollection = buildSensorYearCollection       
         """
         self.assertIsInstance(translate(text, black=False), str)
+
     def test_ltrend_03(self):
         """LandTrendr function"""
         text = """
@@ -342,6 +346,7 @@ class Test(unittest.TestCase):
         exports.getSRcollection = getSRcollection;      
         """
         self.assertIsInstance(translate(text, black=False), str)
+
     def test_ltrend_04(self):
         """LandTrendr function"""
         text = """
@@ -389,6 +394,7 @@ class Test(unittest.TestCase):
         };      
         """
         self.assertIsInstance(translate(text, black=False), str)
+
     def test_ltrend_06(self):
         """LandTrendr function"""
         text = """
@@ -416,6 +422,7 @@ class Test(unittest.TestCase):
         exports.buildSRcollection = buildSRcollection;
         """
         self.assertIsInstance(translate(text, black=False), str)
+
     def test_ltrend_07(self):
         """LandTrendr function"""
         text = """
@@ -448,6 +455,7 @@ class Test(unittest.TestCase):
         exports.getCollectionIDlist = getCollectionIDlist;
         """
         self.assertIsInstance(translate(text, black=False), str)
+
     def test_ltrend_08(self):
         """LandTrendr function"""
         text = """
@@ -479,6 +487,7 @@ class Test(unittest.TestCase):
         exports.buildClearPixelCountCollection = buildClearPixelCountCollection;
         """
         self.assertIsInstance(translate(text, black=False), str)
+
     def test_ltrend_09(self):
         """LandTrendr function"""
         text = """
@@ -509,6 +518,7 @@ class Test(unittest.TestCase):
         exports.removeImages = removeImages;
         """
         self.assertIsInstance(translate(text, black=False), str)
+
     def test_ltrend_10(self):
         """LandTrendr function"""
         text = """
@@ -547,6 +557,7 @@ class Test(unittest.TestCase):
         exports.getLTvertStack = getLTvertStack;
         """
         self.assertIsInstance(translate(text, black=False), str)
+
     def test_ltrend_11(self):
         """LandTrendr function"""
         text = """
@@ -625,6 +636,7 @@ class Test(unittest.TestCase):
         };        
         """
         self.assertIsInstance(translate(text, black=False), str)
+
     def test_ltrend_12(self):
         """LandTrendr function"""
         text = """
@@ -706,6 +718,7 @@ class Test(unittest.TestCase):
         exports.calcIndex = calcIndex;        
         """
         self.assertIsInstance(translate(text, black=False), str)
+
     def test_ltrend_13(self):
         """LandTrendr function"""
         text = """
@@ -740,6 +753,7 @@ class Test(unittest.TestCase):
         };        
         """
         self.assertIsInstance(translate(text, black=False), str)
+
     def test_ltrend_14(self):
         """LandTrendr function"""
         text = """
@@ -796,6 +810,7 @@ class Test(unittest.TestCase):
         };        
         """
         self.assertIsInstance(translate(text, black=False), str)
+
     def test_ltrend_15(self):
         """LandTrendr function"""
         text = """
@@ -860,6 +875,7 @@ class Test(unittest.TestCase):
         };        
         """
         self.assertIsInstance(translate(text, black=False), str)
+
     def test_ltrend_16(self):
         """LandTrendr function"""
         text = """
@@ -894,6 +910,7 @@ class Test(unittest.TestCase):
         exports.transformSRcollection = transformSRcollection;        
         """
         self.assertIsInstance(translate(text, black=False), str)
+
     def test_ltrend_17(self):
         """LandTrendr function"""
         text = """
@@ -936,6 +953,7 @@ class Test(unittest.TestCase):
         exports.makeRGBcomposite = makeRGBcomposite;
         """
         self.assertIsInstance(translate(text, black=False), str)
+
     def test_ltrend_18(self):
         """LandTrendr function"""
         text = """
@@ -999,6 +1017,7 @@ class Test(unittest.TestCase):
         exports.getSegmentCount = getSegmentCount;
         """
         self.assertIsInstance(translate(text, black=False), str)
+
     def test_ltrend_19(self):
         """LandTrendr function"""
         text = """
@@ -1081,6 +1100,7 @@ class Test(unittest.TestCase):
         exports.getSegmentArray = getSegmentArray;        
         """
         self.assertIsInstance(translate(text, black=False), str)
+
     def test_ltrend_20(self):
         """LandTrendr function"""
         text = """
@@ -1121,6 +1141,7 @@ class Test(unittest.TestCase):
         };
         """
         self.assertIsInstance(translate(text, black=False), str)
+
     def test_ltrend_21(self):
         """LandTrendr function"""
         text = """
@@ -1209,6 +1230,7 @@ class Test(unittest.TestCase):
         exports.getYearBandNames = getYearBandNames;        
         """
         self.assertIsInstance(translate(text, black=False), str)
+
     def test_ltrend_22(self):
         """LandTrendr function"""
         text = """
@@ -1286,6 +1308,7 @@ class Test(unittest.TestCase):
         exports.getFittedRGBcol = getFittedRGBcol;
         """
         self.assertIsInstance(translate(text, black=False), str)
+
     def test_ltrend_23(self):
         """LandTrendr function"""
         text = """
@@ -1343,6 +1366,7 @@ class Test(unittest.TestCase):
         };
         """
         self.assertIsInstance(translate(text, black=False), str)
+
     def test_ltrend_24(self):
         """LandTrendr function"""
         text = """
@@ -1386,6 +1410,7 @@ class Test(unittest.TestCase):
         };        
         """
         self.assertIsInstance(translate(text, black=False), str)
+
     def test_ltrend_25(self):
         """LandTrendr function"""
         text = """
@@ -1450,6 +1475,7 @@ class Test(unittest.TestCase):
         };        
         """
         self.assertIsInstance(translate(text, black=False), str)
+
     def test_ltrend_26(self):
         """LandTrendr function"""
         text = """
@@ -1505,30 +1531,31 @@ class Test(unittest.TestCase):
         """
         self.assertIsInstance(translate(text, black=False), str)
 
-    #def test_module_01(self):
+    # def test_module_01(self):
     #    """Testing Temperature modules"""
     #    jsmodule = 'users/sofiaermida/landsat_smw_lst:modules/Landsat_LST.js'
     #    install(jsmodule)
     #    pymodule = require(jsmodule)
     #    self.assertIsInstance(pymodule, dict)
-    #def test_module_02(self):
+    # def test_module_02(self):
     #    """Testing Temperature modules"""
     #    jsmodule = 'users/joselucassafanelli/TAGEE:TAGEE-functions'
     #    install(jsmodule)
     #    pymodule = require(jsmodule)
     #    self.assertIsInstance(pymodule, dict)
-    #def test_module_03(self):
+    # def test_module_03(self):
     #    """Testing Temperature modules"""
     #    jsmodule = 'users/andreasvollrath/radar:slope_correction_lib.js'
     #    install(jsmodule)
     #    pymodule = require(jsmodule)
     #    self.assertIsInstance(pymodule, dict)
-    #def test_module_04(self):
+    # def test_module_04(self):
     #    """Testing Temperature modules"""
     #    jsmodule = 'https://raw.githubusercontent.com/eMapR/LT-GEE/master/LandTrendr.js'
     #    install(jsmodule, update=True)
     #    pymodule = require(jsmodule)
-    #    self.assertIsInstance(pymodule, dict)    
-        
+    #    self.assertIsInstance(pymodule, dict)
+
+
 if __name__ == "__main__":
     unittest.main()

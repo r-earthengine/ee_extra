@@ -18,10 +18,12 @@ there is more cases that must be added to the module, please, contact us by
 GitHub :).
 """
 
-import string
 import random
+import string
+
 import regex
-from ee_extra import from_bin_to_list
+
+from ee_extra.JavaScript.translate_general import from_bin_to_list
 
 
 def random_fn_name():
@@ -130,7 +132,7 @@ def from_js_to_py_fn_simple(js_function):
             else:
                 new_args.append(arg.strip())
         args_name = ", ".join(new_args)
-    
+
     # 5. get body
     pattern = r"({(?>[^{}]+|(?R))*})"
     body = regex.search(pattern, fn_header)[0][1:-1].rstrip()
@@ -276,10 +278,10 @@ def func_translate_case01(x):
     lines = x.split("\n")
     lines = func_detector(lines)
     lines = func_detector_recursive(lines)
-    #testss = [index for index, line in enumerate(lines) if isinstance(line, list)]
-    #for xxx in testss:
+    # testss = [index for index, line in enumerate(lines) if isinstance(line, list)]
+    # for xxx in testss:
     #    to_fn_python([lines[xxx][:27]])
-    
+
     return "\n".join(to_fn_python(lines))
 
 
@@ -367,7 +369,7 @@ def from_mapjs_to_py_fn_simple(js_function):
             else:
                 new_args.append(arg.strip())
         args_name = ", ".join(new_args)
-    
+
     # 5. get body
     pattern = r"({(?>[^{}]+|(?R))*})"
     body = regex.search(pattern, fn_header)[0][1:-1].rstrip()
@@ -567,7 +569,7 @@ def func_translate_case03(x):
     """
     # does anonymous function asignation exists?
     lines = x.split("\n")
-    
+
     # Does the line starts with "exports" or "eeExtraExports"?
     pattern01 = r"(?:^|\W)exports|eeExtraExports(?:$|\W)"
     lines_to_work = [

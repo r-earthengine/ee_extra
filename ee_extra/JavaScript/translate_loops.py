@@ -13,7 +13,10 @@ there is more cases that must be added to the module, please, contact us by
 GitHub :).
 """
 import regex
-from ee_extra import from_bin_to_list, var_remove, delete_brackets
+
+from ee_extra.JavaScript.translate_general import (delete_brackets,
+                                                   from_bin_to_list,
+                                                   var_remove)
 
 
 def fix_case03_loop(x):
@@ -114,7 +117,7 @@ def fix_while_loop(x):
         # while(_) \n ...      --> case03
 
         # what is there after closing the parenthesis?
-        while_condition = regex.findall("\).*", line)[0][1:].strip()
+        while_condition = get_text_after_close_paren(line).strip()
         python_while_loop = initial_white_space + python_while_loop + "\n"
         # Case 01
         if while_condition == "{":
@@ -141,34 +144,36 @@ def fix_for_loop(x):
         >>> fix_for_loop('for(var i = 0;i < x.length;i++){\nprint(i)\n}')
         >>> # var x = ee.Image(0)
     """
+    # Fix beautify loop style
+    x = check_loop_line_breaks_r(x)
+
     # Fix the case03 loop style (See bellow)
     x = fix_case03_loop(x)
 
     lines = x.split("\n")
-
     list_for_solver = list()
-    
-    # line = lines[4]    
+
+    # line = lines[2]
     for line in lines:
         # 1. Get the text inside parenthesis (ignore nested parenthesis)
         condition_01 = "(?<=for\s*\()(?:[^()]+|\([^)]+\))+(?=\))"
         matches = list(regex.finditer(condition_01, line))
         if matches == []:
             list_for_solver.append(line)
-            continue                
+            continue
         # get the text inside for loop parenthesis
         for match in matches:
             for_loop_body = match.group()
 
         # initial space
         initial_white_space = regex.findall("^\s*", line)[0]
-        
-        
+
         ## Match for in
         if " in " in for_loop_body:
             python_for_loop = "for %s:" % for_loop_body.replace("var ", "")
-        
-        ## if the condition below is true, it means that the argument is True.
+
+        ## if the condition below is true, it means that the for loop looks like.
+        ## for variable:
         if for_loop_body.split(";")[0] == for_loop_body:
             python_for_loop = "for %s:" % for_loop_body
         else:
@@ -255,7 +260,7 @@ def fix_for_loop(x):
         # for(_) \n ...      --> case03
 
         # what is there after closing the parenthesis?
-        for_condition = regex.findall("\).*", line)[0][1:].strip()
+        for_condition = get_text_after_close_paren(line).strip()
         python_for_loop = initial_white_space + python_for_loop
         # Case 01
         if for_condition == "{":
@@ -321,3 +326,94 @@ def search_iterator(lines, start=0):
             if iterator_op in lines[index]:
                 save_lines.append((index, iterator_op))
     return save_lines
+
+
+# Set of functions to fix beautify loop bug
+def check_loop_line_breaks_r(x):
+    """This function exists to fix an unwanted result of beautify.
+    When a foor loop have some inside var declaration:
+        >>> for (var i = 0; var les = 10; i < 10; i++) {...}
+    The beautify output is:
+        >>> for (var i = 0;\n var les = 10; i < 10; i++) {...}
+    This function is to fix this issue.
+        >>> for (var i = 0; var les = 10; i < 10; i++) {...}
+
+    Args:
+        x (str): The input string.
+
+    Returns:
+        str: The output string.
+
+    Examples:
+        >>> from ee_extra import check_loop_line_breaks_r
+        >>> x = "for (var i = 0;\n var les = 10; i < 10; i++) {...}"
+        >>> check_loop_line_breaks_r(x)
+        >>> # 'for (var i = 0; var les = 10; i < 10; i++) {...}'
+    """
+    new_x = check_loop_line_breaks(x)
+    if x == new_x:
+        return x
+    else:
+        return check_loop_line_breaks_r(new_x)
+
+
+def check_loop_line_breaks(x):
+    lines = x.split("\n")
+    # trace for loop bad line breaks
+    condtion = r"^for\s*\("
+    list_true = []
+    for line in lines:
+        line = line.strip()
+        if regex.search(condtion, line):
+            if not is_par_close(line):
+                list_true.append("1")
+            else:
+                list_true.append("0")
+        else:
+            list_true.append("0")
+    group = "".join(list_true)
+    if int(group) == 0:
+        return x
+    merge_condition = from_bin_to_list(group.replace("10", "12"))
+    new_x = "\n".join(merge_group(lines, merge_condition))
+    return new_x
+
+
+def merge_group(lines, group_rule):
+    new_lines = []
+    for group in group_rule:
+        if isinstance(group, list):
+            new_lines.append("".join([lines[el] for el in group]))
+        else:
+            new_lines.append(lines[group])
+    return new_lines
+
+
+def is_par_close(line):
+    if line.count(")") == line.count("("):
+        return True
+    else:
+        return False
+
+
+def get_text_after_close_paren(line):
+    """
+    Transform:
+        >>> for (text = ""; i < len; i++) {
+    to:
+        >>> " {"
+    """
+    for index, lchr in enumerate(line):
+        if lchr == "(":
+            par_starts = index
+            break
+    newline = line[index:]
+    counter = 0
+    for index, lchr in enumerate(newline):
+        if lchr == "(":
+            counter += 1
+        elif lchr == ")":
+            counter -= 1
+        if counter == 0:
+            return newline[(index + 1) :]
+    raise ValueError("the line must be a closed 'for' loop like: for(...)")

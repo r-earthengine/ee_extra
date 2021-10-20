@@ -7,9 +7,14 @@ from typing import Any, List, Optional, Union
 import ee
 import requests
 
-from ee_extra.Spectral.utils import (_get_expression_map, _get_indices,
-                                     _get_kernel_image, _get_kernel_parameters,
-                                     _get_tc_coefficients, _remove_none_dict)
+from ee_extra.Spectral.utils import (
+    _get_expression_map,
+    _get_indices,
+    _get_kernel_image,
+    _get_kernel_parameters,
+    _get_tc_coefficients,
+    _remove_none_dict,
+)
 from ee_extra.STAC.utils import _get_platform_STAC
 
 

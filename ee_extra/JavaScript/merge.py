@@ -6,7 +6,6 @@ import sys
 
 import ee
 from box import Box
-from js2py import EvalJs
 
 from ee_extra.JavaScript.install import (
     _convert_path_to_ee_extra,
@@ -23,74 +22,6 @@ class BoxDict(Box):
         for key in keys:
             toShow[key] = type(self[key])
         return str(toShow)
-
-
-def evaluate(x: str) -> EvalJs:
-    """Evaluate a JS code inside the Earth Engine session.
-
-    Returns an EvalJs object hosting all EE objects evaluated.
-    The EE objects can be accessed using dot notation.
-
-    Args:
-        x: str
-
-    Returns:
-        An EvalJs object hosting all EE objects evaluated.
-
-    Examples:
-        >>> import ee
-        >>> from ee_extra import Extra
-        >>> ee.Initialize()
-        >>> jscode = "var S2 = ee.ImageCollection('COPERNICUS/S2_SR').first()"
-        >>> js = Extra.javaScript.eejs2py.evaluate(jscode)
-        >>> js.S2
-        <ee.image.Image at 0x7fe082c40e80>
-    """
-
-    # 1. Replace arrays for EE Objects
-    # --------------------------------
-    # EE doesn't recognize JS Arrays directly,
-    # therefore, they are evaluated outside
-    lists = re.findall(r"\[(.*?)\]", x)
-    listsFull = []
-
-    for l in lists:
-        try:
-            listsFull.append(list(map(float, l.split(","))))
-        except:
-            listsFull.append(l.replace('"', "").replace("'", "").split(","))
-
-    listsBrackets = {}
-    counter = 0
-
-    for i in lists:
-        listsBrackets["eeExtraObject" + str(counter)] = "[" + i + "]"
-        counter += 1
-
-    for key, value in listsBrackets.items():
-        x = x.replace(value, key)
-
-    listsToEval = {}
-    counter = 0
-
-    for i in listsFull:
-        listsToEval["eeExtraObject" + str(counter)] = ee.List(i)
-        counter += 1
-
-    # 2. Add EE to the context
-    # ------------------------
-    # EvalJS doesn't know what ee is,
-    # therefore, we have to give it as a context
-    listsToEval["ee"] = ee
-
-    # 3. Evaluate the JS code
-    # -----------------------
-    # Give all the context needed and
-    # evaluate the JS code
-    context = EvalJs(listsToEval)
-    context.execute(x)
-
-    return context
 
 
 def junction(x: str) -> str:

@@ -75,7 +75,7 @@ def _get_expression_map(img: ee.Image, platformDict: dict) -> dict:
             "S2": img.select("B7"),
         }
 
-    def lookupL7C2(img):
+    def lookupL457C2(img):
         return {
             "B": img.select("SR_B1"),
             "G": img.select("SR_B2"),
@@ -117,11 +117,13 @@ def _get_expression_map(img: ee.Image, platformDict: dict) -> dict:
         "LANDSAT/LC08/C02/T1_L2": lookupL8C2,
         "LANDSAT/LE07/C01/T1_SR": lookupL457,
         "LANDSAT/LE07/C01/T2_SR": lookupL457,
-        "LANDSAT/LE07/C02/T1_L2": lookupL7C2,
+        "LANDSAT/LE07/C02/T1_L2": lookupL457C2,
         "LANDSAT/LT05/C01/T1_SR": lookupL457,
         "LANDSAT/LT05/C01/T2_SR": lookupL457,
+        "LANDSAT/LT05/C02/T1_L2": lookupL457C2,
         "LANDSAT/LT04/C01/T1_SR": lookupL457,
         "LANDSAT/LT04/C01/T2_SR": lookupL457,
+        "LANDSAT/LT04/C02/T1_L2": lookupL457C2,
         "MODIS/006/MOD09GQ": lookupMOD09GQ,
         "MODIS/006/MYD09GQ": lookupMOD09GQ,
         "MODIS/006/MOD09GA": lookupMOD09GA,

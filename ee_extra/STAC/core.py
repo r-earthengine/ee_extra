@@ -1,12 +1,12 @@
 import json
 import os
 import re
+import urllib.request
 import warnings
 from typing import Optional, Union
 
 import ee
 import pkg_resources
-import requests
 
 from ee_extra.STAC.utils import _get_platform_STAC
 from ee_extra.utils import _load_JSON
@@ -30,7 +30,13 @@ def getSTAC(x: Union[ee.Image, ee.ImageCollection]) -> dict:
     """
     platformDict = _get_platform_STAC(x)
     eeDict = _load_JSON()
-    STAC = requests.get(eeDict[platformDict["platform"]]["href"]).json()
+
+    # With requests:
+    # STAC = requests.get(eeDict[platformDict["platform"]]["href"]).json()
+
+    # With urllib:
+    with urllib.request.urlopen(eeDict[platformDict["platform"]]["href"]) as url:
+        STAC = json.loads(url.read().decode())
 
     return STAC
 

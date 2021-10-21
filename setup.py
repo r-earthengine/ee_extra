@@ -28,7 +28,6 @@ setup(
         "jsbeautifier",
         "numpy",
         "regex",
-        "requests",
         "python-box",
     ],
     classifiers=[

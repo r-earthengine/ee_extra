@@ -129,3 +129,71 @@ def delete_brackets(x):
         else:
             counter = 0
     return newstring
+
+
+def subgroups_creator_bef(groups):
+    """Creates subgroups from groups
+
+    Args:
+        groups (str): String with zero and one characters.
+
+    Returns:
+        list: List of subgroups.
+    """
+    lsubgroups = []    
+    onecounter = 0
+    for index, word in enumerate(groups):
+        if word == '0':
+            if index != len(groups)-1:
+                if groups[index+1] == '0':                    
+                    lsubgroups.append(index)
+            else:
+                lsubgroups.append(index)
+        else:
+            if onecounter == 0:
+                onecounter = 1
+                start = index - 1
+                end = index
+            else:
+                end += 1
+                        
+            if index != len(groups) - 1:
+                if groups[index + 1] == '0':
+                    onecounter = 0
+                    lsubgroups.append(list(range(start, end + 1)))
+            else:
+                lsubgroups.append(list(range(start, end + 1)))
+    return lsubgroups
+
+
+def subgroups_creator_aft(groups):
+    """Creates subgroups from groups
+
+    Args:
+        groups (str): String with zero and one characters.
+
+    Returns:
+        list: List of subgroups.
+    """
+    lsubgroups = []    
+    onecounter = 0
+    for index, word in enumerate(groups):
+        if word == '0':
+            if index != len(groups)-1:
+                if groups[index+1] == '0':
+                    lsubgroups.append(index+1)
+        else:
+            if onecounter == 0:
+                onecounter = 1
+                start = index
+                end = index + 1
+            else:
+                end += 1
+                        
+            if index != len(groups) - 1:
+                if groups[index + 1] == '0':
+                    onecounter = 0
+                    lsubgroups.append(list(range(start, end + 1)))
+            else:
+                lsubgroups.append(list(range(start, end + 1)))
+    return [0] + lsubgroups

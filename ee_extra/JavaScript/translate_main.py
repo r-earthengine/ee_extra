@@ -11,7 +11,6 @@ from ee_extra import translate_general as tgnrl
 from ee_extra import translate_jsm_main as tjsm
 from ee_extra import translate_loops as tloops
 
-
 def fix_typeof(x):
     """Change typeof lesly to typeof(lesly)
 
@@ -266,7 +265,7 @@ def line_starts_with_dot(x):
     # Get "1" is the first chr is "." otherwise get "0"
     is_first_chr_dot = list()
     for line in lines:
-        if line == "":
+        if line != "":
             cond = str(int(first_is_dot(line.strip())))
         else:
             cond = "0"
@@ -278,8 +277,7 @@ def line_starts_with_dot(x):
         return x
 
     # If the next line starts with ".", merge with the previous line.
-    subgroups = subgroups.replace("01", "12")
-    merge_rule = tgnrl.from_bin_to_list(subgroups)
+    merge_rule = tgnrl.subgroups_creator_bef(subgroups)
 
     # Create the new x string
     final_x = list()
@@ -332,9 +330,8 @@ def ends_with_plus(x):
         return x
 
     # Merge the current line with the next line if '10'
-    subgroups = subgroups.replace("10", "12")
-    merge_rule = tgnrl.from_bin_to_list(subgroups)
-
+    merge_rule = tgnrl.subgroups_creator_aft(subgroups)
+    
     # Create the new x string
     final_x = list()
     for index in merge_rule:
@@ -386,8 +383,7 @@ def ends_with_equal(x):
         return x
 
     # Merge the current line with the next line if '10'
-    subgroups = subgroups.replace("10", "12")
-    merge_rule = tgnrl.from_bin_to_list(subgroups)
+    merge_rule = tgnrl.subgroups_creator_aft(subgroups)
 
     # Create the new x string
     final_x = list()
@@ -649,11 +645,17 @@ def dictionary_object_access(x):
 
 # Change "f({x = 1})" por "f(**{x = 1})"
 def keyword_arguments_object(x):
-    pattern = r"\({(.*?)}\)"
+    pattern = r"(\w+)\({(.*?)}\)"
     matches = regex.findall(pattern, x, regex.DOTALL)
-    matches = list(
-        set(matches)
-    )  # Remove duplicate matches (See Test:test_line_breaks01)
+    matches = list(set(matches))  # Remove duplicate matches (See Test:test_line_breaks01)
+    
+    # eliminate is the method is getThumbURL|getDownloadURL|getThumbId.
+    matches = [
+        params 
+        for fname, params in matches 
+        if fname not in ["getThumbURL", "getDownloadURL", "getThumbId"]
+    ]
+    
     if len(matches) > 0:
         for match in matches:
             x = x.replace("{" + match + "}", "**{" + match + "}")
@@ -714,10 +716,9 @@ def add_exports(x):
             def __init__(self, *args, **kwargs):
                 super(AttrDict, self).__init__(*args, **kwargs)
                 self.__dict__ = self
-
-        exports = AttrDict()        
+        exports = AttrDict()
         """
-        return header
+        return textwrap.dedent(header)
     else:
         return ""
 
@@ -747,6 +748,7 @@ def translate(x: str, black: bool = True, quiet: bool = True) -> str:
     """
     header_list = list()
     # 1. reformat and re-indent ugly JavaScript
+    x = regex.sub(r"\/\/.*", "", x)    
     x = beautify(x)
 
     # 2. Fix typeof change typeof x to typeof(x)
@@ -779,9 +781,6 @@ def translate(x: str, black: bool = True, quiet: bool = True) -> str:
     x = tloops.fix_while_loop(x)
     # 11. Change lines like var i++ to var i = i + 1.
     x = tloops.fix_inline_iterators(x)
-    # 12. Change 10 + "hola" by str(10) + "hola"
-    x, header = fix_str_plus_int(x)
-    header_list.append(header)
     # 12. Delete extra brackets.
     x = tgnrl.delete_brackets(x)
     x = tfunc.func_translate(x)
@@ -792,7 +791,10 @@ def translate(x: str, black: bool = True, quiet: bool = True) -> str:
     x = array_isArray(x)
     header_list.append(add_exports(x))
     x = x.replace(";", "")
-    x = add_header(x, header_list)
     if black:
-        x = format_str(x, mode=FileMode())
+        x = format_str(x, mode=FileMode())    
+    # 12. Change 10 + "hola" by str(10) + "hola"
+    x, header = fix_str_plus_int(x)
+    header_list.append(header)    
+    x = add_header(x, header_list)
     return x

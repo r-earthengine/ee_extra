@@ -63,7 +63,6 @@ class Test(unittest.TestCase):
         text = """
         // Fetch a digital elevation model.
         var image = ee.Image('CGIAR/SRTM90_V4');
-
         // Specify region by a linear ring and set display CRS as Web Mercator.
         var thumbnail3 = image.getThumbURL({
         'min': 0,
@@ -74,7 +73,8 @@ class Test(unittest.TestCase):
         'crs': 'EPSG:3857'
         });
         print('Linear ring region and specified crs', thumbnail3);
-        """
+        """        
+        text = text.replace("\n    ", "")
         self.assertIsInstance(translate(text, black=False), str)
 
     def test_line_breaks01(self):
@@ -163,7 +163,7 @@ class Test(unittest.TestCase):
         }
 
         // case03
-        for (var i = 0; i <= 5; i++)
+        for (var i = 0; i < 5; i++)
         {
         numbers[i]
         }
@@ -213,34 +213,6 @@ class Test(unittest.TestCase):
         print(text)
         i++;
         }
-
-        ////////////
-        // switch
-        ////////////
-        var day;
-        switch (new Date().getDay()) {
-        case 0:
-            day = "Sunday";
-            break;
-        case 1:
-            day = "Monday";
-            break;
-        case 2:
-            day = "Tuesday";
-            break;
-        case 3:
-            day = "Wednesday";
-            break;
-        case 4:
-            day = "Thursday";
-            break;
-        case 5:
-            day = "Friday";
-            break;
-        case 6:
-            day = "Saturday";
-        }
-        print(day)
         """
         self.assertIsInstance(translate(text, black=False), str)
 
@@ -1531,30 +1503,6 @@ class Test(unittest.TestCase):
         """
         self.assertIsInstance(translate(text, black=False), str)
 
-    # def test_module_01(self):
-    #    """Testing Temperature modules"""
-    #    jsmodule = 'users/sofiaermida/landsat_smw_lst:modules/Landsat_LST.js'
-    #    install(jsmodule)
-    #    pymodule = require(jsmodule)
-    #    self.assertIsInstance(pymodule, dict)
-    # def test_module_02(self):
-    #    """Testing Temperature modules"""
-    #    jsmodule = 'users/joselucassafanelli/TAGEE:TAGEE-functions'
-    #    install(jsmodule)
-    #    pymodule = require(jsmodule)
-    #    self.assertIsInstance(pymodule, dict)
-    # def test_module_03(self):
-    #    """Testing Temperature modules"""
-    #    jsmodule = 'users/andreasvollrath/radar:slope_correction_lib.js'
-    #    install(jsmodule)
-    #    pymodule = require(jsmodule)
-    #    self.assertIsInstance(pymodule, dict)
-    # def test_module_04(self):
-    #    """Testing Temperature modules"""
-    #    jsmodule = 'https://raw.githubusercontent.com/eMapR/LT-GEE/master/LandTrendr.js'
-    #    install(jsmodule, update=True)
-    #    pymodule = require(jsmodule)
-    #    self.assertIsInstance(pymodule, dict)
 
 
 if __name__ == "__main__":

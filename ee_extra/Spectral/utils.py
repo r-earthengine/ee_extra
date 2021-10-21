@@ -1,12 +1,12 @@
 import json
 import os
 import re
+import urllib.request
 import warnings
 from typing import Optional, Union
 
 import ee
 import pkg_resources
-import urllib.request
 
 from ee_extra.STAC.utils import _get_platform_STAC
 from ee_extra.utils import _load_JSON
@@ -151,7 +151,9 @@ def _get_indices(online: bool) -> dict:
         Indices.
     """
     if online:
-        with urllib.request.urlopen("https://raw.githubusercontent.com/davemlz/awesome-ee-spectral-indices/main/output/spectral-indices-dict.json") as url:
+        with urllib.request.urlopen(
+            "https://raw.githubusercontent.com/davemlz/awesome-ee-spectral-indices/main/output/spectral-indices-dict.json"
+        ) as url:
             indices = json.loads(url.read().decode())
     else:
         indices = _load_JSON("spectral-indices-dict.json")

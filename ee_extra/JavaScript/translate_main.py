@@ -11,6 +11,7 @@ from ee_extra import translate_general as tgnrl
 from ee_extra import translate_jsm_main as tjsm
 from ee_extra import translate_loops as tloops
 
+
 def fix_typeof(x):
     """Change typeof lesly to typeof(lesly)
 
@@ -331,7 +332,7 @@ def ends_with_plus(x):
 
     # Merge the current line with the next line if '10'
     merge_rule = tgnrl.subgroups_creator_aft(subgroups)
-    
+
     # Create the new x string
     final_x = list()
     for index in merge_rule:
@@ -647,15 +648,17 @@ def dictionary_object_access(x):
 def keyword_arguments_object(x):
     pattern = r"(\w+)\({(.*?)}\)"
     matches = regex.findall(pattern, x, regex.DOTALL)
-    matches = list(set(matches))  # Remove duplicate matches (See Test:test_line_breaks01)
-    
+    matches = list(
+        set(matches)
+    )  # Remove duplicate matches (See Test:test_line_breaks01)
+
     # eliminate is the method is getThumbURL|getDownloadURL|getThumbId.
     matches = [
-        params 
-        for fname, params in matches 
+        params
+        for fname, params in matches
         if fname not in ["getThumbURL", "getDownloadURL", "getThumbId"]
     ]
-    
+
     if len(matches) > 0:
         for match in matches:
             x = x.replace("{" + match + "}", "**{" + match + "}")
@@ -724,9 +727,7 @@ def add_exports(x):
 
 
 def add_header(x, header_list=""):
-    py_packages = (
-        "import ee\nimport warnings\nimport math\nimport inspect\nimport locale\nimport regex\n"
-    )
+    py_packages = "import ee\nimport warnings\nimport math\nimport inspect\nimport locale\nimport regex\n"
     header_list.append(py_packages)
     header_list.reverse()
     return "\n".join(header_list) + "\n" + x
@@ -748,7 +749,7 @@ def translate(x: str, black: bool = True, quiet: bool = True) -> str:
     """
     header_list = list()
     # 1. reformat and re-indent ugly JavaScript
-    x = regex.sub(r"\/\/.*", "", x)    
+    x = regex.sub(r"\/\/.*", "", x)
     x = beautify(x)
 
     # 2. Fix typeof change typeof x to typeof(x)
@@ -792,9 +793,9 @@ def translate(x: str, black: bool = True, quiet: bool = True) -> str:
     header_list.append(add_exports(x))
     x = x.replace(";", "")
     if black:
-        x = format_str(x, mode=FileMode())    
+        x = format_str(x, mode=FileMode())
     # 12. Change 10 + "hola" by str(10) + "hola"
     x, header = fix_str_plus_int(x)
-    header_list.append(header)    
+    header_list.append(header)
     x = add_header(x, header_list)
     return x

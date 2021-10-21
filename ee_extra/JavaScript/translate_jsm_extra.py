@@ -348,6 +348,7 @@ def local_map():
     """
     return x.replace("\n    ", "\n")
 
+
 def local_push():
     x = """
     def __ee_extra_push(array, *args):
@@ -439,6 +440,7 @@ def local_splice():
         return eval("%s.splice(%s, %s, %s)" % (vars_name, index, howmany, ", ".join(args)))    
     """
     return x.replace("\n    ", "\n")
+
 
 def local_unshift():
     x = """

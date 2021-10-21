@@ -4,9 +4,9 @@ a JavaScript Earth Enginemodule.
 
 import pathlib
 import re
+import urllib.request
 
 import pkg_resources
-import urllib.request
 
 
 def _convert_path_to_ee_sources(path: str) -> str:
@@ -149,10 +149,10 @@ def _install(x: str, update: bool, quiet: bool = False):
 
         if not module_folder.exists():
             module_folder.mkdir(parents=True, exist_ok=True)
-        
+
         # With requests:
-        #r = requests.get(_convert_path_to_ee_sources(x))
-        #open(_convert_path_to_ee_extra(x), "wb").write(r.content)
+        # r = requests.get(_convert_path_to_ee_sources(x))
+        # open(_convert_path_to_ee_extra(x), "wb").write(r.content)
 
         # With urllib:
         with urllib.request.urlopen(_convert_path_to_ee_sources(x)) as url:

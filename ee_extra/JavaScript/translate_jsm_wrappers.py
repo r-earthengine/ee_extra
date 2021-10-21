@@ -714,7 +714,7 @@ def translate_every(x):
     # if does not match the condition, return the original string
     if var_names == []:
         return x, 0
-    
+
     # Replace string by our built-in function
     to_replace_by = [
         "__ee_extra_every(%s, %s)" % (var_name, arg_name)
@@ -750,7 +750,7 @@ def translate_filter(x):
     # if does not match the condition, return the original string
     if var_names == []:
         return x, 0
-    
+
     # Replace string by our built-in function
     to_replace_by = [
         "__ee_extra_filter(%s, %s)" % (var_name, arg_name)
@@ -786,12 +786,12 @@ def translate_foreach(x):
     # if does not match the condition, return the original string
     if var_names == []:
         return x, 0
-    
-    # Replace string by our built-in function        
+
+    # Replace string by our built-in function
     to_replace_by = [
         "__ee_extra_foreach(%s, %s)" % (var_name, arg_name)
         for arg_name, var_name in zip(arg_names, var_names)
-    ]    
+    ]
     for z in zip(replacement, to_replace_by):
         x = x.replace(z[0], z[1])
     return x, 1
@@ -820,12 +820,12 @@ def translate_arrayfrom(x):
     # if does not match the condition, return the original string
     if var_names == []:
         return x, 0
-    
-    # Replace string by our built-in function        
+
+    # Replace string by our built-in function
     to_replace_by = [
         "__ee_extra_arrayfrom(%s)" % (arg_name)
         for arg_name, _ in zip(arg_names, var_names)
-    ]    
+    ]
     for z in zip(replacement, to_replace_by):
         x = x.replace(z[0], z[1])
     return x, 1
@@ -854,12 +854,12 @@ def translate_isArray(x):
     # if does not match the condition, return the original string
     if var_names == []:
         return x, 0
-    
-    # Replace string by our built-in function        
+
+    # Replace string by our built-in function
     to_replace_by = [
         "__ee_extra_isArray(%s)" % (arg_name)
         for arg_name, _ in zip(arg_names, var_names)
-    ]    
+    ]
     for z in zip(replacement, to_replace_by):
         x = x.replace(z[0], z[1])
     return x, 1
@@ -884,18 +884,18 @@ def translate_join(x):
     var_names = fcondition01(x, "join")
     replacement = fcondition02(x, "join")
     arg_names = fcondition03(x, "join")
-    if arg_names == ['']:
+    if arg_names == [""]:
         arg_names = ['","']
 
     # if does not match the condition, return the original string
     if var_names == []:
         return x, 0
-    
-    # Replace string by our built-in function        
+
+    # Replace string by our built-in function
     to_replace_by = [
         "__ee_extra_join(%s, %s)" % (var_name, arg_name)
         for arg_name, var_name in zip(arg_names, var_names)
-    ]    
+    ]
     for z in zip(replacement, to_replace_by):
         x = x.replace(z[0], z[1])
     return x, 1
@@ -920,16 +920,16 @@ def translate_map(x):
     var_names = fcondition01(x, "map")
     replacement = fcondition02(x, "map")
     arg_names = fcondition03(x, "map")
-    
+
     # if does not match the condition, return the original string
     if var_names == []:
         return x, 0
-    
-    # Replace string by our built-in function        
+
+    # Replace string by our built-in function
     to_replace_by = [
         "__ee_extra_map(%s, %s)" % (var_name, arg_name)
         for arg_name, var_name in zip(arg_names, var_names)
-    ]    
+    ]
     for z in zip(replacement, to_replace_by):
         x = x.replace(z[0], z[1])
     return x, 1
@@ -954,16 +954,16 @@ def translate_push(x):
     var_names = fcondition01(x, "push")
     replacement = fcondition02(x, "push")
     arg_names = fcondition03(x, "push")
-    
+
     # if does not match the condition, return the original string
     if var_names == []:
         return x, 0
-    
-    # Replace string by our built-in function        
+
+    # Replace string by our built-in function
     to_replace_by = [
         "__ee_extra_push(%s, %s)" % (var_name, arg_name)
         for arg_name, var_name in zip(arg_names, var_names)
-    ]    
+    ]
     for z in zip(replacement, to_replace_by):
         x = x.replace(z[0], z[1])
     return x, 1
@@ -990,16 +990,16 @@ def translate_reduce(x):
     var_names = fcondition01(x, "reduce")
     replacement = fcondition02(x, "reduce")
     arg_names = fcondition03(x, "reduce")
-    
+
     # if does not match the condition, return the original string
     if var_names == []:
         return x, 0
-    
-    # Replace string by our built-in function        
+
+    # Replace string by our built-in function
     to_replace_by = [
         "__ee_extra_reduce(%s, %s)" % (var_name, arg_name)
         for arg_name, var_name in zip(arg_names, var_names)
-    ]    
+    ]
     for z in zip(replacement, to_replace_by):
         x = x.replace(z[0], z[1])
     return x, 1
@@ -1026,16 +1026,16 @@ def translate_reduceRight(x):
     var_names = fcondition01(x, "reduceRight")
     replacement = fcondition02(x, "reduceRight")
     arg_names = fcondition03(x, "reduceRight")
-    
+
     # if does not match the condition, return the original string
     if var_names == []:
         return x, 0
-    
-    # Replace string by our built-in function        
+
+    # Replace string by our built-in function
     to_replace_by = [
         "__ee_extra_reduceRight(%s, %s)" % (var_name, arg_name)
         for arg_name, var_name in zip(arg_names, var_names)
-    ]    
+    ]
     for z in zip(replacement, to_replace_by):
         x = x.replace(z[0], z[1])
     return x, 1
@@ -1060,17 +1060,14 @@ def translate_shift(x):
     # Regex conditions to get the string to replace,
     # the arguments, and the variable name.
     var_names = fcondition01(x, "shift")
-    replacement = fcondition02(x, "shift")    
-    
+    replacement = fcondition02(x, "shift")
+
     # if does not match the condition, return the original string
     if var_names == []:
         return x, 0
-    
-    # Replace string by our built-in function        
-    to_replace_by = [
-        "__ee_extra_shift(%s)" % (var_name)
-        for var_name in var_names
-    ]    
+
+    # Replace string by our built-in function
+    to_replace_by = ["__ee_extra_shift(%s)" % (var_name) for var_name in var_names]
     for z in zip(replacement, to_replace_by):
         x = x.replace(z[0], z[1])
     return x, 1
@@ -1095,18 +1092,18 @@ def translate_some(x):
     # Regex conditions to get the string to replace,
     # the arguments, and the variable name.
     var_names = fcondition01(x, "some")
-    replacement = fcondition02(x, "some")    
+    replacement = fcondition02(x, "some")
     arg_names = fcondition03(x, "some")
-    
+
     # if does not match the condition, return the original string
     if var_names == []:
         return x, 0
-    
-    # Replace string by our built-in function        
+
+    # Replace string by our built-in function
     to_replace_by = [
         "__ee_extra_some(%s, %s)" % (var_name, arg_name)
         for arg_name, var_name in zip(arg_names, var_names)
-    ]        
+    ]
     for z in zip(replacement, to_replace_by):
         x = x.replace(z[0], z[1])
     return x, 1
@@ -1131,25 +1128,25 @@ def translate_splice(x):
     # Regex conditions to get the string to replace,
     # the arguments, and the variable name.
     var_names = fcondition01(x, "splice")
-    replacement = fcondition02(x, "splice")    
+    replacement = fcondition02(x, "splice")
     arg_names = fcondition03(x, "splice")
-    
+
     # if does not match the condition, return the original string
     if var_names == []:
         return x, 0
-    
-    # Replace string by our built-in function        
+
+    # Replace string by our built-in function
     to_replace_by = [
         "__ee_extra_splice(%s, %s)" % (var_name, arg_name)
         for arg_name, var_name in zip(arg_names, var_names)
-    ]        
+    ]
     for z in zip(replacement, to_replace_by):
         x = x.replace(z[0], z[1])
     return x, 1
 
 
 def translate_unshift(x):
-    """Converts list.unshift(item1, item2, ..., itemX) to 
+    """Converts list.unshift(item1, item2, ..., itemX) to
        __ee_extra_unshift(list, item1, item2, ..., itemX)
 
     Args:
@@ -1166,22 +1163,21 @@ def translate_unshift(x):
     # Regex conditions to get the string to replace,
     # the arguments, and the variable name.
     var_names = fcondition01(x, "unshift")
-    replacement = fcondition02(x, "unshift")    
+    replacement = fcondition02(x, "unshift")
     arg_names = fcondition03(x, "unshift")
-    
+
     # if does not match the condition, return the original string
     if var_names == []:
         return x, 0
-    
-    # Replace string by our built-in function        
+
+    # Replace string by our built-in function
     to_replace_by = [
         "__ee_extra_unshift(%s, %s)" % (var_name, arg_name)
         for arg_name, var_name in zip(arg_names, var_names)
-    ]        
+    ]
     for z in zip(replacement, to_replace_by):
         x = x.replace(z[0], z[1])
     return x, 1
-
 
 
 def translate_valueOf(x):
@@ -1201,18 +1197,18 @@ def translate_valueOf(x):
     # Regex conditions to get the string to replace,
     # the arguments, and the variable name.
     var_names = fcondition01(x, "valueOf")
-    replacement = fcondition02(x, "valueOf")    
+    replacement = fcondition02(x, "valueOf")
     arg_names = fcondition03(x, "valueOf")
-    
+
     # if does not match the condition, return the original string
     if var_names == []:
         return x, 0
-    
-    # Replace string by our built-in function        
+
+    # Replace string by our built-in function
     to_replace_by = [
         "__ee_extra_valueOf(%s, %s)" % (var_name, arg_name)
         for arg_name, var_name in zip(arg_names, var_names)
-    ]        
+    ]
     for z in zip(replacement, to_replace_by):
         x = x.replace(z[0], z[1])
     return x, 1

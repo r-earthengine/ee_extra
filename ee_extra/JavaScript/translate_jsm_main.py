@@ -141,7 +141,7 @@ def translate_jsmethods(x):
     if cond:
         specialfun_counter += 1
         eextra_special_functions_to.append(jsmextra.local_arrayfrom())
-        
+
     # Returns true if x is a list.
     x, cond = jsmwrappers.translate_isArray(x)
     if cond:
@@ -153,7 +153,7 @@ def translate_jsmethods(x):
     if cond:
         specialfun_counter += 1
         eextra_special_functions_to.append(jsmextra.local_join())
-    
+
     # Creates a new array with the results of calling a function for every array element.
     x, cond = jsmwrappers.translate_map(x)
     if cond:
@@ -195,24 +195,23 @@ def translate_jsmethods(x):
     if cond:
         specialfun_counter += 1
         eextra_special_functions_to.append(jsmextra.local_splice())
-    
-    
+
     # Add new items to the beginning of an array.
     x, cond = jsmwrappers.translate_unshift(x)
     if cond:
         specialfun_counter += 1
         eextra_special_functions_to.append(jsmextra.local_unshift())
-    
+
     # valueOf() is the default method of any Array object... aparently does not do nothing.
     x, cond = jsmwrappers.translate_valueOf(x)
     if cond:
         specialfun_counter += 1
         eextra_special_functions_to.append(jsmextra.local_valueOf())
- 
+
     # ---------------------------------------------------------------
     # If a special function is found, return varname func too
     # ---------------------------------------------------------------
     if specialfun_counter > 0:
         eextra_special_functions_to.append(jsmextra.local_varname())
-        
+
     return x, "\n".join(eextra_special_functions_to)

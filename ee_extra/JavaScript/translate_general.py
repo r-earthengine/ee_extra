@@ -37,7 +37,7 @@ def from_bin_to_list(x):
 
 
 def yield_subgroups(group, subgroup_test):
-    """ Helper function to group lines see from_bin_to_list"""
+    """Helper function to group lines see from_bin_to_list"""
     subgroup = [0]
     for i, j in zip_longest(group, islice(group, 1, None), fillvalue=0):
         if subgroup_test(str(i), str(j)) in ["00", "01"]:
@@ -140,12 +140,12 @@ def subgroups_creator_bef(groups):
     Returns:
         list: List of subgroups.
     """
-    lsubgroups = []    
+    lsubgroups = []
     onecounter = 0
     for index, word in enumerate(groups):
-        if word == '0':
-            if index != len(groups)-1:
-                if groups[index+1] == '0':                    
+        if word == "0":
+            if index != len(groups) - 1:
+                if groups[index + 1] == "0":
                     lsubgroups.append(index)
             else:
                 lsubgroups.append(index)
@@ -156,9 +156,9 @@ def subgroups_creator_bef(groups):
                 end = index
             else:
                 end += 1
-                        
+
             if index != len(groups) - 1:
-                if groups[index + 1] == '0':
+                if groups[index + 1] == "0":
                     onecounter = 0
                     lsubgroups.append(list(range(start, end + 1)))
             else:
@@ -175,13 +175,13 @@ def subgroups_creator_aft(groups):
     Returns:
         list: List of subgroups.
     """
-    lsubgroups = []    
+    lsubgroups = []
     onecounter = 0
     for index, word in enumerate(groups):
-        if word == '0':
-            if index != len(groups)-1:
-                if groups[index+1] == '0':
-                    lsubgroups.append(index+1)
+        if word == "0":
+            if index != len(groups) - 1:
+                if groups[index + 1] == "0":
+                    lsubgroups.append(index + 1)
         else:
             if onecounter == 0:
                 onecounter = 1
@@ -189,9 +189,9 @@ def subgroups_creator_aft(groups):
                 end = index + 1
             else:
                 end += 1
-                        
+
             if index != len(groups) - 1:
-                if groups[index + 1] == '0':
+                if groups[index + 1] == "0":
                     onecounter = 0
                     lsubgroups.append(list(range(start, end + 1)))
             else:

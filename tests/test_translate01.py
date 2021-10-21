@@ -1,7 +1,8 @@
 # from ee_extra.JavaScript.merge import require
 # from ee_extra.JavaScript.install import install
-from ee_extra import translate
 import unittest
+
+from ee_extra import translate
 
 
 class Test(unittest.TestCase):
@@ -73,7 +74,7 @@ class Test(unittest.TestCase):
         'crs': 'EPSG:3857'
         });
         print('Linear ring region and specified crs', thumbnail3);
-        """        
+        """
         text = text.replace("\n    ", "")
         self.assertIsInstance(translate(text, black=False), str)
 
@@ -1502,7 +1503,6 @@ class Test(unittest.TestCase):
         };        
         """
         self.assertIsInstance(translate(text, black=False), str)
-
 
 
 if __name__ == "__main__":

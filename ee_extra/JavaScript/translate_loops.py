@@ -14,9 +14,11 @@ GitHub :).
 """
 import regex
 
-from ee_extra.JavaScript.translate_general import (delete_brackets,
-                                                   from_bin_to_list,
-                                                   var_remove)
+from ee_extra.JavaScript.translate_general import (
+    delete_brackets,
+    from_bin_to_list,
+    var_remove,
+)
 
 
 def fix_case03_loop(x):

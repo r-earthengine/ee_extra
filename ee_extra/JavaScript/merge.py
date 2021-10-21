@@ -3,9 +3,9 @@
 import pathlib
 import re
 import sys
+from types import SimpleNamespace
 
 import ee
-from box import Box
 
 from ee_extra.JavaScript.install import (
     _convert_path_to_ee_extra,
@@ -15,12 +15,17 @@ from ee_extra.JavaScript.install import (
 from ee_extra.JavaScript.utils import translate
 
 
-class BoxDict(Box):
+class JSModule(SimpleNamespace):
+    """Creates a JSModule object.
+
+    This class is used to store the exports of an Earth Engine JavaScript Module.
+    """
+
     def __repr__(self):
-        keys = list(self.keys())
+        keys = list(self.__dict__.keys())
         toShow = dict()
         for key in keys:
-            toShow[key] = type(self[key])
+            toShow[key] = type(self.__dict__[key])
         return str(toShow)
 
 
@@ -131,12 +136,4 @@ def require(x: str):
 
     exec(module, exports)
 
-    class BoxDict(Box):
-        def __repr__(self):
-            keys = list(self.keys())
-            toShow = dict()
-            for key in keys:
-                toShow[key] = type(self[key])
-            return str(toShow)
-
-    return BoxDict(exports["exports"], frozen_box=True)
+    return JSModule(**exports["exports"])

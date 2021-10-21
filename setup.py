@@ -28,7 +28,6 @@ setup(
         "jsbeautifier",
         "numpy",
         "regex",
-        "python-box",
     ],
     classifiers=[
         "Development Status :: 2 - Pre-Alpha",

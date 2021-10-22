@@ -20,7 +20,8 @@ setup(
     author="Cesar Aybar and David Montero Loaiza",
     author_email="dml.mont@gmail.com",
     description="A ninja Python package behind rgee, rgeeExtra and eemont.",
-    long_description=read("README.rst"),
+    long_description=read("README.md"),
+    long_description_content_type="text/markdown",
     packages=find_packages(exclude=("tests",), include=["ee_extra", "ee_extra.*"]),
     package_data={"ee_extra": ["data/*.json"]},
     install_requires=[

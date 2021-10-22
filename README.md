@@ -2,7 +2,7 @@
   <a href="https://github.com/r-earthengine/ee_extra"><img src="https://raw.githubusercontent.com/r-earthengine/ee_extra/master/docs/_static/logo_name.png" alt="spyndex"></a>
 </p>
 <p align="center">
-    <em>A ninja python package that unifies the Google Earth Enginer ecosystem.</em>
+    <em>A ninja python package that unifies the Google Earth Engine ecosystem:</em>
 </p>
 <p align="center">
     <b><a href="https://github.com/r-spatial/rgee" target="_blank">
@@ -117,5 +117,3 @@ Install the latest dev version from GitHub by running:
 ```
 pip install git+https://github.com/r-earthengine/ee_extra
 ```
-
-## Features

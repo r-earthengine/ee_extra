@@ -17,6 +17,9 @@
 <a href='https://anaconda.org/conda-forge/ee_extra'>
     <img src='https://img.shields.io/conda/vn/conda-forge/ee_extra.svg' alt='conda-forge' />
 </a>
+<a href="https://opensource.org/licenses/Apache-2.0" target="_blank">
+    <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License">
+</a>
 <a href='https://ee-extra.readthedocs.io/en/latest/?badge=latest'>
     <img src='https://readthedocs.org/projects/ee-extra/badge/?version=latest' alt='Documentation Status' />
 </a>

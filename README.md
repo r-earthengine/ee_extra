@@ -125,3 +125,184 @@ Install the latest dev version from GitHub by running:
 ```
 pip install git+https://github.com/r-earthengine/ee_extra
 ```
+
+## Features
+
+Let's see some of the awesome features of `eeExtra` and how to use them from the powered
+packages in python and R!
+
+### Scale and Offset
+
+Most datasets in the data catalog are scaled and in order to get their real values,
+we have to scale (and sometimes offset) them!
+
+<table>
+
+<tr>
+<th> Python (eemont) </th>
+<th> R (rgee+) </th>
+</tr>
+
+<tr>
+<td>
+  
+``` python
+import ee, eemont
+ee.Initialize()
+db = 'COPERNICUS/S2_SR'
+S2 = ee.ImageCollection(db)
+S2.scaleAndOffset()
+```
+
+</td>
+<td>
+
+``` r
+library(rgee)
+library(rgeeExtra)
+ee_Initialize()
+db <- 'COPERNICUS/S2_SR'
+S2 <- ee$ImageCollection(db)
+S2$scaleAndOffset()
+```
+</td>
+</tr>
+
+</table>
+
+### Spectral Indices
+
+Do you know the [Awesome Spectral Indices](https://github.com/davemlz/awesome-spectral-indices)? 
+Well, you can compute them automatically with `eeExtra`! 
+
+<table>
+
+<tr>
+<th> Python (eemont) </th>
+<th> R (rgee+) </th>
+</tr>
+
+<tr>
+<td>
+  
+``` python
+import ee, eemont
+ee.Initialize()
+db = 'COPERNICUS/S2_SR'
+S2 = ee.ImageCollection(db)
+S2 = S2.scaleAndOffset()
+S2.spectralIndices("EVI")
+```
+
+</td>
+<td>
+
+``` r
+library(rgee)
+library(rgeeExtra)
+ee_Initialize()
+db <- 'COPERNICUS/S2_SR'
+S2 <- ee$ImageCollection(db)
+S2 <- S2$scaleAndOffset()
+S2$spectralIndices("EVI")
+```
+</td>
+</tr>
+
+</table>
+
+### JavaScript Modules
+
+This is perhaps the most important feature in `eeExtra`! What if you could use a
+JavaScript module (originally just useful for the Code Editor) in python or R? Well,
+wait no more for it!
+
+<table>
+
+<tr>
+<th> JS (Code Editor) </th>
+<th> Python (eemont) </th>
+<th> R (rgee+) </th>
+</tr>
+
+<tr>
+<td>
+  
+``` javascript
+var usr = 'users/sofiaermida/'
+var rep = 'landsat_smw_lst:'
+var fld = 'modules/'
+var fle = 'Landsat_LST.js'
+var pth = usr + rep + fld + fle
+var mod = require(pth)
+var LST = mod.collection(
+    ee.Geometry.Rectangle([
+        -8.91,
+        40.0,
+        -8.3,
+        40.4
+    ]),
+    'L8',
+    '2018-05-15',
+    '2018-05-31',
+    true
+)
+```
+
+</td>
+<td>
+  
+``` python
+import ee, eemont
+ee.Initialize()
+usr = 'users/sofiaermida/'
+rep = 'landsat_smw_lst:'
+fld = 'modules/'
+fle = 'Landsat_LST.js'
+pth = usr + rep + fld + fle
+ee.install(pth)
+mod = ee.require(pth)
+LST = mod.collection(
+    ee.Geometry.Rectangle([
+        -8.91,
+        40.0,
+        -8.3,
+        40.4
+    ]),
+    'L8',
+    '2018-05-15',
+    '2018-05-31',
+    True
+)
+```
+
+</td>
+<td>
+
+``` r
+library(rgee)
+library(rgeeExtra)
+ee_Initialize()
+usr <- 'users/sofiaermida/'
+rep <- 'landsat_smw_lst:'
+fld <- 'modules/'
+fle <- 'Landsat_LST.js'
+pth <- paste0(usr, rep, fld, fle)
+mod <- ee$require(pth)
+LST = mod$collection(
+    ee$Geometry$Rectangle(c(
+        -8.91,
+        40.0,
+        -8.3,
+        40.4
+    )),
+    'L8',
+    '2018-05-15',
+    '2018-05-31',
+    TRUE
+)
+```
+</td>
+</tr>
+
+</table>

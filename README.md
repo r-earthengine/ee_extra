@@ -211,6 +211,44 @@ S2$spectralIndices("EVI")
 
 </table>
 
+### STAC features
+
+Access STAC properties easily!
+
+<table>
+
+<tr>
+<th> Python (eemont) </th>
+<th> R (rgee+) </th>
+</tr>
+
+<tr>
+<td>
+  
+``` python
+import ee, eemont
+ee.Initialize()
+db = 'COPERNICUS/S2_SR'
+S2 = ee.ImageCollection(db)
+S2.getSTAC()
+```
+
+</td>
+<td>
+
+``` r
+library(rgee)
+library(rgeeExtra)
+ee_Initialize()
+db <- 'COPERNICUS/S2_SR'
+S2 <- ee$ImageCollection(db)
+S2$getSTAC()
+```
+</td>
+</tr>
+
+</table>
+
 ### JavaScript Modules
 
 This is perhaps the most important feature in `eeExtra`! What if you could use a
@@ -233,7 +271,7 @@ var usr = 'users/sofiaermida/'
 var rep = 'landsat_smw_lst:'
 var fld = 'modules/'
 var fle = 'Landsat_LST.js'
-var pth = usr + rep + fld + fle
+var pth = usr+rep+fld+fle
 var mod = require(pth)
 var LST = mod.collection(
     ee.Geometry.Rectangle([
@@ -259,7 +297,7 @@ usr = 'users/sofiaermida/'
 rep = 'landsat_smw_lst:'
 fld = 'modules/'
 fle = 'Landsat_LST.js'
-pth = usr + rep + fld + fle
+pth = usr+rep+fld+fle
 ee.install(pth)
 mod = ee.require(pth)
 LST = mod.collection(
@@ -287,7 +325,7 @@ usr <- 'users/sofiaermida/'
 rep <- 'landsat_smw_lst:'
 fld <- 'modules/'
 fle <- 'Landsat_LST.js'
-pth <- paste0(usr, rep, fld, fle)
+pth <- paste0(usr,rep,fld,fle)
 mod <- ee$require(pth)
 LST = mod$collection(
     ee$Geometry$Rectangle(c(

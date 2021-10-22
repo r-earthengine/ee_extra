@@ -64,7 +64,7 @@ raster and vector data that users can process online.
 There are a lot of fantastic third-party GEE packages and projects around GitHub. However,
 most of them are coded in JavaScript or Python, and they are not straightforward
 to translate to R, Julia, or other programming languages. The main goal of `eeExtra` is
-to guarantee a smooth `import` of these projects to other programming languages by
+to guarantee a smooth `import` of these projects in other programming languages by
 standardizing different methods and enabling the use of JavaScript modules outside the
 [Code Editor](https://code.earthengine.google.com/).
 
@@ -79,17 +79,22 @@ And the most important feature:
 
 - Enabling the usage of JavaScript modules outside the Code Editor.
 
+
 ## How does it work?
 
-`eeExtra` is a Python package, just like any other, but it serves as a methods provider for
-different environments: R, Julia and Python itself. `eeExtra` accomplish this by being the
-powerhouse of some amazing packages such as [rgee](https://github.com/r-spatial/rgee),
+`eeExtra` is a Python package, just like any other, but it is a *ninja* that serves as a 
+methods provider for different environments: R, Julia and Python itself. `eeExtra` 
+accomplish this by being the powerhouse of some amazing packages such as [rgee](https://github.com/r-spatial/rgee),
 [rgee+](https://github.com/r-earthengine/rgeeExtra), and [eemont](https://github.com/davemlz/eemont).
 
 Public JavaScript module can also be used outside the Code Editor in these packages
 through `eeExtra`. For this, `eeExtra` implements a rigorous JavaScript translation
 module that allows users to install, require and use JavaScript modules as if they
 were on the Code Editor!
+
+You may be wondering *"Why is it a ninja python package?"*, well, that's a valid question,
+the whole point of `eeExtra` resides in the fact that nobody has to use `eeExtra` itself,
+but rather use one of the packages that are powered by `eeExtra`! :) 
 
 
 ## Installation

@@ -3,7 +3,6 @@
 import textwrap
 
 import regex
-from black import FileMode, format_str
 from jsbeautifier import beautify, default_options
 
 from ee_extra import translate_functions as tfunc
@@ -777,7 +776,7 @@ def remove_single_declarations(x):
     return x
     
 
-def translate(x: str, black: bool = True, quiet: bool = True) -> str:
+def translate(x: str, black: bool = False, quiet: bool = True) -> str:
     """Translates a JavaScript script to a Python script.
 
     Args:
@@ -846,7 +845,13 @@ def translate(x: str, black: bool = True, quiet: bool = True) -> str:
     header_list.append(add_exports(x))
     x = x.replace(";", "")
     if black:
-        x = format_str(x, mode=FileMode())
+        try:
+            from black import FileMode, format_str
+            x = format_str(x, mode=FileMode())
+        except ImportError:
+            raise ImportError(
+                '"black" is not installed. Please install "black" when using "black=True" -> "pip install black"'
+            )        
     # 12. Change 10 + "hola" by str(10) + "hola"
     x, header = fix_str_plus_int(x)
     header_list.append(header)

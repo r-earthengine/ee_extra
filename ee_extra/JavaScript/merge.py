@@ -12,7 +12,7 @@ from ee_extra.JavaScript.install import (
     _get_ee_sources_path,
     _open_module_as_str,
 )
-from ee_extra.JavaScript.utils import translate
+from ee_extra import translate
 
 
 class JSModule(SimpleNamespace):

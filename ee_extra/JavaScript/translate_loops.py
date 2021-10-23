@@ -99,7 +99,7 @@ def fix_while_loop(x):
     lines = x.split("\n")
     list_while_solver = list()
 
-    # line = lines[4]
+    # line = lines[1]
     for line in lines:
         # 1. Get the text inside parenthesis (ignore nested parenthesis)
         condition_01 = "(?<=while.*\()(?:[^()]+|\([^)]+\))+(?=\))"
@@ -155,7 +155,7 @@ def fix_for_loop(x):
     lines = x.split("\n")
     list_for_solver = list()
 
-    # line = lines[2]
+    # line = lines[1]
     for line in lines:
         # 1. Get the text inside parenthesis (ignore nested parenthesis)
         condition_01 = "(?<=for\s*\()(?:[^()]+|\([^)]+\))+(?=\))"
@@ -251,10 +251,10 @@ def fix_for_loop(x):
                     stop = lcond.split("!=")[1]
 
                 python_for_loop = delete_brackets(
-                    x="%s\nfor %s in range(%s, %s, %s):\n"
-                    % (ldef, iterator, start, stop, step)
+                    x="%s\n%sfor %s in range(%s, %s, %s):\n"
+                    % (ldef, initial_white_space, iterator, start, stop, step)
                 )
-
+        
         # This chunk of code support three different ways for defining a loop
         # (there is just 3 types because beautify reformat perfectly the code!)
         # for(_) \n { \n ... --> case01
@@ -269,7 +269,7 @@ def fix_for_loop(x):
             list_for_solver.append(python_for_loop)
         # Case 02
         else:
-            list_for_solver.append("%s    %s" % (python_for_loop, for_condition))
+            list_for_solver.append("%s%s    %s" % (python_for_loop, initial_white_space, for_condition))
     return "\n".join(list_for_solver)
 
 

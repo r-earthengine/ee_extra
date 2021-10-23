@@ -1,6 +1,6 @@
 from ee_extra import translate_jsm_extra as jsmextra
 from ee_extra import translate_jsm_wrappers as jsmwrappers
-
+from ee_extra import translate_specialfunctions as fspecial
 
 def translate_jsmethods(x):
     """Translates Javascript methods to Python
@@ -207,6 +207,26 @@ def translate_jsmethods(x):
     if cond:
         specialfun_counter += 1
         eextra_special_functions_to.append(jsmextra.local_valueOf())
+
+    x, cond = fspecial.translate_fun_parseInt(x)
+    if cond:
+        specialfun_counter += 1
+        eextra_special_functions_to.append(fspecial.local_fun_parseInt())
+
+    x, cond = fspecial.translate_fun_parseFloat(x)
+    if cond:
+        specialfun_counter += 1
+        eextra_special_functions_to.append(fspecial.local_fun_parseFloat())
+
+    x, cond = fspecial.translate_fun_Number(x)
+    if cond:
+        specialfun_counter += 1
+        eextra_special_functions_to.append(fspecial.local_fun_Number())
+
+    x, cond = fspecial.translate_fun_String(x)
+    if cond:
+        specialfun_counter += 1
+        eextra_special_functions_to.append(fspecial.local_fun_String())
 
     # ---------------------------------------------------------------
     # If a special function is found, return varname func too

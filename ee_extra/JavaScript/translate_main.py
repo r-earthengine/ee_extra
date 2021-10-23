@@ -4,12 +4,25 @@ import textwrap
 
 import regex
 from black import FileMode, format_str
-from jsbeautifier import beautify
+from jsbeautifier import beautify, default_options
 
 from ee_extra import translate_functions as tfunc
 from ee_extra import translate_general as tgnrl
 from ee_extra import translate_jsm_main as tjsm
 from ee_extra import translate_loops as tloops
+from ee_extra import translate_utils as tutils
+
+opts = default_options()
+opts.keep_array_indentation = True
+
+
+def inside_quoation_marks(x, word):
+    pattern = r"([\"'])(?:(?=(\\?))\2.)*?\1"
+    if regex.search(pattern, x):
+        qm_word = regex.search(pattern, x).group(0)
+        return word in qm_word
+    else:
+        return False
 
 
 def fix_typeof(x):
@@ -26,12 +39,15 @@ def fix_typeof(x):
         >>> fix_typeof("typeof lesly")
         >>> # typeof(lesly)
     """
-    typeof_cases = regex.findall(r"typeof\s*[A-Za-z0-9Α-Ωα-ωίϊΐόάέύϋΰήώ\[\]_]*", x)
+    lazy_cond = r"typeof\s*\(*[A-Za-z0-9Α-Ωα-ωίϊΐόάέύϋΰήώ\[\]_]*\)*"
+    typeof_cases = regex.findall(lazy_cond, x)
     if typeof_cases == []:
         return x, ""
     else:
         for typeof_case in typeof_cases:
-            x = x.replace(typeof_case, "typeof(%s)" % typeof_case.split(" ")[1])
+            # if there is a space before the typeof?
+            if typeof_case.split(" ") == typeof_case:
+                x = x.replace(typeof_case, "typeof(%s)" % typeof_case.split(" ")[1])
     header = """
     
     # Javascript typeof wrapper ---------------------------------------
@@ -53,7 +69,7 @@ def fix_typeof(x):
             return "object"
     # -----------------------------------------------------------------
     """
-    return x, header
+    return x, textwrap.dedent(header)
 
 
 # maybe we can do it better, but for now it should works
@@ -74,8 +90,15 @@ def fix_sugar_if(x):
         >>> # maskThese = msk if (typeof msk !== 'undefined') else [];
     """
     lines = x.split("\n")
-    condition01 = "\(.*\).*\?.*:.*"
-    sugar_lines = [line for line in lines if regex.search(condition01, line)]
+    condition01 = "\(.*\)\s\?\s\w+\s:.*" # search for sugar strings
+    sugar_lines = [line for line in lines if regex.search(condition01, line)]    
+    
+    pattern = r"([\"'])(?:(?=(\\?))\2.)*?\1"
+    if regex.search(pattern, x):
+        qm_word = regex.search(pattern, x).group(0)
+        
+        
+    
     if sugar_lines == []:
         return x
     else:
@@ -262,14 +285,22 @@ def line_starts_with_dot(x):
 
     # Remove all whitespace at the end.
     lines = [line.rstrip() for line in x.split("\n")]
-
+    
     # Get "1" is the first chr is "." otherwise get "0"
-    is_first_chr_dot = list()
-    for line in lines:
+    is_first_chr_dot = list()    
+    for index, line in enumerate(lines):
         if line != "":
             cond = str(int(first_is_dot(line.strip())))
         else:
-            cond = "0"
+            try:
+                nextline = lines[index + 1]
+                ncond = str(int(first_is_dot(nextline.strip())))
+                if ncond == '1':
+                    cond = "1"
+                else:
+                    cond = "0"                
+            except IndexError:
+                cond = "0"                
         is_first_chr_dot.append(cond)
     subgroups = "".join(is_first_chr_dot)  # e.g. "011000100"
 
@@ -284,11 +315,16 @@ def line_starts_with_dot(x):
     final_x = list()
     for index in merge_rule:
         if isinstance(index, list):
-            final_x.append("".join([lines[index2] for index2 in index]))
+            final_merge = list()            
+            for enum, index2 in enumerate(index):
+                if enum == 0:
+                    final_merge.append(lines[index2])
+                else:
+                    final_merge.append(lines[index2].strip())            
+            final_x.append("".join(final_merge))
         else:
             final_x.append(lines[index])
     return "\n".join(final_x)
-
 
 def ends_with_plus(x):
     """If a line ends in a "+", merge with the next line.
@@ -443,8 +479,9 @@ def fix_str_plus_int(x):
     # -----------------------------------------------------------------------------
     """
     # does '+' operator exist on the code?
-    if regex.search("\s+\+\s+", x):
-        return x.replace(" + ", " |plus| "), textwrap.dedent(header)
+    newx = tutils.replace_non_quoted(x, [("+", "|plus|")])
+    if newx != x:
+        return newx, textwrap.dedent(header)            
     return x, ""
 
 
@@ -578,7 +615,7 @@ def dict_replace(x, match, word, new_word):
             return word in qm_word
         else:
             return False
-
+    
     if inside_quoation_marks(match, word):
         return x
     else:
@@ -591,8 +628,9 @@ def dictionary_object_access(x):
     # Search in all lines .. it matchs <name>.<name>
     pattern = r"^(?=.*[\x00-\x7F][^\s]+\.[\x00-\x7F][^\s]+)(?!.*http).*$"
     matches = regex.findall(pattern, x, regex.MULTILINE)
-
-    # match = matches[1]
+    matches.sort(reverse=True)
+    
+    # match = matches[7]
     for match in matches:
         if len(match) > 0:
             if match[0] == "#":
@@ -620,7 +658,7 @@ def dictionary_object_access(x):
         # remove square brackets (It is important to fix ee.Geometry.* issues)
         matches_at_line = [x.replace("]", "").replace("[", "") for x in matches_at_line]
 
-        # match_line = matches_at_line[1]
+        # match_line = matches_at_line[0]
         for match_line in matches_at_line:
             # If is a number pass
             if is_float(match_line[:-1]):
@@ -733,6 +771,12 @@ def add_header(x, header_list=""):
     return "\n".join(header_list) + "\n" + x
 
 
+def remove_single_declarations(x):
+    condition = "var\s[A-Za-z0-9Α-Ωα-ωίϊΐόάέύϋΰήώ\[\]_]+;*\n"
+    x = regex.sub(condition, "", x)
+    return x
+    
+
 def translate(x: str, black: bool = True, quiet: bool = True) -> str:
     """Translates a JavaScript script to a Python script.
 
@@ -747,11 +791,13 @@ def translate(x: str, black: bool = True, quiet: bool = True) -> str:
         >>> from ee_extra import translate
         >>> translate("var x = ee.ImageCollection('COPERNICUS/S2_SR')")
     """
+    
     header_list = list()
     # 1. reformat and re-indent ugly JavaScript
-    x = regex.sub(r"\/\/.*", "", x)
-    x = beautify(x)
-
+    x = regex.sub(r"\/\/.*", "", x) # remove documentation
+    x = remove_single_declarations(x) # remove declarations
+    x = beautify(x, opts)
+    
     # 2. Fix typeof change typeof x to typeof(x)
     x, header = fix_typeof(x)
     header_list.append(header)
@@ -760,8 +806,6 @@ def translate(x: str, black: bool = True, quiet: bool = True) -> str:
     x, header = tjsm.translate_jsmethods(x)
     header_list.append(header)
 
-    # # 3. Change [if (condition) ? true_value : false_value] to [true_value if condition else false_value]
-    x = fix_sugar_if(x)
     # 2. reformat Js function definition style (from var fun = function(bla, bla) -> function fun(bla, bla)).
     x = normalize_fn_name(x)
     # 3. Remove var keyword.
@@ -776,6 +820,10 @@ def translate(x: str, black: bool = True, quiet: bool = True) -> str:
     x = ends_with_plus(x)
     # 8. If a line ends with "=", then merge it with the next one.
     x = ends_with_equal(x)
+    
+    x = x.replace("\nfunction ", "\n\nfunction ")
+    x = tfunc.func_translate(x)
+    
     # 9. Change e.g. "for(var i = 0;i < x.length;i++)" to "for i in range(0,len(x),1):"
     x = tloops.fix_for_loop(x)
     # 10. Change e.g. "while (i > 10)" to "while i>10:"
@@ -784,8 +832,13 @@ def translate(x: str, black: bool = True, quiet: bool = True) -> str:
     x = tloops.fix_inline_iterators(x)
     # 12. Delete extra brackets.
     x = tgnrl.delete_brackets(x)
-    x = tfunc.func_translate(x)
+    
     x = if_statement(x)
+    
+    # # 3. Change [if (condition) ? true_value : false_value] to [true_value if condition else false_value]
+    # OBS: fix_sugar_if must always to if_statement to avoid conflicts.    
+    x = fix_sugar_if(x)
+    
     x = dictionary_keys(x)
     x = dictionary_object_access(x)
     x = keyword_arguments_object(x)

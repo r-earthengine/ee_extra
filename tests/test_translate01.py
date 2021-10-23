@@ -4,6 +4,7 @@ import unittest
 
 from ee_extra import translate
 
+
 class Test(unittest.TestCase):
     """Tests translate package"""
 
@@ -793,7 +794,7 @@ class Test(unittest.TestCase):
         # -----------------------------
         # we do not support switch yet!
         # -----------------------------
-        # self.assertIsInstance(translate(text, black=False), str)                
+        # self.assertIsInstance(translate(text, black=False), str)
 
     def test_ltrend_15(self):
         """LandTrendr function"""
@@ -861,7 +862,7 @@ class Test(unittest.TestCase):
         # -----------------------------
         # we do not support switch yet!
         # -----------------------------
-        # self.assertIsInstance(translate(text, black=False), str)                        
+        # self.assertIsInstance(translate(text, black=False), str)
 
     def test_ltrend_16(self):
         """LandTrendr function"""
@@ -1295,7 +1296,7 @@ class Test(unittest.TestCase):
         exports.getFittedRGBcol = getFittedRGBcol;
         """
         # Not solved yet!
-        #self.assertIsInstance(translate(text, black=False), str)
+        # self.assertIsInstance(translate(text, black=False), str)
 
     def test_ltrend_23(self):
         """LandTrendr function"""

@@ -1,6 +1,7 @@
-import regex 
+import regex
 
-# Wrapper functions to translate all functions --------------------------------    
+
+# Wrapper functions to translate all functions --------------------------------
 def functextin(x, fname="parseInt"):
     """Get the body of a function.
 
@@ -10,12 +11,12 @@ def functextin(x, fname="parseInt"):
 
     Returns:
         str: Body of the function.
-    
+
     Examples:
         >>> from ee_extra import functextin
         >>> functextin('parseInt(a=2)')
     """
-    
+
     search = "(?<![\w\.])%s\(" % fname
     matches = regex.finditer(search, x, regex.MULTILINE)
     paranthesis_index = list()
@@ -24,16 +25,16 @@ def functextin(x, fname="parseInt"):
         pnumber = 1
         counter = 0
         paranthesis_body = list()
-        while  pnumber > 0:
+        while pnumber > 0:
             if x[search_parenthesis + counter] == "(":
                 pnumber += 1
             elif x[search_parenthesis + counter] == ")":
-                pnumber -= 1            
+                pnumber -= 1
             paranthesis_body.append(x[search_parenthesis + counter])
             counter += 1
         paranthesis_index.append("".join(paranthesis_body[:-1]))
     return paranthesis_index
-    
+
 
 def translate_fun_parseInt(x):
     """Converts parseInt(string, radix) to
@@ -56,9 +57,11 @@ def translate_fun_parseInt(x):
     # if does not match the condition, return the original string
     if arg_names == []:
         return x, 0
-        
+
     replacement = [f"parseInt({arg_name})" for arg_name in arg_names]
-    to_replace_by = ["__ee_extrafunc_parseInt(%s)" % (arg_name) for arg_name in arg_names]
+    to_replace_by = [
+        "__ee_extrafunc_parseInt(%s)" % (arg_name) for arg_name in arg_names
+    ]
 
     # Replace string by our built-in function
     for z in zip(replacement, to_replace_by):
@@ -87,9 +90,11 @@ def translate_fun_parseFloat(x):
     # if does not match the condition, return the original string
     if arg_names == []:
         return x, 0
-        
-    replacement = [f"parseFloat({arg_name})"  for arg_name in arg_names]
-    to_replace_by = ["__ee_extrafunc_parseFloat(%s)" % (arg_name) for arg_name in arg_names]
+
+    replacement = [f"parseFloat({arg_name})" for arg_name in arg_names]
+    to_replace_by = [
+        "__ee_extrafunc_parseFloat(%s)" % (arg_name) for arg_name in arg_names
+    ]
 
     # Replace string by our built-in function
     for z in zip(replacement, to_replace_by):
@@ -118,14 +123,15 @@ def translate_fun_Number(x):
     # if does not match the condition, return the original string
     if arg_names == []:
         return x, 0
-        
-    replacement = [f"Number({arg_name})"  for arg_name in arg_names]
+
+    replacement = [f"Number({arg_name})" for arg_name in arg_names]
     to_replace_by = ["__ee_extrafunc_Number(%s)" % (arg_name) for arg_name in arg_names]
 
     # Replace string by our built-in function
     for z in zip(replacement, to_replace_by):
         x = x.replace(z[0], z[1])
     return x, 1
+
 
 def translate_fun_String(x):
     """Converts String(int|float) to
@@ -148,7 +154,7 @@ def translate_fun_String(x):
     # if does not match the condition, return the original string
     if arg_names == []:
         return x, 0
-        
+
     replacement = [f"String({arg_name})" for arg_name in arg_names]
     to_replace_by = ["__ee_extrafunc_String(%s)" % (arg_name) for arg_name in arg_names]
 

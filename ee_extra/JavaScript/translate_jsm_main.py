@@ -2,6 +2,7 @@ from ee_extra import translate_jsm_extra as jsmextra
 from ee_extra import translate_jsm_wrappers as jsmwrappers
 from ee_extra import translate_specialfunctions as fspecial
 
+
 def translate_jsmethods(x):
     """Translates Javascript methods to Python
     Args:

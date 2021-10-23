@@ -89,15 +89,13 @@ def fix_sugar_if(x):
         >>> # maskThese = msk if (typeof msk !== 'undefined') else [];
     """
     lines = x.split("\n")
-    condition01 = "\(.*\)\s\?\s\w+\s:.*" # search for sugar strings
-    sugar_lines = [line for line in lines if regex.search(condition01, line)]    
-    
+    condition01 = "\(.*\)\s\?\s\w+\s:.*"  # search for sugar strings
+    sugar_lines = [line for line in lines if regex.search(condition01, line)]
+
     pattern = r"([\"'])(?:(?=(\\?))\2.)*?\1"
     if regex.search(pattern, x):
         qm_word = regex.search(pattern, x).group(0)
-        
-        
-    
+
     if sugar_lines == []:
         return x
     else:
@@ -284,9 +282,9 @@ def line_starts_with_dot(x):
 
     # Remove all whitespace at the end.
     lines = [line.rstrip() for line in x.split("\n")]
-    
+
     # Get "1" is the first chr is "." otherwise get "0"
-    is_first_chr_dot = list()    
+    is_first_chr_dot = list()
     for index, line in enumerate(lines):
         if line != "":
             cond = str(int(first_is_dot(line.strip())))
@@ -294,12 +292,12 @@ def line_starts_with_dot(x):
             try:
                 nextline = lines[index + 1]
                 ncond = str(int(first_is_dot(nextline.strip())))
-                if ncond == '1':
+                if ncond == "1":
                     cond = "1"
                 else:
-                    cond = "0"                
+                    cond = "0"
             except IndexError:
-                cond = "0"                
+                cond = "0"
         is_first_chr_dot.append(cond)
     subgroups = "".join(is_first_chr_dot)  # e.g. "011000100"
 
@@ -314,16 +312,17 @@ def line_starts_with_dot(x):
     final_x = list()
     for index in merge_rule:
         if isinstance(index, list):
-            final_merge = list()            
+            final_merge = list()
             for enum, index2 in enumerate(index):
                 if enum == 0:
                     final_merge.append(lines[index2])
                 else:
-                    final_merge.append(lines[index2].strip())            
+                    final_merge.append(lines[index2].strip())
             final_x.append("".join(final_merge))
         else:
             final_x.append(lines[index])
     return "\n".join(final_x)
+
 
 def ends_with_plus(x):
     """If a line ends in a "+", merge with the next line.
@@ -480,7 +479,7 @@ def fix_str_plus_int(x):
     # does '+' operator exist on the code?
     newx = tutils.replace_non_quoted(x, [("+", "|plus|")])
     if newx != x:
-        return newx, textwrap.dedent(header)            
+        return newx, textwrap.dedent(header)
     return x, ""
 
 
@@ -614,7 +613,7 @@ def dict_replace(x, match, word, new_word):
             return word in qm_word
         else:
             return False
-    
+
     if inside_quoation_marks(match, word):
         return x
     else:
@@ -628,7 +627,7 @@ def dictionary_object_access(x):
     pattern = r"^(?=.*[\x00-\x7F][^\s]+\.[\x00-\x7F][^\s]+)(?!.*http).*$"
     matches = regex.findall(pattern, x, regex.MULTILINE)
     matches.sort(reverse=True)
-    
+
     # match = matches[7]
     for match in matches:
         if len(match) > 0:
@@ -774,7 +773,7 @@ def remove_single_declarations(x):
     condition = "var\s[A-Za-z0-9Α-Ωα-ωίϊΐόάέύϋΰήώ\[\]_]+;*\n"
     x = regex.sub(condition, "", x)
     return x
-    
+
 
 def translate(x: str, black: bool = False, quiet: bool = True) -> str:
     """Translates a JavaScript script to a Python script.
@@ -790,13 +789,13 @@ def translate(x: str, black: bool = False, quiet: bool = True) -> str:
         >>> from ee_extra import translate
         >>> translate("var x = ee.ImageCollection('COPERNICUS/S2_SR')")
     """
-    
+
     header_list = list()
     # 1. reformat and re-indent ugly JavaScript
-    x = regex.sub(r"\/\/.*", "", x) # remove documentation
-    x = remove_single_declarations(x) # remove declarations
+    x = regex.sub(r"\/\/.*", "", x)  # remove documentation
+    x = remove_single_declarations(x)  # remove declarations
     x = beautify(x, opts)
-    
+
     # 2. Fix typeof change typeof x to typeof(x)
     x, header = fix_typeof(x)
     header_list.append(header)
@@ -819,10 +818,10 @@ def translate(x: str, black: bool = False, quiet: bool = True) -> str:
     x = ends_with_plus(x)
     # 8. If a line ends with "=", then merge it with the next one.
     x = ends_with_equal(x)
-    
+
     x = x.replace("\nfunction ", "\n\nfunction ")
     x = tfunc.func_translate(x)
-    
+
     # 9. Change e.g. "for(var i = 0;i < x.length;i++)" to "for i in range(0,len(x),1):"
     x = tloops.fix_for_loop(x)
     # 10. Change e.g. "while (i > 10)" to "while i>10:"
@@ -831,13 +830,13 @@ def translate(x: str, black: bool = False, quiet: bool = True) -> str:
     x = tloops.fix_inline_iterators(x)
     # 12. Delete extra brackets.
     x = tgnrl.delete_brackets(x)
-    
+
     x = if_statement(x)
-    
+
     # # 3. Change [if (condition) ? true_value : false_value] to [true_value if condition else false_value]
-    # OBS: fix_sugar_if must always to if_statement to avoid conflicts.    
+    # OBS: fix_sugar_if must always to if_statement to avoid conflicts.
     x = fix_sugar_if(x)
-    
+
     x = dictionary_keys(x)
     x = dictionary_object_access(x)
     x = keyword_arguments_object(x)
@@ -847,11 +846,12 @@ def translate(x: str, black: bool = False, quiet: bool = True) -> str:
     if black:
         try:
             from black import FileMode, format_str
+
             x = format_str(x, mode=FileMode())
         except ImportError:
             raise ImportError(
                 '"black" is not installed. Please install "black" when using "black=True" -> "pip install black"'
-            )        
+            )
     # 12. Change 10 + "hola" by str(10) + "hola"
     x, header = fix_str_plus_int(x)
     header_list.append(header)

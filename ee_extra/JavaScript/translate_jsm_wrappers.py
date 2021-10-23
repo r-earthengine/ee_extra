@@ -1,11 +1,13 @@
 import regex
+
 from ee_extra.JavaScript.translate_utils import (
-    search_open_square_bracket, 
-    search_open_parenthesis, 
-    search_before, 
     search_after,
-    search_after_attribute
+    search_after_attribute,
+    search_before,
+    search_open_parenthesis,
+    search_open_square_bracket,
 )
+
 
 # -----------------------------------------------------------------------------
 # Given:
@@ -17,11 +19,11 @@ from ee_extra.JavaScript.translate_utils import (
 # (lista.concat([5, 6, 7, 8]), and the arguments (5, 6, 7, 8).
 def get_finditer_cases(condition, text):
     """
-    get the results after apply a naive regex cond an the position of the 
+    get the results after apply a naive regex cond an the position of the
     point method.
     """
     results = list()
-    results_position = list()            
+    results_position = list()
     for match in regex.finditer(condition, text):
         match_group = match.group(1)
         results.append(match_group)
@@ -41,36 +43,31 @@ def fcondition01(line, method_name, attribute=False, extra=""):
         fcondition = "([\w'\"\]\)%s]+?)\.%s\((?>[^()]+|(?1))*\)" % (extra, method_name)
     else:
         fcondition = "([\w'\"\]\)%s]+?)\.%s" % (extra, method_name)
-    
-    results, results_position = get_finditer_cases(fcondition, line)    
-    
+
+    results, results_position = get_finditer_cases(fcondition, line)
+
     # if is a attribute, delete cases with parenthesis.
     if attribute:
         new_result_positions = list()
         new_results = list()
         for xnew_result, position in zip(results, results_position):
-            text_after = search_after_attribute(
-                position=position,
-                text=line
-            )
+            text_after = search_after_attribute(position=position, text=line)
             if ")" not in text_after:
                 new_result_positions.append(position)
                 new_results.append(xnew_result)
         results_position = new_result_positions
         results = new_results
-    
-    # if there is no cases skip it!        
+
+    # if there is no cases skip it!
     if results == []:
         return []
-    
+
     # supporting list inplace methods -> e.g. [1, 2, 3, 4].every(checkAge)
     new_results = list()
     for index, result in enumerate(results):
         if search_open_square_bracket(result):
             new_result = search_before(
-                position=results_position[index],
-                text=line,
-                pattern=["[", "]"]
+                position=results_position[index], text=line, pattern=["[", "]"]
             )
             new_result = f"{new_result}]"
             # your [...] has commas? then is a list but
@@ -78,12 +75,10 @@ def fcondition01(line, method_name, attribute=False, extra=""):
             new_results.append(new_result)
         elif search_open_parenthesis(result):
             new_result = search_before(
-                position=results_position[index],
-                text=line,
-                pattern=["(", ")"]
+                position=results_position[index], text=line, pattern=["(", ")"]
             )
             new_result = f"{new_result})"
-            new_results.append(new_result)            
+            new_results.append(new_result)
         else:
             new_results.append(result)
     return new_results
@@ -97,19 +92,16 @@ def fcondition02(line, method_name="every", extra=""):
         - ["cesar".every(checkAge)] -> "cesar".every(checkAge)
     """
     fcondition = "([\w'\"\]\)%s]+?)\.%s\((?>[^()]+|(?1))*\)" % (extra, method_name)
-    results, results_position = get_finditer_cases(fcondition, line)    
+    results, results_position = get_finditer_cases(fcondition, line)
     variables = fcondition01(line, method_name=method_name, extra=extra)
 
     if results == []:
         return []
-        
+
     # supporting list inplace methods -> e.g. [1, 2, 3, 4].every(checkAge)
     new_results = []
     for index, result in enumerate(results):
-        new_result = search_after(
-            position=results_position[index],
-            text=line
-        )            
+        new_result = search_after(position=results_position[index], text=line)
         new_result = "%s.%s" % (variables[index], new_result)
         new_results.append(new_result)
     return new_results
@@ -123,23 +115,23 @@ def fcondition03(line, method_name, extra=""):
         - ["cesar".every(checkAge)] -> checkAge
     """
     fcondition = "([\w'\"\]\)%s]+?)\.%s\((?>[^()]+|(?1))*\)" % (extra, method_name)
-    results, results_position = get_finditer_cases(fcondition, line)    
+    results, results_position = get_finditer_cases(fcondition, line)
     variables = fcondition01(line, method_name=method_name, extra=extra)
 
     if results == []:
         return []
-    
+
     # supporting list inplace methods -> e.g. [1, 2, 3, 4].every(checkAge)
     new_results = []
     for index, result in enumerate(results):
-        new_result = search_after(
-            position=results_position[index],
-            text=line
-        )
-        new_result = new_result[new_result.find("("):][1:-1]
-        new_results.append(new_result)    
+        new_result = search_after(position=results_position[index], text=line)
+        new_result = new_result[new_result.find("(") :][1:-1]
+        new_results.append(new_result)
     return new_results
+
+
 # -----------------------------------------------------------------------------
+
 
 def translate_charAt(x):
     """Converts string.charAt(index) to __ee_extra_charAt(string, index)
@@ -323,7 +315,7 @@ def translate_length(x):
         >>> from ee_extra import translate_length
         >>> translate_length('myfuc(lesly.length, 10)')
     """
-    
+
     # Regex conditions to get the string to replace,
     # the arguments, and the variable name.
     var_names = fcondition01(x, "length", attribute=True)

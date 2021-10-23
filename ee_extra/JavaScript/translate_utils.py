@@ -1,5 +1,6 @@
 import regex
 
+
 def search_open_square_bracket(word):
     """Search for open square bracket in a string
 
@@ -29,7 +30,7 @@ def search_before(position, text, pattern):
     Search for the parameter before the given position in the given text.
     """
     # Find the first open parenthesis before the given position.
-    seed_search = position - 2 # because of the parenthesis ")"
+    seed_search = position - 2  # because of the parenthesis ")"
     par_count = 1
     get_paranthesis_body = ""
     while True:
@@ -42,12 +43,12 @@ def search_before(position, text, pattern):
             if seed_search == 0:
                 break
             # if the next character is a space.
-            elif text[seed_search -1] == " ":
+            elif text[seed_search - 1] == " ":
                 get_paranthesis_body += text[seed_search]
-                break                                
+                break
         get_paranthesis_body += text[seed_search]
         seed_search -= 1
-    return ''.join(reversed(get_paranthesis_body))
+    return "".join(reversed(get_paranthesis_body))
 
 
 def search_after(position, text):
@@ -57,13 +58,13 @@ def search_after(position, text):
     # Find the first open parenthesis before the given position.
     seed_search = position + 1
     par_count = 0
-    activate_counter = 0        
+    activate_counter = 0
     get_paranthesis_body = ""
-    
+
     # we have two cases:
     # xxx.method(param1, param2, param3)
-    # [xxx.length, xxx.length, ] or xxx.length + 1 or ...    
-    while True:        
+    # [xxx.length, xxx.length, ] or xxx.length + 1 or ...
+    while True:
         if text[seed_search] == "(":
             activate_counter = 1
             par_count += 1
@@ -71,10 +72,11 @@ def search_after(position, text):
             par_count -= 1
         get_paranthesis_body += text[seed_search]
         seed_search += 1
-        if  (seed_search == len(text) or par_count == 0) & activate_counter == 1:
-            break 
-    return ''.join(get_paranthesis_body)
-    
+        if (seed_search == len(text) or par_count == 0) & activate_counter == 1:
+            break
+    return "".join(get_paranthesis_body)
+
+
 def search_after_attribute(position, text):
     """
     Search for the parameter before the given position in the given text.
@@ -82,22 +84,23 @@ def search_after_attribute(position, text):
     # Find the first open parenthesis before the given position.
     seed_search = position + 1
     get_paranthesis_body = ""
-    
+
     # we have two cases:
     # xxx.method(param1, param2, param3)
-    # [xxx.length, xxx.length, ] or xxx.length + 1 or ...    
-    while True:       
+    # [xxx.length, xxx.length, ] or xxx.length + 1 or ...
+    while True:
         if seed_search == len(text) or text[seed_search] == " ":
-            break 
+            break
         get_paranthesis_body += text[seed_search]
         seed_search += 1
-        
-    toexport = ''.join(get_paranthesis_body)
+
+    toexport = "".join(get_paranthesis_body)
     toexport = regex.sub(";|,|", "", toexport)
     return toexport
 
+
 # -----------------------------------------------------------------------------
-### Great solution obtained from zwer: 
+### Great solution obtained from zwer:
 # https://stackoverflow.com/questions/49641089/
 def replace_multiple(source, replacements):  # a convenience multi-replacement function
     if not source:  # no need to process empty strings
@@ -106,8 +109,9 @@ def replace_multiple(source, replacements):  # a convenience multi-replacement f
         source = source.replace(r[0], r[1])
     return source
 
+
 def replace_non_quoted(source, replacements):
-    QUOTE_STRINGS = ("'", "\\'", '"', '\\"') 
+    QUOTE_STRINGS = ("'", "\\'", '"', '\\"')
     result = []  # a store for the result pieces
     head = 0  # a search head reference
     eos = len(source)  # a convenience string length reference
@@ -118,7 +122,9 @@ def replace_non_quoted(source, replacements):
             index = source.find(quote, head + quote_len)  # find the closing quote
             if index == -1:  # EOS reached
                 break
-            result.append(source[head:index + quote_len])  # add the quoted string verbatim
+            result.append(
+                source[head : index + quote_len]
+            )  # add the quoted string verbatim
             head = index + quote_len  # move the search head after the quoted match
             quote = None  # blank out the quote literal
         else:  # the current position is not in a quoted substring
@@ -137,4 +143,6 @@ def replace_non_quoted(source, replacements):
     if head < eos:  # if the search head is not at the end of the string
         result.append(replace_multiple(source[head:], replacements))
     return "".join(result)  # join back the result pieces and return them
+
+
 # -----------------------------------------------------------------------------

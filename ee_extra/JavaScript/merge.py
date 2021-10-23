@@ -7,12 +7,12 @@ from types import SimpleNamespace
 
 import ee
 
+from ee_extra import translate
 from ee_extra.JavaScript.install import (
     _convert_path_to_ee_extra,
     _get_ee_sources_path,
     _open_module_as_str,
 )
-from ee_extra import translate
 
 
 class JSModule(SimpleNamespace):

@@ -254,7 +254,7 @@ def fix_for_loop(x):
                     x="%s\n%sfor %s in range(%s, %s, %s):\n"
                     % (ldef, initial_white_space, iterator, start, stop, step)
                 )
-        
+
         # This chunk of code support three different ways for defining a loop
         # (there is just 3 types because beautify reformat perfectly the code!)
         # for(_) \n { \n ... --> case01
@@ -269,7 +269,9 @@ def fix_for_loop(x):
             list_for_solver.append(python_for_loop)
         # Case 02
         else:
-            list_for_solver.append("%s%s    %s" % (python_for_loop, initial_white_space, for_condition))
+            list_for_solver.append(
+                "%s%s    %s" % (python_for_loop, initial_white_space, for_condition)
+            )
     return "\n".join(list_for_solver)
 
 

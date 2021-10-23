@@ -97,16 +97,16 @@ def from_js_to_py_fn_simple(js_function):
         >>> js_function = "function(x) { return x}"
         >>> from_js_to_py_fn_simple(js_function)["fun_py_style"]
         >>> # def pUsmYqrpCbaOKduJA(x):\n    return x\n
-    """    
+    """
     # 1. Get function header
     if isinstance(js_function, list):
         fn_header = "\n".join(js_function)
     else:
         fn_header = js_function
-    
-    # is there a assignement? e.g. eeExtraExports0.addBand = function(image) {...}    
+
+    # is there a assignement? e.g. eeExtraExports0.addBand = function(image) {...}
     tentative_name = regex.findall("(.*\..*)\s=\sfunction\(", fn_header)
-    
+
     # 2. get function name
     pattern = r"function\s*([\x00-\x7F][^\s]+)\s*\(.*\)\s*{"
     regex_result = regex.findall(pattern, fn_header)
@@ -147,8 +147,7 @@ def from_js_to_py_fn_simple(js_function):
     else:
         tentative_name = "%s = %s" % (tentative_name[0].strip(), function_name)
         fun_py_style = f"{init_space}def {function_name}({args_name}):{body}\n{init_space}{tentative_name}"
-    
-    
+
     py_info = {
         "fun_name": function_name,
         "args_name": args_name,
@@ -252,7 +251,7 @@ def to_fn_python(lines):
         >>> #         return y
         >>> #     return x
     """
-    new_lines = list()    
+    new_lines = list()
     for line in lines:
         if is_nested_list(line) == -1:
             new_lines.append(line)
@@ -286,7 +285,7 @@ def func_translate_case01(x):
     lines = x.split("\n")
     lines = func_detector(lines)
     lines = func_detector_recursive(lines)
-    
+
     # testss = [index for index, line in enumerate(lines) if isinstance(line, list)]
     # for xxx in testss:
     #    to_fn_python([lines[xxx][:27]])

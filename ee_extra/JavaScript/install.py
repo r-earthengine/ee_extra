@@ -156,7 +156,7 @@ def _install(x: str, update: bool, quiet: bool = False):
 
         # With urllib:
         with urllib.request.urlopen(_convert_path_to_ee_sources(x)) as url:
-            r = url.read().decode()
+            r = url.read()#.decode()
         open(_convert_path_to_ee_extra(x), "wb").write(r)
 
         if not quiet:

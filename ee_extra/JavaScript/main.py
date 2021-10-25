@@ -10,6 +10,7 @@ I. Functions
 
 from ee_extra import translate
 from ee_extra.JavaScript.merge import require
+from ee_extra.JavaScript.install import install
 
 
 def ee_translate(x: str) -> str:
@@ -55,4 +56,6 @@ def ee_require(x: str):
     Returns:
         module: Python module.
     """
+    install(x,quiet = True)
+
     return require(x)

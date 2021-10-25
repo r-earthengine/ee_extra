@@ -21,9 +21,9 @@ GitHub :).
 import random
 import string
 
-import regex
-
 from ee_extra.JavaScript.translate_general import from_bin_to_list
+
+from ee_extra.JavaScript.utils import _check_regex
 
 
 def random_fn_name():
@@ -98,6 +98,8 @@ def from_js_to_py_fn_simple(js_function):
         >>> from_js_to_py_fn_simple(js_function)["fun_py_style"]
         >>> # def pUsmYqrpCbaOKduJA(x):\n    return x\n
     """
+    regex = _check_regex()
+
     # 1. Get function header
     if isinstance(js_function, list):
         fn_header = "\n".join(js_function)
@@ -176,6 +178,8 @@ def func_detector(lines):
         >>> func_detector(lines)
         >>> # ['var a = 2;', ['function(x) {', '    function(y) return y', '}'], 'return x}']
     """
+    regex = _check_regex()
+
     pattern = r".*function.*{"
     counter = 0  # curly brackets counter
     subgroup = list("0" * len(lines))
@@ -345,6 +349,8 @@ def from_mapjs_to_py_fn_simple(js_function):
         >>> #    return y
         >>> #ic2.map(EvsFYLkYJHtiIj5au)
     """
+    regex = _check_regex()
+
     # 1. Get function header
     if isinstance(js_function, list):
         fn_header = "\n".join(js_function)
@@ -419,6 +425,8 @@ def mapfunc_detector(lines):
         >>> # ['var ic = ee.ImageCollection([ee.Image(0), ee.Image(1)])',
         >>> #  ['ic.map(function(x){return x})']]
     """
+    regex = _check_regex()
+
     # Function detector -------------------------------------------------------
     pattern = r".*map\(.*function.*{|.*forEach\(.*function.*{"
     counter = 0  # curly brackets counter
@@ -575,6 +583,8 @@ def func_translate_case03(x):
     >>> #     return 0;
     >>> # exports.addBand  = mNrjUIPHkCfPiM3pH
     """
+    regex = _check_regex()
+
     # does anonymous function asignation exists?
     lines = x.split("\n")
 

@@ -2,7 +2,7 @@
 import keyword
 from itertools import islice, zip_longest
 
-import regex
+from ee_extra.JavaScript.utils import _check_regex
 
 
 def from_bin_to_list(x):
@@ -71,6 +71,8 @@ def var_remove(x):
         >>> var_remove("var cesar = 10")
         >>> # cesar = 10
     """
+    regex = _check_regex()
+    
     # remove single declarations
     # from "var lesly;" to ""
     pattern01 = r"\s*var\s+"

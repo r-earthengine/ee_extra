@@ -1,4 +1,4 @@
-import regex
+from ee_extra.JavaScript.utils import _check_regex
 
 
 def search_open_square_bracket(word):
@@ -81,6 +81,7 @@ def search_after_attribute(position, text):
     """
     Search for the parameter before the given position in the given text.
     """
+    regex = _check_regex()
     # Find the first open parenthesis before the given position.
     seed_search = position + 1
     get_paranthesis_body = ""

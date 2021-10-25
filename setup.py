@@ -26,9 +26,7 @@ setup(
     package_data={"ee_extra": ["data/*.json"]},
     install_requires=[
         "earthengine-api",
-        "jsbeautifier",
         "numpy",
-        "regex",
     ],
     classifiers=[
         "Development Status :: 2 - Pre-Alpha",

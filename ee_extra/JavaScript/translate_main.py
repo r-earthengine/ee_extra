@@ -2,20 +2,17 @@
 
 import textwrap
 
-import regex
-from jsbeautifier import beautify, default_options
-
 from ee_extra import translate_functions as tfunc
 from ee_extra import translate_general as tgnrl
 from ee_extra import translate_jsm_main as tjsm
 from ee_extra import translate_loops as tloops
 from ee_extra import translate_utils as tutils
-
-opts = default_options()
-opts.keep_array_indentation = True
+from ee_extra.JavaScript.utils import _check_regex
+from ee_extra.JavaScript.utils import _check_jsbeautifier
 
 
 def inside_quoation_marks(x, word):
+    regex = _check_regex()
     pattern = r"([\"'])(?:(?=(\\?))\2.)*?\1"
     if regex.search(pattern, x):
         qm_word = regex.search(pattern, x).group(0)
@@ -38,6 +35,7 @@ def fix_typeof(x):
         >>> fix_typeof("typeof lesly")
         >>> # typeof(lesly)
     """
+    regex = _check_regex()
     lazy_cond = r"typeof\s*\(*[A-Za-z0-9Α-Ωα-ωίϊΐόάέύϋΰήώ\[\]_]*\)*"
     typeof_cases = regex.findall(lazy_cond, x)
     if typeof_cases == []:
@@ -88,6 +86,7 @@ def fix_sugar_if(x):
         >>> fix_sugar_if("maskThese = (typeof msk !== 'undefined') ?  msk : [];")
         >>> # maskThese = msk if (typeof msk !== 'undefined') else [];
     """
+    regex = _check_regex()
     lines = x.split("\n")
     condition01 = "\(.*\)\s\?\s\w+\s:.*"  # search for sugar strings
     sugar_lines = [line for line in lines if regex.search(condition01, line)]
@@ -146,6 +145,7 @@ def normalize_fn_name(x: str) -> str:
         >>> normalize_fn_name("var exp = function(x){'hi'}")
         >>> # function exp(x){'hi'}
     """
+    regex = _check_regex()
     pattern = "var\s*(.*[^\s])\s*=\s*function"
     matches = regex.finditer(pattern, x, regex.MULTILINE)
     for _, item in enumerate(matches):
@@ -171,6 +171,7 @@ def change_operators(x):
         >>> change_operators("s.and(that);")
         >>> # m = s.And(that)
     """
+    regex = _check_regex()
     from collections import OrderedDict
 
     reserved = OrderedDict(
@@ -211,6 +212,7 @@ def fix_multiline_comments(x):
         >>> fix_multiline_comments("/* hola lesly */")
         >>> # # hola lesly */
     """
+    regex = _check_regex()
     pattern = r"/\*(.*?)\*/"
     matches = regex.findall(pattern, x, regex.DOTALL)
     if matches == []:
@@ -496,6 +498,7 @@ def fix_identation(x):
         >>> from ee_extra import fix_identation
         >>> fix_identation("if(i==10){\ni}")
     """
+    regex = _check_regex()
     ident_base = "    "
     brace_counter = 0
 
@@ -544,6 +547,7 @@ def add_identation(x):
         >>> from ee_extra import add_identation
         >>> add_identation("if(i==10){\ni}")
     """
+    regex = _check_regex()
     pattern = "\n"
     # identation in the body
     body_id = regex.sub(pattern, r"\n    ", x)
@@ -578,6 +582,7 @@ def remove_extra_spaces(x):
 
 # 7. Change "{x = 1}" by "{'x' = 1}".
 def dictionary_keys(x):
+    regex = _check_regex()
     pattern = r"{(.*?)}"  # Get the data inside curly brackets
     dicts = regex.findall(pattern, x, regex.DOTALL)
     if len(dicts) > 0:
@@ -606,6 +611,8 @@ def is_float(x):
 def dict_replace(x, match, word, new_word):
     """Replace name.name only if they are not inside quotation marks"""
 
+    regex = _check_regex()
+
     def inside_quoation_marks(x, word):
         pattern = r"([\"'])(?:(?=(\\?))\2.)*?\1"
         if regex.search(pattern, x):
@@ -622,6 +629,7 @@ def dict_replace(x, match, word, new_word):
 
 def dictionary_object_access(x):
     """Replace <name01>.<name02> only when name01 is a dictionary"""
+    regex = _check_regex()
 
     # Search in all lines .. it matchs <name>.<name>
     pattern = r"^(?=.*[\x00-\x7F][^\s]+\.[\x00-\x7F][^\s]+)(?!.*http).*$"
@@ -682,6 +690,7 @@ def dictionary_object_access(x):
 
 # Change "f({x = 1})" por "f(**{x = 1})"
 def keyword_arguments_object(x):
+    regex = _check_regex()
     pattern = r"(\w+)\({(.*?)}\)"
     matches = regex.findall(pattern, x, regex.DOTALL)
     matches = list(
@@ -711,6 +720,7 @@ def keyword_arguments_object(x):
 
 # Change "if(x){" por "if x:"
 def if_statement(x):
+    regex = _check_regex()
     pattern = r"}(.*?)else(.*?)if(.*?){"
     matches = regex.findall(pattern, x)
     if len(matches) > 0:
@@ -740,6 +750,7 @@ def if_statement(x):
 
 # Change "Array.isArray(x)" por "isinstance(x,list)"
 def array_isArray(x):
+    regex = _check_regex()
     pattern = r"Array\.isArray\((.*?)\)"
     matches = regex.findall(pattern, x)
     if len(matches) > 0:
@@ -749,6 +760,7 @@ def array_isArray(x):
 
 
 def add_exports(x):
+    regex = _check_regex()
     if regex.search("exports|eeExtraExports", x):
         header = """
         class AttrDict(dict):
@@ -770,6 +782,7 @@ def add_header(x, header_list=""):
 
 
 def remove_single_declarations(x):
+    regex = _check_regex()
     condition = "var\s[A-Za-z0-9Α-Ωα-ωίϊΐόάέύϋΰήώ\[\]_]+;*\n"
     x = regex.sub(condition, "", x)
     return x
@@ -789,6 +802,11 @@ def translate(x: str, black: bool = False, quiet: bool = True) -> str:
         >>> from ee_extra import translate
         >>> translate("var x = ee.ImageCollection('COPERNICUS/S2_SR')")
     """
+    regex = _check_regex()
+    beautify, default_options = _check_jsbeautifier()
+
+    opts = default_options()
+    opts.keep_array_indentation = True
 
     header_list = list()
     # 1. reformat and re-indent ugly JavaScript

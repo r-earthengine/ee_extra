@@ -12,7 +12,7 @@ This module try to convert all theses cases to Python. If you consider that
 there is more cases that must be added to the module, please, contact us by
 GitHub :).
 """
-import regex
+from ee_extra.JavaScript.utils import _check_regex
 
 from ee_extra.JavaScript.translate_general import (
     delete_brackets,
@@ -37,6 +37,8 @@ def fix_case03_loop(x):
         >>> fix_case03_loop('for (var i = 0; i < 5; i++) \n numbers[i]')
         >>> # 'for (var i = 0; i < 5; i++) numbers[i]'
     """
+    regex = _check_regex()
+
     lines = x.split("\n")
     fulfill_condition = list()
     merge_condition = list("0" * len(lines))
@@ -94,6 +96,8 @@ def fix_while_loop(x):
         >>> fix_for_loop('for(var i = 0;i < x.length;i++){\nprint(i)\n}')
         >>> # var x = ee.Image(0)
     """
+    regex = _check_regex()
+
     # Fix the case03 loop style (See bellow)
     x = fix_case03_loop(x)
     lines = x.split("\n")
@@ -146,6 +150,8 @@ def fix_for_loop(x):
         >>> fix_for_loop('for(var i = 0;i < x.length;i++){\nprint(i)\n}')
         >>> # var x = ee.Image(0)
     """
+    regex = _check_regex()
+
     # Fix beautify loop style
     x = check_loop_line_breaks_r(x)
 
@@ -362,6 +368,8 @@ def check_loop_line_breaks_r(x):
 
 
 def check_loop_line_breaks(x):
+    regex = _check_regex()
+    
     lines = x.split("\n")
     # trace for loop bad line breaks
     condtion = r"^for\s*\("

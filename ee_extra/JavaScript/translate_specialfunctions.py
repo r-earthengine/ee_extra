@@ -1,4 +1,4 @@
-import regex
+from ee_extra.JavaScript.utils import _check_regex
 
 
 # Wrapper functions to translate all functions --------------------------------
@@ -16,7 +16,8 @@ def functextin(x, fname="parseInt"):
         >>> from ee_extra import functextin
         >>> functextin('parseInt(a=2)')
     """
-
+    regex = _check_regex()
+    
     search = "(?<![\w\.])%s\(" % fname
     matches = regex.finditer(search, x, regex.MULTILINE)
     paranthesis_index = list()

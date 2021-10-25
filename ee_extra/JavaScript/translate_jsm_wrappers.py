@@ -1,5 +1,3 @@
-import regex
-
 from ee_extra.JavaScript.translate_utils import (
     search_after,
     search_after_attribute,
@@ -7,6 +5,8 @@ from ee_extra.JavaScript.translate_utils import (
     search_open_parenthesis,
     search_open_square_bracket,
 )
+
+from ee_extra.JavaScript.utils import _check_regex
 
 
 # -----------------------------------------------------------------------------
@@ -22,6 +22,8 @@ def get_finditer_cases(condition, text):
     get the results after apply a naive regex cond an the position of the
     point method.
     """
+    regex = _check_regex()
+    
     results = list()
     results_position = list()
     for match in regex.finditer(condition, text):

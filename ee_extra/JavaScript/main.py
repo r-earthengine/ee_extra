@@ -56,6 +56,6 @@ def ee_require(x: str):
     Returns:
         module: Python module.
     """
-    install(x,quiet = True)
+    install(x, quiet=True)
 
     return require(x)

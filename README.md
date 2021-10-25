@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/r-earthengine/ee_extra"><img src="https://raw.githubusercontent.com/r-earthengine/ee_extra/master/docs/_static/logo_name.png" alt="spyndex"></a>
+  <a href="https://github.com/r-earthengine/ee_extra"><img src="https://raw.githubusercontent.com/r-earthengine/ee_extra/master/docs/_static/logo.png" alt="spyndex" width="200"></a>
 </p>
 <p align="center">
     <em>A ninja python package that unifies the Google Earth Engine ecosystem:</em>

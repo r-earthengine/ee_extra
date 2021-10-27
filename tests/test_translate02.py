@@ -5,6 +5,7 @@ import unittest
 import ee
 
 from ee_extra import install, require
+from ee_extra.JavaScript.merge import JSModule 
 
 ee.Initialize()
 
@@ -34,12 +35,12 @@ class Test(unittest.TestCase):
 #    self.assertIsInstance(pymodule, dict)
 #
 #
-# def test_module_04(self):
-#    """Testing Temperature modules"""
-#    jsmodule = "https://raw.githubusercontent.com/eMapR/LT-GEE/master/LandTrendr.js"
-#    install(jsmodule, update=True)
-#    pymodule = require(jsmodule)
-#    self.assertIsInstance(pymodule, dict)
+#    def test_module_04(self):
+#        """Testing Temperature modules"""
+#        jsmodule = "https://raw.githubusercontent.com/eMapR/LT-GEE/master/LandTrendr.js"
+#        install(jsmodule, update=True)
+#        pymodule = require(jsmodule)
+#        self.assertIsInstance(pymodule, dict)
 
 if __name__ == "__main__":
     unittest.main()

@@ -30,6 +30,7 @@ def spectralIndices(
     alpha: Union[float, int] = 0.1,
     slope: Union[float, int] = 1.0,
     intercept: Union[float, int] = 0.0,
+    gamma: Union[float, int] = 1.0,
     kernel: str = "RBF",
     sigma: Union[float, str] = "0.5 * (a + b)",
     p: Union[float, int] = 2,
@@ -50,6 +51,7 @@ def spectralIndices(
         alpha : Weighting coefficient  used for WDRVI.
         slope : Soil line slope.
         intercept : Soil line intercept.
+        gamma : Weighting coefficient  used for ARVI.
         kernel : Kernel used for kernel indices. One of 'linear', 'RBF', 'poly'.
         sigma : Length-scale parameter. Used for kernel = 'RBF'. If str, this must be an expression including 'a' and 'b'. If numeric, this must be positive.
         p : Kernel degree. Used for kernel = 'poly'.
@@ -87,6 +89,7 @@ def spectralIndices(
         "alpha": float(alpha),
         "sla": float(slope),
         "slb": float(intercept),
+        "gamma": float(gamma),
         "p": float(p),
         "c": float(c),
     }

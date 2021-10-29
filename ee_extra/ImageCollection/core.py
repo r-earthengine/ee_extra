@@ -6,7 +6,6 @@ from typing import Optional, Union
 
 import ee
 import pkg_resources
-import requests
 
 from ee_extra.STAC.utils import _get_platform_STAC
 

@@ -5,7 +5,6 @@ import warnings
 from typing import Any, List, Optional, Union
 
 import ee
-import requests
 
 from ee_extra.Spectral.utils import (
     _get_expression_map,

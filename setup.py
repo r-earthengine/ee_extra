@@ -26,7 +26,6 @@ setup(
     package_data={"ee_extra": ["data/*.json"]},
     install_requires=[
         "earthengine-api",
-        "numpy",
     ],
     classifiers=[
         "Development Status :: 2 - Pre-Alpha",

@@ -1,14 +1,17 @@
+
 <p align="center">
-  <a href="https://github.com/r-earthengine/ee_extra"><img src="https://raw.githubusercontent.com/r-earthengine/ee_extra/master/docs/_static/logo.png" alt="spyndex" width="400"></a>
+  <img src="https://user-images.githubusercontent.com/16768318/139555722-cc8cd77e-aa51-455e-bed3-0cac76b59258.png" alt="ee_extra" width="800"></a>
 </p>
 <p align="center">
-    <em>A ninja python package that unifies the Google Earth Engine ecosystem:</em>
+    <em>A Python package that unifies the Google Earth Engine ecosystem.</em>
 </p>
 <p align="center">
-    <b><a href="https://github.com/r-spatial/rgee" target="_blank">
-    rgee</a> | <a href="https://github.com/r-earthengine/rgeeExtra" target="_blank">
-    rgee+</a> | <a href="https://github.com/davemlz/eemont" target="_blank">
-    eemont</a> </b>
+  <b>
+    <a href="https://github.com/KMarkert/EarthEngine.jl" target="_blank">EarthEngine.jl</a> |
+    <a href="https://github.com/r-spatial/rgee" target="_blank"> rgee </a> | 
+    <a href="https://github.com/r-earthengine/rgeeExtra" target="_blank"> rgee+ </a> | 
+    <a href="https://github.com/davemlz/eemont" target="_blank"> eemont</a>
+  </b>
 </p>
 <p align="center">
 <a href='https://pypi.python.org/pypi/ee_extra'>
@@ -71,6 +74,11 @@ to guarantee a smooth `import` of these projects in other programming languages 
 standardizing different methods and enabling the use of JavaScript modules outside the
 [Code Editor](https://code.earthengine.google.com/).
 
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/16768318/139555895-d384832a-28fb-4812-a836-4d4455faf443.png" alt="ee_extra_diagram" width="650">
+</p>
+
 Some of the `eeExtra` features are listed here:
 
 - Automatic scaling and offsetting.
@@ -95,7 +103,7 @@ through `eeExtra`. For this, `eeExtra` implements a rigorous JavaScript translat
 module that allows users to install, require and use JavaScript modules as if they
 were on the Code Editor!
 
-You may be wondering *"Why is it a ninja python package?"*, well, that's a valid question,
+You may be wondering *"Why is it a ninja package?"*, well, that's a valid question,
 the whole point of `eeExtra` resides in the fact that nobody has to use `eeExtra` itself,
 but rather use one of the packages that are powered by `eeExtra`! :) 
 
@@ -106,6 +114,12 @@ Install the latest version from PyPI:
 
 ```
 pip install ee_extra
+```
+
+Install soft ee_extra dependencies:
+
+```
+pip install jsbeautifier regex
 ```
 
 Upgrade `eeExtra` by running:
@@ -141,6 +155,7 @@ we have to scale (and sometimes offset) them!
 <tr>
 <th> Python (eemont) </th>
 <th> R (rgee+) </th>
+<th> Julia (EarthEngine.jl) </th>
 </tr>
 
 <tr>
@@ -163,9 +178,27 @@ library(rgeeExtra)
 ee_Initialize()
 db <- 'COPERNICUS/S2_SR'
 S2 <- ee$ImageCollection(db)
-S2$scaleAndOffset()
+ee_extra_scaleAndOffset(S2)
 ```
 </td>
+
+<td>
+
+``` julia
+using PyCall
+using EarthEngine
+
+Initialize()
+
+ee_extra = pyimport("ee_extra")
+ee_core = ee_extra.STAC.core
+db = "COPERNICUS/S2_SR"
+S2 = ee.ImageCollection(db)
+ee_core.scaleAndOffset(S2)
+```
+</td>
+
+
 </tr>
 
 </table>
@@ -180,6 +213,7 @@ Well, you can compute them automatically with `eeExtra`!
 <tr>
 <th> Python (eemont) </th>
 <th> R (rgee+) </th>
+<th> Julia (EarthEngine.jl) </th>
 </tr>
 
 <tr>
@@ -203,12 +237,30 @@ library(rgeeExtra)
 ee_Initialize()
 db <- 'COPERNICUS/S2_SR'
 S2 <- ee$ImageCollection(db)
-S2 <- S2$scaleAndOffset()
-S2$spectralIndices("EVI")
+S2 <- ee_extra_scaleAndOffset(S2)
+ee_extra_spIndices(S2, "EVI")
 ```
 </td>
-</tr>
 
+<td>
+  
+```julia
+using PyCall
+using EarthEngine
+
+Initialize()
+
+ee_extra = pyimport("ee_extra")
+ee_core = ee_extra.STAC.core
+ee_sp = ee_extra.Spectral.core
+db = "COPERNICUS/S2_SR"
+S2 = ee.ImageCollection(db)
+S2 = ee_core.scaleAndOffset(S2)
+ee_sp.spectralIndices(S2, "EVI")
+```
+  
+</td>  
+</tr>
 </table>
 
 ### STAC features
@@ -220,6 +272,7 @@ Access STAC properties easily!
 <tr>
 <th> Python (eemont) </th>
 <th> R (rgee+) </th>
+<th> Julia (EarthEngine.jl) </th>
 </tr>
 
 <tr>
@@ -242,9 +295,29 @@ library(rgeeExtra)
 ee_Initialize()
 db <- 'COPERNICUS/S2_SR'
 S2 <- ee$ImageCollection(db)
-S2$getSTAC()
+ee_extra_getSTAC()
 ```
 </td>
+  
+
+<td>
+
+``` julia
+  
+using PyCall
+using EarthEngine
+
+Initialize()
+
+ee_extra = pyimport("ee_extra")
+ee_core = ee_extra.STAC.core
+db = "COPERNICUS/S2_SR"
+S2 = ee.ImageCollection(db)
+ee_core.getSTAC(S2)
+
+```
+</td>
+  
 </tr>
 
 </table>
@@ -255,92 +328,63 @@ This is perhaps the most important feature in `eeExtra`! What if you could use a
 JavaScript module (originally just useful for the Code Editor) in python or R? Well,
 wait no more for it!
 
-<table>
+  - **JS Code Editor**
 
-<tr>
-<th> JS (Code Editor) </th>
-<th> Python (eemont) </th>
-<th> R (rgee+) </th>
-</tr>
-
-<tr>
-<td>
-  
 ``` javascript
-var usr = 'users/sofiaermida/'
-var rep = 'landsat_smw_lst:'
-var fld = 'modules/'
-var fle = 'Landsat_LST.js'
-var pth = usr+rep+fld+fle
-var mod = require(pth)
-var LST = mod.collection(
-    ee.Geometry.Rectangle([
-        -8.91,
-        40.0,
-        -8.3,
-        40.4
-    ]),
-    'L8',
-    '2018-05-15',
-    '2018-05-31',
-    true
-)
+require('users/sofiaermida/landsat_smw_lst:modules/Landsat_LST.js')
+
+var geom = ee.Geometry.Rectangle(-8.91, 40.0, -8.3, 40.4)
+var LST = mod.collection("L8", "2018-05-15", "2018-05-31", geom, true)
+
+print(LST)
 ```
 
-</td>
-<td>
-  
+  - **Python eemont**  
+
 ``` python
 import ee, eemont
+
 ee.Initialize()
-usr = 'users/sofiaermida/'
-rep = 'landsat_smw_lst:'
-fld = 'modules/'
-fle = 'Landsat_LST.js'
-pth = usr+rep+fld+fle
-ee.install(pth)
-mod = ee.require(pth)
-LST = mod.collection(
-    ee.Geometry.Rectangle([
-        -8.91,
-        40.0,
-        -8.3,
-        40.4
-    ]),
-    'L8',
-    '2018-05-15',
-    '2018-05-31',
-    True
-)
+module = 'users/sofiaermida/landsat_smw_lst:modules/Landsat_LST.js'
+ee.install(module)
+mod = ee.require(module)
+
+geom = ee.Geometry.Rectangle(-8.91, 40.0, -8.3, 40.4)
+LST = mod.collection("L8", "2018-05-15", "2018-05-31", geom, True)
+print(LST)
 ```
 
-</td>
-<td>
+  - **R rgeeExtra**  
 
 ``` r
 library(rgee)
 library(rgeeExtra)
-ee_Initialize()
-usr <- 'users/sofiaermida/'
-rep <- 'landsat_smw_lst:'
-fld <- 'modules/'
-fle <- 'Landsat_LST.js'
-pth <- paste0(usr,rep,fld,fle)
-mod <- ee$require(pth)
-LST = mod$collection(
-    ee$Geometry$Rectangle(c(
-        -8.91,
-        40.0,
-        -8.3,
-        40.4
-    )),
-    'L8',
-    '2018-05-15',
-    '2018-05-31',
-    TRUE
-)
-```
-</td>
-</tr>
 
-</table>
+
+ee_Initialize()
+
+module = 'users/sofiaermida/landsat_smw_lst:modules/Landsat_LST.js'
+mod = ee.require(module)
+
+geom = ee$Geometry$Rectangle(-8.91, 40.0, -8.3, 40.4)
+LST = mod.collection("L8", "2018-05-15", "2018-05-31", geom, TRUE)
+print(LST)
+```
+  
+  - **Julia EarthEngine.jl**
+
+``` julia
+using PyCall
+using EarthEngine
+
+Initialize()
+
+ee_extra = pyimport("ee_extra")
+landsat_module = "users/sofiaermida/landsat_smw_lst:modules/Landsat_LST.js"
+ee_extra.install(landsat_module)
+lsmodule = ee_extra.require(landsat_module)
+
+geom = Rectangle(-8.91, 40.0, -8.3, 40.4)
+LST = lsmodule.collection("L8", "2018-05-15", "2018-05-31", geom, true)
+print(LST)
+```

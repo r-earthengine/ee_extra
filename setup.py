@@ -17,7 +17,7 @@ setup(
     version="0.0.7",
     url="https://github.com/r-earthengine/ee_extra",
     license="Apache 2.0",
-    author="Cesar Aybar and David Montero Loaiza",
+    author="Cesar Aybar, David Montero Loaiza and Aaron Zuspan",
     author_email="dml.mont@gmail.com",
     description="A ninja Python package behind rgee, rgeeExtra and eemont.",
     long_description=read("README.md"),

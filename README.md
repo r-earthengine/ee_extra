@@ -331,7 +331,7 @@ wait no more for it!
   - **JS Code Editor**
 
 ``` javascript
-require('users/sofiaermida/landsat_smw_lst:modules/Landsat_LST.js')
+var mod = require('users/sofiaermida/landsat_smw_lst:modules/Landsat_LST.js')
 
 var geom = ee.Geometry.Rectangle(-8.91, 40.0, -8.3, 40.4)
 var LST = mod.collection("L8", "2018-05-15", "2018-05-31", geom, true)
@@ -360,14 +360,13 @@ print(LST)
 library(rgee)
 library(rgeeExtra)
 
-
 ee_Initialize()
 
-module = 'users/sofiaermida/landsat_smw_lst:modules/Landsat_LST.js'
-mod = ee.require(module)
+lsmod <- 'users/sofiaermida/landsat_smw_lst:modules/Landsat_LST.js'
+mod <- module(lsmod)
 
-geom = ee$Geometry$Rectangle(-8.91, 40.0, -8.3, 40.4)
-LST = mod.collection("L8", "2018-05-15", "2018-05-31", geom, TRUE)
+geom <- ee$Geometry$Rectangle(-8.91, 40.0, -8.3, 40.4)
+LST <- mod$collection("L8", "2018-05-15", "2018-05-31", geom, TRUE)
 print(LST)
 ```
   

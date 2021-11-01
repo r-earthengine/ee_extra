@@ -36,3 +36,5 @@ docs/_build/
 .vscode/
 
 ee_extra/JavaScript/wip.py
+
+diagram/

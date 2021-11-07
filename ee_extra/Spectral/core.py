@@ -36,7 +36,8 @@ def spectralIndices(
     c: Union[float, int] = 1.0,
     online: bool = False,
 ) -> Union[ee.Image, ee.ImageCollection]:
-    """Computes one or more spectral indices (indices are added as bands) for an image oir image collection.
+    """Computes one or more spectral indices (indices are added as bands) for an image or 
+    image collection.
 
     Args:
         x : Image or Image Collectionto compute indices on. Must be scaled to [0,1].
@@ -47,18 +48,25 @@ def spectralIndices(
         L : Canopy background adjustment. Used just for index = ['EVI','SAVI'].
         cexp : Exponent used for OCVI.
         nexp : Exponent used for GDVI.
-        alpha : Weighting coefficient  used for WDRVI.
-        slope : Soil line slope.
-        intercept : Soil line intercept.
-        gamma : Weighting coefficient  used for ARVI.
+        alpha : Weighting coefficient used for WDRVI.
+        slope : Soil line slope. Used just for index = ['ATSAVI','SAVI2', 'TSAVI', 
+            'WDVI'].
+        intercept : Soil line intercept. Used just for index = ['ATSAVI','SAVI2', 'TSAVI', 
+            'WDVI'].
+        gamma : Weighting coefficient used for ARVI.
         kernel : Kernel used for kernel indices. One of 'linear', 'RBF', 'poly'.
-        sigma : Length-scale parameter. Used for kernel = 'RBF'. If str, this must be an expression including 'a' and 'b'. If numeric, this must be positive.
+        sigma : Length-scale parameter. Used for kernel = 'RBF'. If str, this must be an 
+            expression including 'a' and 'b'. If numeric, this must be positive.
         p : Kernel degree. Used for kernel = 'poly'.
-        c : Free parameter that trades off the influence of higher-order versus lower-order terms. Used for kernel = 'poly'. This must be greater than or equal to 0.
-        online : Wheter to retrieve the most recent list of indices directly from the GitHub repository and not from the local copy.
+        c : Free parameter that trades off the influence of higher-order versus 
+            lower-order terms. Used for kernel = 'poly'. This must be greater than or 
+            equal to 0.
+        online : Wheter to retrieve the most recent list of indices directly from the 
+            GitHub repository and not from the local copy.
 
     Returns:
-        Image or Image Collection with the computed spectral index, or indices, as new bands.
+        Image or Image Collection with the computed spectral index, or indices, as new 
+        bands.
 
     Examples:
         >>> import ee

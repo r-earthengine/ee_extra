@@ -160,7 +160,7 @@ def spectralIndices(
                 x = temporalIndex(x)
 
     if drop:
-        x = x.select(idx)
+        x = x.select(index)
 
     return x
 

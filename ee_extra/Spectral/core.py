@@ -35,6 +35,7 @@ def spectralIndices(
     p: Union[float, int] = 2,
     c: Union[float, int] = 1.0,
     online: bool = False,
+    drop: bool = False,
 ) -> Union[ee.Image, ee.ImageCollection]:
     """Computes one or more spectral indices (indices are added as bands) for an image or 
     image collection.
@@ -61,8 +62,9 @@ def spectralIndices(
         c : Free parameter that trades off the influence of higher-order versus 
             lower-order terms. Used for kernel = 'poly'. This must be greater than or 
             equal to 0.
-        online : Wheter to retrieve the most recent list of indices directly from the 
+        online : Whether to retrieve the most recent list of indices directly from the 
             GitHub repository and not from the local copy.
+        drop : Whether to drop all bands except the new spectral indices.
 
     Returns:
         Image or Image Collection with the computed spectral index, or indices, as new 
@@ -156,6 +158,9 @@ def spectralIndices(
                 x = x.map(temporalIndex)
             elif isinstance(x, ee.image.Image):
                 x = temporalIndex(x)
+
+    if drop:
+        x = x.select(idx)
 
     return x
 

@@ -1,65 +1,56 @@
-Welcome to eeExtra!
-===================
+eeExtra
+=======
 
 .. raw:: html
 
         <embed>
           <p align="center">
-            <a href="https://github.com/r-earthengine/ee_extra"><img src="https://raw.githubusercontent.com/davemlz/davemlz/main/eeExtra.png" height="200px"/></a>
-            <br>
-            <b>A ninja Python package behind <a href="https://github.com/r-spatial/rgee">rgee</a>, <a href="https://github.com/r-earthengine/rgeeExtra">rgeeExtra</a> and <a href="https://github.com/davemlz/eemont">eemont</a></b>
-          </p>
+                <img src="https://user-images.githubusercontent.com/16768318/139555722-cc8cd77e-aa51-455e-bed3-0cac76b59258.png" alt="ee_extra" width="800"></a>
+                </p>
+                <p align="center">
+                <em>A Python package that unifies the Google Earth Engine ecosystem.</em>
+                </p>
+                <p align="center">
+                <b>
+                <a href="https://github.com/KMarkert/EarthEngine.jl" target="_blank">EarthEngine.jl</a> |
+                <a href="https://github.com/r-spatial/rgee" target="_blank"> rgee </a> | 
+                <a href="https://github.com/r-earthengine/rgeeExtra" target="_blank"> rgee+ </a> | 
+                <a href="https://github.com/davemlz/eemont" target="_blank"> eemont</a>
+                </b>
+                </p>
+                <p align="center">
+                <a href='https://pypi.python.org/pypi/ee_extra'>
+                <img src='https://img.shields.io/pypi/v/ee_extra.svg' alt='PyPI' />
+                </a>
+                <a href='https://anaconda.org/conda-forge/ee_extra'>
+                <img src='https://img.shields.io/conda/vn/conda-forge/ee_extra.svg' alt='conda-forge' />
+                </a>
+                <a href="https://opensource.org/licenses/Apache-2.0" target="_blank">
+                <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License">
+                </a>
+                <a href='https://ee-extra.readthedocs.io/en/latest/?badge=latest'>
+                <img src='https://readthedocs.org/projects/ee-extra/badge/?version=latest' alt='Documentation Status' />
+                </a>
+                <a href="https://github.com/r-earthengine/ee_extra/actions/workflows/tests.yml" target="_blank">
+                <img src="https://github.com/r-earthengine/ee_extra/actions/workflows/tests.yml/badge.svg" alt="Tests">
+                </a>
+                <a href="https://github.com/r-earthengine/ee_extra/actions/workflows/update_awesome_spectral_indices.yml" target="_blank">
+                <img src="https://github.com/r-earthengine/ee_extra/actions/workflows/update_awesome_spectral_indices.yml/badge.svg" alt="Awesome Spectral Indices">
+                </a>
+                <a href="https://github.com/r-earthengine/ee_extra/actions/workflows/update_gee_stac_ids.yml" target="_blank">
+                <img src="https://github.com/r-earthengine/ee_extra/actions/workflows/update_gee_stac_ids.yml/badge.svg" alt="License">
+                </a>
+                <a href="https://github.com/r-earthengine/ee_extra/actions/workflows/update_gee_stac_scale_offset.yml" target="_blank">
+                <img src="https://github.com/r-earthengine/ee_extra/actions/workflows/update_gee_stac_scale_offset.yml/badge.svg" alt="GitHub Sponsors">
+                </a>
+                <a href="https://github.com/psf/black" target="_blank">
+                <img src="https://img.shields.io/badge/code%20style-black-000000.svg" alt="Black">
+                </a>
+                <a href="https://pycqa.github.io/isort/" target="_blank">
+                <img src="https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336" alt="isort">
+                </a>
+                </p>
         </embed>
-
-.. image:: https://img.shields.io/pypi/v/ee_extra.svg
-        :target: https://pypi.python.org/pypi/ee_extra
-        
-.. image:: https://img.shields.io/badge/License-Apache%202.0-blue.svg
-        :target: https://opensource.org/licenses/Apache-2.0
-        
-.. image:: https://readthedocs.org/projects/ee-extra/badge/?version=latest
-        :target: https://ee-extra.readthedocs.io/en/latest/?badge=latest
-        :alt: Documentation Status
-
-.. image:: https://github.com/r-earthengine/ee_extra/actions/workflows/tests.yml/badge.svg
-        :target: https://github.com/r-earthengine/ee_extra/actions/workflows/tests.yml
-
-.. image:: https://github.com/r-earthengine/ee_extra/actions/workflows/update_awesome_spectral_indices.yml/badge.svg
-        :target: https://github.com/r-earthengine/ee_extra/actions/workflows/update_awesome_spectral_indices.yml
-
-.. image:: https://github.com/r-earthengine/ee_extra/actions/workflows/update_gee_stac_ids.yml/badge.svg
-        :target: https://github.com/r-earthengine/ee_extra/actions/workflows/update_gee_stac_ids.yml
-
-.. image:: https://github.com/r-earthengine/ee_extra/actions/workflows/update_gee_stac_scale_offset.yml/badge.svg
-        :target: https://github.com/r-earthengine/ee_extra/actions/workflows/update_gee_stac_scale_offset.yml
-        
-.. image:: https://img.shields.io/badge/David-buy%20me%20a%20coffee-ff69b4.svg
-        :target: https://www.buymeacoffee.com/davemlz
-        
-.. image:: https://img.shields.io/badge/Cesar-buy%20me%20a%20coffee-ff69b4.svg
-        :target: https://www.buymeacoffee.com/csay
-        
-.. image:: https://static.pepy.tech/personalized-badge/ee_extra?period=total&units=international_system&left_color=grey&right_color=green&left_text=Downloads
-        :target: https://pepy.tech/project/ee_extra
-        
-.. image:: https://img.shields.io/badge/GEE%20Community-Developer%20Resources-00b6ff.svg
-        :target: https://developers.google.com/earth-engine/tutorials/community/developer-resources
-        
-.. image:: https://img.shields.io/twitter/follow/csaybar?style=social
-        :target: https://twitter.com/csaybar        
-
-.. image:: https://img.shields.io/twitter/follow/dmlmont?style=social
-        :target: https://twitter.com/dmlmont
-        
-.. image:: https://joss.theoj.org/papers/34696c5b62c50898b4129cbbe8befb0a/status.svg
-    :target: https://joss.theoj.org/papers/34696c5b62c50898b4129cbbe8befb0a
-    
-.. image:: https://joss.theoj.org/papers/10.21105/joss.02272/status.svg
-    :target: https://doi.org/10.21105/joss.02272
-        
-.. image:: https://img.shields.io/badge/code%20style-black-000000.svg
-    :target: https://github.com/psf/black
-  
   
 .. toctree::   
    :maxdepth: 2
@@ -69,130 +60,99 @@ Welcome to eeExtra!
    modules/index
 
 
-- GitHub: `https://github.com/r-earthengine/ee_extra <https://github.com/r-earthengine/ee_extra>`_
-- Documentation: `https://ee-extra.readthedocs.io/ <https://ee-extra.readthedocs.io/>`_
-- PyPI: `https://pypi.org/project/ee-extra/ <https://pypi.org/project/ee-extra/>`_
+**GitHub**: `https://github.com/r-earthengine/ee_extra <https://github.com/r-earthengine/ee_extra>`_
 
+**Documentation**: `https://ee-extra.readthedocs.io <https://ee-extra.readthedocs.io>`_
 
-**Table of Contents**
+**PyPI**: `https://pypi.python.org/pypi/ee_extra <https://pypi.python.org/pypi/ee_extra>`_
 
-- `Overview`_
-- `Google Earth Engine Community: Developer Resources`_
-- `Powerhouse of...`_
-- `Installation`_
-- `License`_
-- `How to cite`_
-- `Artists`_
-- `Credits`_
-
+**Conda-forge**: `https://anaconda.org/conda-forge/ee_extra <https://anaconda.org/conda-forge/ee_extra>`_
 
 Overview
--------------------
+--------
 
-`Google Earth Engine <https://earthengine.google.com/>`_ is a cloud-based service for geospatial processing of vector and raster data. The Earth Engine platform has a `JavaScript and a Python API <https://developers.google.com/earth-engine/guides>`_ with different methods to process geospatial objects. Google Earth Engine also provides a `HUGE PETABYTE-SCALE CATALOG <https://developers.google.com/earth-engine/datasets/>`_ of raster and vector data that users can process online (e.g. Landsat Missions Image Collections, Sentinel Missions Image Collections, MODIS Products Image Collections, World Database of Protected Areas, etc.). 
+`Google Earth Engine <https://earthengine.google.com/>`_ (GEE) is a cloud-based service for 
+geospatial processing of vector and raster data. The Earth Engine platform has a 
+`JavaScript and a Python API <https://developers.google.com/earth-engine/guides>`_ with 
+different methods to process geospatial objects. Google Earth Engine also provides a 
+`HUGE PETABYTE-SCALE CATALOG <https://developers.google.com/earth-engine/datasets/>`_ of 
+raster and vector data that users can process online. 
 
-There are a lot of fantastic third-party GEE packages and projects around GitHub. However, most of them are coded in JavaScript or in a Python code style that is not straightforward to translate to R, Julia, or other programming languages. The main goal of **ee_extra** is to guarantee a smooth import of these projects. We re-wrote the most popular JavaScript and Python EE algorithms minimizing the dependencies to just two Python packages: **earthengine-api** and **NumPy**. Third-party GEE tools that can not meet this stipulation will not be added to **ee_extra**. Additionally, rigorous checking of code style (**black**) and documentation style (**darglint**) will be carried out to guarantee a smooth conversion of Python documentation into, for instance, R documentation (**rgee::ee_help**).
-
-.. image:: https://user-images.githubusercontent.com/16768318/119165340-ad784f80-ba5d-11eb-8d00-699eac93fb2c.png
-    :alt: ee_extra
-
-
-Google Earth Engine Community: Developer Resources
------------------------------------------------------
-
-The ee_extra Python package can be found indirectly in the `Earth Engine Community: Developer Resources <https://developers.google.com/earth-engine/tutorials/community/developer-resources>`_ as the powerhouse of `eemont <https://github.com/davemlz/eemont>`_, `rgee <https://github.com/r-spatial/rgee>`_ and `rgeeExtra <https://github.com/r-earthengine/rgeeExtra>`_.
-
-
-Powerhouse of...
---------------------
+There are a lot of fantastic third-party GEE packages and projects around GitHub. However,
+most of them are coded in JavaScript or Python, and they are not straightforward
+to translate to R, Julia, or other programming languages. The main goal of `eeExtra` is
+to guarantee a smooth `import` of these projects in other programming languages by
+standardizing different methods and enabling the use of JavaScript modules outside the
+`Code Editor <https://code.earthengine.google.com/>`_.
 
 .. raw:: html
 
         <embed>
-          <p align="center">
-            <a href="https://r-spatial.github.io/rgee/"><img src="https://user-images.githubusercontent.com/16768318/118376965-5f7dca80-b5cb-11eb-9a82-47876680a3e6.png" height="200px"/></a>
-            <a href="http://r-earthengine.github.io/rgeeExtra/"><img src="https://user-images.githubusercontent.com/16768318/118376968-63a9e800-b5cb-11eb-83e7-3f36299e17cb.png" height="200px"/></a>
-            <a href="https://github.com/davemlz/eemont"><img src="https://raw.githubusercontent.com/davemlz/davemlz/main/eemont.png" height="200px"/></a>
-          </p>
+                <p align="center">
+                <img src="https://user-images.githubusercontent.com/16768318/139555895-d384832a-28fb-4812-a836-4d4455faf443.png" alt="ee_extra_diagram" width="650">
+                </p>
         </embed>
+
+Some of the `eeExtra` features are listed here:
+
+- Automatic scaling and offsetting.
+- Spectral Indices computation (using `Awesome Spectral Indices <https://github.com/davemlz/awesome-spectral-indices>`_).
+- Clouds and shadows masking.
+- STAC related functions.
+
+And the most important feature:
+
+- Enabling the usage of JavaScript modules outside the Code Editor.
+
+
+How does it work?
+-----------------
+
+`eeExtra` is a Python package, just like any other, but it is a *ninja* that serves as a 
+methods provider for different environments: R, Julia and Python itself. `eeExtra` 
+accomplish this by being the powerhouse of some amazing packages such as `rgee <https://github.com/r-spatial/rgee>`_,
+`rgee+ <https://github.com/r-earthengine/rgeeExtra>`_, and `eemont <https://github.com/davemlz/eemont>`_.
+
+Public JavaScript module can also be used outside the Code Editor in these packages
+through `eeExtra`. For this, `eeExtra` implements a rigorous JavaScript translation
+module that allows users to install, require and use JavaScript modules as if they
+were on the Code Editor!
+
+You may be wondering *"Why is it a ninja package?"*, well, that's a valid question,
+the whole point of `eeExtra` resides in the fact that nobody has to use `eeExtra` itself,
+but rather use one of the packages that are powered by `eeExtra`! :) 
 
 
 Installation
 ------------
 
-Install the latest eemont version from PyPI by running:
+Install the latest version from PyPI:
 
-.. code-block::   
-      
-   pip install ee_extra
+.. code-block:: python
 
-Upgrade eemont by running:
-
-.. code-block::   
-      
-   pip install -U ee_extra
-
-Install the development version from GitHub by running:
-
-.. code-block::   
-      
-   pip install git+https://github.com/r-earthengine/ee_extra
-   
-Install the latest eemont version from conda-forge by running (SOON):
-
-.. code-block::   
-      
-   conda install -c conda-forge ee_extra
+        pip install ee_extra
 
 
-License
--------
+Install soft ee_extra dependencies:
 
-The project is licensed under the Apache v.2.0 license.
+.. code-block:: python
 
+        pip install jsbeautifier regex
 
-How to cite
------------
+Upgrade `eeExtra` by running:
 
-Do you like using ee_extra and think it is useful? Share the love by citing it through eemont and rgee!::
+.. code-block:: python
 
-   Montero, D., (2021). eemont: A Python package that extends Google Earth Engine. Journal of Open Source Software, 6(62), 3168, https://doi.org/10.21105/joss.03168
-   Aybar et al., (2020). rgee: An R package for interacting with Google Earth Engine. Journal of Open Source Software, 5(51), 2272, https://doi.org/10.21105/joss.02272
-   
-If required, here is the BibTex for both papers!::
+        pip install -U ee_extra
 
-   @Article{Montero2021,
-     doi = {10.21105/joss.03168},
-     url = {https://doi.org/10.21105/joss.03168},
-     year = {2021},
-     publisher = {The Open Journal},
-     volume = {6},
-     number = {62},
-     pages = {3168},
-     author = {David Montero},
-     title = {eemont: A Python package that extends Google Earth Engine},
-     journal = {Journal of Open Source Software}
-   }
+Install the latest version from conda-forge:
 
-   @Article{Aybar2020,
-      doi = {10.21105/joss.02272},
-      url = {https://doi.org/10.21105/joss.02272},
-      publisher = {The Open Journal},
-      title = {rgee: An R package for interacting with Google Earth Engine},
-      author = {Cesar Aybar and Quisheng Wu and Lesly Bautista and Roy Yali and Antony Barja},
-      journal = {Journal of Open Source Software},
-      year = {2020},
-    }
+.. code-block:: python
 
+        conda install -c conda-forge ee_extra
 
-Artists
--------
+Install the latest dev version from GitHub by running:
 
-- `César Aybar <https://github.com/csaybar>`_: Lead Developer.
-- `David Montero Loaiza <https://github.com/davemlz>`_: Lead Developer.
+.. code-block:: python
 
-
-Credits
--------
-
-Special thanks to `Justin Braaten <https://github.com/jdbcode>`_ for reviewing the ee_extra proposal!
+        pip install git+https://github.com/r-earthengine/ee_extra

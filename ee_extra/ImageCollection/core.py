@@ -42,6 +42,12 @@ def closest(
     endDate = date.advance(tolerance, unit)
     x = x.filterDate(startDate, endDate)
 
+    # no images?
+    if x.size().getInfo() == 0:
+        raise ValueError(
+            "No images were retrieved using the established tolerance and units arguments."
+        )
+
     def setProperties(img):
         img = img.set(
             "dateDist",

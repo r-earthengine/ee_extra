@@ -42,9 +42,7 @@ def fix_typeof(x):
         return x, ""
     else:
         for typeof_case in typeof_cases:
-            # if there is a space before the typeof?
-            if typeof_case.split(" ") == typeof_case:
-                x = x.replace(typeof_case, "typeof(%s)" % typeof_case.split(" ")[1])
+            x = x.replace(typeof_case, "typeof(%s)" % typeof_case.split(" ")[1])
     header = """
     
     # Javascript typeof wrapper ---------------------------------------
@@ -90,10 +88,6 @@ def fix_sugar_if(x):
     lines = x.split("\n")
     condition01 = "\(.*\)\s\?\s\w+\s:.*"  # search for sugar strings
     sugar_lines = [line for line in lines if regex.search(condition01, line)]
-
-    pattern = r"([\"'])(?:(?=(\\?))\2.)*?\1"
-    if regex.search(pattern, x):
-        qm_word = regex.search(pattern, x).group(0)
 
     if sugar_lines == []:
         return x
@@ -693,9 +687,6 @@ def keyword_arguments_object(x):
     regex = _check_regex()
     pattern = r"(\w+)\({(.*?)}\)"
     matches = regex.findall(pattern, x, regex.DOTALL)
-    matches = list(
-        set(matches)
-    )  # Remove duplicate matches (See Test:test_line_breaks01)
 
     # eliminate is the method is getThumbURL|getDownloadURL|getThumbId.
     matches = [
@@ -703,6 +694,10 @@ def keyword_arguments_object(x):
         for fname, params in matches
         if fname not in ["getThumbURL", "getDownloadURL", "getThumbId"]
     ]
+
+    matches = list(
+        set(matches)
+    )  # Remove duplicate matches (See Test:test_line_breaks01)
 
     if len(matches) > 0:
         for match in matches:
@@ -787,6 +782,13 @@ def remove_single_declarations(x):
     x = regex.sub(condition, "", x)
     return x
 
+def remove_documentation(x):
+    regex = _check_regex()
+    # remove // only if it is not in a string
+    condition = "\/\/(?=(?:[^\"']*\"[^\"']*\")*[^\"']*$).*"
+    newx = regex.sub(condition, "", x, flags=regex.MULTILINE)
+    return newx
+
 
 def translate(x: str, black: bool = False, quiet: bool = True) -> str:
     """Translates a JavaScript script to a Python script.
@@ -810,7 +812,7 @@ def translate(x: str, black: bool = False, quiet: bool = True) -> str:
 
     header_list = list()
     # 1. reformat and re-indent ugly JavaScript
-    x = regex.sub(r"\/\/.*", "", x)  # remove documentation
+    x = remove_documentation(x)  # remove documentation
     x = remove_single_declarations(x)  # remove declarations
     x = beautify(x, opts)
 
@@ -822,36 +824,37 @@ def translate(x: str, black: bool = False, quiet: bool = True) -> str:
     x, header = tjsm.translate_jsmethods(x)
     header_list.append(header)
 
-    # 2. reformat Js function definition style (from var fun = function(bla, bla) -> function fun(bla, bla)).
+    # 4. reformat Js function definition style (from var fun = function(bla, bla) -> function fun(bla, bla)).
     x = normalize_fn_name(x)
-    # 3. Remove var keyword.
+    # 5. Remove var keyword.
     x = tgnrl.var_remove(x)
-    # 4. Change logical operators, boolean, null, comments and others.
+    # 6. Change logical operators, boolean, null, comments and others.
     x = change_operators(x)
-    # 5. Change multiline jscript comments to just '#'.
+    # 7. Change multiline jscript comments to just '#'.
     x = fix_multiline_comments(x)
-    # 6. If line starts with ".", then merge it with the previous one.
+    # 8. If line starts with ".", then merge it with the previous one.
     x = line_starts_with_dot(x)
-    # 7. If a line ends with "+", then merge it with the next one.
+    # 9. If a line ends with "+", then merge it with the next one.
     x = ends_with_plus(x)
-    # 8. If a line ends with "=", then merge it with the next one.
+    # 10. If a line ends with "=", then merge it with the next one.
     x = ends_with_equal(x)
 
     x = x.replace("\nfunction ", "\n\nfunction ")
     x = tfunc.func_translate(x)
 
-    # 9. Change e.g. "for(var i = 0;i < x.length;i++)" to "for i in range(0,len(x),1):"
+    # 11. Change e.g. "for(var i = 0;i < x.length;i++)" to "for i in range(0,len(x),1):"
     x = tloops.fix_for_loop(x)
-    # 10. Change e.g. "while (i > 10)" to "while i>10:"
+    # 12. Change e.g. "while (i > 10)" to "while i>10:"
     x = tloops.fix_while_loop(x)
-    # 11. Change lines like var i++ to var i = i + 1.
+    # 13. Change lines like var i++ to var i = i + 1.
     x = tloops.fix_inline_iterators(x)
-    # 12. Delete extra brackets.
-    x = tgnrl.delete_brackets(x)
 
     x = if_statement(x)
+    
+    # 14. Delete extra brackets.
+    x = tgnrl.delete_brackets(x)    
 
-    # # 3. Change [if (condition) ? true_value : false_value] to [true_value if condition else false_value]
+    # 15. Change [if (condition) ? true_value : false_value] to [true_value if condition else false_value]
     # OBS: fix_sugar_if must always to if_statement to avoid conflicts.
     x = fix_sugar_if(x)
 
@@ -864,13 +867,11 @@ def translate(x: str, black: bool = False, quiet: bool = True) -> str:
     if black:
         try:
             from black import FileMode, format_str
-
             x = format_str(x, mode=FileMode())
         except ImportError:
             raise ImportError(
                 '"black" is not installed. Please install "black" when using "black=True" -> "pip install black"'
-            )
-    # 12. Change 10 + "hola" by str(10) + "hola"
+            )    
     x, header = fix_str_plus_int(x)
     header_list.append(header)
     x = add_header(x, header_list)

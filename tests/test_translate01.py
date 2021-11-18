@@ -3,7 +3,7 @@
 import unittest
 
 from ee_extra import translate
-
+import textwrap
 
 class Test(unittest.TestCase):
     """Tests translate package"""
@@ -23,8 +23,8 @@ class Test(unittest.TestCase):
         var uri2 = 'gs://gcp-public-data-landsat/LC08/01/001/002/' +  
             'LC08_L1GT_001002_20160817_20170322_01_T2/'    
         """
-        text = text.replace("\n    ", "")
-        self.assertIsInstance(translate(text, black=False), str)
+        text = textwrap.dedent(text)
+        self.assertIsInstance(translate(text, black=True), str)
 
     def test_plus_sign02(self):
         """Test translation of plus sign"""
@@ -56,8 +56,8 @@ class Test(unittest.TestCase):
         '</ColorMap>' +
         '</RasterSymbolizer>';
         """
-        text = text.replace("\n    ", "")
-        self.assertIsInstance(translate(text, black=False), str)
+        text = textwrap.dedent(text)
+        self.assertIsInstance(translate(text, black=True), str)
 
     def test_dot_conversion01(self):
         """Test translation of plus dot sign"""
@@ -75,8 +75,8 @@ class Test(unittest.TestCase):
         });
         print('Linear ring region and specified crs', thumbnail3);
         """
-        text = text.replace("\n    ", "")
-        self.assertIsInstance(translate(text, black=False), str)
+        text = textwrap.dedent(text)
+        self.assertIsInstance(translate(text, black=True), str)
 
     def test_line_breaks01(self):
         text = """
@@ -92,7 +92,8 @@ class Test(unittest.TestCase):
                     .focal_min({kernel: kernel, iterations: 2})
                     .focal_max({kernel: kernel, iterations: 2});
         """
-        self.assertIsInstance(translate(text, black=False), str)
+        text = textwrap.dedent(text)
+        self.assertIsInstance(translate(text, black=True), str)
 
     def test_external_libs_01(self):
         text = """
@@ -113,7 +114,8 @@ class Test(unittest.TestCase):
         var gearys = nir.subtract(neighs).pow(2).reduce(ee.Reducer.sum())
                     .divide(Math.pow(9, 2));
         """
-        self.assertIsInstance(translate(text, black=False), str)
+        text = textwrap.dedent(text)
+        self.assertIsInstance(translate(text, black=True), str)
 
     def test_dot_conversion02(self):
         text = """
@@ -146,7 +148,8 @@ class Test(unittest.TestCase):
         maxDistance: 80 * 1000  // 80 kilometers
         });
         """
-        self.assertIsInstance(translate(text, black=False), str)
+        text = textwrap.dedent(text)
+        self.assertIsInstance(translate(text, black=True), str)
 
     def test_iterators(self):
         """Test iterators"""
@@ -215,7 +218,8 @@ class Test(unittest.TestCase):
         i++;
         }
         """
-        self.assertIsInstance(translate(text, black=False), str)
+        text = textwrap.dedent(text)
+        self.assertIsInstance(translate(text, black=True), str)
 
     def test_ltrend_01(self):
         """LandTrendr function"""
@@ -233,7 +237,8 @@ class Test(unittest.TestCase):
         };
         exports.harmonizationRoy = harmonizationRoy;        
         """
-        self.assertIsInstance(translate(text, black=False), str)
+        text = textwrap.dedent(text)
+        self.assertIsInstance(translate(text, black=True), str)
 
     def test_ltrend_02(self):
         """LandTrendr function"""
@@ -260,7 +265,8 @@ class Test(unittest.TestCase):
         };
         exports.buildSensorYearCollection = buildSensorYearCollection       
         """
-        self.assertIsInstance(translate(text, black=False), str)
+        text = textwrap.dedent(text)
+        self.assertIsInstance(translate(text, black=True), str)
 
     def test_ltrend_03(self):
         """LandTrendr function"""
@@ -318,7 +324,8 @@ class Test(unittest.TestCase):
         };
         exports.getSRcollection = getSRcollection;      
         """
-        self.assertIsInstance(translate(text, black=False), str)
+        text = textwrap.dedent(text)
+        self.assertIsInstance(translate(text, black=True), str)
 
     def test_ltrend_04(self):
         """LandTrendr function"""
@@ -341,7 +348,8 @@ class Test(unittest.TestCase):
         };
         exports.getCombinedSRcollection = getCombinedSRcollection        
         """
-        self.assertIsInstance(translate(text, black=False), str)
+        text = textwrap.dedent(text)
+        self.assertIsInstance(translate(text, black=True), str)
 
     def test_ltrend_05(self):
         """LandTrendr function"""
@@ -366,7 +374,8 @@ class Test(unittest.TestCase):
         return ee.ImageCollection(difFromMedian).reduce(ee.Reducer.min(7)).select([1,2,3,4,5,6], ['B1','B2','B3','B4','B5','B7']); // find the powered difference that is the least - what image object is the closest to the median of teh collection - and then subset the SR bands and name them - leave behind the powered difference band
         };      
         """
-        self.assertIsInstance(translate(text, black=False), str)
+        text = textwrap.dedent(text)
+        self.assertIsInstance(translate(text, black=True), str)
 
     def test_ltrend_06(self):
         """LandTrendr function"""
@@ -397,7 +406,7 @@ class Test(unittest.TestCase):
         # -----------------------------
         # we do not support dates yet!
         # -----------------------------
-        # self.assertIsInstance(translate(text, black=False), str)
+        # self.assertIsInstance(translate(text, black=True), str)
 
     def test_ltrend_07(self):
         """LandTrendr function"""
@@ -430,7 +439,8 @@ class Test(unittest.TestCase):
         };
         exports.getCollectionIDlist = getCollectionIDlist;
         """
-        self.assertIsInstance(translate(text, black=False), str)
+        text = textwrap.dedent(text)
+        self.assertIsInstance(translate(text, black=True), str)
 
     def test_ltrend_08(self):
         """LandTrendr function"""
@@ -465,7 +475,7 @@ class Test(unittest.TestCase):
         # -----------------------------
         # we do not support dates yet!
         # -----------------------------
-        # self.assertIsInstance(translate(text, black=False), str)
+        # self.assertIsInstance(translate(text, black=True), str)
 
     def test_ltrend_09(self):
         """LandTrendr function"""
@@ -496,7 +506,8 @@ class Test(unittest.TestCase):
         };
         exports.removeImages = removeImages;
         """
-        self.assertIsInstance(translate(text, black=False), str)
+        text = textwrap.dedent(text)
+        self.assertIsInstance(translate(text, black=True), str)
 
     def test_ltrend_10(self):
         """LandTrendr function"""
@@ -535,7 +546,8 @@ class Test(unittest.TestCase):
 
         exports.getLTvertStack = getLTvertStack;
         """
-        self.assertIsInstance(translate(text, black=False), str)
+        text = textwrap.dedent(text)
+        self.assertIsInstance(translate(text, black=True), str)
 
     def test_ltrend_11(self):
         """LandTrendr function"""
@@ -614,7 +626,8 @@ class Test(unittest.TestCase):
         return evi;
         };        
         """
-        self.assertIsInstance(translate(text, black=False), str)
+        text = textwrap.dedent(text)
+        self.assertIsInstance(translate(text, black=True), str)
 
     def test_ltrend_12(self):
         """LandTrendr function"""
@@ -699,7 +712,7 @@ class Test(unittest.TestCase):
         # -----------------------------
         # we do not support switch yet!
         # -----------------------------
-        # self.assertIsInstance(translate(text, black=False), str)
+        # self.assertIsInstance(translate(text, black=True), str)
 
     def test_ltrend_13(self):
         """LandTrendr function"""
@@ -734,7 +747,8 @@ class Test(unittest.TestCase):
         });
         };        
         """
-        self.assertIsInstance(translate(text, black=False), str)
+        text = textwrap.dedent(text)
+        self.assertIsInstance(translate(text, black=True), str)
 
     def test_ltrend_14(self):
         """LandTrendr function"""
@@ -794,7 +808,7 @@ class Test(unittest.TestCase):
         # -----------------------------
         # we do not support switch yet!
         # -----------------------------
-        # self.assertIsInstance(translate(text, black=False), str)
+        # self.assertIsInstance(translate(text, black=True), str)
 
     def test_ltrend_15(self):
         """LandTrendr function"""
@@ -862,7 +876,7 @@ class Test(unittest.TestCase):
         # -----------------------------
         # we do not support switch yet!
         # -----------------------------
-        # self.assertIsInstance(translate(text, black=False), str)
+        # self.assertIsInstance(translate(text, black=True), str)
 
     def test_ltrend_16(self):
         """LandTrendr function"""
@@ -897,7 +911,8 @@ class Test(unittest.TestCase):
 
         exports.transformSRcollection = transformSRcollection;        
         """
-        self.assertIsInstance(translate(text, black=False), str)
+        text = textwrap.dedent(text)
+        self.assertIsInstance(translate(text, black=True), str)
 
     def test_ltrend_17(self):
         """LandTrendr function"""
@@ -940,7 +955,8 @@ class Test(unittest.TestCase):
         };
         exports.makeRGBcomposite = makeRGBcomposite;
         """
-        self.assertIsInstance(translate(text, black=False), str)
+        text = textwrap.dedent(text)
+        self.assertIsInstance(translate(text, black=True), str)
 
     def test_ltrend_18(self):
         """LandTrendr function"""
@@ -1004,7 +1020,8 @@ class Test(unittest.TestCase):
         };
         exports.getSegmentCount = getSegmentCount;
         """
-        self.assertIsInstance(translate(text, black=False), str)
+        text = textwrap.dedent(text)
+        self.assertIsInstance(translate(text, black=True), str)
 
     def test_ltrend_19(self):
         """LandTrendr function"""
@@ -1087,7 +1104,8 @@ class Test(unittest.TestCase):
         };
         exports.getSegmentArray = getSegmentArray;        
         """
-        self.assertIsInstance(translate(text, black=False), str)
+        text = textwrap.dedent(text)
+        self.assertIsInstance(translate(text, black=True), str)
 
     def test_ltrend_20(self):
         """LandTrendr function"""
@@ -1128,7 +1146,8 @@ class Test(unittest.TestCase):
         return {ts:data, rmse:pixelTS.rmse};
         };
         """
-        self.assertIsInstance(translate(text, black=False), str)
+        text = textwrap.dedent(text)
+        self.assertIsInstance(translate(text, black=True), str)
 
     def test_ltrend_21(self):
         """LandTrendr function"""
@@ -1217,7 +1236,8 @@ class Test(unittest.TestCase):
         };
         exports.getYearBandNames = getYearBandNames;        
         """
-        self.assertIsInstance(translate(text, black=False), str)
+        text = textwrap.dedent(text)
+        self.assertIsInstance(translate(text, black=True), str)
 
     def test_ltrend_22(self):
         """LandTrendr function"""
@@ -1296,7 +1316,7 @@ class Test(unittest.TestCase):
         exports.getFittedRGBcol = getFittedRGBcol;
         """
         # Not solved yet!
-        # self.assertIsInstance(translate(text, black=False), str)
+        # self.assertIsInstance(translate(text, black=True), str)
 
     def test_ltrend_23(self):
         """LandTrendr function"""
@@ -1355,7 +1375,7 @@ class Test(unittest.TestCase):
         };
         """
         # ui should show a warning
-        # self.assertIsInstance(translate(text, black=False), str)
+        # self.assertIsInstance(translate(text, black=True), str)
 
 
 if __name__ == "__main__":

@@ -181,7 +181,7 @@ def maskClouds(
         mask2 = args.mask().reduce(ee.Reducer.min())
         return args.updateMask(cloud.Not()).updateMask(mask2)
 
-    def L7C2(args):
+    def L457C2(args):
         qa = args.select("QA_PIXEL")
         notCloud = qa.bitwiseAnd(1 << 3).eq(0)
         if maskShadows:
@@ -270,11 +270,13 @@ def maskClouds(
         "LANDSAT/LC08/C02/T1_L2": L8C2,
         "LANDSAT/LE07/C01/T1_SR": L457,
         "LANDSAT/LE07/C01/T2_SR": L457,
-        "LANDSAT/LE07/C02/T1_L2": L7C2,
+        "LANDSAT/LE07/C02/T1_L2": L457C2,
         "LANDSAT/LT05/C01/T1_SR": L457,
         "LANDSAT/LT05/C01/T2_SR": L457,
+        "LANDSAT/LT05/C02/T1_L2": L457C2,
         "LANDSAT/LT04/C01/T1_SR": L457,
         "LANDSAT/LT04/C01/T2_SR": L457,
+        "LANDSAT/LT04/C02/T1_L2": L457C2,
         "MODIS/006/MOD09GA": MOD09GA,
         "MODIS/006/MCD15A3H": MCD15A3H,
         "MODIS/006/MOD09Q1": MOD09Q1,

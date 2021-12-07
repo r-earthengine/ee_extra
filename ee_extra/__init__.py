@@ -23,3 +23,4 @@ from ee_extra.QA import clouds, pipelines
 from ee_extra.Spectral import core
 from ee_extra.STAC import core
 from ee_extra.TimeSeries import core
+from ee_extra.Apps import core

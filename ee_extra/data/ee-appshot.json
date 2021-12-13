@@ -958,6 +958,7 @@
         "https://cartoscience.users.earthengine.app/view/maup-mapper-multi-scale-modis-ndvi",
         "https://cartoscience.users.earthengine.app/view/outliers",
         "https://cartoscience.users.earthengine.app/view/slope-design",
+        "https://cartoscience.users.earthengine.app/view/soil-and-elevation-profiler",
         "https://cartoscience.users.earthengine.app/view/versions",
         "https://cartoscience.users.earthengine.app/view/water-slider",
         "https://cartoscience.users.earthengine.app/view/when-and-where-does-it-freeze",
@@ -1855,6 +1856,7 @@
         "https://gena.users.earthengine.app/view/sentinel-1-max",
         "https://gena.users.earthengine.app/view/tailing-dam-toolbox",
         "https://gena.users.earthengine.app/view/test-reservoirs",
+        "https://gena.users.earthengine.app/view/three-light-sources-dem",
         "https://gena.users.earthengine.app/view/tinitaly-alos",
         "https://gena.users.earthengine.app/view/turkey-drought-2020-2021",
         "https://gena.users.earthengine.app/view/upper-niger",
@@ -2428,6 +2430,7 @@
     "jhowarth": [
         "https://jhowarth.users.earthengine.app/view/addison-image-viewer",
         "https://jhowarth.users.earthengine.app/view/billy-app",
+        "https://jhowarth.users.earthengine.app/view/conservation-atlas-middlebury-vt",
         "https://jhowarth.users.earthengine.app/view/conservation-planning",
         "https://jhowarth.users.earthengine.app/view/fire-modis-firms-historical",
         "https://jhowarth.users.earthengine.app/view/lights-change-time-neighborhood",
@@ -3720,6 +3723,7 @@
         "https://rasendriyaramanda.users.earthengine.app/view/perbandingan-keberadaan-vegetasi-di-kota-bogor",
         "https://rasendriyaramanda.users.earthengine.app/view/sentinel-kalimantan-selatan",
         "https://rasendriyaramanda.users.earthengine.app/view/suhu-rata-rata-citra-satelit-landsat-8-tanggal-12-maret-2021",
+        "https://rasendriyaramanda.users.earthengine.app/view/sumeru",
         "https://rasendriyaramanda.users.earthengine.app/view/urban-heat-island-kota-surabaya",
         "https://rasendriyaramanda.users.earthengine.app/view/utfvi-kota-surabaya",
         "https://rasendriyaramanda.users.earthengine.app/view/vegetation-and-non-vegetation-classification-of-bogor-city"
@@ -3926,7 +3930,8 @@
     ],
     "rrmeza89": [
         "https://rrmeza89.users.earthengine.app/view/diafpa1resiproaf",
-        "https://rrmeza89.users.earthengine.app/view/diafpa2"
+        "https://rrmeza89.users.earthengine.app/view/diafpa2",
+        "https://rrmeza89.users.earthengine.app/view/parcelas"
     ],
     "rudiger": [
         "https://rudiger.users.earthengine.app/view/cambiosimagenesradarv1",
@@ -4286,6 +4291,7 @@
         "https://soleimanisaeed.users.earthengine.app/view/codea",
         "https://soleimanisaeed.users.earthengine.app/view/codeb",
         "https://soleimanisaeed.users.earthengine.app/view/dslst",
+        "https://soleimanisaeed.users.earthengine.app/view/greenblue",
         "https://soleimanisaeed.users.earthengine.app/view/ligwal",
         "https://soleimanisaeed.users.earthengine.app/view/ndviperpixel"
     ],
@@ -4426,6 +4432,7 @@
         "https://thao226355.users.earthengine.app/view/biendongrung",
         "https://thao226355.users.earthengine.app/view/caobang",
         "https://thao226355.users.earthengine.app/view/khubaotonmcc",
+        "https://thao226355.users.earthengine.app/view/lucyen",
         "https://thao226355.users.earthengine.app/view/qczwfgay80xytib",
         "https://thao226355.users.earthengine.app/view/taianh"
     ],
@@ -4564,6 +4571,7 @@
     ],
     "valeriepasquarella": [
         "https://valeriepasquarella.users.earthengine.app/view/condition-monitoring-explorer",
+        "https://valeriepasquarella.users.earthengine.app/view/condition-monitoring-explorer",
         "https://valeriepasquarella.users.earthengine.app/view/spectral-encounter-l8",
         "https://valeriepasquarella.users.earthengine.app/view/spectral-encounter-s2"
     ],
@@ -4609,6 +4617,10 @@
         "https://wallacesilva.users.earthengine.app/view/mapas-mapbiomas-fogo-coleao-1",
         "https://wallacesilva.users.earthengine.app/view/mapbiomas-fogo-beta",
         "https://wallacesilva.users.earthengine.app/view/mapbiomas-mapmachine",
+        "https://wallacesilva.users.earthengine.app/view/merinocaimanpolcerto",
+        "https://wallacesilva.users.earthengine.app/view/merinorecaimanfirefrequency",
+        "https://wallacesilva.users.earthengine.app/view/merinorecaimanfirelandcover",
+        "https://wallacesilva.users.earthengine.app/view/merinorecaimanlandcover",
         "https://wallacesilva.users.earthengine.app/view/multithumbnail-landsat",
         "https://wallacesilva.users.earthengine.app/view/pixelqueimado",
         "https://wallacesilva.users.earthengine.app/view/precipitao",

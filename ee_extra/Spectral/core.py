@@ -38,7 +38,7 @@ def spectralIndices(
     online: bool = False,
     drop: bool = False,
 ) -> Union[ee.Image, ee.ImageCollection]:
-    """Computes one or more spectral indices (indices are added as bands) for an image or 
+    """Computes one or more spectral indices (indices are added as bands) for an image or
     image collection.
 
     Args:
@@ -51,24 +51,24 @@ def spectralIndices(
         cexp : Exponent used for OCVI.
         nexp : Exponent used for GDVI.
         alpha : Weighting coefficient used for WDRVI.
-        slope : Soil line slope. Used just for index = ['ATSAVI','SAVI2', 'TSAVI', 
+        slope : Soil line slope. Used just for index = ['ATSAVI','SAVI2', 'TSAVI',
             'WDVI'].
-        intercept : Soil line intercept. Used just for index = ['ATSAVI','SAVI2', 'TSAVI', 
+        intercept : Soil line intercept. Used just for index = ['ATSAVI','SAVI2', 'TSAVI',
             'WDVI'].
         gamma : Weighting coefficient used for ARVI.
         kernel : Kernel used for kernel indices. One of 'linear', 'RBF', 'poly'.
-        sigma : Length-scale parameter. Used for kernel = 'RBF'. If str, this must be an 
+        sigma : Length-scale parameter. Used for kernel = 'RBF'. If str, this must be an
             expression including 'a' and 'b'. If numeric, this must be positive.
         p : Kernel degree. Used for kernel = 'poly'.
-        c : Free parameter that trades off the influence of higher-order versus 
-            lower-order terms. Used for kernel = 'poly'. This must be greater than or 
+        c : Free parameter that trades off the influence of higher-order versus
+            lower-order terms. Used for kernel = 'poly'. This must be greater than or
             equal to 0.
-        online : Whether to retrieve the most recent list of indices directly from the 
+        online : Whether to retrieve the most recent list of indices directly from the
             GitHub repository and not from the local copy.
         drop : Whether to drop all bands except the new spectral indices.
 
     Returns:
-        Image or Image Collection with the computed spectral index, or indices, as new 
+        Image or Image Collection with the computed spectral index, or indices, as new
         bands.
 
     Examples:
@@ -284,16 +284,22 @@ def tasseledCap(
     return x
 
 
-def matchHistogram(source: ee.Image, target: ee.Image, bands: Optional[Dict[str, str]]=None, geometry: Optional[ee.Geometry]=None, maxBuckets: int=256) -> ee.Image:
+def matchHistogram(
+    source: ee.Image,
+    target: ee.Image,
+    bands: Optional[Dict[str, str]] = None,
+    geometry: Optional[ee.Geometry] = None,
+    maxBuckets: int = 256,
+) -> ee.Image:
     """Adjust the histogram of an image to match a target image.
 
     Args:
         source : Image to adjust.
         target : Image to use as the histogram reference.
-        bands : An optional dictionary of band names to match, with source bands as keys 
+        bands : An optional dictionary of band names to match, with source bands as keys
             and target bands as values. If none is provided, bands will be matched by name.
             Any bands not included here will be dropped.
-        geometry : The optional region to match histograms in that overlaps both images. 
+        geometry : The optional region to match histograms in that overlaps both images.
             If none is provided, the geometry of the source image will be used. If the
             source image is unbounded and no geometry is provided, histogram matching will
             fail.
@@ -309,7 +315,7 @@ def matchHistogram(source: ee.Image, target: ee.Image, bands: Optional[Dict[str,
         >>> from ee_extra.Spectral.core import matchHistogram
         >>> ee.Initialize()
 
-        The matchHistogram function can easily be used to match histograms of two images 
+        The matchHistogram function can easily be used to match histograms of two images
         from the same collection taken on different days. For example, we can match two
         NAIP orthophotos.
 
@@ -318,7 +324,7 @@ def matchHistogram(source: ee.Image, target: ee.Image, bands: Optional[Dict[str,
         >>> matched = matchHistogram(source, target)
 
         When the images have identical band names, matchHistogram will apply band-wise
-        matching. When images don't have identical band names, you can provide a 
+        matching. When images don't have identical band names, you can provide a
         dictionary to map the source bands to the target bands. For example, this can
         be used to match scenes from Landsat 8 and Landsat 7.
 

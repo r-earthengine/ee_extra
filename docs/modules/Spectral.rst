@@ -10,3 +10,4 @@ Extra.Spectral
    listIndices
    spectralIndices
    tasseledCap
+   matchHistogram

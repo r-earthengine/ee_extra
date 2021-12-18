@@ -2,7 +2,7 @@ import json
 import os
 import re
 import warnings
-from typing import Any, List, Optional, Union
+from typing import Any, List, Optional, Union, Dict
 
 import ee
 
@@ -13,6 +13,7 @@ from ee_extra.Spectral.utils import (
     _get_kernel_parameters,
     _get_tc_coefficients,
     _remove_none_dict,
+    _match_histogram,
 )
 from ee_extra.STAC.utils import _get_platform_STAC
 
@@ -281,3 +282,53 @@ def tasseledCap(
         x = calculateAndAddComponents(x)
 
     return x
+
+
+def matchHistogram(source: ee.Image, target: ee.Image, bands: Optional[Dict[str, str]]=None, geometry: Optional[ee.Geometry]=None, maxBuckets: int=256) -> ee.Image:
+    """Adjust the histogram of an image to match a target image.
+
+    Args:
+        source : Image to adjust.
+        target : Image to use as the histogram reference.
+        bands : An optional dictionary of band names to match, with source bands as keys 
+            and target bands as values. If none is provided, bands will be matched by name.
+            Any bands not included here will be dropped.
+        geometry : The optional region to match histograms in that overlaps both images. 
+            If none is provided, the geometry of the source image will be used. If the
+            source image is unbounded and no geometry is provided, histogram matching will
+            fail.
+        maxBuckets : The maximum number of buckets to use when building histograms. More
+            buckets will require more memory and time but will generate more accurate
+            results. The number of buckets will be rounded to the nearest power of 2.
+
+    Returns:
+        The adjusted image containing the matched source bands.
+
+    Examples:
+        >>> import ee
+        >>> from ee_extra.Spectral.core import matchHistogram
+        >>> ee.Initialize()
+
+        The matchHistogram function can easily be used to match histograms of two images 
+        from the same collection taken on different days. For example, we can match two
+        NAIP orthophotos.
+
+        >>> source = ee.Image("USDA/NAIP/DOQQ/m_4512135_se_10_1_20110804")
+        >>> target = ee.Image("USDA/NAIP/DOQQ/m_4512135_se_10_1_20140905")
+        >>> matched = matchHistogram(source, target)
+
+        When the images have identical band names, matchHistogram will apply band-wise
+        matching. When images don't have identical band names, you can provide a 
+        dictionary to map the source bands to the target bands. For example, this can
+        be used to match scenes from Landsat 8 and Landsat 7.
+
+        >>> source = ee.Image("LANDSAT/LC08/C01/T1_TOA/LC08_047027_20160819")
+        >>> target = ee.Image("LANDSAT/LE07/C01/T1_TOA/LE07_046027_20150701")
+        >>> bands = {
+        >>>    "B4": "B3",
+        >>>    "B3": "B2",
+        >>>    "B2": "B1"
+        >>> }
+        >>> matched = matchHistogram(source, target, bands=bands)
+    """
+    return _match_histogram(source, target, bands, geometry, maxBuckets)

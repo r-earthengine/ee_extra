@@ -3,7 +3,7 @@ import os
 import re
 import urllib.request
 import warnings
-from typing import Optional, Union
+from typing import Optional, Union, Tuple, Dict
 
 import ee
 import pkg_resources
@@ -437,3 +437,123 @@ def _get_tc_coefficients(platformDict: dict) -> dict:
         )
 
     return platformCoeffs[platform]
+
+
+def _match_histogram(
+    source: ee.Image,
+    target: ee.Image,
+    bands: Optional[Dict[str, str]],
+    geometry: Optional[ee.Geometry],
+    maxBuckets: int,
+) -> ee.Image:
+    """Adjust the histogram of an image to match a target image.
+
+    Args:
+        source : Image to adjust.
+        target : Image to use as the histogram reference.
+        bands : An optional dictionary of band names to match, with source bands as keys
+            and target bands as values. If none is provided, bands will be matched by name.
+            Any bands not included here will be dropped.
+        geometry : The optional region to match histograms in that overlaps both images.
+            If none is provided, the geometry of the source image will be used. If the
+            source image is unbounded and no geometry is provided, histogram matching will
+            fail.
+        maxBuckets : The maximum number of buckets to use when building histograms. More
+            buckets will require more memory and time but will generate more accurate
+            results. The number of buckets will be rounded to the nearest power of 2.
+
+    Returns:
+        The adjusted image containing the matched source bands.
+    """
+
+    def histogram_lookup(
+        source_hist: ee.Array, target_hist: ee.Array
+    ) -> Tuple[ee.List, ee.List]:
+        """Build a list of target values with corresponding counts to source values from a source and target histogram.
+
+        Args:
+            source_hist : A histogram for a source image returned by ee.Reducer.autoHistogram
+            target_hist : A histogram for a target image returned by ee.Reducer.autoHistogram
+
+        Returns:
+            Source histogram values and target histogram values with corresponding counts.
+        """
+        source_vals = source_hist.slice(1, 0, 1).project([0])
+        source_counts = source_hist.slice(1, 1, 2).project([0])
+        source_counts = source_counts.divide(source_counts.get([-1]))
+
+        target_vals = target_hist.slice(1, 0, 1).project([0])
+        target_counts = target_hist.slice(1, 1, 2).project([0])
+        target_counts = target_counts.divide(target_counts.get([-1]))
+
+        def lookup_value(n):
+            """Find the first target value with at least n counts."""
+            index = target_counts.gte(n).argmax()
+            return target_vals.get(index)
+
+        target_lookup_vals = source_counts.toList().map(lookup_value)
+
+        return (source_vals.toList(), target_lookup_vals)
+
+    geometry = ee.Element.geometry(source) if geometry is None else geometry
+
+    source_bands = source.bandNames() if bands is None else list(bands.keys())
+    target_bands = source.bandNames() if bands is None else list(bands.values())
+    bands = ee.Dictionary.fromLists(source_bands, target_bands)
+
+    source = source.select(source_bands)
+    target = target.select(target_bands)
+
+    source_histogram = source.reduceRegion(
+        reducer=ee.Reducer.autoHistogram(maxBuckets=maxBuckets, cumulative=True),
+        geometry=geometry,
+        scale=30,
+        maxPixels=1e13,
+        bestEffort=True,
+    )
+
+    target_histogram = target.updateMask(source.mask()).reduceRegion(
+        reducer=ee.Reducer.autoHistogram(maxBuckets=maxBuckets, cumulative=True),
+        geometry=geometry,
+        scale=30,
+        maxPixels=1e13,
+        bestEffort=True,
+    )
+
+    def match_bands(source_band: ee.String, target_band: ee.String) -> ee.Image:
+        """Match the histogram of one source band to a target band.
+
+        Args:
+            source_band : The name of a band in the source image to adjust.
+            target_band : The name of a corresponding band in the target image to match to.
+
+        Returns:
+            The source band image histogram-matched to the target band.
+        """
+        x, y = histogram_lookup(
+            source_histogram.getArray(source_band),
+            target_histogram.getArray(target_band),
+        )
+        matched = source.select([source_band]).interpolate(x, y)
+        return matched
+
+    matched = (
+        ee.ImageCollection(bands.map(match_bands).values())
+        .toBands()
+        .rename(bands.keys())
+    )
+
+    # Preserve the metadata, band types, and band order of the source image.
+    matched = ee.Image(matched.copyProperties(source, source.propertyNames()))
+    matched = matched.cast(source.bandTypes(), source.bandNames())
+    matched = matched.set("ee_extra:HISTOGRAM_TARGET", target)
+
+    # If the source image was bounded, clip the matched output to its bounds. If the source
+    # image doesn't have a `geometry` this will fail, but that seems exceptionally rare.
+    matched = ee.Algorithms.If(
+        source.geometry().isUnbounded(),
+        matched,
+        matched.clip(source.geometry().bounds()),
+    )
+
+    return ee.Image(matched)

@@ -89,6 +89,7 @@
     ],
     "AristidesMairena": [
         "https://AristidesMairena.users.earthengine.app/view/area-ndvi",
+        "https://AristidesMairena.users.earthengine.app/view/crop-frequency",
         "https://AristidesMairena.users.earthengine.app/view/date-areandvi"
     ],
     "AsifulAlam": [
@@ -1508,6 +1509,7 @@
         "https://erollero.users.earthengine.app/view/burned-area-bio-bio",
         "https://erollero.users.earthengine.app/view/burned-area-maule",
         "https://erollero.users.earthengine.app/view/burned-area-metro",
+        "https://erollero.users.earthengine.app/view/burned-area-rlagos",
         "https://erollero.users.earthengine.app/view/burned-areas-chile",
         "https://erollero.users.earthengine.app/view/coberfinandvi",
         "https://erollero.users.earthengine.app/view/consistenciandvi",
@@ -2700,6 +2702,7 @@
     ],
     "kevinwbarnes": [
         "https://kevinwbarnes.users.earthengine.app/view/grasslandchange",
+        "https://kevinwbarnes.users.earthengine.app/view/landcover-thresholds",
         "https://kevinwbarnes.users.earthengine.app/view/priority-grassland-bird-weighted-mean-occurrence",
         "https://kevinwbarnes.users.earthengine.app/view/pudl-grassshrub"
     ],
@@ -2845,6 +2848,8 @@
         "https://lmathew.users.earthengine.app/view/kilimajaro-carbon-monoxide",
         "https://lmathew.users.earthengine.app/view/kwando-basin-lulc",
         "https://lmathew.users.earthengine.app/view/kwando-sub-basin-monitoring",
+        "https://lmathew.users.earthengine.app/view/l4lfcd",
+        "https://lmathew.users.earthengine.app/view/l4lindices",
         "https://lmathew.users.earthengine.app/view/mab-1",
         "https://lmathew.users.earthengine.app/view/mbrempp1",
         "https://lmathew.users.earthengine.app/view/mbrempp2",
@@ -2861,7 +2866,6 @@
         "https://lmathew.users.earthengine.app/view/urt-monitoring-from-space---burned-cbnrm",
         "https://lmathew.users.earthengine.app/view/urt-monitoring-from-space---fcd-cbnrm",
         "https://lmathew.users.earthengine.app/view/urt-monitoring-from-space---landcover",
-        "https://lmathew.users.earthengine.app/view/urtmonitoringfromspace",
         "https://lmathew.users.earthengine.app/view/urtmonitoringfromspacefcd"
     ],
     "lobanov": [
@@ -2983,7 +2987,8 @@
         "https://marionghndh.users.earthengine.app/view/test"
     ],
     "martaberliana42": [
-        "https://martaberliana42.users.earthengine.app/view/cobaaa"
+        "https://martaberliana42.users.earthengine.app/view/cobaaa",
+        "https://martaberliana42.users.earthengine.app/view/klasifikasituplahjatim"
     ],
     "marufce2k7": [
         "https://marufce2k7.users.earthengine.app/view/brahmaputramorphology",
@@ -3170,6 +3175,7 @@
         "https://Mmodou.users.earthengine.app/view/mangrovesenegalodd",
         "https://Mmodou.users.earthengine.app/view/oddsenegal",
         "https://Mmodou.users.earthengine.app/view/oddturbidityapp",
+        "https://Mmodou.users.earthengine.app/view/parcw",
         "https://Mmodou.users.earthengine.app/view/ras4580",
         "https://Mmodou.users.earthengine.app/view/waterlacdeguiers",
         "https://mmodou.users.earthengine.app/view/agristatisticsenegal2020"
@@ -3282,6 +3288,7 @@
         "https://nandopando.users.earthengine.app/view/bosqueantioquia",
         "https://nandopando.users.earthengine.app/view/bosques",
         "https://nandopando.users.earthengine.app/view/bosquesantioquia",
+        "https://nandopando.users.earthengine.app/view/cambiosmanglar",
         "https://nandopando.users.earthengine.app/view/cambiosmanglarv5",
         "https://nandopando.users.earthengine.app/view/cobervegetalsantalucia",
         "https://nandopando.users.earthengine.app/view/contaminacin",
@@ -3542,6 +3549,7 @@
         "https://pbaldass.users.earthengine.app/view/ganancia-perdida-bosques-uruguay2000-2016",
         "https://pbaldass.users.earthengine.app/view/lanicolasaapar",
         "https://pbaldass.users.earthengine.app/view/lanicolasaclasif",
+        "https://pbaldass.users.earthengine.app/view/lanicolasaclasifestratos",
         "https://pbaldass.users.earthengine.app/view/mapbiomasaf",
         "https://pbaldass.users.earthengine.app/view/mapbiomasatlanticforest",
         "https://pbaldass.users.earthengine.app/view/mapbiomasbosqueatlanticotrinacional",
@@ -3551,6 +3559,7 @@
         "https://pbaldass.users.earthengine.app/view/mapbiomasiniciativas3",
         "https://pbaldass.users.earthengine.app/view/mapbiomastuc",
         "https://pbaldass.users.earthengine.app/view/numanciaapar",
+        "https://pbaldass.users.earthengine.app/view/numanciaclasifestratos",
         "https://pbaldass.users.earthengine.app/view/numanciasaclasif",
         "https://pbaldass.users.earthengine.app/view/ppn-prp",
         "https://pbaldass.users.earthengine.app/view/ppn-prp2",
@@ -3603,6 +3612,7 @@
     ],
     "pjgelabert": [
         "https://pjgelabert.users.earthengine.app/view/climark",
+        "https://pjgelabert.users.earthengine.app/view/composicionsrgb",
         "https://pjgelabert.users.earthengine.app/view/cumbreviejaso2",
         "https://pjgelabert.users.earthengine.app/view/dnbr-santa-coloma",
         "https://pjgelabert.users.earthengine.app/view/etmodis",
@@ -3613,8 +3623,7 @@
         "https://pjgelabert.users.earthengine.app/view/ndvi-l7-web",
         "https://pjgelabert.users.earthengine.app/view/ndvimodis",
         "https://pjgelabert.users.earthengine.app/view/pollution",
-        "https://pjgelabert.users.earthengine.app/view/resultsabandonment",
-        "https://pjgelabert.users.earthengine.app/view/resultsss",
+        "https://pjgelabert.users.earthengine.app/view/sortida-camp-incendi",
         "https://pjgelabert.users.earthengine.app/view/pollution"
     ],
     "plewis": [
@@ -3628,6 +3637,7 @@
         "https://plewis.users.earthengine.app/view/uae"
     ],
     "pmisson": [
+        "https://pmisson.users.earthengine.app/view/colours-of-europe",
         "https://pmisson.users.earthengine.app/view/covid-19",
         "https://pmisson.users.earthengine.app/view/dmsp-viirs-comparison-tool",
         "https://pmisson.users.earthengine.app/view/la-palma-volcano",
@@ -4432,7 +4442,6 @@
         "https://thao226355.users.earthengine.app/view/biendongrung",
         "https://thao226355.users.earthengine.app/view/caobang",
         "https://thao226355.users.earthengine.app/view/khubaotonmcc",
-        "https://thao226355.users.earthengine.app/view/lucyen",
         "https://thao226355.users.earthengine.app/view/qczwfgay80xytib",
         "https://thao226355.users.earthengine.app/view/taianh"
     ],

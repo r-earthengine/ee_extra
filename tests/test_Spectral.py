@@ -88,6 +88,14 @@ class Test(unittest.TestCase):
                 x = ee.ImageCollection(dataset).filterBounds(point).first()
                 self.assertIsInstance(tasseledCap(x), ee.image.Image)
 
+    def test_matchHistogram(self):
+        """Test that histogram matching returns an image"""
+        source = ee.Image("LANDSAT/LC08/C01/T1_TOA/LC08_047027_20160819")
+        target = ee.Image("LANDSAT/LE07/C01/T1_TOA/LE07_046027_20150701")
+        bands = {"B4": "B3", "B3": "B2", "B2": "B1"}
+        matched = matchHistogram(source, target, bands=bands)
+        self.assertIsInstance(matched, ee.image.Image)
+
 
 if __name__ == "__main__":
     unittest.main()

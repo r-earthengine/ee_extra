@@ -555,6 +555,7 @@
         "https://aninditabindas.users.earthengine.app/view/ndvi"
     ],
     "anindyapratisamara": [
+        "https://anindyapratisamara.users.earthengine.app/view/tugas-akhir-pj-wurkelompok-5",
         "https://anindyapratisamara.users.earthengine.app/view/tugas-pjr-ipa-3"
     ],
     "anisomadas": [
@@ -3346,8 +3347,6 @@
     "nigo1973": [
         "https://nigo1973.users.earthengine.app/view/noaa-dmsp-nightlight",
         "https://nigo1973.users.earthengine.app/view/pidemo",
-        "https://nigo1973.users.earthengine.app/view/sentinel2multiimagedemo",
-        "https://nigo1973.users.earthengine.app/view/sentinel2wildfire",
         "https://nigo1973.users.earthengine.app/view/great-east-japan-earthquake-prepost-satellite-iamge-v11",
         "https://nigo1973.users.earthengine.app/view/sentinel2-okinawa-v3",
         "https://nigo1973.users.earthengine.app/view/sentinel2wildfire"
@@ -3750,7 +3749,8 @@
         "https://rauldeatcu99.users.earthengine.app/view/management-vase-varianta1",
         "https://rauldeatcu99.users.earthengine.app/view/mobile-version",
         "https://rauldeatcu99.users.earthengine.app/view/my-final-app",
-        "https://rauldeatcu99.users.earthengine.app/view/raul-deatcu---final-app"
+        "https://rauldeatcu99.users.earthengine.app/view/raul-deatcu---final-app",
+        "https://rauldeatcu99.users.earthengine.app/view/semantic-data-cube---raul-deatcu"
     ],
     "rayoly": [
         "https://rayoly.users.earthengine.app/view/un-sdg-1162",
@@ -3902,7 +3902,8 @@
         "https://romansahwumu.users.earthengine.app/view/kondisi-sungai-mahakam-saat-wfh-covid-19"
     ],
     "rondrori": [
-        "https://rondrori.users.earthengine.app/view/israelagri"
+        "https://rondrori.users.earthengine.app/view/israelagri",
+        "https://rondrori.users.earthengine.app/view/pines"
     ],
     "rongguangni": [
         "https://rongguangni.users.earthengine.app/view/average-temperature-in-july-2019",
@@ -4303,6 +4304,7 @@
         "https://soleimanisaeed.users.earthengine.app/view/dslst",
         "https://soleimanisaeed.users.earthengine.app/view/greenblue",
         "https://soleimanisaeed.users.earthengine.app/view/ligwal",
+        "https://soleimanisaeed.users.earthengine.app/view/lst25122021",
         "https://soleimanisaeed.users.earthengine.app/view/ndviperpixel"
     ],
     "solvedgeo": [

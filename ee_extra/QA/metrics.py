@@ -5,7 +5,7 @@ import ee
 from ee_extra.utils import _get_case_insensitive_close_matches
 
 
-def list_metrics() -> Dict[str, Type["Metric"]]:
+def listMetrics() -> Dict[str, Type["Metric"]]:
     """Get the name and class of all QA metrics.
 
     Returns:
@@ -15,7 +15,7 @@ def list_metrics() -> Dict[str, Type["Metric"]]:
     return {cls.__name__: cls for cls in Metric.__subclasses__()}
 
 
-def get_metrics(names: List[str]) -> List[Type["Metric"]]:
+def getMetrics(names: List[str]) -> List[Type["Metric"]]:
     """Take a list of names and return a list of matching QA metrics.
 
     Args:
@@ -30,7 +30,7 @@ def get_metrics(names: List[str]) -> List[Type["Metric"]]:
     """
     names = [names] if not isinstance(names, (list, tuple)) else names
 
-    options = list_metrics()
+    options = listMetrics()
     keys = list(options.keys())
     selected = []
 

@@ -1252,7 +1252,8 @@
     ],
     "dichay69": [
         "https://dichay69.users.earthengine.app/view/anomalyexplore",
-        "https://dichay69.users.earthengine.app/view/anotherapp"
+        "https://dichay69.users.earthengine.app/view/anotherapp",
+        "https://dichay69.users.earthengine.app/view/davidbapp"
     ],
     "diegopons06": [
         "https://diegopons06.users.earthengine.app/view/agua-en-superfice-01042019",
@@ -1751,6 +1752,7 @@
         "https://franklinlmc.users.earthengine.app/view/mosaicomidagriplanetv5",
         "https://franklinlmc.users.earthengine.app/view/mosaicomidagriplanetv6",
         "https://franklinlmc.users.earthengine.app/view/mosaicomidagriplanetv7",
+        "https://franklinlmc.users.earthengine.app/view/mosaicomidagriplanetv8",
         "https://franklinlmc.users.earthengine.app/view/ndviperu1",
         "https://franklinlmc.users.earthengine.app/view/puntos2017",
         "https://franklinlmc.users.earthengine.app/view/sequiafao",
@@ -2493,6 +2495,8 @@
     ],
     "jodaurmu": [
         "https://jodaurmu.users.earthengine.app/view/amazoniavertical",
+        "https://jodaurmu.users.earthengine.app/view/cross-section-tool",
+        "https://jodaurmu.users.earthengine.app/view/forestexplorerconssesionv1",
         "https://jodaurmu.users.earthengine.app/view/ibc",
         "https://jodaurmu.users.earthengine.app/view/parque-manu",
         "https://jodaurmu.users.earthengine.app/view/proyectomanatyfsz"
@@ -3556,6 +3560,7 @@
         "https://pbaldass.users.earthengine.app/view/mapbiomasiniciativas",
         "https://pbaldass.users.earthengine.app/view/mapbiomasiniciativas2",
         "https://pbaldass.users.earthengine.app/view/mapbiomasiniciativas3",
+        "https://pbaldass.users.earthengine.app/view/mapbiomasiniciativasact",
         "https://pbaldass.users.earthengine.app/view/mapbiomastuc",
         "https://pbaldass.users.earthengine.app/view/numanciaapar",
         "https://pbaldass.users.earthengine.app/view/numanciaclasifestratos",
@@ -4298,12 +4303,11 @@
         "https://soilwatch.users.earthengine.app/view/soilerosionwatch"
     ],
     "soleimanisaeed": [
-        "https://soleimanisaeed.users.earthengine.app/view/chartnotpaneld",
         "https://soleimanisaeed.users.earthengine.app/view/codea",
         "https://soleimanisaeed.users.earthengine.app/view/codeb",
-        "https://soleimanisaeed.users.earthengine.app/view/dslst",
         "https://soleimanisaeed.users.earthengine.app/view/greenblue",
         "https://soleimanisaeed.users.earthengine.app/view/ligwal",
+        "https://soleimanisaeed.users.earthengine.app/view/lst123",
         "https://soleimanisaeed.users.earthengine.app/view/lst25122021",
         "https://soleimanisaeed.users.earthengine.app/view/ndviperpixel"
     ],

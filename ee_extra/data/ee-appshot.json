@@ -209,6 +209,7 @@
         "https://LearningIIT.users.earthengine.app/view/forest-fire-australia",
         "https://LearningIIT.users.earthengine.app/view/forest-uk",
         "https://LearningIIT.users.earthengine.app/view/monsoon-visualizer",
+        "https://LearningIIT.users.earthengine.app/view/ndvi-timeseries",
         "https://LearningIIT.users.earthengine.app/view/nisarg-cyclone",
         "https://LearningIIT.users.earthengine.app/view/nitrogen-oxides-visualization-after-effects-of-corona",
         "https://LearningIIT.users.earthengine.app/view/solarviz",
@@ -1099,7 +1100,7 @@
         "https://crivard.users.earthengine.app/view/rangelands-explorer"
     ],
     "csaybar": [
-        "https://csaybar.users.earthengine.app/view/csaa"
+        "https://csaybar.users.earthengine.app/view/cloudapp"
     ],
     "csheth": [
         "https://csheth.users.earthengine.app/view/siang-dibang-lohit-brahmaputra-floods-2020",
@@ -1753,6 +1754,7 @@
         "https://franklinlmc.users.earthengine.app/view/mosaicomidagriplanetv6",
         "https://franklinlmc.users.earthengine.app/view/mosaicomidagriplanetv7",
         "https://franklinlmc.users.earthengine.app/view/mosaicomidagriplanetv8",
+        "https://franklinlmc.users.earthengine.app/view/mosaicomidagriplanetv9",
         "https://franklinlmc.users.earthengine.app/view/ndviperu1",
         "https://franklinlmc.users.earthengine.app/view/puntos2017",
         "https://franklinlmc.users.earthengine.app/view/sequiafao",
@@ -3914,7 +3916,10 @@
         "https://rongguangni.users.earthengine.app/view/average-temperature-in-july-2019",
         "https://rongguangni.users.earthengine.app/view/burned-area",
         "https://rongguangni.users.earthengine.app/view/canadaagro",
+        "https://rongguangni.users.earthengine.app/view/ch4",
+        "https://rongguangni.users.earthengine.app/view/cloudfree",
         "https://rongguangni.users.earthengine.app/view/global-temperatures",
+        "https://rongguangni.users.earthengine.app/view/grace",
         "https://rongguangni.users.earthengine.app/view/hansenglobalforestchange",
         "https://rongguangni.users.earthengine.app/view/high-resolution-data",
         "https://rongguangni.users.earthengine.app/view/hotland",
@@ -3923,6 +3928,8 @@
         "https://rongguangni.users.earthengine.app/view/landuse",
         "https://rongguangni.users.earthengine.app/view/modisndvi",
         "https://rongguangni.users.earthengine.app/view/nightlight",
+        "https://rongguangni.users.earthengine.app/view/population",
+        "https://rongguangni.users.earthengine.app/view/populationfilter",
         "https://rongguangni.users.earthengine.app/view/powerplants",
         "https://rongguangni.users.earthengine.app/view/precipitation-on-july-15-2019",
         "https://rongguangni.users.earthengine.app/view/pressure-on-july-15-2019",

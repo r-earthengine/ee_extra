@@ -31,6 +31,7 @@ def spectralIndices(
     slope: Union[float, int] = 1.0,
     intercept: Union[float, int] = 0.0,
     gamma: Union[float, int] = 1.0,
+    omega: Union[float, int] = 2.0,
     kernel: str = "RBF",
     sigma: Union[float, str] = "0.5 * (a + b)",
     p: Union[float, int] = 2,
@@ -56,6 +57,7 @@ def spectralIndices(
         intercept : Soil line intercept. Used just for index = ['ATSAVI','SAVI2', 'TSAVI',
             'WDVI'].
         gamma : Weighting coefficient used for ARVI.
+        omega : Weighting coefficient used for MBWI.
         kernel : Kernel used for kernel indices. One of 'linear', 'RBF', 'poly'.
         sigma : Length-scale parameter. Used for kernel = 'RBF'. If str, this must be an
             expression including 'a' and 'b'. If numeric, this must be positive.
@@ -100,6 +102,7 @@ def spectralIndices(
         "sla": float(slope),
         "slb": float(intercept),
         "gamma": float(gamma),
+        "omega": float(omega),
         "p": float(p),
         "c": float(c),
     }
@@ -118,6 +121,7 @@ def spectralIndices(
             "drought",
             "urban",
             "kernel",
+            "radar"
         ]:
             temporalListOfIndices = []
             for idx in indicesNames:

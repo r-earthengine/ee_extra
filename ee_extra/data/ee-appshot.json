@@ -207,8 +207,12 @@
         "https://LearningIIT.users.earthengine.app/view/bihar-flood",
         "https://LearningIIT.users.earthengine.app/view/cyclone-amphan-vizualizer",
         "https://LearningIIT.users.earthengine.app/view/forest-fire-australia",
+        "https://LearningIIT.users.earthengine.app/view/forest-loss-cover",
         "https://LearningIIT.users.earthengine.app/view/forest-uk",
         "https://LearningIIT.users.earthengine.app/view/monsoon-visualizer",
+        "https://LearningIIT.users.earthengine.app/view/ndvi-split-cg",
+        "https://LearningIIT.users.earthengine.app/view/ndvi-timeseries",
+        "https://LearningIIT.users.earthengine.app/view/ndwi-split-cg",
         "https://LearningIIT.users.earthengine.app/view/nisarg-cyclone",
         "https://LearningIIT.users.earthengine.app/view/nitrogen-oxides-visualization-after-effects-of-corona",
         "https://LearningIIT.users.earthengine.app/view/solarviz",
@@ -1099,9 +1103,10 @@
         "https://crivard.users.earthengine.app/view/rangelands-explorer"
     ],
     "csaybar": [
-        "https://csaybar.users.earthengine.app/view/csaa"
+        "https://csaybar.users.earthengine.app/view/cloudapp"
     ],
     "csheth": [
+        "https://csheth.users.earthengine.app/view/pratapgarh-grassland-change",
         "https://csheth.users.earthengine.app/view/siang-dibang-lohit-brahmaputra-floods-2020",
         "https://csheth.users.earthengine.app/view/the-changing-siang",
         "https://csheth.users.earthengine.app/view/tsangpo-floods-2018",
@@ -1753,6 +1758,7 @@
         "https://franklinlmc.users.earthengine.app/view/mosaicomidagriplanetv6",
         "https://franklinlmc.users.earthengine.app/view/mosaicomidagriplanetv7",
         "https://franklinlmc.users.earthengine.app/view/mosaicomidagriplanetv8",
+        "https://franklinlmc.users.earthengine.app/view/mosaicomidagriplanetv9",
         "https://franklinlmc.users.earthengine.app/view/ndviperu1",
         "https://franklinlmc.users.earthengine.app/view/puntos2017",
         "https://franklinlmc.users.earthengine.app/view/sequiafao",
@@ -2495,8 +2501,6 @@
     ],
     "jodaurmu": [
         "https://jodaurmu.users.earthengine.app/view/amazoniavertical",
-        "https://jodaurmu.users.earthengine.app/view/cross-section-tool",
-        "https://jodaurmu.users.earthengine.app/view/forestexplorerconssesionv1",
         "https://jodaurmu.users.earthengine.app/view/ibc",
         "https://jodaurmu.users.earthengine.app/view/parque-manu",
         "https://jodaurmu.users.earthengine.app/view/proyectomanatyfsz"
@@ -2838,7 +2842,8 @@
     ],
     "lizcanosandoval": [
         "https://lizcanosandoval.users.earthengine.app/view/hr-land-cover-gulf-of-mexico",
-        "https://lizcanosandoval.users.earthengine.app/view/seagrass-florida"
+        "https://lizcanosandoval.users.earthengine.app/view/seagrass-florida",
+        "https://lizcanosandoval.users.earthengine.app/view/west-florida-seagrass-change"
     ],
     "lks": [
         "https://lks.users.earthengine.app/view/elevation-inspector",
@@ -3914,7 +3919,10 @@
         "https://rongguangni.users.earthengine.app/view/average-temperature-in-july-2019",
         "https://rongguangni.users.earthengine.app/view/burned-area",
         "https://rongguangni.users.earthengine.app/view/canadaagro",
+        "https://rongguangni.users.earthengine.app/view/ch4",
+        "https://rongguangni.users.earthengine.app/view/cloudfree",
         "https://rongguangni.users.earthengine.app/view/global-temperatures",
+        "https://rongguangni.users.earthengine.app/view/grace",
         "https://rongguangni.users.earthengine.app/view/hansenglobalforestchange",
         "https://rongguangni.users.earthengine.app/view/high-resolution-data",
         "https://rongguangni.users.earthengine.app/view/hotland",
@@ -3923,6 +3931,8 @@
         "https://rongguangni.users.earthengine.app/view/landuse",
         "https://rongguangni.users.earthengine.app/view/modisndvi",
         "https://rongguangni.users.earthengine.app/view/nightlight",
+        "https://rongguangni.users.earthengine.app/view/population",
+        "https://rongguangni.users.earthengine.app/view/populationfilter",
         "https://rongguangni.users.earthengine.app/view/powerplants",
         "https://rongguangni.users.earthengine.app/view/precipitation-on-july-15-2019",
         "https://rongguangni.users.earthengine.app/view/pressure-on-july-15-2019",
@@ -3983,6 +3993,7 @@
         "https://s5p_co_nederland.users.earthengine.app/view/no2covid19nl2w"
     ],
     "sabenz": [
+        "https://sabenz.users.earthengine.app/view/surface-delta-t",
         "https://sabenz.users.earthengine.app/view/urbanheatusa",
         "https://sabenz.users.earthengine.app/view/surface-delta-t",
         "https://sabenz.users.earthengine.app/view/urbanheatusa"
@@ -4015,6 +4026,7 @@
         "https://salmanddd14.users.earthengine.app/view/wetness1"
     ],
     "samapriya": [
+        "https://samapriya.users.earthengine.app/view/landcover10",
         "https://samapriya.users.earthengine.app/view/landcover10"
     ],
     "samirsellars": [
@@ -4172,6 +4184,7 @@
         "https://sgascoin.users.earthengine.app/view/neige-100-km",
         "https://sgascoin.users.earthengine.app/view/no2-time-series",
         "https://sgascoin.users.earthengine.app/view/pyrenees-snow-monitor",
+        "https://sgascoin.users.earthengine.app/view/pyrenees-snow-monitor-anomaly",
         "https://sgascoin.users.earthengine.app/view/sierra-nevada-snow-monitor",
         "https://sgascoin.users.earthengine.app/view/snow-cover-area-time-series",
         "https://sgascoin.users.earthengine.app/view/western-usa-snow-monitor",

@@ -14,3 +14,24 @@ Extra.QA
    :toctree: stubs
 
    preprocess
+
+Metrics
+-------
+
+.. currentmodule:: ee_extra.QA.metrics
+
+.. autosummary::
+   :toctree: stubs
+
+   listMetrics
+   getMetrics
+   MSE
+   RMSE
+   RASE
+   ERGAS
+   DIV
+   bias
+   CC
+   CML
+   CMC
+   UIQI

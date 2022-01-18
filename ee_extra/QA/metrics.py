@@ -182,11 +182,14 @@ class RASE(Metric):
 class ERGAS(Metric):
     """Calculate image-wise Dimensionless Global Relative Error of Synthesis
     (ERGAS) between an original and modified image with the same resolution and bands.
-    A value of 0 represents no error.
+    A value of 0 represents no error. ERGAS is intended to be used for assessing
+    pan-sharpening results, and results are weighted by the change in spatial resolution.
 
     Args:
         original : The original image to use as a reference.
         modified : The modified image to compare to the original.
+        h : Spatial resolution of the sharpened image.
+        l : Spatial resolution of the unsharpened image.
         kwargs : Additional keyword arguments passed to `ee.Image.reduceRegion`.
 
     Returns:
@@ -208,11 +211,11 @@ class ERGAS(Metric):
 
     @staticmethod
     def _calculate(
-        original: ee.Image, modified: ee.Image, **kwargs: Any
+        original: ee.Image, modified: ee.Image, h: int, l: int, **kwargs: Any
     ) -> ee.Dictionary:
 
-        h = modified.projection().nominalScale()
-        l = original.projection().nominalScale()
+        h = ee.Number(h)
+        l = ee.Number(l)
         msek = ee.Array(MSE(original, modified, **kwargs).values())
         xbark = ee.Array(original.reduceRegion(ee.Reducer.mean(), **kwargs).values())
 
@@ -342,26 +345,14 @@ class CC(Metric):
             modified.reduceRegion(ee.Reducer.mean(), **kwargs).values()
         )
 
-        x_center = original.subtract(xbar)
-        y_center = modified.subtract(ybar)
+        a = original.subtract(xbar)
+        b = modified.subtract(ybar)
 
-        numerator = ee.Array(
-            x_center.multiply(y_center)
-            .reduceRegion(ee.Reducer.sum(), **kwargs)
-            .values()
-        )
+        x1 = ee.Array(a.multiply(b).reduceRegion(ee.Reducer.sum(), **kwargs).values())
+        x2 = ee.Array(a.pow(2).reduceRegion(ee.Reducer.sum(), **kwargs).values())
+        x3 = ee.Array(b.pow(2).reduceRegion(ee.Reducer.sum(), **kwargs).values())
 
-        x_denom = ee.Array(
-            x_center.pow(2).reduceRegion(ee.Reducer.sum(), **kwargs).values()
-        )
-        y_denom = ee.Array(
-            y_center.pow(2).reduceRegion(ee.Reducer.sum(), **kwargs).values()
-        )
-
-        denom = x_denom.multiply(y_denom).sqrt()
-
-        cc = numerator.divide(denom)
-
+        cc = x1.divide(x2.multiply(x3).sqrt())
         return ee.Dictionary.fromLists(original.bandNames(), cc.toList())
 
 

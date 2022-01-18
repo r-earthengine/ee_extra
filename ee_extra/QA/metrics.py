@@ -205,7 +205,7 @@ class ERGAS(Metric):
         >>> bands = ["B4", "B3", "B2"]
         >>> img1 = ee.Image("COPERNICUS/S2_SR/20210703T170849_20210703T171938_T14SPG").select(bands)
         >>> img2 = ee.Image("COPERNICUS/S2_SR/20210708T170851_20210708T171925_T14SPG").select(bands)
-        >>> metrics.ERGAS(img1, img2, bestEffort=True).getInfo()
+        >>> metrics.ERGAS(img1, img2, h=10, l=10, bestEffort=True).getInfo()
         3774.9270912567363
     """
 

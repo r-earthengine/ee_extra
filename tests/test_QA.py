@@ -33,4 +33,4 @@ class Test(unittest.TestCase):
                 value = metric(img, modified, h=30, l=30)
             else:
                 value = metric(img, modified)
-                self.assertIsInstance(value, (ee.Number, ee.Dictionary))
+            self.assertIsInstance(value, (ee.Number, ee.Dictionary))

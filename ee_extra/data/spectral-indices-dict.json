@@ -129,6 +129,20 @@
             "short_name": "BAIS2",
             "type": "burn"
         },
+        "BCC": {
+            "bands": [
+                "B",
+                "R",
+                "G"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2022-01-17",
+            "formula": "B / (R + G + B)",
+            "long_name": "Blue Chromatic Coordinate",
+            "reference": "https://doi.org/10.1016/0034-4257(87)90088-5",
+            "short_name": "BCC",
+            "type": "vegetation"
+        },
         "BNDVI": {
             "bands": [
                 "N",
@@ -339,6 +353,20 @@
             "short_name": "GBNDVI",
             "type": "vegetation"
         },
+        "GCC": {
+            "bands": [
+                "G",
+                "R",
+                "B"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2022-01-17",
+            "formula": "G / (R + G + B)",
+            "long_name": "Green Chromatic Coordinate",
+            "reference": "https://doi.org/10.1016/0034-4257(87)90088-5",
+            "short_name": "GCC",
+            "type": "vegetation"
+        },
         "GDVI": {
             "bands": [
                 "N",
@@ -434,6 +462,23 @@
             "reference": "https://doi.org/10.1016/j.isprsjprs.2013.04.007",
             "short_name": "IRECI",
             "type": "vegetation"
+        },
+        "MBWI": {
+            "bands": [
+                "omega",
+                "G",
+                "R",
+                "N",
+                "S1",
+                "S2"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2022-01-17",
+            "formula": "(omega * G) - R - N - S1 - S2",
+            "long_name": "Multi-Band Water Index",
+            "reference": "https://doi.org/10.1016/j.jag.2018.01.018",
+            "short_name": "MBWI",
+            "type": "water"
         },
         "MCARI": {
             "bands": [
@@ -812,6 +857,21 @@
             "short_name": "NDVI705",
             "type": "vegetation"
         },
+        "NDVIMNDWI": {
+            "bands": [
+                "N",
+                "R",
+                "G",
+                "S1"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2022-01-17",
+            "formula": "((N - R)/(N + R)) - ((G - S1)/(G + S1))",
+            "long_name": "NDVI-MNDWI Model",
+            "reference": "https://doi.org/10.1007/978-3-662-45737-5_51",
+            "short_name": "NDVIMNDWI",
+            "type": "water"
+        },
         "NDVIT": {
             "bands": [
                 "N",
@@ -891,6 +951,22 @@
             "short_name": "NIRv",
             "type": "vegetation"
         },
+        "NIRvH2": {
+            "bands": [
+                "N",
+                "R",
+                "k",
+                "lambdaN",
+                "lambdaR"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2022-01-17",
+            "formula": "N - R - k * (lambdaN - lambdaR)",
+            "long_name": "Hyperspectral Near-Infrared Reflectance of Vegetation",
+            "reference": "https://doi.org/10.1016/j.rse.2021.112723",
+            "short_name": "NIRvH2",
+            "type": "vegetation"
+        },
         "NIRvP": {
             "bands": [
                 "N",
@@ -958,6 +1034,21 @@
             "short_name": "NRFIr",
             "type": "vegetation"
         },
+        "NWI": {
+            "bands": [
+                "B",
+                "N",
+                "S1",
+                "S2"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2022-01-17",
+            "formula": "(B - (N + S1 + S2))/(B + (N + S1 + S2))",
+            "long_name": "New Water Index",
+            "reference": "https://doi.org/10.11873/j.issn.1004-0323.2009.2.167",
+            "short_name": "NWI",
+            "type": "water"
+        },
         "OCVI": {
             "bands": [
                 "N",
@@ -999,6 +1090,20 @@
             "reference": "https://doi.org/10.1109/IGARSS.2001.976856",
             "short_name": "QpRVI",
             "type": "radar"
+        },
+        "RCC": {
+            "bands": [
+                "R",
+                "G",
+                "B"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2022-01-17",
+            "formula": "R / (R + G + B)",
+            "long_name": "Red Chromatic Coordinate",
+            "reference": "https://doi.org/10.1016/0034-4257(87)90088-5",
+            "short_name": "RCC",
+            "type": "vegetation"
         },
         "RDVI": {
             "bands": [
@@ -1442,6 +1547,21 @@
             "long_name": "Water Index 2",
             "reference": "https://doi.org/10.3390/rs11182186",
             "short_name": "WI2",
+            "type": "water"
+        },
+        "WRI": {
+            "bands": [
+                "G",
+                "R",
+                "N",
+                "S1"
+            ],
+            "contributor": "https://github.com/davemlz",
+            "date_of_addition": "2022-01-17",
+            "formula": "(G + R)/(N + S1)",
+            "long_name": "Water Ratio Index",
+            "reference": "https://doi.org/10.1109/GEOINFORMATICS.2010.5567762",
+            "short_name": "WRI",
             "type": "water"
         },
         "kEVI": {

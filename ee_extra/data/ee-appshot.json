@@ -207,11 +207,8 @@
         "https://LearningIIT.users.earthengine.app/view/bihar-flood",
         "https://LearningIIT.users.earthengine.app/view/cyclone-amphan-vizualizer",
         "https://LearningIIT.users.earthengine.app/view/forest-fire-australia",
-        "https://LearningIIT.users.earthengine.app/view/forest-loss-cover",
         "https://LearningIIT.users.earthengine.app/view/forest-uk",
         "https://LearningIIT.users.earthengine.app/view/monsoon-visualizer",
-        "https://LearningIIT.users.earthengine.app/view/ndvi-split-cg",
-        "https://LearningIIT.users.earthengine.app/view/ndvi-timeseries",
         "https://LearningIIT.users.earthengine.app/view/ndwi-split-cg",
         "https://LearningIIT.users.earthengine.app/view/nisarg-cyclone",
         "https://LearningIIT.users.earthengine.app/view/nitrogen-oxides-visualization-after-effects-of-corona",
@@ -305,6 +302,7 @@
     "Shree1175": [
         "https://Shree1175.users.earthengine.app/view/childsmeadowv21",
         "https://Shree1175.users.earthengine.app/view/monitoringsagehen",
+        "https://Shree1175.users.earthengine.app/view/tnc-ca-closing-tree-inequality-cuti-212",
         "https://Shree1175.users.earthengine.app/view/tnc-ca-treeinequality131",
         "https://Shree1175.users.earthengine.app/view/urbanforestatlast2016v25",
         "https://Shree1175.users.earthengine.app/view/usurbantreecover2016"
@@ -1736,6 +1734,10 @@
         "https://franklinlmc.users.earthengine.app/view/asodegav2",
         "https://franklinlmc.users.earthengine.app/view/asodegav3",
         "https://franklinlmc.users.earthengine.app/view/asodegav4",
+        "https://franklinlmc.users.earthengine.app/view/cuadrantesplanet",
+        "https://franklinlmc.users.earthengine.app/view/cuadrantesplanetv1",
+        "https://franklinlmc.users.earthengine.app/view/derramepetroleodescarga",
+        "https://franklinlmc.users.earthengine.app/view/derramepetrolepperu",
         "https://franklinlmc.users.earthengine.app/view/eanalisisethel",
         "https://franklinlmc.users.earthengine.app/view/humedad",
         "https://franklinlmc.users.earthengine.app/view/map",
@@ -1924,11 +1926,16 @@
     "gerardosoto": [
         "https://gerardosoto.users.earthengine.app/view/aluvion-de-chaaral-25-marzo-de-2015",
         "https://gerardosoto.users.earthengine.app/view/bosque-chileno",
+        "https://gerardosoto.users.earthengine.app/view/fc---east-africa",
         "https://gerardosoto.users.earthengine.app/view/fcexplorer",
         "https://gerardosoto.users.earthengine.app/view/forest-change-2000-2016",
         "https://gerardosoto.users.earthengine.app/view/humedales-de-maullin",
+        "https://gerardosoto.users.earthengine.app/view/lcc---east-africa",
+        "https://gerardosoto.users.earthengine.app/view/lcc-eastafrica-broadbasedmask",
+        "https://gerardosoto.users.earthengine.app/view/lcc-eastafrica-highforagingmask",
         "https://gerardosoto.users.earthengine.app/view/ndvi-2018-2020",
-        "https://gerardosoto.users.earthengine.app/view/paneles-fuegos-uader"
+        "https://gerardosoto.users.earthengine.app/view/paneles-fuegos-uader",
+        "https://gerardosoto.users.earthengine.app/view/parcelasarturo"
     ],
     "gervasiopineiro": [
         "https://gervasiopineiro.users.earthengine.app/view/gycabayubaribas"
@@ -2206,6 +2213,7 @@
     ],
     "hkrnhn": [
         "https://hkrnhn.users.earthengine.app/view/app01",
+        "https://hkrnhn.users.earthengine.app/view/app11",
         "https://hkrnhn.users.earthengine.app/view/app12",
         "https://hkrnhn.users.earthengine.app/view/app13",
         "https://hkrnhn.users.earthengine.app/view/app14",
@@ -2443,11 +2451,13 @@
         "https://jhowarth.users.earthengine.app/view/billy-app",
         "https://jhowarth.users.earthengine.app/view/conservation-atlas-middlebury-vt",
         "https://jhowarth.users.earthengine.app/view/conservation-planning",
+        "https://jhowarth.users.earthengine.app/view/eeprimer-compare-satellites",
         "https://jhowarth.users.earthengine.app/view/fire-modis-firms-historical",
         "https://jhowarth.users.earthengine.app/view/lights-change-time-neighborhood",
         "https://jhowarth.users.earthengine.app/view/midd-field-maps",
         "https://jhowarth.users.earthengine.app/view/nineteenth-century-vermont",
         "https://jhowarth.users.earthengine.app/view/rgb-nighttime-lights",
+        "https://jhowarth.users.earthengine.app/view/spectral-signatures",
         "https://jhowarth.users.earthengine.app/view/vt-surface-geology",
         "https://jhowarth.users.earthengine.app/view/billy-app",
         "https://jhowarth.users.earthengine.app/view/fire-modis-firms-historical",
@@ -2824,8 +2834,7 @@
     ],
     "liruonan02": [
         "https://liruonan02.users.earthengine.app/view/demo",
-        "https://liruonan02.users.earthengine.app/view/demo2",
-        "https://liruonan02.users.earthengine.app/view/forest-type-classification"
+        "https://liruonan02.users.earthengine.app/view/demo2"
     ],
     "listerkristineanne": [
         "https://listerkristineanne.users.earthengine.app/view/hansenlossandimagery",
@@ -4179,6 +4188,7 @@
         "https://servirbz.users.earthengine.app/view/tt-amanda-sentinel1-sv-2"
     ],
     "sgascoin": [
+        "https://sgascoin.users.earthengine.app/view/alps-snow-monitor",
         "https://sgascoin.users.earthengine.app/view/global-no2-monitor",
         "https://sgascoin.users.earthengine.app/view/high-atlas-snow-monitor",
         "https://sgascoin.users.earthengine.app/view/neige-100-km",
@@ -4233,6 +4243,7 @@
     "shree1175": [
         "https://Shree1175.users.earthengine.app/view/childsmeadowv21",
         "https://Shree1175.users.earthengine.app/view/monitoringsagehen",
+        "https://Shree1175.users.earthengine.app/view/tnc-ca-closing-tree-inequality-cuti-212",
         "https://Shree1175.users.earthengine.app/view/tnc-ca-treeinequality131",
         "https://Shree1175.users.earthengine.app/view/urbanforestatlast2016v25",
         "https://Shree1175.users.earthengine.app/view/usurbantreecover2016",
@@ -4363,6 +4374,7 @@
     "ssebop": [
         "https://ssebop.users.earthengine.app/view/ssebop-br-v101",
         "https://ssebop.users.earthengine.app/view/ssebop-v101",
+        "https://ssebop.users.earthengine.app/view/ssebopbriph",
         "https://ssebop.users.earthengine.app/view/ssebop-br"
     ],
     "starmizi": [
@@ -4668,6 +4680,7 @@
         "https://wallacesilva.users.earthengine.app/view/precipitao"
     ],
     "wawerujohn": [
+        "https://wawerujohn.users.earthengine.app/view/app",
         "https://wawerujohn.users.earthengine.app/view/night-lights-explorer"
     ],
     "weather": [

@@ -209,7 +209,6 @@
         "https://LearningIIT.users.earthengine.app/view/forest-fire-australia",
         "https://LearningIIT.users.earthengine.app/view/forest-uk",
         "https://LearningIIT.users.earthengine.app/view/monsoon-visualizer",
-        "https://LearningIIT.users.earthengine.app/view/ndwi-split-cg",
         "https://LearningIIT.users.earthengine.app/view/nisarg-cyclone",
         "https://LearningIIT.users.earthengine.app/view/nitrogen-oxides-visualization-after-effects-of-corona",
         "https://LearningIIT.users.earthengine.app/view/solarviz",
@@ -306,9 +305,6 @@
         "https://Shree1175.users.earthengine.app/view/tnc-ca-treeinequality131",
         "https://Shree1175.users.earthengine.app/view/urbanforestatlast2016v25",
         "https://Shree1175.users.earthengine.app/view/usurbantreecover2016"
-    ],
-    "SyLonek": [
-        "https://SyLonek.users.earthengine.app/view/myfirstapp"
     ],
     "UGANDA": [
         "https://UGANDA.users.earthengine.app/view/chirps",
@@ -1254,8 +1250,7 @@
         "https://dhruvmehrotra3.users.earthengine.app/view/earther-time-series"
     ],
     "dichay69": [
-        "https://dichay69.users.earthengine.app/view/anomalyexplore",
-        "https://dichay69.users.earthengine.app/view/anotherapp",
+        "https://dichay69.users.earthengine.app/view/anomaly-explorer",
         "https://dichay69.users.earthengine.app/view/davidbapp"
     ],
     "diegopons06": [
@@ -1736,6 +1731,7 @@
         "https://franklinlmc.users.earthengine.app/view/asodegav4",
         "https://franklinlmc.users.earthengine.app/view/cuadrantesplanet",
         "https://franklinlmc.users.earthengine.app/view/cuadrantesplanetv1",
+        "https://franklinlmc.users.earthengine.app/view/derrame1825",
         "https://franklinlmc.users.earthengine.app/view/derramepetroleodescarga",
         "https://franklinlmc.users.earthengine.app/view/derramepetrolepperu",
         "https://franklinlmc.users.earthengine.app/view/eanalisisethel",
@@ -2383,7 +2379,6 @@
     "jamonvdh": [
         "https://jamonvdh.users.earthengine.app/view/gaza-bomb-damage-analysis",
         "https://jamonvdh.users.earthengine.app/view/gaza-bomb-damage-discovery-map",
-        "https://jamonvdh.users.earthengine.app/view/gaza-damage-compare",
         "https://jamonvdh.users.earthengine.app/view/gaza-bomb-damage-analysis",
         "https://jamonvdh.users.earthengine.app/view/gaza-bomb-damage-discovery-map"
     ],
@@ -2452,6 +2447,8 @@
         "https://jhowarth.users.earthengine.app/view/conservation-atlas-middlebury-vt",
         "https://jhowarth.users.earthengine.app/view/conservation-planning",
         "https://jhowarth.users.earthengine.app/view/eeprimer-compare-satellites",
+        "https://jhowarth.users.earthengine.app/view/eeprimer-global-fire-explorer",
+        "https://jhowarth.users.earthengine.app/view/eeprimer-lst-landsat8",
         "https://jhowarth.users.earthengine.app/view/fire-modis-firms-historical",
         "https://jhowarth.users.earthengine.app/view/lights-change-time-neighborhood",
         "https://jhowarth.users.earthengine.app/view/midd-field-maps",
@@ -3090,6 +3087,7 @@
     "mehtabsyed": [
         "https://mehtabsyed.users.earthengine.app/view/agricultural-plot-identification",
         "https://mehtabsyed.users.earthengine.app/view/field-boundary",
+        "https://mehtabsyed.users.earthengine.app/view/identifying-vegetation-using-sentinel-2",
         "https://mehtabsyed.users.earthengine.app/view/location-analytics",
         "https://mehtabsyed.users.earthengine.app/view/night-lights",
         "https://mehtabsyed.users.earthengine.app/view/paddy-fields-identification",
@@ -3468,14 +3466,15 @@
         "https://observatorionieves.users.earthengine.app/view/promedio-ndsi-mensual-sentinel2"
     ],
     "ogordienko112": [
-        "https://ogordienko112.users.earthengine.app/view/comeannew",
+        "https://ogordienko112.users.earthengine.app/view/cokyiv",
         "https://ogordienko112.users.earthengine.app/view/ndvivsvh",
-        "https://ogordienko112.users.earthengine.app/view/no2new",
+        "https://ogordienko112.users.earthengine.app/view/no2",
         "https://ogordienko112.users.earthengine.app/view/numbericebergtest",
         "https://ogordienko112.users.earthengine.app/view/seminargee2021",
         "https://ogordienko112.users.earthengine.app/view/sikorskiyndvi",
         "https://ogordienko112.users.earthengine.app/view/study-of-forest-cover-dynamics-monitoring-2021",
         "https://ogordienko112.users.earthengine.app/view/temperaturekyiv",
+        "https://ogordienko112.users.earthengine.app/view/ukrainetemperature",
         "https://ogordienko112.users.earthengine.app/view/usingradarsatelliteimagerytodetectnaturalandtechnogenic"
     ],
     "olegzhelezn": [
@@ -3660,6 +3659,8 @@
         "https://pmisson.users.earthengine.app/view/dmsp-viirs-comparison-tool",
         "https://pmisson.users.earthengine.app/view/la-palma-volcano",
         "https://pmisson.users.earthengine.app/view/madrid-hotspots",
+        "https://pmisson.users.earthengine.app/view/madridchrismas",
+        "https://pmisson.users.earthengine.app/view/madridlight",
         "https://pmisson.users.earthengine.app/view/trends",
         "https://pmisson.users.earthengine.app/view/covid-19",
         "https://pmisson.users.earthengine.app/view/la-palma-volcano",
@@ -3833,9 +3834,6 @@
     ],
     "rezqydyah": [
         "https://rezqydyah.users.earthengine.app/view/kuis"
-    ],
-    "rfernand387": [
-        "https://rfernand387.users.earthengine.app/view/leaf-toolbox"
     ],
     "rfinerma": [
         "https://rfinerma.users.earthengine.app/view/ndvi-2010-to-2020-lake-tahoe"
@@ -4306,6 +4304,7 @@
         "https://slyfox6969.users.earthengine.app/view/rhinewaterloss",
         "https://slyfox6969.users.earthengine.app/view/shapetest",
         "https://slyfox6969.users.earthengine.app/view/suez-canal-crisis-2021",
+        "https://slyfox6969.users.earthengine.app/view/tonga-tsunami-15th-january2022",
         "https://slyfox6969.users.earthengine.app/view/yash-cyclone-2021",
         "https://slyfox6969.users.earthengine.app/"
     ],
@@ -4611,6 +4610,8 @@
     ],
     "valeriepasquarella": [
         "https://valeriepasquarella.users.earthengine.app/view/condition-monitoring-explorer",
+        "https://valeriepasquarella.users.earthengine.app/view/spectral-encounter-l8",
+        "https://valeriepasquarella.users.earthengine.app/view/spectral-encounter-s2",
         "https://valeriepasquarella.users.earthengine.app/view/condition-monitoring-explorer",
         "https://valeriepasquarella.users.earthengine.app/view/spectral-encounter-l8",
         "https://valeriepasquarella.users.earthengine.app/view/spectral-encounter-s2"

@@ -380,6 +380,7 @@
         "https://adrrod44.users.earthengine.app/view/detecciondecambios",
         "https://adrrod44.users.earthengine.app/view/land-superfice-temperature-yasuni-ecuador",
         "https://adrrod44.users.earthengine.app/view/mapa-de-cambios",
+        "https://adrrod44.users.earthengine.app/view/mapacambiosentinel1",
         "https://adrrod44.users.earthengine.app/view/mapeo-de-inundaciones",
         "https://adrrod44.users.earthengine.app/view/parametros-sar"
     ],
@@ -1368,7 +1369,6 @@
         "https://e41171697.users.earthengine.app/view/test"
     ],
     "eaglecopernicussar": [
-        "https://eaglecopernicussar.users.earthengine.app/view/descarga-srtm-mexico-marioluna",
         "https://eaglecopernicussar.users.earthengine.app/view/descarga-srtm-mexico-marioluna"
     ],
     "earthengineedu": [
@@ -1682,7 +1682,9 @@
         "https://fhuamani.users.earthengine.app/view/incendiocusco"
     ],
     "fikriabdulhalim2204": [
-        "https://fikriabdulhalim2204.users.earthengine.app/view/ndvi"
+        "https://fikriabdulhalim2204.users.earthengine.app/view/ndvi",
+        "https://fikriabdulhalim2204.users.earthengine.app/view/peta-perubahan-indeks-vegetasi-suoh",
+        "https://fikriabdulhalim2204.users.earthengine.app/view/peta-perubahan-indeks-vegetasi-tnbbs-suoh"
     ],
     "firdanursaidah": [
         "https://firdanursaidah.users.earthengine.app/view/deforestasi"
@@ -1731,6 +1733,7 @@
         "https://franklinlmc.users.earthengine.app/view/asodegav4",
         "https://franklinlmc.users.earthengine.app/view/cuadrantesplanet",
         "https://franklinlmc.users.earthengine.app/view/cuadrantesplanetv1",
+        "https://franklinlmc.users.earthengine.app/view/cuadrantesplanetv2",
         "https://franklinlmc.users.earthengine.app/view/derrame1825",
         "https://franklinlmc.users.earthengine.app/view/derramepetroleodescarga",
         "https://franklinlmc.users.earthengine.app/view/derramepetrolepperu",
@@ -1749,6 +1752,7 @@
         "https://franklinlmc.users.earthengine.app/view/modisperu",
         "https://franklinlmc.users.earthengine.app/view/modisregion",
         "https://franklinlmc.users.earthengine.app/view/mosaicomidagriplanet",
+        "https://franklinlmc.users.earthengine.app/view/mosaicomidagriplanetv10",
         "https://franklinlmc.users.earthengine.app/view/mosaicomidagriplanetv2",
         "https://franklinlmc.users.earthengine.app/view/mosaicomidagriplanetv3",
         "https://franklinlmc.users.earthengine.app/view/mosaicomidagriplanetv4",
@@ -1778,9 +1782,11 @@
         "https://fsn1995.users.earthengine.app/view/iseeglacier"
     ],
     "ftentor": [
+        "https://ftentor.users.earthengine.app/view/adeco-arroz",
         "https://ftentor.users.earthengine.app/view/granizosancor",
         "https://ftentor.users.earthengine.app/view/inundsancor",
         "https://ftentor.users.earthengine.app/view/inundvillaminetti",
+        "https://ftentor.users.earthengine.app/view/panelinundrigran",
         "https://ftentor.users.earthengine.app/view/precipitacion"
     ],
     "fudongjie": [
@@ -1817,7 +1823,8 @@
         "https://galimbertiluca.users.earthengine.app/view/final-risk-map"
     ],
     "gayanefaye": [
-        "https://gayanefaye.users.earthengine.app/view/geologymap"
+        "https://gayanefaye.users.earthengine.app/view/geologymap",
+        "https://gayanefaye.users.earthengine.app/view/inp-zone-rizicole"
     ],
     "gdispiri": [
         "https://gdispiri.users.earthengine.app/view/geo281"
@@ -1927,6 +1934,7 @@
         "https://gerardosoto.users.earthengine.app/view/forest-change-2000-2016",
         "https://gerardosoto.users.earthengine.app/view/humedales-de-maullin",
         "https://gerardosoto.users.earthengine.app/view/lcc---east-africa",
+        "https://gerardosoto.users.earthengine.app/view/lcc-5yearmedian",
         "https://gerardosoto.users.earthengine.app/view/lcc-eastafrica-broadbasedmask",
         "https://gerardosoto.users.earthengine.app/view/lcc-eastafrica-highforagingmask",
         "https://gerardosoto.users.earthengine.app/view/ndvi-2018-2020",
@@ -2267,7 +2275,8 @@
         "https://iastopalidis.users.earthengine.app/view/testsarg"
     ],
     "ibisa": [
-        "https://ibisa.users.earthengine.app/view/mekongsalinity"
+        "https://ibisa.users.earthengine.app/view/mekongsalinity",
+        "https://ibisa.users.earthengine.app/view/salinity-mekong"
     ],
     "idoublegy": [
         "https://idoublegy.users.earthengine.app/view/coastalareamonitoring",
@@ -2449,6 +2458,7 @@
         "https://jhowarth.users.earthengine.app/view/eeprimer-compare-satellites",
         "https://jhowarth.users.earthengine.app/view/eeprimer-global-fire-explorer",
         "https://jhowarth.users.earthengine.app/view/eeprimer-lst-landsat8",
+        "https://jhowarth.users.earthengine.app/view/eeprimer-ui-layout",
         "https://jhowarth.users.earthengine.app/view/fire-modis-firms-historical",
         "https://jhowarth.users.earthengine.app/view/lights-change-time-neighborhood",
         "https://jhowarth.users.earthengine.app/view/midd-field-maps",
@@ -2497,6 +2507,7 @@
     ],
     "joaootavionf007": [
         "https://joaootavionf007.users.earthengine.app/view/deckcalculator",
+        "https://joaootavionf007.users.earthengine.app/view/drought-analysis",
         "https://joaootavionf007.users.earthengine.app/view/f1trackmap",
         "https://joaootavionf007.users.earthengine.app/view/precisionag",
         "https://joaootavionf007.users.earthengine.app/view/regionbasedclassification",
@@ -3494,6 +3505,7 @@
         "https://olivierqueyrut.users.earthengine.app/view/ouganda"
     ],
     "ollielballinger": [
+        "https://ollielballinger.users.earthengine.app/view/bellingcat-radar-interference-tracker",
         "https://ollielballinger.users.earthengine.app/view/ism",
         "https://ollielballinger.users.earthengine.app/view/populated-area-voteshares",
         "https://ollielballinger.users.earthengine.app/view/basra-oil",
@@ -3661,6 +3673,7 @@
         "https://pmisson.users.earthengine.app/view/madrid-hotspots",
         "https://pmisson.users.earthengine.app/view/madridchrismas",
         "https://pmisson.users.earthengine.app/view/madridlight",
+        "https://pmisson.users.earthengine.app/view/madridvideo",
         "https://pmisson.users.earthengine.app/view/trends",
         "https://pmisson.users.earthengine.app/view/covid-19",
         "https://pmisson.users.earthengine.app/view/la-palma-volcano",

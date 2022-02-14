@@ -952,6 +952,7 @@
         "https://cartoscience.users.earthengine.app/view/crop-niche",
         "https://cartoscience.users.earthengine.app/view/cross-section",
         "https://cartoscience.users.earthengine.app/view/fwdet-gee-mi",
+        "https://cartoscience.users.earthengine.app/view/gee-ted",
         "https://cartoscience.users.earthengine.app/view/inverted-earth",
         "https://cartoscience.users.earthengine.app/view/irrigation-malaria",
         "https://cartoscience.users.earthengine.app/view/marginal-land",
@@ -1101,7 +1102,7 @@
         "https://csaybar.users.earthengine.app/view/cloudapp"
     ],
     "csheth": [
-        "https://csheth.users.earthengine.app/view/pratapgarh-grassland-change",
+        "https://csheth.users.earthengine.app/view/florican-grasslands",
         "https://csheth.users.earthengine.app/view/siang-dibang-lohit-brahmaputra-floods-2020",
         "https://csheth.users.earthengine.app/view/the-changing-siang",
         "https://csheth.users.earthengine.app/view/tsangpo-floods-2018",
@@ -1538,6 +1539,7 @@
     "esavelye43": [
         "https://esavelye43.users.earthengine.app/view/dem",
         "https://esavelye43.users.earthengine.app/view/dem2",
+        "https://esavelye43.users.earthengine.app/view/landsat-budapest",
         "https://esavelye43.users.earthengine.app/view/linkedmap2021",
         "https://esavelye43.users.earthengine.app/view/linkedmapstest",
         "https://esavelye43.users.earthengine.app/view/ndvi-suusmayr",
@@ -1682,6 +1684,7 @@
         "https://fhuamani.users.earthengine.app/view/incendiocusco"
     ],
     "fikriabdulhalim2204": [
+        "https://fikriabdulhalim2204.users.earthengine.app/view/dndvi-tnbbs-suoh",
         "https://fikriabdulhalim2204.users.earthengine.app/view/ndvi",
         "https://fikriabdulhalim2204.users.earthengine.app/view/peta-perubahan-indeks-vegetasi-suoh",
         "https://fikriabdulhalim2204.users.earthengine.app/view/peta-perubahan-indeks-vegetasi-tnbbs-suoh"
@@ -1734,6 +1737,7 @@
         "https://franklinlmc.users.earthengine.app/view/cuadrantesplanet",
         "https://franklinlmc.users.earthengine.app/view/cuadrantesplanetv1",
         "https://franklinlmc.users.earthengine.app/view/cuadrantesplanetv2",
+        "https://franklinlmc.users.earthengine.app/view/cuadrantesplanetv3",
         "https://franklinlmc.users.earthengine.app/view/derrame1825",
         "https://franklinlmc.users.earthengine.app/view/derramepetroleodescarga",
         "https://franklinlmc.users.earthengine.app/view/derramepetrolepperu",
@@ -2138,6 +2142,7 @@
         "https://gustavoirgang.users.earthengine.app/view/saovitorradiacao",
         "https://gustavoirgang.users.earthengine.app/view/saovitortmax",
         "https://gustavoirgang.users.earthengine.app/view/saovitortmin",
+        "https://gustavoirgang.users.earthengine.app/view/sar1",
         "https://gustavoirgang.users.earthengine.app/view/seival",
         "https://gustavoirgang.users.earthengine.app/view/seivalapp",
         "https://gustavoirgang.users.earthengine.app/view/seivalteste",
@@ -4033,6 +4038,7 @@
     ],
     "salmanddd14": [
         "https://salmanddd14.users.earthengine.app/view/awaltanam",
+        "https://salmanddd14.users.earthengine.app/view/bloksri",
         "https://salmanddd14.users.earthengine.app/view/ceklokasi",
         "https://salmanddd14.users.earthengine.app/view/ddwatbalirig",
         "https://salmanddd14.users.earthengine.app/view/fasepadimultsensor",
@@ -4096,7 +4102,8 @@
     ],
     "saraiva": [
         "https://saraiva.users.earthengine.app/view/alertas",
-        "https://saraiva.users.earthengine.app/view/icebergs"
+        "https://saraiva.users.earthengine.app/view/icebergs",
+        "https://saraiva.users.earthengine.app/view/landsat-9"
     ],
     "sarthakkgupta": [
         "https://sarthakkgupta.users.earthengine.app/view/encroachment",

@@ -1,8 +1,9 @@
 import difflib
 import json
 import os
-from typing import Any, Optional, Union, List
+from typing import Any, Optional, List, Sequence
 
+import ee
 import pkg_resources
 
 
@@ -49,3 +50,19 @@ def _get_case_insensitive_close_matches(
         word.lower(), [p.lower() for p in possibilities], n, cutoff
     )
     return [p for p in possibilities if p.lower() in lower_matches]
+
+
+def _filter_image_bands(img: ee.Image, keep_bands: Sequence[str]) -> ee.Image:
+    """Remove Image bands that aren't in list of bands to keep. Essentially a version of
+    ee.Image.select() that doesn't fail if bands are missing.
+
+    Args:
+        img : An Image to select bands from.
+        keep_bands : A list of band names to keep in the Image. All other bands will be
+            removed. Any specified bands that do not exist will be ignored.
+
+    Returns:
+        The image with specified bands selected.
+    """
+    bands = img.bandNames().filter(ee.Filter.inList("item", keep_bands))
+    return img.select(bands)

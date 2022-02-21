@@ -90,6 +90,7 @@
     "AristidesMairena": [
         "https://AristidesMairena.users.earthengine.app/view/area-ndvi",
         "https://AristidesMairena.users.earthengine.app/view/crop-frequency",
+        "https://AristidesMairena.users.earthengine.app/view/crops-precipitation",
         "https://AristidesMairena.users.earthengine.app/view/date-areandvi"
     ],
     "AsifulAlam": [
@@ -1643,6 +1644,7 @@
         "https://felipegee.users.earthengine.app/view/confusionmatrix"
     ],
     "felipellobo": [
+        "https://felipellobo.users.earthengine.app/view/algaemapv10",
         "https://felipellobo.users.earthengine.app/view/algaemapv11",
         "https://felipellobo.users.earthengine.app/view/algaemapv10"
     ],
@@ -1741,6 +1743,7 @@
         "https://franklinlmc.users.earthengine.app/view/derrame1825",
         "https://franklinlmc.users.earthengine.app/view/derramepetroleodescarga",
         "https://franklinlmc.users.earthengine.app/view/derramepetrolepperu",
+        "https://franklinlmc.users.earthengine.app/view/desastres",
         "https://franklinlmc.users.earthengine.app/view/eanalisisethel",
         "https://franklinlmc.users.earthengine.app/view/humedad",
         "https://franklinlmc.users.earthengine.app/view/map",
@@ -2257,7 +2260,8 @@
         "https://honoriosanchezjacin.users.earthengine.app/view/rf-svm"
     ],
     "huyquangp10": [
-        "https://huyquangp10.users.earthengine.app/view/hdktks"
+        "https://huyquangp10.users.earthengine.app/view/hdktks",
+        "https://huyquangp10.users.earthengine.app/view/tong-hop"
     ],
     "hydrosolutions": [
         "https://hydrosolutions.users.earthengine.app/view/cropmapper-ferghana",
@@ -2524,6 +2528,7 @@
     ],
     "jodaurmu": [
         "https://jodaurmu.users.earthengine.app/view/amazoniavertical",
+        "https://jodaurmu.users.earthengine.app/view/forestexplorerconssesionv1",
         "https://jodaurmu.users.earthengine.app/view/ibc",
         "https://jodaurmu.users.earthengine.app/view/parque-manu",
         "https://jodaurmu.users.earthengine.app/view/proyectomanatyfsz"
@@ -3452,7 +3457,10 @@
         "https://ntrnhan95.users.earthengine.app/view/buipm",
         "https://ntrnhan95.users.earthengine.app/view/dem",
         "https://ntrnhan95.users.earthengine.app/view/ndvi-2015-2021",
-        "https://ntrnhan95.users.earthengine.app/view/pmbui"
+        "https://ntrnhan95.users.earthengine.app/view/ndvi-times-series-2012-2022",
+        "https://ntrnhan95.users.earthengine.app/view/ndvi20122022dbscl",
+        "https://ntrnhan95.users.earthengine.app/view/pmbui",
+        "https://ntrnhan95.users.earthengine.app/view/volcan-palma"
     ],
     "nunocesardesa": [
         "https://nunocesardesa.users.earthengine.app/view/evergreens2",
@@ -3977,7 +3985,8 @@
         "https://rossbernet.users.earthengine.app/view/creekfire"
     ],
     "rriggs": [
-        "https://rriggs.users.earthengine.app/view/rodeo"
+        "https://rriggs.users.earthengine.app/view/rodeo",
+        "https://rriggs.users.earthengine.app/view/rodeo-validation"
     ],
     "rrmeza89": [
         "https://rrmeza89.users.earthengine.app/view/diafpa1resiproaf",
@@ -4386,9 +4395,6 @@
     ],
     "srinuvasbathula09": [
         "https://srinuvasbathula09.users.earthengine.app/view/iwmicroptypemaps"
-    ],
-    "srtm": [
-        "https://srtm.users.earthengine.app/view/ndvi2"
     ],
     "ssebop": [
         "https://ssebop.users.earthengine.app/view/ssebop-br-v101",

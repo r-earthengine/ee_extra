@@ -1,11 +1,13 @@
 from abc import ABC, abstractmethod
-from typing import Any, Dict, List, Sequence, Type, TypeVar
+from typing import Any, Dict, List, Optional, Sequence, Type, TypeVar, Union
 
 import ee
 
+from ee_extra.QA.metrics import getMetrics
 from ee_extra.Spectral.core import matchHistogram
 from ee_extra.STAC.utils import _get_platform_STAC
-from ee_extra.utils import _filter_image_bands, _get_case_insensitive_close_matches
+from ee_extra.utils import (_filter_image_bands,
+                            _get_case_insensitive_close_matches)
 
 ImageLike = TypeVar("ImageLike", ee.Image, ee.ImageCollection)
 
@@ -29,7 +31,13 @@ PLATFORM_BANDS = {
 }
 
 
-def _panSharpen(img: ImageLike, method: str, **kwargs: Any) -> ImageLike:
+def _panSharpen(
+    img: ImageLike,
+    method: str,
+    qa: Optional[Union[str, List[str]]] = None,
+    prefix: str = "ee_extra",
+    **kwargs: Any
+) -> ImageLike:
     """Apply panchromatic sharpening to an Image or ImageCollection.
 
     Args:
@@ -37,6 +45,11 @@ def _panSharpen(img: ImageLike, method: str, **kwargs: Any) -> ImageLike:
         method : The sharpening algorithm to apply. Current options are "SFIM" (Smoothing
             Filter-based Intensity Modulation), "HPFA" (High Pass Filter Addition), "PCS"
             (Principal Component Substitution), and "SM" (simple mean).
+        qa : One or more optional quality metrics to calculate and set as properties on
+            the sharpened image. See ee_extra.QA.metrics.listMetrics().keys() for a list
+            of supported metrics.
+        prefix : A prefix for any new properties. For example, quality metrics will be
+            set as `prefix:metric`, e.g. `ee_extra:RMSE`.
         **kwargs : Keyword arguments passed to ee.Image.reduceRegion() such as
             "geometry", "maxPixels", "bestEffort", etc. These arguments are only used for
             PCS sharpening.
@@ -87,7 +100,36 @@ def _panSharpen(img: ImageLike, method: str, **kwargs: Any) -> ImageLike:
         sharpened = ee.Image(sharpened.copyProperties(source, pan.propertyNames()))
         sharpened = sharpened.updateMask(source.mask())
 
+        if qa is not None:
+            sharpened = run_and_set_qa(source, sharpened, qa)
+
         return sharpened
+
+    def run_and_set_qa(
+        original: ee.Image, modified: ee.Image, qa: Union[str, List[str]]
+    ) -> ee.Image:
+        """Get any valid requested quality assessment functions and run each of them to assess the quality of the
+        sharpened Image. Set the results of each quality assessment as a new property with the format `prefix:metric`.
+
+        Args
+            original : The original, pre-sharpened image.
+            modified : The sharpened image.
+            qa : Names of one or more metrics to calculate.
+
+        Returns:
+            The modified image with a new property set for each quality assessment.
+        """
+        selected_metrics = getMetrics(qa)
+
+        original = original.select(modified.bandNames())
+
+        for metric in selected_metrics:
+            values = metric(original, modified, reproject=True, **kwargs)
+
+            prop = "{}:{}".format(prefix, metric.__name__)
+            modified = modified.set(prop, values)
+
+        return modified
 
     sharpener = getSharpener(method)
     platform_bands = get_platform_bands(img)

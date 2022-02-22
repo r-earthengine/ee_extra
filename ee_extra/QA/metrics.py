@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
-from typing import Any, Dict, Type, List
+from typing import Any, Dict, List, Type, Union
+
 import ee
 
 from ee_extra.utils import _get_case_insensitive_close_matches
@@ -12,11 +13,12 @@ def listMetrics() -> Dict[str, Type["Metric"]]:
         A dictionary of Metric subclasses with class names as keys and classes as
         values.
     """
-    return {cls.__name__: cls for cls in Metric.__subclasses__()}
+    metrics: List[Type[Metric]] = Metric.__subclasses__()
+    return {metric.__name__: metric for metric in metrics}
 
 
-def getMetrics(names: List[str]) -> List[Type["Metric"]]:
-    """Take a list of names and return a list of matching QA metrics.
+def getMetrics(names: Union[str, List[str]]) -> List[Type["Metric"]]:
+    """Take one or more metric names and return a list of matching QA metrics.
 
     Args:
         names : A list or tuple of strings or a single string with the names of QA
@@ -53,27 +55,41 @@ def getMetrics(names: List[str]) -> List[Type["Metric"]]:
 class Metric(ABC):
     """The abstract class that is implemented by all quality assessment metrics."""
 
-    def __new__(cls, original: ee.Image, modified: ee.Image, **kwargs: Any) -> None:
+    def __new__(
+        cls,
+        original: ee.Image,
+        modified: ee.Image,
+        reproject: bool = True,
+        **kwargs: Any
+    ) -> ee.Dictionary:
         """Calculate and return the QA metric value when the class is instantiated."""
+        if reproject:
+            original = original.resample("bilinear").reproject(modified.projection())
+
         return cls._calculate(original, modified, **kwargs)
 
+    @staticmethod
     @abstractmethod
-    def _calculate(original: ee.Image, modified: ee.Image, **kwargs: Any) -> None:
+    def _calculate(
+        original: ee.Image, modified: ee.Image, **kwargs: Any
+    ) -> Union[ee.Number, ee.Dictionary]:
         """Abstract method implemented by each Metric where the metric values are
         calculated between the input images. This should always be accessed indirectly
         by instantiating the Metric class rather than called.
         """
-        return
+        pass
 
 
 class MSE(Metric):
     """Calculate band-wise Mean Squared Error (MSE) between an original and
-    modified image with the same resolution and bands. A value of 0 represents no
+    modified image with the same bands. A value of 0 represents no
     error.
 
     Args:
         original : The original image to use as a reference.
         modified : The modified image to compare to the original.
+        reproject : If true, the original image will be reprojected to the
+            modified image scale before calculation.
         kwargs : Additional keyword arguments passed to `ee.Image.reduceRegion`.
 
     Returns:
@@ -103,12 +119,13 @@ class MSE(Metric):
 
 class RMSE(Metric):
     """Calculate band-wise Root-Mean Squared Error (RMSE) between an original and
-    modified image with the same resolution and bands. A value of 0 represents no
-    error.
+    modified image with the same bands. A value of 0 represents no error.
 
     Args:
         original : The original image to use as a reference.
         modified : The modified image to compare to the original.
+        reproject : If true, the original image will be reprojected to the
+            modified image scale before calculation.
         kwargs : Additional keyword arguments passed to `ee.Image.reduceRegion`.
 
     Returns:
@@ -128,7 +145,7 @@ class RMSE(Metric):
         original: ee.Image, modified: ee.Image, **kwargs: Any
     ) -> ee.Dictionary:
 
-        mse = MSE(original, modified, **kwargs)
+        mse: ee.Dictionary = MSE(original, modified, **kwargs)
         sqrt_vals = ee.Array(mse.values()).sqrt().toList()
         rmse = ee.Dictionary.fromLists(mse.keys(), sqrt_vals)
 
@@ -137,12 +154,14 @@ class RMSE(Metric):
 
 class RASE(Metric):
     """Calculate image-wise Relative Average Spectral Error (RASE) between an
-    original and modified image with the same resolution and bands. A value of 0
+    original and modified image with the same bands. A value of 0
     represents no error.
 
     Args:
         original : The original image to use as a reference.
         modified : The modified image to compare to the original.
+        reproject : If true, the original image will be reprojected to the
+            modified image scale before calculation.
         kwargs : Additional keyword arguments passed to `ee.Image.reduceRegion`.
 
     Returns:
@@ -163,33 +182,30 @@ class RASE(Metric):
     """
 
     @staticmethod
-    def _calculate(
-        original: ee.Image, modified: ee.Image, **kwargs: Any
-    ) -> ee.Dictionary:
+    def _calculate(original: ee.Image, modified: ee.Image, **kwargs: Any) -> ee.Number:
 
-        mse = ee.Number(
-            MSE(original, modified, **kwargs).values().reduce(ee.Reducer.mean())
-        )
+        mse: ee.Dictionary = MSE(original, modified, **kwargs)
+        msek = ee.Number(mse.values().reduce(ee.Reducer.mean()))
         xbar = (
             original.reduceRegion(ee.Reducer.mean(), **kwargs)
             .values()
             .reduce(ee.Reducer.mean())
         )
-        rase = mse.sqrt().multiply(ee.Number(100).divide(xbar))
+        rase = msek.sqrt().multiply(ee.Number(100).divide(xbar))
         return rase
 
 
 class ERGAS(Metric):
     """Calculate image-wise Dimensionless Global Relative Error of Synthesis
-    (ERGAS) between an original and modified image with the same resolution and bands.
-    A value of 0 represents no error. ERGAS is intended to be used for assessing
-    pan-sharpening results, and results are weighted by the change in spatial resolution.
+    (ERGAS) between an original and modified image with the same bands.
+    A value of 0 represents no error. ERGAS results are weighted by the change
+    in spatial resolution, identified from the `nominalScale` of the images.
 
     Args:
         original : The original image to use as a reference.
         modified : The modified image to compare to the original.
-        h : Spatial resolution of the sharpened image.
-        l : Spatial resolution of the unsharpened image.
+        reproject : If true, the original image will be reprojected to the
+            modified image scale before calculation.
         kwargs : Additional keyword arguments passed to `ee.Image.reduceRegion`.
 
     Returns:
@@ -209,14 +225,35 @@ class ERGAS(Metric):
         3774.9270912567363
     """
 
-    @staticmethod
-    def _calculate(
-        original: ee.Image, modified: ee.Image, h: int, l: int, **kwargs: Any
-    ) -> ee.Dictionary:
+    def __new__(
+        cls,
+        original: ee.Image,
+        modified: ee.Image,
+        reproject: bool = True,
+        **kwargs: Any
+    ) -> ee.Number:
+        """Calculate and return the QA metric value when the class is instantiated.
+        Unlike other metrics, ERGAS must know the scale of the images before
+        reprojection.
+        """
+        l = original.projection().nominalScale()
+        h = modified.projection().nominalScale()
 
-        h = ee.Number(h)
-        l = ee.Number(l)
-        msek = ee.Array(MSE(original, modified, **kwargs).values())
+        if reproject:
+            original = original.resample("bilinear").reproject(modified.projection())
+
+        return cls._calculate(original, modified, h=h, l=l, **kwargs)
+
+    @staticmethod
+    def _calculate(  # type: ignore
+        original: ee.Image,
+        modified: ee.Image,
+        h: ee.Number,
+        l: ee.Number,
+        **kwargs: Any
+    ) -> ee.Number:
+        mse: ee.Dictionary = MSE(original, modified, **kwargs)
+        msek = ee.Array(mse.values())
         xbark = ee.Array(original.reduceRegion(ee.Reducer.mean(), **kwargs).values())
 
         band_error = ee.Number(
@@ -229,12 +266,13 @@ class ERGAS(Metric):
 
 class DIV(Metric):
     """Calculate band-wise Difference in Variance (DIV) between an original and
-    modified image with the same resolution and bands. A value of 0 represents no
-    change in variance.
+    modified image with the same bands. A value of 0 represents no change in variance.
 
     Args:
         original : The original image to use as a reference.
         modified : The modified image to compare to the original.
+        reproject : If true, the original image will be reprojected to the
+            modified image scale before calculation.
         kwargs : Additional keyword arguments passed to `ee.Image.reduceRegion`.
 
     Returns:
@@ -271,12 +309,14 @@ class DIV(Metric):
 
 
 class bias(Metric):
-    """Calculate band-wise bias between an original and modified image of the
-    same spatial resolution. A value of 0 represents no bias.
+    """Calculate band-wise bias between an original and modified image with the same
+    bands. A value of 0 represents no bias.
 
     Args:
         original : The original image to use as a reference.
         modified : The modified image to compare to the original.
+        reproject : If true, the original image will be reprojected to the
+            modified image scale before calculation.
         kwargs : Additional keyword arguments passed to `ee.Image.reduceRegion`.
 
     Returns:
@@ -310,12 +350,13 @@ class bias(Metric):
 
 class CC(Metric):
     """Calculate band-wise correlation coefficient (CC) between an original and
-    modified image with the same resolution and bands. A value of 1 represents
-    perfect correlation.
+    modified image with the same bands. A value of 1 represents perfect correlation.
 
     Args:
         original : The original image to use as a reference.
         modified : The modified image to compare to the original.
+        reproject : If true, the original image will be reprojected to the
+            modified image scale before calculation.
         kwargs : Additional keyword arguments passed to `ee.Image.reduceRegion`.
 
     Returns:
@@ -358,12 +399,13 @@ class CC(Metric):
 
 class CML(Metric):
     """Calculate band-wise change in mean luminance (CML) between an original and
-    modified image with the same resolution and bands. A value of 1 represents no
-    change in luminance.
+    modified image with the same bands. A value of 1 represents no change in luminance.
 
     Args:
         original : The original image to use as a reference.
         modified : The modified image to compare to the original.
+        reproject : If true, the original image will be reprojected to the
+            modified image scale before calculation.
         kwargs : Additional keyword arguments passed to `ee.Image.reduceRegion`.
 
     Returns:
@@ -397,12 +439,13 @@ class CML(Metric):
 
 class CMC(Metric):
     """Calculate band-wise change in mean contrast (CMC) between an original and
-    modified image with the same resolution and bands. A value of 1 represents no
-    change in contrast.
+    modified image with the same bands. A value of 1 represents no change in contrast.
 
     Args:
         original : The original image to use as a reference.
         modified : The modified image to compare to the original.
+        reproject : If true, the original image will be reprojected to the
+            modified image scale before calculation.
         kwargs : Additional keyword arguments passed to `ee.Image.reduceRegion`.
 
     Returns:
@@ -438,12 +481,14 @@ class CMC(Metric):
 
 class UIQI(Metric):
     """Calculate band-wise Universal Image Quality Index (UIQI) between an
-    original and modified image with the same resolution and bands. A value of 1
-    represents perfect quality.
+    original and modified image with the same bands. A value of 1 represents
+    perfect quality.
 
     Args:
         original : The original image to use as a reference.
         modified : The modified image to compare to the original.
+        reproject : If true, the original image will be reprojected to the
+            modified image scale before calculation.
         kwargs : Additional keyword arguments passed to `ee.Image.reduceRegion`.
 
     Returns:
@@ -467,10 +512,14 @@ class UIQI(Metric):
     def _calculate(
         original: ee.Image, modified: ee.Image, **kwargs: Any
     ) -> ee.Dictionary:
-        cc = ee.Array(CC(original, modified, **kwargs).values())
-        l = ee.Array(CMC(original, modified, **kwargs).values())
-        c = ee.Array(CML(original, modified, **kwargs).values())
+        cc: ee.Dictionary = CC(original, modified, **kwargs)
+        cmc: ee.Dictionary = CMC(original, modified, **kwargs)
+        cml: ee.Dictionary = CML(original, modified, **kwargs)
 
-        uiqi = cc.multiply(l).multiply(c)
+        cc = ee.Array(cc.values())
+        cmc = ee.Array(cmc.values())
+        cml = ee.Array(cml.values())
+
+        uiqi = cc.multiply(cml).multiply(cmc)
 
         return ee.Dictionary.fromLists(original.bandNames(), uiqi.toList())

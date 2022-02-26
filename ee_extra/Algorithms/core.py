@@ -34,10 +34,10 @@ def panSharpen(
         The Image or Image Collection with all sharpenable bands sharpened to the panchromatic resolution.
 
     Examples:
-    >>> import ee
-    >>> from ee_extra.Algorithms.core import panSharpen
-    >>> ee.Initialize()
-    >>> img = ee.Image("LANDSAT/LC08/C01/T1_TOA/LC08_047027_20160819")
-    >>> sharp = panSharpen(img, method="HPFA", qa=["RMSE", "ERGAS"], maxPixels=1e13)
+        >>> import ee
+        >>> from ee_extra.Algorithms.core import panSharpen
+        >>> ee.Initialize()
+        >>> img = ee.Image("LANDSAT/LC08/C01/T1_TOA/LC08_047027_20160819")
+        >>> sharp = panSharpen(img, method="HPFA", qa=["RMSE", "ERGAS"], maxPixels=1e13)
     """
     return _panSharpen(img, method, qa, prefix, **kwargs)

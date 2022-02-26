@@ -6,8 +6,7 @@ import ee
 from ee_extra.QA.metrics import getMetrics
 from ee_extra.Spectral.core import matchHistogram
 from ee_extra.STAC.utils import _get_platform_STAC
-from ee_extra.utils import (_filter_image_bands,
-                            _get_case_insensitive_close_matches)
+from ee_extra.utils import _filter_image_bands, _get_case_insensitive_close_matches
 
 ImageLike = TypeVar("ImageLike", ee.Image, ee.ImageCollection)
 
@@ -52,7 +51,7 @@ def _panSharpen(
             set as `prefix:metric`, e.g. `ee_extra:RMSE`.
         **kwargs : Keyword arguments passed to ee.Image.reduceRegion() such as
             "geometry", "maxPixels", "bestEffort", etc. These arguments are only used for
-            PCS sharpening.
+            PCS sharpening and quality assessments.
 
     Returns:
         The Image or ImageCollection with all sharpenable bands sharpened to the panchromatic resolution.
@@ -70,18 +69,17 @@ def _panSharpen(
         Raises:
             AttributeError : If the platform is unsupported.
         """
-        platform_dict = _get_platform_STAC(img)
-        platforms = list(PLATFORM_BANDS.keys())
-        platform = platform_dict["platform"]
+        platform = _get_platform_STAC(img)["platform"]
+        platform_options = list(PLATFORM_BANDS.keys())
 
-        if platform not in platforms:
+        try:
+            return PLATFORM_BANDS[platform]
+        except KeyError:
             raise AttributeError(
                 "Sharpening is not supported for the {} platform. Use one of the following platforms: {}".format(
-                    platform, platforms
+                    platform, platform_options
                 )
             )
-
-        return PLATFORM_BANDS[platform]
 
     def apply_sharpening(img: ee.Image) -> ee.Image:
         """Identify and apply the correct sharpening algorithm to an Image.
@@ -125,8 +123,8 @@ def _panSharpen(
 
         for metric in selected_metrics:
             values = metric(original, modified, reproject=True, **kwargs)
-
             prop = "{}:{}".format(prefix, metric.__name__)
+
             modified = modified.set(prop, values)
 
         return modified

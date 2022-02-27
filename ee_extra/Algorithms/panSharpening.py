@@ -95,7 +95,7 @@ def _panSharpen(
 
         sharpened: ee.Image = sharpener(source, pan, **kwargs)
 
-        sharpened = ee.Image(sharpened.copyProperties(source, pan.propertyNames()))
+        sharpened = ee.Image(ee.Element.copyProperties(sharpened, source, pan.propertyNames()))
         sharpened = sharpened.updateMask(source.mask())
 
         if qa is not None:

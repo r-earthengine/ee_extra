@@ -552,6 +552,7 @@
         "https://anighosh.users.earthengine.app/view/biogeo-time-series-modis"
     ],
     "aninditabindas": [
+        "https://aninditabindas.users.earthengine.app/view/daily-rainfall-data-westbengal",
         "https://aninditabindas.users.earthengine.app/view/ndvi"
     ],
     "anindyapratisamara": [
@@ -1831,7 +1832,8 @@
     ],
     "gayanefaye": [
         "https://gayanefaye.users.earthengine.app/view/geologymap",
-        "https://gayanefaye.users.earthengine.app/view/inp-zone-rizicole"
+        "https://gayanefaye.users.earthengine.app/view/inp-zone-rizicole",
+        "https://gayanefaye.users.earthengine.app/view/inpricemapping"
     ],
     "gdispiri": [
         "https://gdispiri.users.earthengine.app/view/geo281"
@@ -1846,6 +1848,7 @@
         "https://gemasaktiadzan.users.earthengine.app/view/forest-cover-viz"
     ],
     "gena": [
+        "https://gena.users.earthengine.app/view/anomaly-detection",
         "https://gena.users.earthengine.app/view/basin-selector",
         "https://gena.users.earthengine.app/view/bathymetry-from-space",
         "https://gena.users.earthengine.app/view/bathymetry-fusion",
@@ -1885,6 +1888,7 @@
         "https://gena.users.earthengine.app/view/upper-niger",
         "https://gena.users.earthengine.app/view/urban-lights",
         "https://gena.users.earthengine.app/view/uzbekistan-dam-break",
+        "https://gena.users.earthengine.app/view/water-africa",
         "https://gena.users.earthengine.app/view/water-watch",
         "https://gena.users.earthengine.app/view/corona-virus",
         "https://gena.users.earthengine.app/view/corona-virus-nl",
@@ -2031,6 +2035,7 @@
         "https://gustavoirgang.users.earthengine.app/view/argofrutaeto",
         "https://gustavoirgang.users.earthengine.app/view/bagosm",
         "https://gustavoirgang.users.earthengine.app/view/biomassasentinel-ndvi",
+        "https://gustavoirgang.users.earthengine.app/view/c12draimundononato01",
         "https://gustavoirgang.users.earthengine.app/view/campodorochuva",
         "https://gustavoirgang.users.earthengine.app/view/campodoroeto",
         "https://gustavoirgang.users.earthengine.app/view/chuva-anual-e-normal",
@@ -2710,6 +2715,7 @@
         "https://kalinggatitonnurihsan.users.earthengine.app/view/monitoring-indeks-vegetasi-praktkum-inling",
         "https://kalinggatitonnurihsan.users.earthengine.app/view/monitoring-ndex-kekeringan-tanaman",
         "https://kalinggatitonnurihsan.users.earthengine.app/view/potensi-pemasangan-plts-di-jawa-barat",
+        "https://kalinggatitonnurihsan.users.earthengine.app/view/river-monitoring",
         "https://kalinggatitonnurihsan.users.earthengine.app/view/spatialjoin",
         "https://kalinggatitonnurihsan.users.earthengine.app/view/tingkat-keesesuaian-pembangunan-plts-di-indonesia"
     ],
@@ -3211,7 +3217,6 @@
         "https://Mmodou.users.earthengine.app/view/elocustservirwestafrica",
         "https://Mmodou.users.earthengine.app/view/locusts",
         "https://Mmodou.users.earthengine.app/view/mangrovesenegalodd",
-        "https://Mmodou.users.earthengine.app/view/oddsenegal",
         "https://Mmodou.users.earthengine.app/view/oddturbidityapp",
         "https://Mmodou.users.earthengine.app/view/parcw",
         "https://Mmodou.users.earthengine.app/view/ras4580",
@@ -3363,6 +3368,7 @@
         "https://ndmorndiaye.users.earthengine.app/view/sipo"
     ],
     "nestorcaalsuc": [
+        "https://nestorcaalsuc.users.earthengine.app/view/eta-e-iota-en-alta-verapaz",
         "https://nestorcaalsuc.users.earthengine.app/view/dawi2021",
         "https://nestorcaalsuc.users.earthengine.app/view/inundaciones-europa",
         "https://nestorcaalsuc.users.earthengine.app/view/monitoreo-volcan-pacaya"

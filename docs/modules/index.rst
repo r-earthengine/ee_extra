@@ -15,6 +15,7 @@ Welcome to the eeExtra API Reference!
    Spectral
    STAC
    TimeSeries
+   Algorithms
    
 Extra.Image
 -----------
@@ -68,6 +69,23 @@ Extra.QA
 
    preprocess
 
+.. currentmodule:: ee_extra.QA.metrics
+
+.. autosummary::
+
+   listMetrics
+   getMetrics
+   MSE
+   RMSE
+   RASE
+   ERGAS
+   DIV
+   bias
+   CC
+   CML
+   CMC
+   UIQI
+
 Extra.Spectral
 --------------
 
@@ -104,3 +122,23 @@ Extra.TimeSeries
 
    getTimeSeriesByRegion
    getTimeSeriesByRegions
+
+Extra.Algorithms
+----------------
+
+.. currentmodule:: ee_extra.Algorithms.core
+
+.. autosummary::
+
+   panSharpen
+
+.. currentmodule:: ee_extra.Algorithms.panSharpening
+
+.. autosummary::
+
+   listSharpeners
+   getSharpener
+   SFIM
+   HPFA
+   PCS
+   SM

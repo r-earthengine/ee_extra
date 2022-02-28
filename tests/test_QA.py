@@ -29,8 +29,5 @@ class Test(unittest.TestCase):
         modified = ee.Image("LANDSAT/LC08/C01/T1_TOA/LC08_047027_20160819")
 
         for metric in metrics:
-            if metric is ERGAS:
-                value = metric(img, modified, h=30, l=30)
-            else:
-                value = metric(img, modified)
+            value = metric(img, modified)
             self.assertIsInstance(value, (ee.Number, ee.Dictionary))

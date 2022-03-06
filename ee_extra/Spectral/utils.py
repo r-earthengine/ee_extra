@@ -37,6 +37,9 @@ def _get_expression_map(img: ee.Image, platformDict: dict) -> dict:
             "WV": img.select("B9"),
             "S1": img.select("B11"),
             "S2": img.select("B12"),
+            "lambdaG": 559.8,
+            "lambdaR": 664.6,
+            "lambdaN": 832.8,
         }
 
     def lookupL8(img):
@@ -50,6 +53,9 @@ def _get_expression_map(img: ee.Image, platformDict: dict) -> dict:
             "S2": img.select("B7"),
             "T1": img.select("B10"),
             "T2": img.select("B11"),
+            "lambdaG": 560.0,
+            "lambdaR": 655.0,
+            "lambdaN": 865.0,
         }
 
     def lookupL8C2(img):
@@ -62,9 +68,12 @@ def _get_expression_map(img: ee.Image, platformDict: dict) -> dict:
             "S1": img.select("SR_B6"),
             "S2": img.select("SR_B7"),
             "T1": img.select("ST_B10"),
+            "lambdaG": 560.0,
+            "lambdaR": 655.0,
+            "lambdaN": 865.0,
         }
 
-    def lookupL457(img):
+    def lookupL45(img):
         return {
             "B": img.select("B1"),
             "G": img.select("B2"),
@@ -73,9 +82,12 @@ def _get_expression_map(img: ee.Image, platformDict: dict) -> dict:
             "S1": img.select("B5"),
             "T1": img.select("B6"),
             "S2": img.select("B7"),
+            "lambdaG": 560.0,
+            "lambdaR": 660.0,
+            "lambdaN": 830.0,
         }
 
-    def lookupL457C2(img):
+    def lookupL45C2(img):
         return {
             "B": img.select("SR_B1"),
             "G": img.select("SR_B2"),
@@ -84,10 +96,46 @@ def _get_expression_map(img: ee.Image, platformDict: dict) -> dict:
             "S1": img.select("SR_B5"),
             "T1": img.select("ST_B6"),
             "S2": img.select("SR_B7"),
+            "lambdaG": 560.0,
+            "lambdaR": 660.0,
+            "lambdaN": 830.0,
+        }
+
+    def lookupL7(img):
+        return {
+            "B": img.select("B1"),
+            "G": img.select("B2"),
+            "R": img.select("B3"),
+            "N": img.select("B4"),
+            "S1": img.select("B5"),
+            "T1": img.select("B6"),
+            "S2": img.select("B7"),
+            "lambdaG": 560.0,
+            "lambdaR": 660.0,
+            "lambdaN": 835.0,
+        }
+
+    def lookupL7C2(img):
+        return {
+            "B": img.select("SR_B1"),
+            "G": img.select("SR_B2"),
+            "R": img.select("SR_B3"),
+            "N": img.select("SR_B4"),
+            "S1": img.select("SR_B5"),
+            "T1": img.select("ST_B6"),
+            "S2": img.select("SR_B7"),
+            "lambdaG": 560.0,
+            "lambdaR": 660.0,
+            "lambdaN": 835.0,
         }
 
     def lookupMOD09GQ(img):
-        return {"R": img.select("sur_refl_b01"), "N": img.select("sur_refl_b02")}
+        return {
+            "R": img.select("sur_refl_b01"),
+            "N": img.select("sur_refl_b02"),
+            "lambdaR": 645.0,
+            "lambdaN": 858.5,
+        }
 
     def lookupMOD09GA(img):
         return {
@@ -97,6 +145,9 @@ def _get_expression_map(img: ee.Image, platformDict: dict) -> dict:
             "N": img.select("sur_refl_b02"),
             "S1": img.select("sur_refl_b06"),
             "S2": img.select("sur_refl_b07"),
+            "lambdaG": 555.0,
+            "lambdaR": 645.0,
+            "lambdaN": 858.5,
         }
 
     def lookupMCD43A4(img):
@@ -107,6 +158,9 @@ def _get_expression_map(img: ee.Image, platformDict: dict) -> dict:
             "N": img.select("Nadir_Reflectance_Band2"),
             "S1": img.select("Nadir_Reflectance_Band6"),
             "S2": img.select("Nadir_Reflectance_Band7"),
+            "lambdaG": 555.0,
+            "lambdaR": 645.0,
+            "lambdaN": 858.5,
         }
 
     lookupPlatform = {
@@ -115,15 +169,15 @@ def _get_expression_map(img: ee.Image, platformDict: dict) -> dict:
         "LANDSAT/LC08/C01/T1_SR": lookupL8,
         "LANDSAT/LC08/C01/T2_SR": lookupL8,
         "LANDSAT/LC08/C02/T1_L2": lookupL8C2,
-        "LANDSAT/LE07/C01/T1_SR": lookupL457,
-        "LANDSAT/LE07/C01/T2_SR": lookupL457,
-        "LANDSAT/LE07/C02/T1_L2": lookupL457C2,
-        "LANDSAT/LT05/C01/T1_SR": lookupL457,
-        "LANDSAT/LT05/C01/T2_SR": lookupL457,
-        "LANDSAT/LT05/C02/T1_L2": lookupL457C2,
-        "LANDSAT/LT04/C01/T1_SR": lookupL457,
-        "LANDSAT/LT04/C01/T2_SR": lookupL457,
-        "LANDSAT/LT04/C02/T1_L2": lookupL457C2,
+        "LANDSAT/LE07/C01/T1_SR": lookupL7,
+        "LANDSAT/LE07/C01/T2_SR": lookupL7,
+        "LANDSAT/LE07/C02/T1_L2": lookupL7C2,
+        "LANDSAT/LT05/C01/T1_SR": lookupL45,
+        "LANDSAT/LT05/C01/T2_SR": lookupL45,
+        "LANDSAT/LT05/C02/T1_L2": lookupL45C2,
+        "LANDSAT/LT04/C01/T1_SR": lookupL45,
+        "LANDSAT/LT04/C01/T2_SR": lookupL45,
+        "LANDSAT/LT04/C02/T1_L2": lookupL45C2,
         "MODIS/006/MOD09GQ": lookupMOD09GQ,
         "MODIS/006/MYD09GQ": lookupMOD09GQ,
         "MODIS/006/MOD09GA": lookupMOD09GA,

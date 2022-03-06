@@ -32,6 +32,7 @@ def spectralIndices(
     intercept: Union[float, int] = 0.0,
     gamma: Union[float, int] = 1.0,
     omega: Union[float, int] = 2.0,
+    k: Union[float, int] = 0.0,
     kernel: str = "RBF",
     sigma: Union[float, str] = "0.5 * (a + b)",
     p: Union[float, int] = 2,
@@ -58,6 +59,7 @@ def spectralIndices(
             'WDVI'].
         gamma : Weighting coefficient used for ARVI.
         omega : Weighting coefficient used for MBWI.
+        k :  Slope parameter by soil used for NIRvH2.
         kernel : Kernel used for kernel indices. One of 'linear', 'RBF', 'poly'.
         sigma : Length-scale parameter. Used for kernel = 'RBF'. If str, this must be an
             expression including 'a' and 'b'. If numeric, this must be positive.
@@ -103,6 +105,7 @@ def spectralIndices(
         "slb": float(intercept),
         "gamma": float(gamma),
         "omega": float(omega),
+        "k": float(k),
         "p": float(p),
         "c": float(c),
     }

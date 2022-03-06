@@ -23,7 +23,7 @@ copyright = "2021, Cesar Aybar and David Montero Loaiza"
 author = "Cesar Aybar and David Montero Loaiza"
 
 # The full version, including alpha/beta/rc tags
-release = "0.0.11"
+release = "0.0.12"
 
 # -- General configuration ---------------------------------------------------
 

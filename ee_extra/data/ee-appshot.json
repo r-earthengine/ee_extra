@@ -731,6 +731,7 @@
     ],
     "aykanbayram": [
         "https://aykanbayram.users.earthengine.app/view/cilekli-lis",
+        "https://aykanbayram.users.earthengine.app/view/ndvianaliz",
         "https://aykanbayram.users.earthengine.app/view/tez",
         "https://aykanbayram.users.earthengine.app/view/cilekli-lis"
     ],
@@ -1139,6 +1140,7 @@
         "https://danielhirst1998.users.earthengine.app/view/thermal-variance-poc"
     ],
     "daniellookorox": [
+        "https://daniellookorox.users.earthengine.app/view/transparncia-da-gua-brasil",
         "https://daniellookorox.users.earthengine.app/view/waterclaritybrazil",
         "https://daniellookorox.users.earthengine.app/view/waterclaritybrazilianwaters"
     ],
@@ -1506,6 +1508,7 @@
     "ermaure": [
         "https://ermaure.users.earthengine.app/view/eutrophication",
         "https://ermaure.users.earthengine.app/view/globaleutrophicationinspector",
+        "https://ermaure.users.earthengine.app/view/mountain-slope",
         "https://ermaure.users.earthengine.app/view/my-ocean"
     ],
     "erollero": [
@@ -1995,6 +1998,7 @@
     "giswqs": [
         "https://giswqs.users.earthengine.app/view/about-me-qiusheng-wu-phd",
         "https://giswqs.users.earthengine.app/view/basemap-styles",
+        "https://giswqs.users.earthengine.app/view/global-land-cover",
         "https://giswqs.users.earthengine.app/view/naip-imagery-comparison",
         "https://giswqs.users.earthengine.app/view/naip-imagery-viewer",
         "https://giswqs.users.earthengine.app/view/nlcd-land-cover-change",
@@ -2265,8 +2269,7 @@
         "https://honoriosanchezjacin.users.earthengine.app/view/rf-svm"
     ],
     "huyquangp10": [
-        "https://huyquangp10.users.earthengine.app/view/hdktks",
-        "https://huyquangp10.users.earthengine.app/view/tong-hop"
+        "https://huyquangp10.users.earthengine.app/view/hdktks"
     ],
     "hydrosolutions": [
         "https://hydrosolutions.users.earthengine.app/view/cropmapper-ferghana",
@@ -2368,7 +2371,8 @@
     ],
     "jackreid": [
         "https://jackreid.users.earthengine.app/view/jackreidghana",
-        "https://jackreid.users.earthengine.app/view/jackreidrio"
+        "https://jackreid.users.earthengine.app/view/jackreidrio",
+        "https://jackreid.users.earthengine.app/view/madagascarjan-febcycloneroads"
     ],
     "jackrobison": [
         "https://jackrobison.users.earthengine.app/view/no2-map",
@@ -3527,6 +3531,7 @@
         "https://ollielballinger.users.earthengine.app/view/bellingcat-radar-interference-tracker",
         "https://ollielballinger.users.earthengine.app/view/ism",
         "https://ollielballinger.users.earthengine.app/view/populated-area-voteshares",
+        "https://ollielballinger.users.earthengine.app/view/ukraineconflictmonitor",
         "https://ollielballinger.users.earthengine.app/view/basra-oil",
         "https://ollielballinger.users.earthengine.app/view/beirut",
         "https://ollielballinger.users.earthengine.app/view/populated-area-voteshares",
@@ -4687,6 +4692,7 @@
         "https://wallacesilva.users.earthengine.app/view/firefrequence",
         "https://wallacesilva.users.earthengine.app/view/focos-de-calor-distrito-federal",
         "https://wallacesilva.users.earthengine.app/view/geotiff-png-mapbiomas-gt-solos",
+        "https://wallacesilva.users.earthengine.app/view/ipam-toolkit-zoneamento-acre-jarlene-gomes",
         "https://wallacesilva.users.earthengine.app/view/mapas-mapbiomas-fogo-coleao-1",
         "https://wallacesilva.users.earthengine.app/view/mapbiomas-fogo-beta",
         "https://wallacesilva.users.earthengine.app/view/mapbiomas-mapmachine",

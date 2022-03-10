@@ -12,7 +12,13 @@ ImageLike = TypeVar("ImageLike", ee.Image, ee.ImageCollection)
 
 L7_BANDS = {"sharpenable": ["B1", "B2", "B3", "B4", "B5", "B7"], "pan": "B8"}
 L8_BANDS = {"sharpenable": ["B2", "B3", "B4", "B5", "B6", "B7"], "pan": "B8"}
+L9_BANDS = L8_BANDS
+
 PLATFORM_BANDS = {
+    "LANDSAT/LC09/C02/T1_TOA": L9_BANDS,
+    "LANDSAT/LC09/C02/T1_RT": L9_BANDS,
+    "LANDSAT/LC09/C02/T1": L9_BANDS,
+    "LANDSAT/LC09/C02/T1_RT_TOA": L9_BANDS,
     "LANDSAT/LC08/C01/T1_TOA": L8_BANDS,
     "LANDSAT/LC08/C01/T1_RT_TOA": L8_BANDS,
     "LANDSAT/LC08/C01/T2_TOA": L8_BANDS,

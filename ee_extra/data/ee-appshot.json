@@ -459,6 +459,7 @@
     ],
     "alejandromarambio": [
         "https://alejandromarambio.users.earthengine.app/view/deforestacion-2000-2018",
+        "https://alejandromarambio.users.earthengine.app/view/mauc",
         "https://alejandromarambio.users.earthengine.app/view/poert-ssc"
     ],
     "alemlakes": [
@@ -621,7 +622,8 @@
         "https://arjenhaag.users.earthengine.app/view/esa-ww-swd-rr",
         "https://arjenhaag.users.earthengine.app/view/landsat-surface-water",
         "https://arjenhaag.users.earthengine.app/view/nederland-in-de-sneeuw",
-        "https://arjenhaag.users.earthengine.app/view/parterra"
+        "https://arjenhaag.users.earthengine.app/view/parterra",
+        "https://arjenhaag.users.earthengine.app/view/wateroverlast-nl-wbd"
     ],
     "ark1kh": [
         "https://ark1kh.users.earthengine.app/view/indus-delta-mangrove-extent",
@@ -1050,6 +1052,7 @@
     "claumao": [
         "https://claumao.users.earthengine.app/view/altimetria",
         "https://claumao.users.earthengine.app/view/cheia-manaus-2021-sentinel1",
+        "https://claumao.users.earthengine.app/view/cidu",
         "https://claumao.users.earthengine.app/view/ndvimilhosentinel2"
     ],
     "climatehorizons": [
@@ -1077,6 +1080,7 @@
     ],
     "coscher510": [
         "https://coscher510.users.earthengine.app/view/gazabombing",
+        "https://coscher510.users.earthengine.app/view/kyivconvoy",
         "https://coscher510.users.earthengine.app/view/gazabombing"
     ],
     "cowherd": [
@@ -1140,6 +1144,7 @@
         "https://danielhirst1998.users.earthengine.app/view/thermal-variance-poc"
     ],
     "daniellookorox": [
+        "https://daniellookorox.users.earthengine.app/view/global-cloud-frequency",
         "https://daniellookorox.users.earthengine.app/view/transparncia-da-gua-brasil",
         "https://daniellookorox.users.earthengine.app/view/waterclaritybrazil",
         "https://daniellookorox.users.earthengine.app/view/waterclaritybrazilianwaters"
@@ -1764,6 +1769,7 @@
         "https://franklinlmc.users.earthengine.app/view/modisregion",
         "https://franklinlmc.users.earthengine.app/view/mosaicomidagriplanet",
         "https://franklinlmc.users.earthengine.app/view/mosaicomidagriplanetv10",
+        "https://franklinlmc.users.earthengine.app/view/mosaicomidagriplanetv11",
         "https://franklinlmc.users.earthengine.app/view/mosaicomidagriplanetv2",
         "https://franklinlmc.users.earthengine.app/view/mosaicomidagriplanetv3",
         "https://franklinlmc.users.earthengine.app/view/mosaicomidagriplanetv4",
@@ -2699,8 +2705,8 @@
         "https://kabiruddinbd.users.earthengine.app/view/floodmappaper"
     ],
     "kadepasca100": [
-        "https://kadepasca100.users.earthengine.app/view/test1",
-        "https://kadepasca100.users.earthengine.app/view/ujicoba"
+        "https://kadepasca100.users.earthengine.app/view/banyuwangijagung",
+        "https://kadepasca100.users.earthengine.app/view/kaur"
     ],
     "kaihu": [
         "https://kaihu.users.earthengine.app/view/gmcal",
@@ -3225,6 +3231,7 @@
         "https://Mmodou.users.earthengine.app/view/parcw",
         "https://Mmodou.users.earthengine.app/view/ras4580",
         "https://Mmodou.users.earthengine.app/view/waterlacdeguiers",
+        "https://Mmodou.users.earthengine.app/view/wetlandscrns",
         "https://mmodou.users.earthengine.app/view/agristatisticsenegal2020"
     ],
     "moabbasmostafa": [
@@ -3373,6 +3380,8 @@
     ],
     "nestorcaalsuc": [
         "https://nestorcaalsuc.users.earthengine.app/view/eta-e-iota-en-alta-verapaz",
+        "https://nestorcaalsuc.users.earthengine.app/view/inundaciones-europa",
+        "https://nestorcaalsuc.users.earthengine.app/view/monitoreo-volcan-pacaya",
         "https://nestorcaalsuc.users.earthengine.app/view/dawi2021",
         "https://nestorcaalsuc.users.earthengine.app/view/inundaciones-europa",
         "https://nestorcaalsuc.users.earthengine.app/view/monitoreo-volcan-pacaya"
@@ -3694,6 +3703,7 @@
         "https://pmisson.users.earthengine.app/view/covid-19",
         "https://pmisson.users.earthengine.app/view/dmsp-viirs-comparison-tool",
         "https://pmisson.users.earthengine.app/view/la-palma-volcano",
+        "https://pmisson.users.earthengine.app/view/madrid-covid-19",
         "https://pmisson.users.earthengine.app/view/madrid-hotspots",
         "https://pmisson.users.earthengine.app/view/madridchrismas",
         "https://pmisson.users.earthengine.app/view/madridlight",
@@ -3807,7 +3817,8 @@
         "https://rauldeatcu99.users.earthengine.app/view/mobile-version",
         "https://rauldeatcu99.users.earthengine.app/view/my-final-app",
         "https://rauldeatcu99.users.earthengine.app/view/raul-deatcu---final-app",
-        "https://rauldeatcu99.users.earthengine.app/view/semantic-data-cube---raul-deatcu"
+        "https://rauldeatcu99.users.earthengine.app/view/semantic-data-cube---raul-deatcu",
+        "https://rauldeatcu99.users.earthengine.app/view/timeseriescursspatialanalysisrauldeatcu"
     ],
     "rayoly": [
         "https://rayoly.users.earthengine.app/view/un-sdg-1162",
@@ -4694,6 +4705,7 @@
         "https://wallacesilva.users.earthengine.app/view/geotiff-png-mapbiomas-gt-solos",
         "https://wallacesilva.users.earthengine.app/view/ipam-toolkit-zoneamento-acre-jarlene-gomes",
         "https://wallacesilva.users.earthengine.app/view/mapas-mapbiomas-fogo-coleao-1",
+        "https://wallacesilva.users.earthengine.app/view/mapbiomas-alerta-monitor-fiscalizao",
         "https://wallacesilva.users.earthengine.app/view/mapbiomas-fogo-beta",
         "https://wallacesilva.users.earthengine.app/view/mapbiomas-mapmachine",
         "https://wallacesilva.users.earthengine.app/view/merinocaimanpolcerto",

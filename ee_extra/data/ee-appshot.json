@@ -449,6 +449,8 @@
     ],
     "alannarebelo": [
         "https://alannarebelo.users.earthengine.app/view/housingapp",
+        "https://alannarebelo.users.earthengine.app/view/pecanclassification",
+        "https://alannarebelo.users.earthengine.app/view/pecanndvi",
         "https://alannarebelo.users.earthengine.app/view/tokai-lulc-demo",
         "https://alannarebelo.users.earthengine.app/view/umngeni-aliens",
         "https://alannarebelo.users.earthengine.app/view/tokai-lulc-demo"
@@ -1745,6 +1747,7 @@
         "https://franklinlmc.users.earthengine.app/view/asodegav2",
         "https://franklinlmc.users.earthengine.app/view/asodegav3",
         "https://franklinlmc.users.earthengine.app/view/asodegav4",
+        "https://franklinlmc.users.earthengine.app/view/atransitorios",
         "https://franklinlmc.users.earthengine.app/view/cuadrantesplanet",
         "https://franklinlmc.users.earthengine.app/view/cuadrantesplanetv1",
         "https://franklinlmc.users.earthengine.app/view/cuadrantesplanetv2",
@@ -1784,6 +1787,7 @@
         "https://franklinlmc.users.earthengine.app/view/sodega",
         "https://franklinlmc.users.earthengine.app/view/sodega10",
         "https://franklinlmc.users.earthengine.app/view/sodega20",
+        "https://franklinlmc.users.earthengine.app/view/sodegapraderas",
         "https://franklinlmc.users.earthengine.app/view/sodegav2",
         "https://franklinlmc.users.earthengine.app/view/tempminvsmax2020",
         "https://franklinlmc.users.earthengine.app/view/unidadfisica",
@@ -2543,6 +2547,7 @@
     ],
     "jodaurmu": [
         "https://jodaurmu.users.earthengine.app/view/amazoniavertical",
+        "https://jodaurmu.users.earthengine.app/view/bamboo-explorer",
         "https://jodaurmu.users.earthengine.app/view/forestexplorerconssesionv1",
         "https://jodaurmu.users.earthengine.app/view/ibc",
         "https://jodaurmu.users.earthengine.app/view/parque-manu",
@@ -3732,7 +3737,8 @@
         "https://prakhar.users.earthengine.app/view/nox-in-time-of-corona"
     ],
     "pramayudar": [
-        "https://pramayudar.users.earthengine.app/view/deforestation-apps"
+        "https://pramayudar.users.earthengine.app/view/deforestation-apps",
+        "https://pramayudar.users.earthengine.app/view/lahankritis"
     ],
     "pranavspandya": [
         "https://pranavspandya.users.earthengine.app/view/geo-intelligent-waste-management-for-pune-city",
@@ -4271,7 +4277,8 @@
         "https://shijuanchen32.users.earthengine.app/view/ccdc-sma-advanced",
         "https://shijuanchen32.users.earthengine.app/view/ccdc-sma-basic",
         "https://shijuanchen32.users.earthengine.app/view/ccdc-sma-ts",
-        "https://shijuanchen32.users.earthengine.app/view/forest-degradation-monitor"
+        "https://shijuanchen32.users.earthengine.app/view/forest-degradation-monitor",
+        "https://shijuanchen32.users.earthengine.app/view/forest-degradation-monitor-tropic"
     ],
     "shilosh": [
         "https://shilosh.users.earthengine.app/view/continuous-lst",

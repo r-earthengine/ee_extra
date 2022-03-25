@@ -226,6 +226,9 @@ def tasseledCap(
     supported platforms:
 
     * Sentinel-2 MSI Level 1C [1]_
+    * Landsat 9 OLI-2 SR [2]_
+    * Landsat 9 OLI-2 TOA [2]_
+    * Landsat 8 OLI SR [2]_
     * Landsat 8 OLI TOA [2]_
     * Landsat 7 ETM+ TOA [3]_
     * Landsat 5 TM Raw DN [4]_
@@ -245,9 +248,10 @@ def tasseledCap(
            Coefficients for Sentinel-2 MSI At-Sensor Reflectance Data. IEEE Journal
            of Selected Topics in Applied Earth Observations and Remote Sensing, 1–11.
            doi:10.1109/jstars.2019.2938388
-        .. [2] Baig, M.H.A., Zhang, L., Shuai, T. and Tong, Q., 2014. Derivation of a
-           tasselled cap transformation based on Landsat 8 at-satellite reflectance.
-           Remote Sensing Letters, 5(5), pp.423-431.
+        .. [2] Zhai, Y., Roy, D.P., Martins, V.S., Zhang, H.K., Yan, L., Li, Z. 2022.
+           Conterminous United States Landsat-8 top of atmosphere and surface reflectance
+           tasseled cap transformation coefficeints. Remote Sensing of Environment, 
+           274(2022). doi:10.1016/j.rse.2022.112992
         .. [3] Huang, C., Wylie, B., Yang, L., Homer, C. and Zylstra, G., 2002.
            Derivation of a tasselled cap transformation based on Landsat 7 at-satellite
            reflectance. International journal of remote sensing, 23(8), pp.1741-1748.
@@ -271,8 +275,8 @@ def tasseledCap(
         >>> img = ee.Image("LANDSAT/LT05/C01/T1/LT05_044034_20081011")
         >>> img = tasseledCap(img)
     """
-    platformDict = _get_platform_STAC(x)
-    coeffs = _get_tc_coefficients(platformDict)
+    platform = _get_platform_STAC(x)["platform"]
+    coeffs = _get_tc_coefficients(platform)
 
     def calculateAndAddComponents(img: ee.Image) -> ee.Image:
         """Calculates tasseled cap components for a single image and adds them as new bands."""

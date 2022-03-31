@@ -132,6 +132,7 @@
         "https://Dicroud.users.earthengine.app/view/tbwater"
     ],
     "Elnashar": [
+        "https://Elnashar.users.earthengine.app/view/etmapper",
         "https://Elnashar.users.earthengine.app/view/synthesizedet"
     ],
     "Erith7": [
@@ -389,10 +390,11 @@
         "https://ael2014.users.earthengine.app/view/sentinel-2-multispectral"
     ],
     "afotesfaye": [
-        "https://afotesfaye.users.earthengine.app/view/afeworkm",
-        "https://afotesfaye.users.earthengine.app/view/beforeafter",
-        "https://afotesfaye.users.earthengine.app/view/multiple-views-of-sentinel-2-imagery------afework-mekeberiaw",
-        "https://afotesfaye.users.earthengine.app/view/sidam-arbegon"
+        "https://afotesfaye.users.earthengine.app/view/awash-flood-extent",
+        "https://afotesfaye.users.earthengine.app/view/rllp",
+        "https://afotesfaye.users.earthengine.app/view/rllp1",
+        "https://afotesfaye.users.earthengine.app/view/rllpslmp",
+        "https://afotesfaye.users.earthengine.app/view/slmp-pdo-inspector"
     ],
     "ag": [
         "https://ag.users.earthengine.app/view/glaciertimelapse",
@@ -460,7 +462,9 @@
         "https://albertvillalobosgasca.users.earthengine.app/view/testerapp"
     ],
     "alejandromarambio": [
+        "https://alejandromarambio.users.earthengine.app/view/cambios17vs21",
         "https://alejandromarambio.users.earthengine.app/view/deforestacion-2000-2018",
+        "https://alejandromarambio.users.earthengine.app/view/manglar",
         "https://alejandromarambio.users.earthengine.app/view/mauc",
         "https://alejandromarambio.users.earthengine.app/view/poert-ssc"
     ],
@@ -1748,6 +1752,7 @@
         "https://franklinlmc.users.earthengine.app/view/asodegav3",
         "https://franklinlmc.users.earthengine.app/view/asodegav4",
         "https://franklinlmc.users.earthengine.app/view/atransitorios",
+        "https://franklinlmc.users.earthengine.app/view/atransitorios2",
         "https://franklinlmc.users.earthengine.app/view/cuadrantesplanet",
         "https://franklinlmc.users.earthengine.app/view/cuadrantesplanetv1",
         "https://franklinlmc.users.earthengine.app/view/cuadrantesplanetv2",
@@ -1764,6 +1769,7 @@
         "https://franklinlmc.users.earthengine.app/view/mapfishv1",
         "https://franklinlmc.users.earthengine.app/view/mapfishv3",
         "https://franklinlmc.users.earthengine.app/view/mapfishv4",
+        "https://franklinlmc.users.earthengine.app/view/mapfishv4anterior",
         "https://franklinlmc.users.earthengine.app/view/mapfishv4especie2",
         "https://franklinlmc.users.earthengine.app/view/mapfishv4especie3",
         "https://franklinlmc.users.earthengine.app/view/minagripastos",
@@ -1845,8 +1851,7 @@
     ],
     "gayanefaye": [
         "https://gayanefaye.users.earthengine.app/view/geologymap",
-        "https://gayanefaye.users.earthengine.app/view/inp-zone-rizicole",
-        "https://gayanefaye.users.earthengine.app/view/inpricemapping"
+        "https://gayanefaye.users.earthengine.app/view/inpricemap"
     ],
     "gdispiri": [
         "https://gdispiri.users.earthengine.app/view/geo281"
@@ -2049,6 +2054,7 @@
         "https://gustavoirgang.users.earthengine.app/view/argofrutaeto",
         "https://gustavoirgang.users.earthengine.app/view/bagosm",
         "https://gustavoirgang.users.earthengine.app/view/biomassasentinel-ndvi",
+        "https://gustavoirgang.users.earthengine.app/view/c12dlucasborelli",
         "https://gustavoirgang.users.earthengine.app/view/c12draimundononato01",
         "https://gustavoirgang.users.earthengine.app/view/campodorochuva",
         "https://gustavoirgang.users.earthengine.app/view/campodoroeto",
@@ -2499,12 +2505,6 @@
         "https://jhowarth.users.earthengine.app/view/lights-change-time-neighborhood",
         "https://jhowarth.users.earthengine.app/view/rgb-nighttime-lights"
     ],
-    "jirawatdaraneesrisuk": [
-        "https://jirawatdaraneesrisuk.users.earthengine.app/view/flood2019",
-        "https://jirawatdaraneesrisuk.users.earthengine.app/view/ndvi-map-thailand",
-        "https://jirawatdaraneesrisuk.users.earthengine.app/view/ndvigeeswu",
-        "https://jirawatdaraneesrisuk.users.earthengine.app/view/swuwaterarea"
-    ],
     "jjisasti": [
         "https://jjisasti.users.earthengine.app/view/riesgo-hidrico-y-sales-de-agosto",
         "https://jjisasti.users.earthengine.app/view/riesgo-hidrico-y-salino",
@@ -2740,10 +2740,14 @@
         "https://kamas72_ML_Zim_Cities.users.earthengine.app/view/bulawayo-rainy-s2--land-cover-2020a",
         "https://kamas72_ML_Zim_Cities.users.earthengine.app/view/bulawayo-rainy-season-land-cover-2020-app",
         "https://kamas72_ML_Zim_Cities.users.earthengine.app/view/bulawayo-rainy-season-s2-visualization-app",
+        "https://kamas72_ML_Zim_Cities.users.earthengine.app/view/chikwawafloodextentmapping2022",
         "https://kamas72_ML_Zim_Cities.users.earthengine.app/view/deforestation-in-ma",
         "https://kamas72_ML_Zim_Cities.users.earthengine.app/view/gweru-land-cover-map",
         "https://kamas72_ML_Zim_Cities.users.earthengine.app/view/mafungautsi-forest-agb-2021",
+        "https://kamas72_ML_Zim_Cities.users.earthengine.app/view/mafungautsi-forest-burn-severity-map-2021",
         "https://kamas72_ML_Zim_Cities.users.earthengine.app/view/mafungautsi-s2-and-estimated-agb-2021",
+        "https://kamas72_ML_Zim_Cities.users.earthengine.app/view/mashonaland-central-burn-severity-map-2021",
+        "https://kamas72_ML_Zim_Cities.users.earthengine.app/view/zimbabwe-burn-severity-map-2021",
         "https://kamas72_ML_Zim_Cities.users.earthengine.app/view/zimbabwe-land-cover-2020-draft"
     ],
     "kamielverhelst": [
@@ -3256,6 +3260,7 @@
         "https://mohfaisal181099.users.earthengine.app/view/monitoring-gas-no2-selama-covid-19",
         "https://mohfaisal181099.users.earthengine.app/view/monitoring-gas-so2-selama-covid-19",
         "https://mohfaisal181099.users.earthengine.app/view/monitoring-ozon-selama-covid-19",
+        "https://mohfaisal181099.users.earthengine.app/view/no2-dki-jakarta",
         "https://mohfaisal181099.users.earthengine.app/view/no2-rata-rata-sebelum-dan-saat-covid-19"
     ],
     "mohshafi16": [
@@ -4234,6 +4239,7 @@
         "https://servirbz.users.earthengine.app/view/tt-amanda-sentinel1-gt-2",
         "https://servirbz.users.earthengine.app/view/tt-amanda-sentinel1-sv-1",
         "https://servirbz.users.earthengine.app/view/tt-amanda-sentinel1-sv-2",
+        "https://servirbz.users.earthengine.app/view/visor-san-salvador-ps1",
         "https://servirbz.users.earthengine.app/view/bz-flooding-june2020-1",
         "https://servirbz.users.earthengine.app/view/bz-flooding-nov2020-1",
         "https://servirbz.users.earthengine.app/view/bz-flooding-nov2020-2",

@@ -305,7 +305,7 @@ def _get_kernel_parameters(
     return kernelParameters
 
 
-def _get_tc_coefficients(platformDict: dict) -> dict:
+def _get_tc_coefficients(platform: str) -> dict:
     """Gets the platform-specific coefficient dictionary required for tasseled cap
     transformation.
 
@@ -313,18 +313,8 @@ def _get_tc_coefficients(platformDict: dict) -> dict:
     specified by the reference literature that coefficients were sourced from, e.g.
     Landsat 8 SR cannot be transformed with Landsat 8 TOA coefficients.
 
-    Coefficients are provided for the following platforms:
-
-    * Sentinel-2 MSI Level 1C [1]_
-    * Landsat 8 OLI TOA [2]_
-    * Landsat 7 ETM+ TOA [3]_
-    * Landsat 5 TM Raw DN [4]_
-    * Landsat 4 TM Raw DN [5]_
-    * Landsat 4 TM Surface Reflectance [6]_
-    * MODIS NBAR [7]_
-
     Args:
-        platformDict : Dictionary retrieved from the _get_STAC_platform() method.
+        platform : Platform name retrieved from the STAC.
 
     Returns:
         Map dictionary with band names and corresponding coefficients for brightness
@@ -332,30 +322,6 @@ def _get_tc_coefficients(platformDict: dict) -> dict:
 
     Raises:
         Exception : If the platform has no supported coefficients.
-
-    References:
-        .. [1] Shi, T., & Xu, H. (2019). Derivation of Tasseled Cap Transformation
-           Coefficients for Sentinel-2 MSI At-Sensor Reflectance Data. IEEE Journal
-           of Selected Topics in Applied Earth Observations and Remote Sensing, 1–11.
-           doi:10.1109/jstars.2019.2938388
-        .. [2] Baig, M.H.A., Zhang, L., Shuai, T. and Tong, Q., 2014. Derivation of a
-           tasselled cap transformation based on Landsat 8 at-satellite reflectance.
-           Remote Sensing Letters, 5(5), pp.423-431.
-        .. [3] Huang, C., Wylie, B., Yang, L., Homer, C. and Zylstra, G., 2002.
-           Derivation of a tasselled cap transformation based on Landsat 7 at-satellite
-           reflectance. International journal of remote sensing, 23(8), pp.1741-1748.
-        .. [4] Crist, E.P., Laurin, R. and Cicone, R.C., 1986, September. Vegetation and
-           soils information contained in transformed Thematic Mapper data. In
-           Proceedings of IGARSS’86 symposium (pp. 1465-1470). Paris: European Space
-           Agency Publications Division.
-        .. [5] Crist, E.P. and Cicone, R.C., 1984. A physically-based transformation of
-           Thematic Mapper data---The TM Tasseled Cap. IEEE Transactions on Geoscience
-           and Remote sensing, (3), pp.256-263.
-        .. [6] Crist, E.P., 1985. A TM tasseled cap equivalent transformation for
-           reflectance factor data. Remote sensing of Environment, 17(3), pp.301-306.
-        .. [7] Lobser, S.E. and Cohen, W.B., 2007. MODIS tasselled cap: land cover
-           characteristics expressed through transformed MODIS data. International
-           Journal of Remote Sensing, 28(22), pp.5079-5101.
     """
 
     SENTINEL2_1C = {
@@ -421,12 +387,29 @@ def _get_tc_coefficients(platformDict: dict) -> dict:
         ),
     }
 
-    LANDSAT8_TOA = {
-        "bands": ("B2", "B3", "B4", "B5", "B6", "B7"),
-        "TCB": (0.3029, 0.2786, 0.4733, 0.5599, 0.5080, 0.1872),
-        "TCG": (-0.2941, -0.2430, -0.5424, 0.7276, 0.0713, -0.1608),
-        "TCW": (0.1511, 0.1973, 0.3283, 0.3407, -0.7117, -0.4559),
+    # Zhai et al. 2022 also provide coefficients with the blue band, but
+    # recommend omitting it due to difficulties in atmospheric correction.
+    LANDSAT8_SR = {
+        "bands": ("SR_B3", "SR_B4", "SR_B5", "SR_B6", "SR_B7"),
+        "TCB": (0.4596, 0.5046, 0.5458, 0.4114, 0.2589),
+        "TCG": (-0.3374, -0.4901, 0.7909, 0.0177, -0.1416),
+        "TCW": (0.2254, 0.3681, 0.2250, -0.6053, -0.6298)
     }
+
+    # Zhai et al. 2022 coefficients were included for L8 TOA over the Baig 
+    # et al. 2014 coefficients for consistency with the L8 SR coefficients, 
+    # which were not calculated by Baig et al.
+    LANDSAT8_TOA = {
+        "bands": ("B3", "B4", "B5", "B6", "B7"),
+        "TCB": (0.4321, 0.4971, 0.5695, 0.4192, 0.2569),
+        "TCG": (-0.3318, -0.4844, 0.7856, -0.0331, -0.1923),
+        "TCW": (0.2633, 0.3945, 0.1801, -0.6121, -0.6066)
+    }
+
+    # Coefficients for Landsat 8 OLI are usable for Landsat 9 OLI-2, per
+    # Zhai et al. 2022
+    LANDSAT9_SR = LANDSAT8_SR
+    LANDSAT9_TOA = LANDSAT8_TOA
 
     LANDSAT7_TOA = {
         "bands": ("B1", "B2", "B3", "B4", "B5", "B7"),
@@ -474,6 +457,10 @@ def _get_tc_coefficients(platformDict: dict) -> dict:
     platformCoeffs = {
         "COPERNICUS/S2": SENTINEL2_1C,
         "MODIS/006/MCD43A4": MODIS_NBAR,
+        "LANDSAT/LC09/C02/T1_L2": LANDSAT9_SR,
+        "LANDSAT/LC09/C02/T1_TOA": LANDSAT9_TOA,
+        "LANDSAT/LC08/C02/T1_L2": LANDSAT8_SR,
+        "LANDSAT/LC08/C02/T2_L2": LANDSAT8_SR,
         "LANDSAT/LC08/C01/T1_TOA": LANDSAT8_TOA,
         "LANDSAT/LC08/C01/T1_RT_TOA": LANDSAT8_TOA,
         "LANDSAT/LC08/C01/T2_TOA": LANDSAT8_TOA,
@@ -488,7 +475,6 @@ def _get_tc_coefficients(platformDict: dict) -> dict:
         "LANDSAT/LT04/C01/T2": LANDSAT4_DN,
     }
 
-    platform = platformDict["platform"]
 
     if platform not in list(platformCoeffs.keys()):
         raise Exception(

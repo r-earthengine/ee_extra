@@ -33,7 +33,7 @@ def _get_expression_map(img: ee.Image, platformDict: dict) -> dict:
             "RE2": img.select("B6"),
             "RE3": img.select("B7"),
             "N": img.select("B8"),
-            "RE4": img.select("B8A"),
+            "N2": img.select("B8A"),
             "WV": img.select("B9"),
             "S1": img.select("B11"),
             "S2": img.select("B12"),

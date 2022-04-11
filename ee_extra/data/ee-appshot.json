@@ -113,11 +113,9 @@
         "https://CartasSol.users.earthengine.app/view/viewlayerarida"
     ],
     "CharlieBettigole": [
-        "https://CharlieBettigole.users.earthengine.app/view/advanced032421",
-        "https://CharlieBettigole.users.earthengine.app/view/diamondcross",
         "https://CharlieBettigole.users.earthengine.app/view/snowfinder",
         "https://CharlieBettigole.users.earthengine.app/view/stratifi-beta-v21",
-        "https://CharlieBettigole.users.earthengine.app/view/stratifiwymtutcaoktxny"
+        "https://CharlieBettigole.users.earthengine.app/view/stratifi-global"
     ],
     "ChenyangWei": [
         "https://ChenyangWei.users.earthengine.app/view/global-elevational-transects",
@@ -392,11 +390,14 @@
     ],
     "afotesfaye": [
         "https://afotesfaye.users.earthengine.app/view/awash-flood-extent",
+        "https://afotesfaye.users.earthengine.app/view/ednaethanafework",
+        "https://afotesfaye.users.earthengine.app/view/ethanafo",
         "https://afotesfaye.users.earthengine.app/view/pdo23-tracker",
         "https://afotesfaye.users.earthengine.app/view/rllp",
         "https://afotesfaye.users.earthengine.app/view/rllp1",
         "https://afotesfaye.users.earthengine.app/view/rllpslmp",
-        "https://afotesfaye.users.earthengine.app/view/slmp-pdo-inspector"
+        "https://afotesfaye.users.earthengine.app/view/slmp-pdo-inspector",
+        "https://afotesfaye.users.earthengine.app/view/slmprllpethiopia2022"
     ],
     "ag": [
         "https://ag.users.earthengine.app/view/glaciertimelapse",
@@ -466,6 +467,7 @@
     "alejandromarambio": [
         "https://alejandromarambio.users.earthengine.app/view/barrancas",
         "https://alejandromarambio.users.earthengine.app/view/cambios17vs21",
+        "https://alejandromarambio.users.earthengine.app/view/capsusbid",
         "https://alejandromarambio.users.earthengine.app/view/deforestacion-2000-2018",
         "https://alejandromarambio.users.earthengine.app/view/manglar",
         "https://alejandromarambio.users.earthengine.app/view/mauc",
@@ -1221,6 +1223,7 @@
         "https://dededirgahayu11.users.earthengine.app/view/fasepadiv1",
         "https://dededirgahayu11.users.earthengine.app/view/fases1s2v1",
         "https://dededirgahayu11.users.earthengine.app/view/lcovers2",
+        "https://dededirgahayu11.users.earthengine.app/view/lcovers22020",
         "https://dededirgahayu11.users.earthengine.app/view/produktivitaschange",
         "https://dededirgahayu11.users.earthengine.app/view/provitas2",
         "https://dededirgahayu11.users.earthengine.app/view/provitasv1",
@@ -1569,7 +1572,8 @@
         "https://esavelye43.users.earthengine.app/view/test-temperature"
     ],
     "esrodrigo": [
-        "https://esrodrigo.users.earthengine.app/view/cambio-ndvi"
+        "https://esrodrigo.users.earthengine.app/view/cambio-ndvi",
+        "https://esrodrigo.users.earthengine.app/view/cambio-ndvi-espaa"
     ],
     "estimacionesmagyp": [
         "https://estimacionesmagyp.users.earthengine.app/view/cebollavbrc",
@@ -2059,7 +2063,6 @@
         "https://gustavoirgang.users.earthengine.app/view/argofrutaeto",
         "https://gustavoirgang.users.earthengine.app/view/bagosm",
         "https://gustavoirgang.users.earthengine.app/view/biomassasentinel-ndvi",
-        "https://gustavoirgang.users.earthengine.app/view/c12dlucasborelli",
         "https://gustavoirgang.users.earthengine.app/view/c12draimundononato01",
         "https://gustavoirgang.users.earthengine.app/view/campodorochuva",
         "https://gustavoirgang.users.earthengine.app/view/campodoroeto",
@@ -2125,6 +2128,7 @@
         "https://gustavoirgang.users.earthengine.app/view/jmmtmin",
         "https://gustavoirgang.users.earthengine.app/view/lanceiros",
         "https://gustavoirgang.users.earthengine.app/view/landsat-8-fenologia-biomassa",
+        "https://gustavoirgang.users.earthengine.app/view/lucas",
         "https://gustavoirgang.users.earthengine.app/view/mapbiomas",
         "https://gustavoirgang.users.earthengine.app/view/meteorologicobiomassa",
         "https://gustavoirgang.users.earthengine.app/view/meteorologicochuva",
@@ -2161,6 +2165,7 @@
         "https://gustavoirgang.users.earthengine.app/view/petrool",
         "https://gustavoirgang.users.earthengine.app/view/pomarteclandsat5toa19842011compare",
         "https://gustavoirgang.users.earthengine.app/view/pop-covid-19",
+        "https://gustavoirgang.users.earthengine.app/view/purus",
         "https://gustavoirgang.users.earthengine.app/view/radiacao-ondas-curtas",
         "https://gustavoirgang.users.earthengine.app/view/rancaguachuva",
         "https://gustavoirgang.users.earthengine.app/view/rancaguaclima",
@@ -2754,6 +2759,7 @@
         "https://kamas72_ML_Zim_Cities.users.earthengine.app/view/mafungautsi-forest-burn-severity-map-2021",
         "https://kamas72_ML_Zim_Cities.users.earthengine.app/view/mafungautsi-s2-and-estimated-agb-2021",
         "https://kamas72_ML_Zim_Cities.users.earthengine.app/view/mashonaland-central-burn-severity-map-2021",
+        "https://kamas72_ML_Zim_Cities.users.earthengine.app/view/npp---southern-africa",
         "https://kamas72_ML_Zim_Cities.users.earthengine.app/view/zimbabwe-burn-severity-map-2021",
         "https://kamas72_ML_Zim_Cities.users.earthengine.app/view/zimbabwe-land-cover-2020-draft"
     ],
@@ -2868,7 +2874,10 @@
         "https://lexisgis.users.earthengine.app/view/wetlandnigerdeltaapp"
     ],
     "lezanacd": [
-        "https://lezanacd.users.earthengine.app/view/fracrad2022amgr",
+        "https://lezanacd.users.earthengine.app/view/fracradamgr2022",
+        "https://lezanacd.users.earthengine.app/view/fracradrural",
+        "https://lezanacd.users.earthengine.app/view/fracradruraleschaco2022",
+        "https://lezanacd.users.earthengine.app/view/fracradv02",
         "https://lezanacd.users.earthengine.app/view/v1-pobl-2010-chaco",
         "https://lezanacd.users.earthengine.app/view/v2-pobl-2010-chaco"
     ],
@@ -2970,6 +2979,7 @@
         "https://luciovilla.users.earthengine.app/view/logging-roads-monitoring---rt-madre-de-dios",
         "https://luciovilla.users.earthengine.app/view/mining-monitoring-by-sar-sentinel-1",
         "https://luciovilla.users.earthengine.app/view/monitoring-amazon-fires",
+        "https://luciovilla.users.earthengine.app/view/sar-sentinel-1-amazonia",
         "https://luciovilla.users.earthengine.app/view/temporal-signature",
         "http://luciovilla.users.earthengine.app/view/monitorin",
         "https://luciovilla.users.earthengine.app/view/monitoring-amazon-fires"
@@ -2983,7 +2993,7 @@
         "https://luizcf14.users.earthengine.app/view/rasig"
     ],
     "luzhen0527": [
-        "https://luzhen0527.users.earthengine.app/view/waterflooding"
+        "https://luzhen0527.users.earthengine.app/view/esacoverlandchina"
     ],
     "lyyuwanly1": [
         "https://lyyuwanly1.users.earthengine.app/view/app-73"
@@ -3399,6 +3409,7 @@
     "nestorcaalsuc": [
         "https://nestorcaalsuc.users.earthengine.app/view/eta-e-iota-en-alta-verapaz",
         "https://nestorcaalsuc.users.earthengine.app/view/inundaciones-europa",
+        "https://nestorcaalsuc.users.earthengine.app/view/inundaciones-sica",
         "https://nestorcaalsuc.users.earthengine.app/view/monitoreo-volcan-pacaya",
         "https://nestorcaalsuc.users.earthengine.app/view/dawi2021",
         "https://nestorcaalsuc.users.earthengine.app/view/inundaciones-europa",
@@ -4061,6 +4072,7 @@
         "https://s5p_co_nederland.users.earthengine.app/view/no2covid19nl2w"
     ],
     "sabenz": [
+        "https://sabenz.users.earthengine.app/view/covid-ej",
         "https://sabenz.users.earthengine.app/view/surface-delta-t",
         "https://sabenz.users.earthengine.app/view/urbanheatusa",
         "https://sabenz.users.earthengine.app/view/surface-delta-t",
@@ -4200,6 +4212,7 @@
         "https://seiasia.users.earthengine.app/view/agriwater",
         "https://seiasia.users.earthengine.app/view/coastal-erosion",
         "https://seiasia.users.earthengine.app/view/dancingriverv2",
+        "https://seiasia.users.earthengine.app/view/drought-game-test",
         "https://seiasia.users.earthengine.app/view/droughtgame",
         "https://seiasia.users.earthengine.app/view/monthlymonitoringsystem",
         "https://seiasia.users.earthengine.app/view/sarseasonalmonitoringsystem",

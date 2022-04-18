@@ -397,7 +397,8 @@
         "https://afotesfaye.users.earthengine.app/view/rllp1",
         "https://afotesfaye.users.earthengine.app/view/rllpslmp",
         "https://afotesfaye.users.earthengine.app/view/slmp-pdo-inspector",
-        "https://afotesfaye.users.earthengine.app/view/slmprllpethiopia2022"
+        "https://afotesfaye.users.earthengine.app/view/slmprllpethiopia2022",
+        "https://afotesfaye.users.earthengine.app/view/slmprllpiethiopiapdo23tracker"
     ],
     "ag": [
         "https://ag.users.earthengine.app/view/glaciertimelapse",
@@ -1738,6 +1739,7 @@
         "https://francofrolla.users.earthengine.app/view/cuanto-pasto",
         "https://francofrolla.users.earthengine.app/view/explorador-sentinel-2---landsat-8---landsat-5",
         "https://francofrolla.users.earthengine.app/view/explorador-sentinel-2-landsat-8",
+        "https://francofrolla.users.earthengine.app/view/explorador-sentinel-2-landsat-8-landsat-5-2022",
         "https://francofrolla.users.earthengine.app/view/exploratosca"
     ],
     "franklinlmc": [
@@ -1769,6 +1771,7 @@
         "https://franklinlmc.users.earthengine.app/view/derramepetrolepperu",
         "https://franklinlmc.users.earthengine.app/view/desastres",
         "https://franklinlmc.users.earthengine.app/view/desastresv1",
+        "https://franklinlmc.users.earthengine.app/view/desastresv2",
         "https://franklinlmc.users.earthengine.app/view/eanalisisethel",
         "https://franklinlmc.users.earthengine.app/view/humedad",
         "https://franklinlmc.users.earthengine.app/view/map",
@@ -1917,6 +1920,7 @@
         "https://gena.users.earthengine.app/view/uzbekistan-dam-break",
         "https://gena.users.earthengine.app/view/water-africa",
         "https://gena.users.earthengine.app/view/water-watch",
+        "https://gena.users.earthengine.app/view/water-watch-validation",
         "https://gena.users.earthengine.app/view/corona-virus",
         "https://gena.users.earthengine.app/view/corona-virus-nl",
         "https://gena.users.earthengine.app/view/flood-2021-vancouver",
@@ -2714,7 +2718,8 @@
         "https://juliodavid961.users.earthengine.app/view/tropomisentinel5p"
     ],
     "kabasalaheddine": [
-        "https://kabasalaheddine.users.earthengine.app/view/app-test"
+        "https://kabasalaheddine.users.earthengine.app/view/app-test",
+        "https://kabasalaheddine.users.earthengine.app/view/eagle-ai--test2"
     ],
     "kabiruddinbd": [
         "https://kabiruddinbd.users.earthengine.app/view/determination-of-flooding-area",
@@ -2876,6 +2881,7 @@
     "lezanacd": [
         "https://lezanacd.users.earthengine.app/view/fracradamgr2022",
         "https://lezanacd.users.earthengine.app/view/fracradrural",
+        "https://lezanacd.users.earthengine.app/view/fracradrural2022v3",
         "https://lezanacd.users.earthengine.app/view/fracradruraleschaco2022",
         "https://lezanacd.users.earthengine.app/view/fracradv02",
         "https://lezanacd.users.earthengine.app/view/v1-pobl-2010-chaco",
@@ -2949,7 +2955,8 @@
     ],
     "lobanov": [
         "https://lobanov.users.earthengine.app/view/global-night-light-explorer-v2",
-        "https://lobanov.users.earthengine.app/view/global-night-time-explorer"
+        "https://lobanov.users.earthengine.app/view/global-night-time-explorer",
+        "https://lobanov.users.earthengine.app/view/night-loght-explorer"
     ],
     "loganmitchell": [
         "https://loganmitchell.users.earthengine.app/view/covid-19-and-air-quality-in-utah"
@@ -3535,6 +3542,7 @@
         "https://ogordienko112.users.earthengine.app/view/newrelief",
         "https://ogordienko112.users.earthengine.app/view/no2",
         "https://ogordienko112.users.earthengine.app/view/numbericebergtest",
+        "https://ogordienko112.users.earthengine.app/view/riverirpenapp",
         "https://ogordienko112.users.earthengine.app/view/seminargee2021",
         "https://ogordienko112.users.earthengine.app/view/sikorskiyndvi",
         "https://ogordienko112.users.earthengine.app/view/study-of-forest-cover-dynamics-monitoring-2021",

@@ -1591,7 +1591,6 @@
     ],
     "eutrophicationwatch": [
         "https://eutrophicationwatch.users.earthengine.app/view/global-eutrophication-watch",
-        "https://eutrophicationwatch.users.earthengine.app/view/globaleutrophication-watch",
         "https://eutrophicationwatch.users.earthengine.app/view/global-eutrophication-watch"
     ],
     "eva_nates": [
@@ -2817,7 +2816,8 @@
         "https://lezanacd.users.earthengine.app/view/fracradruraleschaco2022",
         "https://lezanacd.users.earthengine.app/view/fracradv02",
         "https://lezanacd.users.earthengine.app/view/v1-pobl-2010-chaco",
-        "https://lezanacd.users.earthengine.app/view/v2-pobl-2010-chaco"
+        "https://lezanacd.users.earthengine.app/view/v2-pobl-2010-chaco",
+        "https://lezanacd.users.earthengine.app/view/vivmunic-radio2022"
     ],
     "lfrmformacion": [
         "https://lfrmformacion.users.earthengine.app/view/ebro-floods-1516th-april-2018"
@@ -3647,7 +3647,6 @@
         "https://pjgelabert.users.earthengine.app/view/ndvi-l7-web",
         "https://pjgelabert.users.earthengine.app/view/ndvimodis",
         "https://pjgelabert.users.earthengine.app/view/pollution",
-        "https://pjgelabert.users.earthengine.app/view/sortida-camp-incendi",
         "https://pjgelabert.users.earthengine.app/view/pollution"
     ],
     "plewis": [
@@ -4194,6 +4193,7 @@
         "https://servirbz.users.earthengine.app/view/tt-amanda-sentinel1-gt-2",
         "https://servirbz.users.earthengine.app/view/tt-amanda-sentinel1-sv-1",
         "https://servirbz.users.earthengine.app/view/tt-amanda-sentinel1-sv-2",
+        "https://servirbz.users.earthengine.app/view/visor-antigua-gt-ps1",
         "https://servirbz.users.earthengine.app/view/visor-san-salvador-ps1",
         "https://servirbz.users.earthengine.app/view/bz-flooding-june2020-1",
         "https://servirbz.users.earthengine.app/view/bz-flooding-nov2020-1",

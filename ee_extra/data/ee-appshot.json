@@ -1972,6 +1972,19 @@
         "https://giswqs.users.earthengine.app/view/url-parameters-demo",
         "https://giswqs.users.earthengine.app/view/us-state-selector"
     ],
+    "glad": [
+        "https://glad.earthengine.app/view/forest-height-2000-2020",
+        "https://glad.earthengine.app/view/glcluc-2000-2020",
+        "https://glad.earthengine.app/view/global-cropland-dynamics",
+        "https://glad.earthengine.app/view/global-forest-canopy-height-2019",
+        "https://glad.earthengine.app/view/global-forest-change",
+        "https://glad.earthengine.app/view/global-forest-loss-due-to-fire",
+        "https://glad.earthengine.app/view/global-land-cover-land-use-v1",
+        "https://glad.earthengine.app/view/global-water-ice",
+        "https://glad.earthengine.app/view/s2-forest-alerts",
+        "https://glad.earthengine.app/view/south-america-soybean",
+        "https://glad.earthengine.app/view/surface-water-dynamics"
+    ],
     "glarrea": [
         "https://glarrea.users.earthengine.app/view/dbmineria",
         "https://glarrea.users.earthengine.app/view/futuremineria",

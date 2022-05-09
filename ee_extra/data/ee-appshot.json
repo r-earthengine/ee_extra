@@ -362,6 +362,9 @@
         "https://abocin.users.earthengine.app/view/foresthealth",
         "https://abocin.users.earthengine.app/view/water-quality"
     ],
+    "adamhastie50": [
+        "https://adamhastie50.users.earthengine.app/view/peatthicknessperuvianamazonia"
+    ],
     "addielloyd": [
         "https://addielloyd.users.earthengine.app/view/visualizing-changes-in-global-ndsi-snow-cover"
     ],
@@ -613,6 +616,9 @@
     "areebaseher04": [
         "https://areebaseher04.users.earthengine.app/view/classification",
         "https://areebaseher04.users.earthengine.app/view/fyp"
+    ],
+    "ariaesta": [
+        "https://ariaesta.users.earthengine.app/view/the-forest-visualizer"
     ],
     "arinnasution55": [
         "https://arinnasution55.users.earthengine.app/view/batang-natal-estuary-area-water-quality"
@@ -984,7 +990,23 @@
         "https://cartoscience.users.earthengine.app/view/when-and-where-does-it-freeze",
         "https://cartoscience.users.earthengine.app/view/where-is-agriculture",
         "https://cartoscience.users.earthengine.app/view/cloud-frequency",
-        "https://cartoscience.users.earthengine.app/view/crop-niche"
+        "https://cartoscience.users.earthengine.app/view/crop-niche",
+        "https://cartoscience.users.earthengine.app/view/cross-section",
+        "https://cartoscience.users.earthengine.app/view/fwdet-gee-mi",
+        "https://cartoscience.users.earthengine.app/view/gee-ted",
+        "https://cartoscience.users.earthengine.app/view/inverted-earth",
+        "https://cartoscience.users.earthengine.app/view/irrigation-malaria",
+        "https://cartoscience.users.earthengine.app/view/marginal-land",
+        "https://cartoscience.users.earthengine.app/view/maup",
+        "https://cartoscience.users.earthengine.app/view/maup-mapper-multi-scale-modis-ndvi",
+        "https://cartoscience.users.earthengine.app/view/outliers",
+        "https://cartoscience.users.earthengine.app/view/slope-design",
+        "https://cartoscience.users.earthengine.app/view/soil-and-elevation-profiler",
+        "https://cartoscience.users.earthengine.app/view/spectral-curve",
+        "https://cartoscience.users.earthengine.app/view/versions",
+        "https://cartoscience.users.earthengine.app/view/water-slider",
+        "https://cartoscience.users.earthengine.app/view/when-and-where-does-it-freeze",
+        "https://cartoscience.users.earthengine.app/view/where-is-agriculture"
     ],
     "caseyengstrom": [
         "https://caseyengstrom.users.earthengine.app/view/snow-algae-atlas",
@@ -2476,7 +2498,8 @@
         "https://jmalleswararao.users.earthengine.app/view/spatialdatacubenew"
     ],
     "jmleaglacio": [
-        "https://jmleaglacio.users.earthengine.app/view/polardemdifferencestoolvegu"
+        "https://jmleaglacio.users.earthengine.app/view/polardemdifferencestoolvegu",
+        "https://jmleaglacio.users.earthengine.app/view/greenland-glacier-change-mobile"
     ],
     "jnhird": [
         "https://jnhird.users.earthengine.app/view/abmiharvestarearegen2018"
@@ -2585,7 +2608,10 @@
         "https://jsilvan.users.earthengine.app/view/explorador-covid-19",
         "https://jsilvan.users.earthengine.app/view/indices-espectrales-globales",
         "https://jsilvan.users.earthengine.app/view/jrc-global-surface-water-mapping-layers-v12",
-        "https://jsilvan.users.earthengine.app/.../indices",
+        "https://jsilvan.users.earthengine.app/view/distribucin-potencial-de-fosas-clandestinas",
+        "https://jsilvan.users.earthengine.app/view/espacio-clandestino",
+        "https://jsilvan.users.earthengine.app/view/explorador-covid-19",
+        "https://jsilvan.users.earthengine.app/view/jrc-global-surface-water-mapping-layers-v12",
         "https://jsilvan.users.earthengine.app/view/indices-espectrales-globales"
     ],
     "jsilverio": [
@@ -2826,6 +2852,7 @@
         "https://lezanacd.users.earthengine.app/view/fracradamgr2022",
         "https://lezanacd.users.earthengine.app/view/fracradrural",
         "https://lezanacd.users.earthengine.app/view/fracradrural2022v3",
+        "https://lezanacd.users.earthengine.app/view/fracradrural2022v5",
         "https://lezanacd.users.earthengine.app/view/fracradruraleschaco2022",
         "https://lezanacd.users.earthengine.app/view/fracradv02",
         "https://lezanacd.users.earthengine.app/view/v1-pobl-2010-chaco",
@@ -2962,6 +2989,9 @@
     ],
     "maikolzaraza07": [
         "https://maikolzaraza07.users.earthengine.app/view/appamomap"
+    ],
+    "makeretaveitata": [
+        "https://makeretaveitata.users.earthengine.app/view/nov21tojan22so2"
     ],
     "malikaakash867": [
         "https://malikaakash867.users.earthengine.app/view/landusechange",
@@ -4227,9 +4257,16 @@
         "https://sgascoin.users.earthengine.app/view/sierra-nevada-snow-monitor",
         "https://sgascoin.users.earthengine.app/view/snow-cover-area-time-series",
         "https://sgascoin.users.earthengine.app/view/western-usa-snow-monitor",
+        "https://sgascoin.users.earthengine.app/view/alps-snow-monitor",
         "https://sgascoin.users.earthengine.app/view/global-no2-monitor",
+        "https://sgascoin.users.earthengine.app/view/high-atlas-snow-monitor",
+        "https://sgascoin.users.earthengine.app/view/neige-100-km",
         "https://sgascoin.users.earthengine.app/view/no2-time-series",
-        "https://sgascoin.users.earthengine.app/view/sierra-nevada-snow-monitor"
+        "https://sgascoin.users.earthengine.app/view/pyrenees-snow-monitor",
+        "https://sgascoin.users.earthengine.app/view/pyrenees-snow-monitor-anomaly",
+        "https://sgascoin.users.earthengine.app/view/sierra-nevada-snow-monitor",
+        "https://sgascoin.users.earthengine.app/view/snow-cover-area-time-series",
+        "https://sgascoin.users.earthengine.app/view/western-usa-snow-monitor"
     ],
     "sgkearthengine": [
         "https://sgkearthengine.users.earthengine.app/view/wsa"
@@ -4277,7 +4314,12 @@
         "https://Shree1175.users.earthengine.app/view/tnc-ca-treeinequality131",
         "https://Shree1175.users.earthengine.app/view/urbanforestatlast2016v25",
         "https://Shree1175.users.earthengine.app/view/usurbantreecover2016",
-        "https://shree1175.users.earthengine.app/.../tnc-ca"
+        "https://shree1175.users.earthengine.app/view/childsmeadowv21",
+        "https://shree1175.users.earthengine.app/view/monitoringsagehen",
+        "https://shree1175.users.earthengine.app/view/tnc-ca-closing-tree-inequality-cuti-212",
+        "https://shree1175.users.earthengine.app/view/tnc-ca-treeinequality131",
+        "https://shree1175.users.earthengine.app/view/urbanforestatlast2016v25",
+        "https://shree1175.users.earthengine.app/view/usurbantreecover2016"
     ],
     "shubhanu": [
         "https://shubhanu.users.earthengine.app/view/greengood-labs-flood-explorer",
@@ -4524,6 +4566,9 @@
         "https://tm0085.users.earthengine.app/view/elevation-inspector",
         "https://tm0085.users.earthengine.app/view/whatcom-county-explorer"
     ],
+    "tnc-cuti": [
+        "https://tnc-cuti.earthengine.app/view/tnc-ca-closing-urban-treeinequity"
+    ],
     "tomw_ee": [
         "https://tomw_ee.users.earthengine.app/view/populationdensity",
         "https://tomw_ee.users.earthengine.app/view/tigrayrefugeecamps"
@@ -4626,9 +4671,6 @@
         "https://usda-nass.users.earthengine.app/view/cdl-predictor-mobile",
         "https://usda-nass.users.earthengine.app/view/cdl-viewer",
         "https://usda-nass.users.earthengine.app/view/cropland-verdancy"
-    ],
-    "users.earthengine.app": [
-        "http://users.earthengine.app"
     ],
     "vaishnaviadhav31": [
         "https://vaishnaviadhav31.users.earthengine.app/view/day--night-lst",

@@ -251,6 +251,7 @@
         "https://NDVI_Masking_ex.users.earthengine.app/view/paddyricefieldincolombia"
     ],
     "NDVIchange": [
+        "https://NDVIchange.users.earthengine.app/view/land-cover-p-n-cerro-castillo-s2",
         "https://NDVIchange.users.earthengine.app/view/land-cover-p-n-la-campana",
         "https://NDVIchange.users.earthengine.app/view/land-cover-p-n-la-campana-s2",
         "https://NDVIchange.users.earthengine.app/view/land-cover-p-n-nahuelbuta-l8",
@@ -363,6 +364,7 @@
         "https://abocin.users.earthengine.app/view/water-quality"
     ],
     "adamhastie50": [
+        "https://adamhastie50.users.earthengine.app/view/peatthicknessperuvianamazonia",
         "https://adamhastie50.users.earthengine.app/view/peatthicknessperuvianamazonia"
     ],
     "addielloyd": [
@@ -1982,6 +1984,7 @@
         "https://giswqs.users.earthengine.app/view/global-land-cover",
         "https://giswqs.users.earthengine.app/view/naip-imagery-comparison",
         "https://giswqs.users.earthengine.app/view/naip-imagery-viewer",
+        "https://giswqs.users.earthengine.app/view/ned-depressions",
         "https://giswqs.users.earthengine.app/view/nlcd-land-cover-change",
         "https://giswqs.users.earthengine.app/view/pipestem-data-viewer",
         "https://giswqs.users.earthengine.app/view/url-parameters-demo",
@@ -2190,6 +2193,7 @@
         "https://hammadgilani.users.earthengine.app/view/time-series-graphsn02-and-absorbing-aerosol-index"
     ],
     "hareldunn": [
+        "https://hareldunn.users.earthengine.app/view/half-ass-high-pass-filter",
         "https://hareldunn.users.earthengine.app/view/mine-sign-detection",
         "https://hareldunn.users.earthengine.app/view/precipitation-sensitive-dynamic-threshold",
         "https://hareldunn.users.earthengine.app/view/sentinel-1-mt",
@@ -2734,6 +2738,7 @@
         "https://kamas72_ML_Zim_Cities.users.earthengine.app/view/mafungautsi-forest-burn-severity-map-2021",
         "https://kamas72_ML_Zim_Cities.users.earthengine.app/view/mafungautsi-s2-and-estimated-agb-2021",
         "https://kamas72_ML_Zim_Cities.users.earthengine.app/view/mashonaland-central-burn-severity-map-2021",
+        "https://kamas72_ML_Zim_Cities.users.earthengine.app/view/mavuradonha-woodland-cover-mapping-app",
         "https://kamas72_ML_Zim_Cities.users.earthengine.app/view/npp---southern-africa",
         "https://kamas72_ML_Zim_Cities.users.earthengine.app/view/zimbabwe-burn-severity-map-2021",
         "https://kamas72_ML_Zim_Cities.users.earthengine.app/view/zimbabwe-land-cover-2020-draft"
@@ -2871,8 +2876,7 @@
         "https://liezlvermeuln.users.earthengine.app/view/grazeengine"
     ],
     "liruonan02": [
-        "https://liruonan02.users.earthengine.app/view/demo",
-        "https://liruonan02.users.earthengine.app/view/demo2"
+        "https://liruonan02.users.earthengine.app/view/foresttypeclassification-v10"
     ],
     "listerkristineanne": [
         "https://listerkristineanne.users.earthengine.app/view/hansenlossandimagery",
@@ -2991,6 +2995,7 @@
         "https://maikolzaraza07.users.earthengine.app/view/appamomap"
     ],
     "makeretaveitata": [
+        "https://makeretaveitata.users.earthengine.app/view/nov21tojan22so2",
         "https://makeretaveitata.users.earthengine.app/view/nov21tojan22so2"
     ],
     "malikaakash867": [
@@ -3238,7 +3243,6 @@
         "https://Mmodou.users.earthengine.app/view/mangrovesenegalodd",
         "https://Mmodou.users.earthengine.app/view/oddturbidityapp",
         "https://Mmodou.users.earthengine.app/view/parcw",
-        "https://Mmodou.users.earthengine.app/view/ras4580",
         "https://Mmodou.users.earthengine.app/view/waterlacdeguiers",
         "https://Mmodou.users.earthengine.app/view/wetlandscrns",
         "https://mmodou.users.earthengine.app/view/agristatisticsenegal2020"
@@ -4068,7 +4072,6 @@
         "https://sachasiani.users.earthengine.app/view/esrivsesa"
     ],
     "sachinbobbili": [
-        "https://sachinbobbili.users.earthengine.app/view/app",
         "https://sachinbobbili.users.earthengine.app/view/srtmdownloader"
     ],
     "sadeckgeo": [
@@ -4918,7 +4921,9 @@
         "https://zoltansylvester.users.earthengine.app/view/mamore-bar-types"
     ],
     "zrahimi": [
-        "https://zrahimi.users.earthengine.app/view/new"
+        "https://zrahimi.users.earthengine.app/view/new",
+        "https://zrahimi.users.earthengine.app/view/riverice121",
+        "https://zrahimi.users.earthengine.app/view/s1s"
     ],
     "zwang": [
         "https://zwang.users.earthengine.app/view/geetutorials"

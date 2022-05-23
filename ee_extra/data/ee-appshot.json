@@ -191,6 +191,7 @@
         "https://Jyoti.users.earthengine.app/view/uhimapping"
     ],
     "KSA-GEE-2020-21": [
+        "https://KSA-GEE-2020-21.users.earthengine.app/view/kenya-sugarcane-maps",
         "https://KSA-GEE-2020-21.users.earthengine.app/view/midst-nrm",
         "https://KSA-GEE-2020-21.users.earthengine.app/view/midst-spatial-planning"
     ],
@@ -876,6 +877,7 @@
     "bryceberrett": [
         "https://bryceberrett.users.earthengine.app/view/contour-maker-nasadem-srtm",
         "https://bryceberrett.users.earthengine.app/view/evacuation-planning-app-tsunamis-1",
+        "https://bryceberrett.users.earthengine.app/view/evacuation-planning-app-tsunamis-11-beta",
         "https://bryceberrett.users.earthengine.app/view/saint-vincent-volcano-update-april-2021-eruption",
         "https://bryceberrett.users.earthengine.app/view/solomon-island-classification"
     ],
@@ -1549,7 +1551,6 @@
         "https://erikfao.users.earthengine.app/view/erik-rvf"
     ],
     "ermaure": [
-        "https://ermaure.users.earthengine.app/view/eutrophication",
         "https://ermaure.users.earthengine.app/view/globaleutrophicationinspector",
         "https://ermaure.users.earthengine.app/view/mountain-slope",
         "https://ermaure.users.earthengine.app/view/my-ocean"
@@ -1773,6 +1774,7 @@
         "https://frederickirchhoff.users.earthengine.app/view/waterbodyclassification"
     ],
     "fsn1995": [
+        "https://fsn1995.users.earthengine.app/view/iseeglacier",
         "https://fsn1995.users.earthengine.app/view/iseeglacier"
     ],
     "ftentor": [
@@ -2678,6 +2680,7 @@
         "https://juantorres-batllo.users.earthengine.app/view/barcelona-40",
         "https://juantorres-batllo.users.earthengine.app/view/barcelonapoint",
         "https://juantorres-batllo.users.earthengine.app/view/chirps-explorer-20",
+        "https://juantorres-batllo.users.earthengine.app/view/chirps-viewer-10",
         "https://juantorres-batllo.users.earthengine.app/view/explorador-de-chirps",
         "https://juantorres-batllo.users.earthengine.app/view/precipitation-trends",
         "https://juantorres-batllo.users.earthengine.app/view/rainfall-data-explorer-40",
@@ -3133,6 +3136,7 @@
     ],
     "mdm": [
         "https://mdm.users.earthengine.app/view/kerala-flood-2018",
+        "https://mdm.users.earthengine.app/view/open-natural-ecosystems",
         "https://mdm.users.earthengine.app/view/kerala-flood-2018"
     ],
     "mehtabsyed": [

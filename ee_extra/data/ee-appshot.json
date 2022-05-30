@@ -678,6 +678,7 @@
         "https://armkhudinyan.users.earthengine.app/view/arm-az-border",
         "https://armkhudinyan.users.earthengine.app/view/artsakhstrong",
         "https://armkhudinyan.users.earthengine.app/view/inter-tide",
+        "https://armkhudinyan.users.earthengine.app/view/inter-tide-dynamics",
         "https://armkhudinyan.users.earthengine.app/view/inter-tide2",
         "https://armkhudinyan.users.earthengine.app/view/modisaqua",
         "https://armkhudinyan.users.earthengine.app/view/nknewborder",
@@ -1634,7 +1635,7 @@
         "https://fakhrurrozi.users.earthengine.app/view/mangroveinspektor"
     ],
     "famambengue05": [
-        "https://famambengue05.users.earthengine.app/view/rooth"
+        "https://famambengue05.users.earthengine.app/view/nioro"
     ],
     "faocongo": [
         "https://faocongo.users.earthengine.app/view/cafi-classification",
@@ -1693,7 +1694,6 @@
     ],
     "felipellobo": [
         "https://felipellobo.users.earthengine.app/view/algaemapv10",
-        "https://felipellobo.users.earthengine.app/view/algaemapv11",
         "https://felipellobo.users.earthengine.app/view/algaemapv10"
     ],
     "fernandairokawa": [
@@ -1774,7 +1774,9 @@
         "https://frederickirchhoff.users.earthengine.app/view/waterbodyclassification"
     ],
     "fsn1995": [
+        "https://fsn1995.users.earthengine.app/view/albedoinspector",
         "https://fsn1995.users.earthengine.app/view/iseeglacier",
+        "https://fsn1995.users.earthengine.app/view/transectprofile",
         "https://fsn1995.users.earthengine.app/view/iseeglacier"
     ],
     "ftentor": [
@@ -2038,7 +2040,10 @@
         "https://gustavoirgang.users.earthengine.app/view/argofrutaeto",
         "https://gustavoirgang.users.earthengine.app/view/bagosm",
         "https://gustavoirgang.users.earthengine.app/view/biomassasentinel-ndvi",
+        "https://gustavoirgang.users.earthengine.app/view/c12dmanejo",
         "https://gustavoirgang.users.earthengine.app/view/c12draimundononato01",
+        "https://gustavoirgang.users.earthengine.app/view/c12dticaiaby",
+        "https://gustavoirgang.users.earthengine.app/view/c12dtimunduruku",
         "https://gustavoirgang.users.earthengine.app/view/campodorochuva",
         "https://gustavoirgang.users.earthengine.app/view/campodoroeto",
         "https://gustavoirgang.users.earthengine.app/view/chuva-anual-e-normal",
@@ -3243,6 +3248,7 @@
     ],
     "mmodou": [
         "https://Mmodou.users.earthengine.app/view/elocustservirwestafrica",
+        "https://Mmodou.users.earthengine.app/view/hoalsoilmoisture",
         "https://Mmodou.users.earthengine.app/view/locusts",
         "https://Mmodou.users.earthengine.app/view/mangrovesenegalodd",
         "https://Mmodou.users.earthengine.app/view/oddturbidityapp",

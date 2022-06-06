@@ -398,6 +398,7 @@
         "https://afotesfaye.users.earthengine.app/view/awash-flood-extent",
         "https://afotesfaye.users.earthengine.app/view/ednaethanafework",
         "https://afotesfaye.users.earthengine.app/view/ethanafo",
+        "https://afotesfaye.users.earthengine.app/view/landuse-ethiopia-afo",
         "https://afotesfaye.users.earthengine.app/view/pdo23-tracker",
         "https://afotesfaye.users.earthengine.app/view/rllp",
         "https://afotesfaye.users.earthengine.app/view/rllp1",
@@ -2041,6 +2042,7 @@
         "https://gustavoirgang.users.earthengine.app/view/bagosm",
         "https://gustavoirgang.users.earthengine.app/view/biomassasentinel-ndvi",
         "https://gustavoirgang.users.earthengine.app/view/c12dmanejo",
+        "https://gustavoirgang.users.earthengine.app/view/c12dmanejoserafim",
         "https://gustavoirgang.users.earthengine.app/view/c12draimundononato01",
         "https://gustavoirgang.users.earthengine.app/view/c12dticaiaby",
         "https://gustavoirgang.users.earthengine.app/view/c12dtimunduruku",
@@ -2535,6 +2537,7 @@
         "https://joaootavionf007.users.earthengine.app/view/regionbasedclassification"
     ],
     "joberthgambati": [
+        "https://joberthgambati.users.earthengine.app/view/dinamicalandsatsentinel",
         "https://joberthgambati.users.earthengine.app/view/mosaicgenerator"
     ],
     "jodaurmu": [
@@ -2747,6 +2750,7 @@
         "https://kamas72_ML_Zim_Cities.users.earthengine.app/view/mafungautsi-s2-and-estimated-agb-2021",
         "https://kamas72_ML_Zim_Cities.users.earthengine.app/view/mashonaland-central-burn-severity-map-2021",
         "https://kamas72_ML_Zim_Cities.users.earthengine.app/view/mavuradonha-woodland-cover-mapping-app",
+        "https://kamas72_ML_Zim_Cities.users.earthengine.app/view/ndssi-app",
         "https://kamas72_ML_Zim_Cities.users.earthengine.app/view/npp---southern-africa",
         "https://kamas72_ML_Zim_Cities.users.earthengine.app/view/zimbabwe-burn-severity-map-2021",
         "https://kamas72_ML_Zim_Cities.users.earthengine.app/view/zimbabwe-land-cover-2020-draft"
@@ -3363,6 +3367,7 @@
     ],
     "nandopando": [
         "https://nandopando.users.earthengine.app/view/aplicativocorales",
+        "https://nandopando.users.earthengine.app/view/bloquemorrosquillo",
         "https://nandopando.users.earthengine.app/view/bosqueantioquia",
         "https://nandopando.users.earthengine.app/view/bosques",
         "https://nandopando.users.earthengine.app/view/bosquesantioquia",
@@ -3517,6 +3522,7 @@
         "https://observatorionieves.users.earthengine.app/view/downloaddata",
         "https://observatorionieves.users.earthengine.app/view/estado-actual",
         "https://observatorionieves.users.earthengine.app/view/estado-actual-zona-central",
+        "https://observatorionieves.users.earthengine.app/view/merge-landsat-sentinel",
         "https://observatorionieves.users.earthengine.app/view/promedio-anual-ndsi",
         "https://observatorionieves.users.earthengine.app/view/promedio-ndsi-anual-landsat",
         "https://observatorionieves.users.earthengine.app/view/promedio-ndsi-anual-sentinel2",
@@ -3579,8 +3585,7 @@
     ],
     "ormserdar": [
         "https://ormserdar.users.earthengine.app/view/collectearthapp",
-        "https://ormserdar.users.earthengine.app/view/highmountain",
-        "https://ormserdar.users.earthengine.app/view/tandem"
+        "https://ormserdar.users.earthengine.app/view/highmountain"
     ],
     "owinoamolo": [
         "https://owinoamolo.users.earthengine.app/view/mykenyastrm"

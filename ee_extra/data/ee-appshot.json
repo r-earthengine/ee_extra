@@ -1274,6 +1274,7 @@
     ],
     "delaralfonso": [
         "https://delaralfonso.users.earthengine.app/view/agua-en-superficie",
+        "https://delaralfonso.users.earthengine.app/view/cambiourbano",
         "https://delaralfonso.users.earthengine.app/view/cba-agua-en-superficie",
         "https://delaralfonso.users.earthengine.app/view/wheat-trials-ndvi",
         "https://delaralfonso.users.earthengine.app/view/wheattrials-evi-modis"
@@ -3217,7 +3218,8 @@
         "https://mihzemva.users.earthengine.app/view/mod10a1-atlas",
         "https://mihzemva.users.earthengine.app/view/mod17a3t",
         "https://mihzemva.users.earthengine.app/view/sloveniamod13q1",
-        "https://mihzemva.users.earthengine.app/view/snowviirscaucasus"
+        "https://mihzemva.users.earthengine.app/view/snowviirscaucasus",
+        "https://mihzemva.users.earthengine.app/view/testing-chapala"
     ],
     "milad": [
         "https://milad.users.earthengine.app/view/covid19nl",
@@ -3653,6 +3655,7 @@
         "https://pbaldass.users.earthengine.app/view/transicionbosque-forestacionafarg"
     ],
     "pcrishi61": [
+        "https://pcrishi61.users.earthengine.app/view/localisheatmapbeta",
         "https://pcrishi61.users.earthengine.app/view/topographic-ops",
         "https://pcrishi61.users.earthengine.app/view/eco-regions-by-area",
         "https://pcrishi61.users.earthengine.app/view/global-above-and-below-biomass",
@@ -4144,6 +4147,7 @@
         "https://santhosh_m.users.earthengine.app/view/weighted-raster-overlay"
     ],
     "santiagobanchero": [
+        "https://santiagobanchero.users.earthengine.app/view/chaco-collection-3",
         "https://santiagobanchero.users.earthengine.app/view/rfzonasftv7"
     ],
     "santiagoduarte09": [

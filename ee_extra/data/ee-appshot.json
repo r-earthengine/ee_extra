@@ -395,7 +395,9 @@
         "https://ael2014.users.earthengine.app/view/sentinel-2-multispectral"
     ],
     "afotesfaye": [
+        "https://afotesfaye.users.earthengine.app/view/afoethiopialandcover10m",
         "https://afotesfaye.users.earthengine.app/view/awash-flood-extent",
+        "https://afotesfaye.users.earthengine.app/view/bariesrilulc",
         "https://afotesfaye.users.earthengine.app/view/ednaethanafework",
         "https://afotesfaye.users.earthengine.app/view/ethanafo",
         "https://afotesfaye.users.earthengine.app/view/landuse-ethiopia-afo",
@@ -643,6 +645,7 @@
         "https://arjenhaag.users.earthengine.app/view/cambodia-floods-october-2020---animations",
         "https://arjenhaag.users.earthengine.app/view/esa-ww-swd-rr",
         "https://arjenhaag.users.earthengine.app/view/landsat-surface-water",
+        "https://arjenhaag.users.earthengine.app/view/ndvi-west-africa",
         "https://arjenhaag.users.earthengine.app/view/nederland-in-de-sneeuw",
         "https://arjenhaag.users.earthengine.app/view/parterra",
         "https://arjenhaag.users.earthengine.app/view/wateroverlast-nl-wbd"
@@ -800,7 +803,9 @@
     ],
     "benardonyango16": [
         "https://benardonyango16.users.earthengine.app/view/floodapp",
-        "https://benardonyango16.users.earthengine.app/view/testing2"
+        "https://benardonyango16.users.earthengine.app/view/proscal",
+        "https://benardonyango16.users.earthengine.app/view/proscal2",
+        "https://benardonyango16.users.earthengine.app/view/testing3"
     ],
     "benitezrcamilo": [
         "https://benitezrcamilo.users.earthengine.app/view/clasificacin-pnsl",
@@ -1024,6 +1029,7 @@
         "https://ccarl017.users.earthengine.app/view/virginiatopography"
     ],
     "celiohelder": [
+        "https://celiohelder.users.earthengine.app/view/guineappv2",
         "https://celiohelder.users.earthengine.app/view/liberia-lcm-2000---2018"
     ],
     "ceratocaryum": [
@@ -1573,6 +1579,7 @@
         "https://erollero.users.earthengine.app/view/lstmodisnight1km",
         "https://erollero.users.earthengine.app/view/lulc-aciafcsa",
         "https://erollero.users.earthengine.app/view/lulc-esri-10-mts-geosur",
+        "https://erollero.users.earthengine.app/view/lulcxdeptoesa",
         "https://erollero.users.earthengine.app/view/mapa-ndvi-actual",
         "https://erollero.users.earthengine.app/view/mapa-ndvi-cordoba",
         "https://erollero.users.earthengine.app/view/mapa-ndvi-sta-fe",
@@ -1615,6 +1622,7 @@
         "https://estimacionesmagyp.users.earthengine.app/view/mapafinandvi"
     ],
     "etiennekras": [
+        "https://etiennekras.users.earthengine.app/view/jip-calm-depth-proxy-heat-map",
         "https://etiennekras.users.earthengine.app/view/ndvi-africa"
     ],
     "eutrophicationwatch": [
@@ -1706,6 +1714,7 @@
         "https://fernandotentor.users.earthengine.app/view/clasifapagri",
         "https://fernandotentor.users.earthengine.app/view/contadorfirms",
         "https://fernandotentor.users.earthengine.app/view/deltasplitfacundo",
+        "https://fernandotentor.users.earthengine.app/view/dynamic-world",
         "https://fernandotentor.users.earthengine.app/view/escuelas-er",
         "https://fernandotentor.users.earthengine.app/view/firms",
         "https://fernandotentor.users.earthengine.app/view/firmsbrasil",
@@ -2362,11 +2371,6 @@
         "https://iwankubus.users.earthengine.app/view/tryapp"
     ],
     "j9herrer": [
-        "https://j9herrer.users.earthengine.app/view/dashboard--no2-and-population-exposed-in-californias-counties",
-        "https://j9herrer.users.earthengine.app/view/fires-in-california-2020",
-        "https://j9herrer.users.earthengine.app/view/measuring-changes-in-land-cover-using-random-forest-classifier",
-        "https://j9herrer.users.earthengine.app/view/urban-spatial-structure-of-american-metropolitan-regions",
-        "https://j9herrer.users.earthengine.app/view/urban-spatial-structure-of-chinese-municipalities",
         "https://j9herrer.users.earthengine.app/view/annual-extremely-hot-days-in-los-angeles",
         "https://j9herrer.users.earthengine.app/view/annual-mean-temperature-anomalies-relative-to-2005",
         "https://j9herrer.users.earthengine.app/view/colombia-en-cuarentena-2019-2020",
@@ -3598,6 +3602,7 @@
         "https://oztasbaris12.users.earthengine.app/view/visualization"
     ],
     "palashbasak": [
+        "https://palashbasak.users.earthengine.app/view/bangladesh-lulc-2021",
         "https://palashbasak.users.earthengine.app/view/forestchangeaustralialga"
     ],
     "parevalo-bu": [
@@ -3736,6 +3741,7 @@
         "https://pmisson.users.earthengine.app/view/madridvideo",
         "https://pmisson.users.earthengine.app/view/malaga-granada-jaen",
         "https://pmisson.users.earthengine.app/view/trends",
+        "https://pmisson.users.earthengine.app/view/viirs-trends",
         "https://pmisson.users.earthengine.app/view/covid-19",
         "https://pmisson.users.earthengine.app/view/la-palma-volcano",
         "https://pmisson.users.earthengine.app/view/madrid-hotspots",
@@ -3744,6 +3750,7 @@
     ],
     "pornchai": [
         "https://pornchai.users.earthengine.app/view/event-monitor",
+        "https://pornchai.users.earthengine.app/view/sar-change-detection-for-navy",
         "https://pornchai.users.earthengine.app/view/thailandflood2015rgb",
         "https://pornchai.users.earthengine.app/view/thailandflood2015sar"
     ],
@@ -4565,6 +4572,7 @@
         "https://thao226355.users.earthengine.app/view/biendongrung",
         "https://thao226355.users.earthengine.app/view/caobang",
         "https://thao226355.users.earthengine.app/view/khubaotonmcc",
+        "https://thao226355.users.earthengine.app/view/lulc-10m",
         "https://thao226355.users.earthengine.app/view/qczwfgay80xytib",
         "https://thao226355.users.earthengine.app/view/taianh"
     ],

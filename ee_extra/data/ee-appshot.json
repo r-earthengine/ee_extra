@@ -932,8 +932,8 @@
         "https://bzgeo.users.earthengine.app/view/cam-fcover-modis",
         "https://bzgeo.users.earthengine.app/view/date-mcd43a4",
         "https://bzgeo.users.earthengine.app/view/gt-atitlan-viewer-s2",
-        "https://bzgeo.users.earthengine.app/view/gt-atitlan-viewer-s2-1",
         "https://bzgeo.users.earthengine.app/view/gt-peten-s1-multitemp",
+        "https://bzgeo.users.earthengine.app/view/mes-fcover-landsat",
         "https://bzgeo.users.earthengine.app/view/bz-forest-cover-modis-pt1",
         "https://bzgeo.users.earthengine.app/view/bz-s1-multitemp",
         "https://bzgeo.users.earthengine.app/view/bz-s1-multitemp-asc",
@@ -1573,6 +1573,7 @@
         "https://erollero.users.earthengine.app/view/burned-areas-chile",
         "https://erollero.users.earthengine.app/view/coberfinandvi",
         "https://erollero.users.earthengine.app/view/consistenciandvi",
+        "https://erollero.users.earthengine.app/view/dashboardslanduseesa",
         "https://erollero.users.earthengine.app/view/delegsegest",
         "https://erollero.users.earthengine.app/view/esavsesrilclu",
         "https://erollero.users.earthengine.app/view/laboulaye-g20-21",
@@ -2044,7 +2045,8 @@
         "https://gponce.users.earthengine.app/view/wgewneondataexplorer"
     ],
     "gregorygiuliani": [
-        "https://gregorygiuliani.users.earthengine.app/view/baringo"
+        "https://gregorygiuliani.users.earthengine.app/view/baringo",
+        "https://gregorygiuliani.users.earthengine.app/view/ukraine"
     ],
     "guisousalobo": [
         "https://guisousalobo.users.earthengine.app/view/ndvipvh"
@@ -3311,6 +3313,7 @@
     ],
     "mortezakhazaei1370": [
         "https://mortezakhazaei1370.users.earthengine.app/view/anzali-wetland",
+        "https://mortezakhazaei1370.users.earthengine.app/view/crop-pixel-canada",
         "https://mortezakhazaei1370.users.earthengine.app/view/horalazim-wetland"
     ],
     "moukomlasitthisak": [
@@ -3630,6 +3633,7 @@
         "https://pb463.users.earthengine.app/view/fipnee2020"
     ],
     "pbaldass": [
+        "https://pbaldass.users.earthengine.app/view/afcol2",
         "https://pbaldass.users.earthengine.app/view/aparlanicolasa",
         "https://pbaldass.users.earthengine.app/view/bosquesnativosuy",
         "https://pbaldass.users.earthengine.app/view/clasiflanicolasa",
@@ -4488,6 +4492,7 @@
     "stormwaterheatmap": [
         "https://stormwaterheatmap.users.earthengine.app/view/comparewatersheds",
         "https://stormwaterheatmap.users.earthengine.app/view/downloadlayers",
+        "https://stormwaterheatmap.users.earthengine.app/view/precipdisplay",
         "https://stormwaterheatmap.users.earthengine.app/view/singlewatershed",
         "https://stormwaterheatmap.users.earthengine.app/view/v1landing"
     ],
@@ -4593,10 +4598,6 @@
     "tirthankarchakraborty": [
         "https://tirthankarchakraborty.users.earthengine.app/view/pmexplorer",
         "https://tirthankarchakraborty.users.earthengine.app/view/uhiinspector"
-    ],
-    "tm0085": [
-        "https://tm0085.users.earthengine.app/view/elevation-inspector",
-        "https://tm0085.users.earthengine.app/view/whatcom-county-explorer"
     ],
     "tnc-cuti": [
         "https://tnc-cuti.earthengine.app/view/tnc-ca-closing-urban-treeinequity"

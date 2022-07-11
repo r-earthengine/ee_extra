@@ -738,7 +738,8 @@
     "atstahl": [
         "https://atstahl.users.earthengine.app/view/naipview",
         "https://atstahl.users.earthengine.app/view/sentinelview",
-        "https://atstahl.users.earthengine.app/view/viewlateseasoncoverchange"
+        "https://atstahl.users.earthengine.app/view/viewlateseasoncoverchange",
+        "https://atstahl.users.earthengine.app/view/vspchange2020-21"
     ],
     "aufaristama": [
         "https://aufaristama.users.earthengine.app/view/gee-landslide",
@@ -1324,6 +1325,7 @@
         "https://diegopons06.users.earthengine.app/view/incendioschacoseptiembre2020",
         "https://diegopons06.users.earthengine.app/view/inundacioncofecytnucleo",
         "https://diegopons06.users.earthengine.app/view/inundacioncofecytunspiderv1",
+        "https://diegopons06.users.earthengine.app/view/lstlandsat",
         "https://diegopons06.users.earthengine.app/view/myndvi",
         "https://diegopons06.users.earthengine.app/view/ndvimanfredi",
         "https://diegopons06.users.earthengine.app/view/no2",
@@ -1836,6 +1838,7 @@
     ],
     "gayanefaye": [
         "https://gayanefaye.users.earthengine.app/view/geologymap",
+        "https://gayanefaye.users.earthengine.app/view/inp-rice-juin2022",
         "https://gayanefaye.users.earthengine.app/view/inpricemap"
     ],
     "gdispiri": [
@@ -2883,6 +2886,7 @@
         "https://lezanacd.users.earthengine.app/view/fracradv02",
         "https://lezanacd.users.earthengine.app/view/v1-pobl-2010-chaco",
         "https://lezanacd.users.earthengine.app/view/v2-pobl-2010-chaco",
+        "https://lezanacd.users.earthengine.app/view/vivminicradioamgr2020",
         "https://lezanacd.users.earthengine.app/view/vivmunic-radio2022"
     ],
     "lfrmformacion": [
@@ -3317,6 +3321,7 @@
         "https://mortezakhazaei1370.users.earthengine.app/view/horalazim-wetland"
     ],
     "moukomlasitthisak": [
+        "https://moukomlasitthisak.users.earthengine.app/view/ukraine-night-light",
         "https://moukomlasitthisak.users.earthengine.app/view/unspider-for-flood-monitoring-in-thailand"
     ],
     "mrdaryl_90": [

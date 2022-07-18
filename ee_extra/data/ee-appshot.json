@@ -400,14 +400,18 @@
         "https://afotesfaye.users.earthengine.app/view/bariesrilulc",
         "https://afotesfaye.users.earthengine.app/view/ednaethanafework",
         "https://afotesfaye.users.earthengine.app/view/ethanafo",
+        "https://afotesfaye.users.earthengine.app/view/janamorasplit9909",
         "https://afotesfaye.users.earthengine.app/view/landuse-ethiopia-afo",
         "https://afotesfaye.users.earthengine.app/view/pdo23-tracker",
         "https://afotesfaye.users.earthengine.app/view/rllp",
         "https://afotesfaye.users.earthengine.app/view/rllp1",
         "https://afotesfaye.users.earthengine.app/view/rllpslmp",
         "https://afotesfaye.users.earthengine.app/view/slmp-pdo-inspector",
+        "https://afotesfaye.users.earthengine.app/view/slmpjanamoraafo",
         "https://afotesfaye.users.earthengine.app/view/slmprllpethiopia2022",
-        "https://afotesfaye.users.earthengine.app/view/slmprllpiethiopiapdo23tracker"
+        "https://afotesfaye.users.earthengine.app/view/slmprllpiethiopiapdo23tracker",
+        "https://afotesfaye.users.earthengine.app/view/surface-water-explorer-of-ethiopia",
+        "https://afotesfaye.users.earthengine.app/view/woreda-level"
     ],
     "ag": [
         "https://ag.users.earthengine.app/view/glaciertimelapse",
@@ -3539,6 +3543,7 @@
         "https://observatorionieves.users.earthengine.app/view/estado-actual",
         "https://observatorionieves.users.earthengine.app/view/estado-actual-zona-central",
         "https://observatorionieves.users.earthengine.app/view/merge-landsat-sentinel",
+        "https://observatorionieves.users.earthengine.app/view/nieve-incendios",
         "https://observatorionieves.users.earthengine.app/view/promedio-anual-ndsi",
         "https://observatorionieves.users.earthengine.app/view/promedio-ndsi-anual-landsat",
         "https://observatorionieves.users.earthengine.app/view/promedio-ndsi-anual-sentinel2",
@@ -4108,6 +4113,7 @@
         "https://sachasiani.users.earthengine.app/view/esrivsesa"
     ],
     "sachinbobbili": [
+        "https://sachinbobbili.users.earthengine.app/view/ndvi",
         "https://sachinbobbili.users.earthengine.app/view/srtmdownloader"
     ],
     "sadeckgeo": [
@@ -4640,13 +4646,10 @@
     ],
     "tylere": [
         "https://tylere.users.earthengine.app/view/demo-watershed-delineation",
-        "https://tylere.users.earthengine.app/view/dogfooddemo1",
-        "https://tylere.users.earthengine.app/view/dogfooddemo2",
-        "https://tylere.users.earthengine.app/view/dogfooddemo2-v2",
-        "https://tylere.users.earthengine.app/view/dogfooddemo2modified",
         "https://tylere.users.earthengine.app/view/geometry-to-geojson",
         "https://tylere.users.earthengine.app/view/landsat-ndvi-explorer",
         "https://tylere.users.earthengine.app/view/temporal-mosaic-comparison-tool",
+        "https://tylere.users.earthengine.app/view/usgs-3dep-slope",
         "https://tylere.users.earthengine.app/view/westbrook-ice-disk"
     ],
     "tzwgeeetest": [

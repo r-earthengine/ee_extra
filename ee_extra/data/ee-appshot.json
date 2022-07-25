@@ -2064,6 +2064,7 @@
         "https://gustavoirgang.users.earthengine.app/view/biomassasentinel-ndvi",
         "https://gustavoirgang.users.earthengine.app/view/c12dmanejo",
         "https://gustavoirgang.users.earthengine.app/view/c12dmanejoserafim",
+        "https://gustavoirgang.users.earthengine.app/view/c12dpilotofabiano",
         "https://gustavoirgang.users.earthengine.app/view/c12draimundononato01",
         "https://gustavoirgang.users.earthengine.app/view/c12dticaiaby",
         "https://gustavoirgang.users.earthengine.app/view/c12dtimunduruku",
@@ -2590,9 +2591,7 @@
     "josecaceres": [
         "https://josecaceres.users.earthengine.app/view/eta-iota-hn",
         "https://josecaceres.users.earthengine.app/view/inundacioneshn",
-        "https://josecaceres.users.earthengine.app/view/ndvi",
-        "https://josecaceres.users.earthengine.app/view/perdida-bosque-global",
-        "https://josecaceres.users.earthengine.app/view/serie-temporal-ndvi"
+        "https://josecaceres.users.earthengine.app/view/perdida-bosque-global"
     ],
     "joselucassafanelli": [
         "https://joselucassafanelli.users.earthengine.app/view/brumadinho"
@@ -3094,8 +3093,6 @@
     ],
     "masitamanessa": [
         "https://masitamanessa.users.earthengine.app/view/aq-manessa",
-        "https://masitamanessa.users.earthengine.app/view/becek",
-        "https://masitamanessa.users.earthengine.app/view/becex",
         "https://masitamanessa.users.earthengine.app/view/bri-airquality",
         "https://masitamanessa.users.earthengine.app/view/bri-site",
         "https://masitamanessa.users.earthengine.app/view/bri-vegetationloss",
@@ -3104,7 +3101,6 @@
         "https://masitamanessa.users.earthengine.app/view/landsat8-timeseries-fair-01",
         "https://masitamanessa.users.earthengine.app/view/night-light-manessa",
         "https://masitamanessa.users.earthengine.app/view/palmapps",
-        "https://masitamanessa.users.earthengine.app/view/rob-manessa-app",
         "https://masitamanessa.users.earthengine.app/view/sar-palm"
     ],
     "matteojriva": [
@@ -3271,6 +3267,7 @@
     "mmodou": [
         "https://Mmodou.users.earthengine.app/view/elocustservirwestafrica",
         "https://Mmodou.users.earthengine.app/view/hoalsoilmoisture",
+        "https://Mmodou.users.earthengine.app/view/inp-2022",
         "https://Mmodou.users.earthengine.app/view/locusts",
         "https://Mmodou.users.earthengine.app/view/mangrovesenegalodd",
         "https://Mmodou.users.earthengine.app/view/oddturbidityapp",
@@ -4124,6 +4121,7 @@
         "https://salmanddd14.users.earthengine.app/view/bloksri",
         "https://salmanddd14.users.earthengine.app/view/ceklokasi",
         "https://salmanddd14.users.earthengine.app/view/ddwatbalirig",
+        "https://salmanddd14.users.earthengine.app/view/ekstraks1s2",
         "https://salmanddd14.users.earthengine.app/view/fasepadimultsensor",
         "https://salmanddd14.users.earthengine.app/view/fasepadisentinel",
         "https://salmanddd14.users.earthengine.app/view/fasesentinelv1",

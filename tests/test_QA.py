@@ -42,7 +42,7 @@ class Test(unittest.TestCase):
             with self.subTest(dataset=dataset):
                 x = ee.ImageCollection(dataset).filterBounds(point)
                 self.assertIsInstance(maskClouds(x), ee.imagecollection.ImageCollection)
-                self.assertIsInstance(maskClouds(x.first()), ee.imagecollection.ImageCollection)
+                self.assertIsInstance(maskClouds(x.first()), ee.image.Image)
 
     def test_list_metrics(self):
         """Test that listMetrics returns a valid dictionary"""

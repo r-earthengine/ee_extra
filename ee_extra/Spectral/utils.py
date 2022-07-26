@@ -165,6 +165,7 @@ def _get_expression_map(img: ee.Image, platformDict: dict) -> dict:
 
     lookupPlatform = {
         "COPERNICUS/S2": lookupS2,
+        "COPERNICUS/S2_HARMONIZED": lookupS2,
         "COPERNICUS/S2_SR": lookupS2,
         "LANDSAT/LC08/C01/T1_SR": lookupL8,
         "LANDSAT/LC08/C01/T2_SR": lookupL8,
@@ -201,12 +202,13 @@ def _get_expression_map(img: ee.Image, platformDict: dict) -> dict:
         "MODIS/061/MYD09Q1": lookupMOD09GQ,
         "MODIS/061/MOD09A1": lookupMOD09GA,
         "MODIS/061/MYD09A1": lookupMOD09GA,
-        "MODIS/061/MCD43A4": lookupMCD43A4,
     }
 
-    if platformDict["platform"] not in list(lookupPlatform.keys()):
+    plat = platformDict["platform"]
+
+    if plat not in list(lookupPlatform.keys()):
         raise Exception(
-            "Sorry, satellite platform not supported for index computation!"
+            f"Sorry, satellite platform {plat} not supported for index computation!"
         )
 
     return lookupPlatform[platformDict["platform"]](img)

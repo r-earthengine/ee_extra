@@ -32,11 +32,15 @@ def spectralIndices(
     intercept: Union[float, int] = 0.0,
     gamma: Union[float, int] = 1.0,
     omega: Union[float, int] = 2.0,
+    beta: Union[float, int] = 0.05,
     k: Union[float, int] = 0.0,
     kernel: str = "RBF",
     sigma: Union[float, str] = "0.5 * (a + b)",
     p: Union[float, int] = 2,
     c: Union[float, int] = 1.0,
+    lambdaN: Union[float, int] = 858.5,
+    lambdaR: Union[float, int] = 645.0,
+    lambdaG: Union[float, int] = 555.0,
     online: bool = False,
     drop: bool = False,
 ) -> Union[ee.Image, ee.ImageCollection]:
@@ -59,6 +63,7 @@ def spectralIndices(
             'WDVI'].
         gamma : Weighting coefficient used for ARVI.
         omega : Weighting coefficient used for MBWI.
+        beta : Calibration parameter used for NDSIns.
         k :  Slope parameter by soil used for NIRvH2.
         kernel : Kernel used for kernel indices. One of 'linear', 'RBF', 'poly'.
         sigma : Length-scale parameter. Used for kernel = 'RBF'. If str, this must be an
@@ -69,6 +74,9 @@ def spectralIndices(
             equal to 0.
         online : Whether to retrieve the most recent list of indices directly from the
             GitHub repository and not from the local copy.
+        lambdaN : NIR wavelength used for NIRvH2 and NDGI.
+        lambdaR : Red wavelength used for NIRvH2 and NDGI.
+        lambdaG: Green wavelength used for NDGI.
         drop : Whether to drop all bands except the new spectral indices.
 
     Returns:
@@ -105,9 +113,13 @@ def spectralIndices(
         "slb": float(intercept),
         "gamma": float(gamma),
         "omega": float(omega),
+        "beta": float(beta),
         "k": float(k),
         "p": float(p),
         "c": float(c),
+        "lambdaN": float(lambdaN),
+        "lambdaR": float(lambdaR),
+        "lambdaG": float(lambdaG),
     }
 
     spectralIndices = _get_indices(online)
@@ -121,14 +133,13 @@ def spectralIndices(
             "burn",
             "water",
             "snow",
-            "drought",
             "urban",
             "kernel",
             "radar"
         ]:
             temporalListOfIndices = []
             for idx in indicesNames:
-                if spectralIndices[idx]["type"] == index:
+                if spectralIndices[idx]["application_domain"] == index:
                     temporalListOfIndices.append(idx)
             index = temporalListOfIndices
         else:

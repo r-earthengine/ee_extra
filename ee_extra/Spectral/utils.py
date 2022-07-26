@@ -214,7 +214,7 @@ def _get_indices(online: bool) -> dict:
     """
     if online:
         with urllib.request.urlopen(
-            "https://raw.githubusercontent.com/davemlz/awesome-ee-spectral-indices/main/output/spectral-indices-dict.json"
+            "https://raw.githubusercontent.com/awesome-spectral-indices/awesome-spectral-indices/main/output/spectral-indices-dict.json"
         ) as url:
             indices = json.loads(url.read().decode())
     else:

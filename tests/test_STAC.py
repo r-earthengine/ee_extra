@@ -14,6 +14,7 @@ point = ee.Geometry.Point([-76.21, 3.45])
 datasets = [
     "COPERNICUS/S2",
     "COPERNICUS/S2_SR",
+    "COPERNICUS/S2_SR_HARMONIZED",
     "LANDSAT/LC08/C01/T1_SR",
     "LANDSAT/LC08/C01/T2_SR",
     "LANDSAT/LC08/C02/T1_L2",

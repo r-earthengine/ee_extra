@@ -192,7 +192,16 @@ def _get_expression_map(img: ee.Image, platformDict: dict) -> dict:
         "MODIS/006/MYD09Q1": lookupMOD09GQ,
         "MODIS/006/MOD09A1": lookupMOD09GA,
         "MODIS/006/MYD09A1": lookupMOD09GA,
-        "MODIS/006/MCD43A4": lookupMCD43A4,
+        "MODIS/061/MCD43A4": lookupMCD43A4,
+        "MODIS/061/MOD09GQ": lookupMOD09GQ,
+        "MODIS/061/MYD09GQ": lookupMOD09GQ,
+        "MODIS/061/MOD09GA": lookupMOD09GA,
+        "MODIS/061/MYD09GA": lookupMOD09GA,
+        "MODIS/061/MOD09Q1": lookupMOD09GQ,
+        "MODIS/061/MYD09Q1": lookupMOD09GQ,
+        "MODIS/061/MOD09A1": lookupMOD09GA,
+        "MODIS/061/MYD09A1": lookupMOD09GA,
+        "MODIS/061/MCD43A4": lookupMCD43A4,
     }
 
     if platformDict["platform"] not in list(lookupPlatform.keys()):

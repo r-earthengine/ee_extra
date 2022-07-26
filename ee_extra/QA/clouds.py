@@ -265,6 +265,7 @@ def maskClouds(
     lookup = {
         "COPERNICUS/S3/OLCI": S3,
         "COPERNICUS/S2_SR": S2,
+        "COPERNICUS/S2_SR_HARMONIZED": S2,
         "LANDSAT/LC08/C01/T1_SR": L8,
         "LANDSAT/LC08/C01/T2_SR": L8,
         "LANDSAT/LC08/C02/T1_L2": L8C2,

@@ -38,7 +38,7 @@ datasets = [
     "MODIS/061/MOD09A1",
     # "MODIS/006/MYD09A1",
     "MODIS/006/MCD43A4",
-    "MODIS/061/MCD43A4",
+    # "MODIS/061/MCD43A4",
 ]
 
 tasseledcap_datasets = [

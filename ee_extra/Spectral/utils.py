@@ -193,7 +193,7 @@ def _get_expression_map(img: ee.Image, platformDict: dict) -> dict:
         "MODIS/006/MYD09Q1": lookupMOD09GQ,
         "MODIS/006/MOD09A1": lookupMOD09GA,
         "MODIS/006/MYD09A1": lookupMOD09GA,
-        "MODIS/061/MCD43A4": lookupMCD43A4,
+        "MODIS/006/MCD43A4": lookupMCD43A4,
         "MODIS/061/MOD09GQ": lookupMOD09GQ,
         "MODIS/061/MYD09GQ": lookupMOD09GQ,
         "MODIS/061/MOD09GA": lookupMOD09GA,
@@ -202,13 +202,14 @@ def _get_expression_map(img: ee.Image, platformDict: dict) -> dict:
         "MODIS/061/MYD09Q1": lookupMOD09GQ,
         "MODIS/061/MOD09A1": lookupMOD09GA,
         "MODIS/061/MYD09A1": lookupMOD09GA,
+        "MODIS/061/MCD43A4": lookupMCD43A4,
     }
 
     plat = platformDict["platform"]
 
     if plat not in list(lookupPlatform.keys()):
         raise Exception(
-            f"Sorry, satellite platform {plat} not supported for index computation!"
+            f"Sorry, satellite platform {plat} not supported for spectral index computation!"
         )
 
     return lookupPlatform[platformDict["platform"]](img)

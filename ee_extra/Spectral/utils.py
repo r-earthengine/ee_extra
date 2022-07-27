@@ -167,6 +167,7 @@ def _get_expression_map(img: ee.Image, platformDict: dict) -> dict:
         "COPERNICUS/S2": lookupS2,
         "COPERNICUS/S2_HARMONIZED": lookupS2,
         "COPERNICUS/S2_SR": lookupS2,
+        "COPERNICUS/S2_SR_HARMONIZED": lookupS2,
         "LANDSAT/LC08/C01/T1_SR": lookupL8,
         "LANDSAT/LC08/C01/T2_SR": lookupL8,
         "LANDSAT/LC08/C02/T1_L2": lookupL8C2,

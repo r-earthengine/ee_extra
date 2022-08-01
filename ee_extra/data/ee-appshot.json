@@ -817,6 +817,7 @@
         "https://benitezrcamilo.users.earthengine.app/view/clasificacin-pnsl",
         "https://benitezrcamilo.users.earthengine.app/view/palmas-area-3",
         "https://benitezrcamilo.users.earthengine.app/view/pn-san-luis",
+        "https://benitezrcamilo.users.earthengine.app/view/survey-sites-verification",
         "https://benitezrcamilo.users.earthengine.app/view/urbanization-in-asuncion"
     ],
     "benjaminpage8": [
@@ -2049,6 +2050,7 @@
     "gponce": [
         "https://gponce.users.earthengine.app/view/srer2017-neon-aop-data-explorer",
         "https://gponce.users.earthengine.app/view/srer2017neonrgb10cm",
+        "https://gponce.users.earthengine.app/view/westernrangeland",
         "https://gponce.users.earthengine.app/view/wgewneondataexplorer"
     ],
     "gregorygiuliani": [
@@ -2336,6 +2338,7 @@
         "https://ieco.users.earthengine.app/view/ieco-slf-riskmap",
         "https://ieco.users.earthengine.app/view/phia-green",
         "https://ieco.users.earthengine.app/view/philly-parcel",
+        "https://ieco.users.earthengine.app/view/slfensemble",
         "https://ieco.users.earthengine.app/view/ecoee-example-webapp"
     ],
     "iglushko": [
@@ -3322,6 +3325,7 @@
         "https://mortezakhazaei1370.users.earthengine.app/view/horalazim-wetland"
     ],
     "moukomlasitthisak": [
+        "https://moukomlasitthisak.users.earthengine.app/view/thailand-population",
         "https://moukomlasitthisak.users.earthengine.app/view/ukraine-night-light",
         "https://moukomlasitthisak.users.earthengine.app/view/unspider-for-flood-monitoring-in-thailand"
     ],
@@ -3550,7 +3554,11 @@
     ],
     "ogordienko112": [
         "https://ogordienko112.users.earthengine.app/view/cokyiv",
+        "https://ogordienko112.users.earthengine.app/view/course14man",
+        "https://ogordienko112.users.earthengine.app/view/create",
         "https://ogordienko112.users.earthengine.app/view/czech",
+        "https://ogordienko112.users.earthengine.app/view/lab14jasu",
+        "https://ogordienko112.users.earthengine.app/view/lab14jasuvideo",
         "https://ogordienko112.users.earthengine.app/view/ndvivsvh",
         "https://ogordienko112.users.earthengine.app/view/newrelief",
         "https://ogordienko112.users.earthengine.app/view/no2",

@@ -402,6 +402,7 @@
         "https://afotesfaye.users.earthengine.app/view/ethanafo",
         "https://afotesfaye.users.earthengine.app/view/janamorasplit9909",
         "https://afotesfaye.users.earthengine.app/view/landuse-ethiopia-afo",
+        "https://afotesfaye.users.earthengine.app/view/morphological-parameters-of-ethiopia",
         "https://afotesfaye.users.earthengine.app/view/pdo23-tracker",
         "https://afotesfaye.users.earthengine.app/view/rllp",
         "https://afotesfaye.users.earthengine.app/view/rllp1",
@@ -1853,6 +1854,8 @@
         "https://gee-course.users.earthengine.app/view/nightwatch"
     ],
     "geerestec": [
+        "https://geerestec.users.earthengine.app/view/vega-restec",
+        "https://geerestec.users.earthengine.app/view/vega-restec-en",
         "https://geerestec.users.earthengine.app/view/vega-restec"
     ],
     "gemasaktiadzan": [
@@ -1887,7 +1890,6 @@
         "https://gena.users.earthengine.app/view/no2",
         "https://gena.users.earthengine.app/view/nobody-lives-here",
         "https://gena.users.earthengine.app/view/permafrost",
-        "https://gena.users.earthengine.app/view/raddalert",
         "https://gena.users.earthengine.app/view/reservoir-monitor-mz",
         "https://gena.users.earthengine.app/view/rws-bathymetry",
         "https://gena.users.earthengine.app/view/sentinel-1-max",
@@ -2936,6 +2938,8 @@
     "lmathew": [
         "https://lmathew.users.earthengine.app/view/cbos",
         "https://lmathew.users.earthengine.app/view/climatevulnerability",
+        "https://lmathew.users.earthengine.app/view/extractives-monitoring-1-fcd",
+        "https://lmathew.users.earthengine.app/view/extractives-monitoring-1-indices",
         "https://lmathew.users.earthengine.app/view/forest-loss---cbnrm",
         "https://lmathew.users.earthengine.app/view/kilimajaro-carbon-monoxide",
         "https://lmathew.users.earthengine.app/view/kwando-basin-lulc",
@@ -3117,6 +3121,7 @@
         "https://matteoliviergfpoisy.users.earthengine.app/view/deforestation"
     ],
     "matthepler": [
+        "https://matthepler.users.earthengine.app/view/cfxwatch",
         "https://matthepler.users.earthengine.app/view/minewatch1101905",
         "https://matthepler.users.earthengine.app/view/minewatch1101918",
         "https://matthepler.users.earthengine.app/view/minewatch1101918slider",
@@ -4171,10 +4176,6 @@
     "sandersson0013": [
         "https://sandersson0013.users.earthengine.app/view/air-pollution-app",
         "https://sandersson0013.users.earthengine.app/view/air-pollution-app"
-    ],
-    "santhosh_m": [
-        "https://santhosh_m.users.earthengine.app/view/gaza-possible-bombing-location",
-        "https://santhosh_m.users.earthengine.app/view/weighted-raster-overlay"
     ],
     "santiagobanchero": [
         "https://santiagobanchero.users.earthengine.app/view/chaco-collection-3",

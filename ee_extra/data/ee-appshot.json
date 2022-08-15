@@ -771,6 +771,7 @@
         "https://aykanbayram.users.earthengine.app/view/cilekli-lis"
     ],
     "azad977": [
+        "https://azad977.users.earthengine.app/view/change-detection",
         "https://azad977.users.earthengine.app/view/ndvi-chart-by-click",
         "https://azad977.users.earthengine.app/view/sentinel-2-beirut-explosion-app",
         "https://azad977.users.earthengine.app/view/sentinel-linked-maps",
@@ -990,6 +991,7 @@
         "https://cartografia2016ud.users.earthengine.app/view/seguimientoaguacate"
     ],
     "cartoscience": [
+        "https://cartoscience.users.earthengine.app/view/aridity-index",
         "https://cartoscience.users.earthengine.app/view/cloud-frequency",
         "https://cartoscience.users.earthengine.app/view/crop-niche",
         "https://cartoscience.users.earthengine.app/view/cross-section",
@@ -1725,6 +1727,7 @@
         "https://fernandotentor.users.earthengine.app/view/clasifapagri",
         "https://fernandotentor.users.earthengine.app/view/contadorfirms",
         "https://fernandotentor.users.earthengine.app/view/deltasplitfacundo",
+        "https://fernandotentor.users.earthengine.app/view/draw-and-download-geometry",
         "https://fernandotentor.users.earthengine.app/view/dynamic-world",
         "https://fernandotentor.users.earthengine.app/view/escuelas-er",
         "https://fernandotentor.users.earthengine.app/view/firms",
@@ -3212,6 +3215,7 @@
         "https://mgaute14.users.earthengine.app/view/direccioncambiosplantacionesforestalescorrientes",
         "https://mgaute14.users.earthengine.app/view/forest-height-of-eucalyptus",
         "https://mgaute14.users.earthengine.app/view/heightforestplantationseucalyptus",
+        "https://mgaute14.users.earthengine.app/view/monitoreobufferplantaciones",
         "https://mgaute14.users.earthengine.app/view/monitoreoplantacionesforestaleschaco",
         "https://mgaute14.users.earthengine.app/view/monitoreoplantacionesforestalescordoba",
         "https://mgaute14.users.earthengine.app/view/monitoreoplantacionesforestalescorrientes",
@@ -4718,7 +4722,8 @@
         "https://usda-nass.users.earthengine.app/view/cdl-predictor",
         "https://usda-nass.users.earthengine.app/view/cdl-predictor-mobile",
         "https://usda-nass.users.earthengine.app/view/cdl-viewer",
-        "https://usda-nass.users.earthengine.app/view/cropland-verdancy"
+        "https://usda-nass.users.earthengine.app/view/cropland-verdancy",
+        "https://usda-nass.users.earthengine.app/view/global-crop-mapper"
     ],
     "vaishnaviadhav31": [
         "https://vaishnaviadhav31.users.earthengine.app/view/day--night-lst",

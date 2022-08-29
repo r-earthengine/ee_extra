@@ -251,19 +251,6 @@
         "https://NDVI_Masking_ex.users.earthengine.app/view/paddyricefieldinbrazil",
         "https://NDVI_Masking_ex.users.earthengine.app/view/paddyricefieldincolombia"
     ],
-    "NDVIchange": [
-        "https://NDVIchange.users.earthengine.app/view/land-cover-p-n-cerro-castillo-s2",
-        "https://NDVIchange.users.earthengine.app/view/land-cover-p-n-la-campana",
-        "https://NDVIchange.users.earthengine.app/view/land-cover-p-n-la-campana-s2",
-        "https://NDVIchange.users.earthengine.app/view/land-cover-p-n-nahuelbuta-l8",
-        "https://NDVIchange.users.earthengine.app/view/land-cover-p-n-nahuelbuta-s2",
-        "https://NDVIchange.users.earthengine.app/view/land-cover-p-n-pumaln-douglas-tompkins-l8",
-        "https://NDVIchange.users.earthengine.app/view/land-cover-p-n-pumaln-douglas-tompkins-s2",
-        "https://NDVIchange.users.earthengine.app/view/land-cover-r-n-nonguen-l8",
-        "https://NDVIchange.users.earthengine.app/view/land-cover-r-n-nonguen-s2",
-        "https://NDVIchange.users.earthengine.app/view/land-cover-r-n-rio-clarillo",
-        "https://NDVIchange.users.earthengine.app/view/land-cover-r-n-rio-clarillo-s2"
-    ],
     "OHarrisson": [
         "https://OHarrisson.users.earthengine.app/view/water-area-calculator"
     ],
@@ -992,6 +979,7 @@
     ],
     "cartoscience": [
         "https://cartoscience.users.earthengine.app/view/aridity-index",
+        "https://cartoscience.users.earthengine.app/view/ceri",
         "https://cartoscience.users.earthengine.app/view/cloud-frequency",
         "https://cartoscience.users.earthengine.app/view/crop-niche",
         "https://cartoscience.users.earthengine.app/view/cross-section",
@@ -2372,7 +2360,8 @@
         "https://irlan128.users.earthengine.app/view/perubahan-hutan-indonesia"
     ],
     "ispguv": [
-        "https://ispguv.users.earthengine.app/view/covid19-reproductive-meteo-estimation"
+        "https://ispguv.users.earthengine.app/view/covid19-reproductive-meteo-estimation",
+        "https://ispguv.users.earthengine.app/view/high-resolution-parameter-retrieval-with-bionet"
     ],
     "isti": [
         "https://isti.users.earthengine.app/view/dinamika-garis-pantai-di-kecamatan-teluk-betung-timur"

@@ -389,6 +389,7 @@
         "https://afotesfaye.users.earthengine.app/view/ethanafo",
         "https://afotesfaye.users.earthengine.app/view/janamorasplit9909",
         "https://afotesfaye.users.earthengine.app/view/landuse-ethiopia-afo",
+        "https://afotesfaye.users.earthengine.app/view/m-land-use-of-ethiopia-slmp",
         "https://afotesfaye.users.earthengine.app/view/morphological-parameters-of-ethiopia",
         "https://afotesfaye.users.earthengine.app/view/pdo23-tracker",
         "https://afotesfaye.users.earthengine.app/view/rllp",
@@ -1798,7 +1799,8 @@
         "https://ftentor.users.earthengine.app/view/inundsancor",
         "https://ftentor.users.earthengine.app/view/inundvillaminetti",
         "https://ftentor.users.earthengine.app/view/panelinundrigran",
-        "https://ftentor.users.earthengine.app/view/precipitacion"
+        "https://ftentor.users.earthengine.app/view/precipitacion",
+        "https://ftentor.users.earthengine.app/view/riesgohidrico"
     ],
     "fudongjie": [
         "https://fudongjie.users.earthengine.app/view/aurora",
@@ -2857,7 +2859,6 @@
         "https://leofabiop120.users.earthengine.app/view/dataenergia",
         "https://leofabiop120.users.earthengine.app/view/datafuegohn",
         "https://leofabiop120.users.earthengine.app/view/dataspatialanalysis",
-        "https://leofabiop120.users.earthengine.app/view/emergencycomparehn",
         "https://leofabiop120.users.earthengine.app/view/emergencycomparehn2",
         "https://leofabiop120.users.earthengine.app/view/etahonduras",
         "https://leofabiop120.users.earthengine.app/view/global-power-plant-database",
@@ -2870,11 +2871,13 @@
         "https://lethiquynhhoa.users.earthengine.app/view/s2img"
     ],
     "lexisgis": [
+        "https://lexisgis.users.earthengine.app/view/alberta-wetland-explorer-pgnr",
         "https://lexisgis.users.earthengine.app/view/nigerdeltaapp",
         "https://lexisgis.users.earthengine.app/view/openwateralberta",
         "https://lexisgis.users.earthengine.app/view/paddy-rice-fields",
         "https://lexisgis.users.earthengine.app/view/rice",
         "https://lexisgis.users.earthengine.app/view/test",
+        "https://lexisgis.users.earthengine.app/view/wetland-explorer-alberta",
         "https://lexisgis.users.earthengine.app/view/wetlandapp",
         "https://lexisgis.users.earthengine.app/view/wetlandnigerdeltaapp"
     ],

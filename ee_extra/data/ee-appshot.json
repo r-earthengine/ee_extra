@@ -784,6 +784,9 @@
         "https://bassantsara.users.earthengine.app/view/test"
     ],
     "bastinjf_climate": [
+        "https://bastinjf_climate.users.earthengine.app/view/fig1",
+        "https://bastinjf_climate.users.earthengine.app/view/fig2",
+        "https://bastinjf_climate.users.earthengine.app/view/fig3",
         "https://bastinjf_climate.users.earthengine.app/view/firedisplay",
         "https://bastinjf_climate.users.earthengine.app/view/fscforestfocus1k",
         "https://bastinjf_climate.users.earthengine.app/view/fscforestfocusdifference",
@@ -992,6 +995,7 @@
         "https://cartoscience.users.earthengine.app/view/maup",
         "https://cartoscience.users.earthengine.app/view/maup-mapper-multi-scale-modis-ndvi",
         "https://cartoscience.users.earthengine.app/view/outliers",
+        "https://cartoscience.users.earthengine.app/view/res-compare",
         "https://cartoscience.users.earthengine.app/view/slope-design",
         "https://cartoscience.users.earthengine.app/view/soil-and-elevation-profiler",
         "https://cartoscience.users.earthengine.app/view/spectral-curve",
@@ -1848,7 +1852,10 @@
     ],
     "geerestec": [
         "https://geerestec.users.earthengine.app/view/vega-restec",
+        "https://geerestec.users.earthengine.app/view/vega-restec-2beta",
         "https://geerestec.users.earthengine.app/view/vega-restec-en",
+        "https://geerestec.users.earthengine.app/view/vega-restec-ver2beta-en",
+        "https://geerestec.users.earthengine.app/view/vega-restec-ver2beta-jp",
         "https://geerestec.users.earthengine.app/view/vega-restec"
     ],
     "gemasaktiadzan": [
@@ -2504,6 +2511,7 @@
         "https://jhowarth.users.earthengine.app/view/eeprimer-ui-layout",
         "https://jhowarth.users.earthengine.app/view/fire-modis-firms-historical",
         "https://jhowarth.users.earthengine.app/view/lights-change-time-neighborhood",
+        "https://jhowarth.users.earthengine.app/view/midd-change-1942-2022",
         "https://jhowarth.users.earthengine.app/view/midd-field-maps",
         "https://jhowarth.users.earthengine.app/view/nineteenth-century-vermont",
         "https://jhowarth.users.earthengine.app/view/rgb-nighttime-lights",

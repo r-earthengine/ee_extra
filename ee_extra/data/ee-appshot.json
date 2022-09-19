@@ -787,6 +787,9 @@
         "https://bastinjf_climate.users.earthengine.app/view/fig1",
         "https://bastinjf_climate.users.earthengine.app/view/fig2",
         "https://bastinjf_climate.users.earthengine.app/view/fig3",
+        "https://bastinjf_climate.users.earthengine.app/view/fig4",
+        "https://bastinjf_climate.users.earthengine.app/view/fig5",
+        "https://bastinjf_climate.users.earthengine.app/view/fig6",
         "https://bastinjf_climate.users.earthengine.app/view/firedisplay",
         "https://bastinjf_climate.users.earthengine.app/view/fscforestfocus1k",
         "https://bastinjf_climate.users.earthengine.app/view/fscforestfocusdifference",
@@ -1025,11 +1028,6 @@
     "caseyengstrom": [
         "https://caseyengstrom.users.earthengine.app/view/snow-algae-atlas",
         "https://caseyengstrom.users.earthengine.app/view/snow-algae-ground-truth"
-    ],
-    "ccarl017": [
-        "https://ccarl017.users.earthengine.app/view/midoceanridgebathymetry",
-        "https://ccarl017.users.earthengine.app/view/overwashfan",
-        "https://ccarl017.users.earthengine.app/view/virginiatopography"
     ],
     "celiohelder": [
         "https://celiohelder.users.earthengine.app/view/guineappv2",
@@ -1820,12 +1818,9 @@
         "https://gaertnerp.users.earthengine.app/view/sentinel2-ingestion-status"
     ],
     "gaguilar": [
-        "https://gaguilar.users.earthengine.app/view/fires-py",
         "https://gaguilar.users.earthengine.app/view/incendios",
         "https://gaguilar.users.earthengine.app/view/landsat-py-2000-2020",
-        "https://gaguilar.users.earthengine.app/view/nbr",
-        "https://gaguilar.users.earthengine.app/view/selva-maya-py",
-        "https://gaguilar.users.earthengine.app/view/terra"
+        "https://gaguilar.users.earthengine.app/view/nbr"
     ],
     "gaitanjuanjose": [
         "https://gaitanjuanjose.users.earthengine.app/view/mallinesneuquen",
@@ -2645,6 +2640,7 @@
         "https://jsilvan.users.earthengine.app/view/explorador-covid-19",
         "https://jsilvan.users.earthengine.app/view/indices-espectrales-globales",
         "https://jsilvan.users.earthengine.app/view/jrc-global-surface-water-mapping-layers-v12",
+        "https://jsilvan.users.earthengine.app/view/ortofotos-cm1",
         "https://jsilvan.users.earthengine.app/view/distribucin-potencial-de-fosas-clandestinas",
         "https://jsilvan.users.earthengine.app/view/espacio-clandestino",
         "https://jsilvan.users.earthengine.app/view/explorador-covid-19",
@@ -3570,6 +3566,7 @@
         "https://ogordienko112.users.earthengine.app/view/lab14jasu",
         "https://ogordienko112.users.earthengine.app/view/lab14jasuvideo",
         "https://ogordienko112.users.earthengine.app/view/ndvivsvh",
+        "https://ogordienko112.users.earthengine.app/view/newolives",
         "https://ogordienko112.users.earthengine.app/view/newrelief",
         "https://ogordienko112.users.earthengine.app/view/no2",
         "https://ogordienko112.users.earthengine.app/view/numbericebergtest",
@@ -3764,6 +3761,7 @@
         "https://pmisson.users.earthengine.app/view/colours-of-europe",
         "https://pmisson.users.earthengine.app/view/covid-19",
         "https://pmisson.users.earthengine.app/view/dmsp-viirs-comparison-tool",
+        "https://pmisson.users.earthengine.app/view/eumap",
         "https://pmisson.users.earthengine.app/view/la-palma-volcano",
         "https://pmisson.users.earthengine.app/view/madrid-covid-19",
         "https://pmisson.users.earthengine.app/view/madrid-hotspots",

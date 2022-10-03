@@ -372,8 +372,7 @@
         "https://adrrod44.users.earthengine.app/view/land-superfice-temperature-yasuni-ecuador",
         "https://adrrod44.users.earthengine.app/view/mapa-de-cambios",
         "https://adrrod44.users.earthengine.app/view/mapacambiosentinel1",
-        "https://adrrod44.users.earthengine.app/view/mapeo-de-inundaciones",
-        "https://adrrod44.users.earthengine.app/view/parametros-sar"
+        "https://adrrod44.users.earthengine.app/view/mapeo-de-inundaciones"
     ],
     "ael2014": [
         "https://ael2014.users.earthengine.app/view/sentinel-2-multispectral"
@@ -1630,6 +1629,7 @@
     ],
     "eutrophicationwatch": [
         "https://eutrophicationwatch.users.earthengine.app/view/global-eutrophication-watch",
+        "https://eutrophicationwatch.users.earthengine.app/view/my-app",
         "https://eutrophicationwatch.users.earthengine.app/view/global-eutrophication-watch"
     ],
     "eva_nates": [
@@ -2595,6 +2595,7 @@
         "https://jsumbalan.users.earthengine.app/view/busdi-annual-forest-loss",
         "https://jsumbalan.users.earthengine.app/view/isabela",
         "https://jsumbalan.users.earthengine.app/view/isabelasentinel-2",
+        "https://jsumbalan.users.earthengine.app/view/lake-lanao---agus-river-basin-explorer",
         "https://jsumbalan.users.earthengine.app/view/lake-lanao---agus-river-basin-panel",
         "https://jsumbalan.users.earthengine.app/view/lanaoslider",
         "https://jsumbalan.users.earthengine.app/view/upper-pulangi-corest-change"
@@ -3458,6 +3459,7 @@
         "https://nzahasan.users.earthengine.app/view/rohingya-refugee-camp-change"
     ],
     "observatorionieves": [
+        "https://observatorionieves.users.earthengine.app/view/cloudreducction",
         "https://observatorionieves.users.earthengine.app/view/downloaddata",
         "https://observatorionieves.users.earthengine.app/view/estado-actual",
         "https://observatorionieves.users.earthengine.app/view/estado-actual-zona-central",
@@ -3674,6 +3676,7 @@
         "https://pmisson.users.earthengine.app/view/covid-19",
         "https://pmisson.users.earthengine.app/view/dmsp-viirs-comparison-tool",
         "https://pmisson.users.earthengine.app/view/eumap",
+        "https://pmisson.users.earthengine.app/view/iberian-peninsula-colour-transition",
         "https://pmisson.users.earthengine.app/view/la-palma-volcano",
         "https://pmisson.users.earthengine.app/view/madrid-covid-19",
         "https://pmisson.users.earthengine.app/view/madrid-hotspots",
@@ -3816,7 +3819,7 @@
     ],
     "rebeccanavarrokhoury": [
         "https://rebeccanavarrokhoury.users.earthengine.app/view/arboricartapp",
-        "https://rebeccanavarrokhoury.users.earthengine.app/view/seasonalitychange"
+        "https://rebeccanavarrokhoury.users.earthengine.app/view/referencedatacollector"
     ],
     "remotesensingjournal": [
         "https://remotesensingjournal.users.earthengine.app/view/pandemic-nightlight-comparison",

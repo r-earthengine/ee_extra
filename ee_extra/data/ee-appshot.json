@@ -368,6 +368,7 @@
     "adrrod44": [
         "https://adrrod44.users.earthengine.app/view/cambiosecuador",
         "https://adrrod44.users.earthengine.app/view/change-detection",
+        "https://adrrod44.users.earthengine.app/view/cobertura-dmq-2022",
         "https://adrrod44.users.earthengine.app/view/detecciondecambios",
         "https://adrrod44.users.earthengine.app/view/land-superfice-temperature-yasuni-ecuador",
         "https://adrrod44.users.earthengine.app/view/mapa-de-cambios",
@@ -728,6 +729,7 @@
     "atstahl": [
         "https://atstahl.users.earthengine.app/view/naipview",
         "https://atstahl.users.earthengine.app/view/sentinelview",
+        "https://atstahl.users.earthengine.app/view/sewashingtonveg",
         "https://atstahl.users.earthengine.app/view/viewlateseasoncoverchange",
         "https://atstahl.users.earthengine.app/view/vspchange2020-21"
     ],
@@ -1217,6 +1219,7 @@
         "https://datadrivenlab.users.earthengine.app/view/usuhiapp"
     ],
     "datasetbanjir": [
+        "https://datasetbanjir.users.earthengine.app/view/inlingforest",
         "https://datasetbanjir.users.earthengine.app/view/lstjabar1"
     ],
     "davidlagomasino": [
@@ -1562,7 +1565,10 @@
     "ermaure": [
         "https://ermaure.users.earthengine.app/view/globaleutrophicationinspector",
         "https://ermaure.users.earthengine.app/view/mountain-slope",
-        "https://ermaure.users.earthengine.app/view/my-ocean"
+        "https://ermaure.users.earthengine.app/view/my-ocean",
+        "https://ermaure.users.earthengine.app/view/py-vs-dct",
+        "https://ermaure.users.earthengine.app/view/swath-reprojection-modisa",
+        "https://ermaure.users.earthengine.app/view/swath-reprojection-sgli"
     ],
     "erollero": [
         "https://erollero.users.earthengine.app/view/burned-area-bio-bio",
@@ -3459,7 +3465,7 @@
         "https://nzahasan.users.earthengine.app/view/rohingya-refugee-camp-change"
     ],
     "observatorionieves": [
-        "https://observatorionieves.users.earthengine.app/view/cloudreducction",
+        "https://observatorionieves.users.earthengine.app/view/cloudreduction",
         "https://observatorionieves.users.earthengine.app/view/downloaddata",
         "https://observatorionieves.users.earthengine.app/view/estado-actual",
         "https://observatorionieves.users.earthengine.app/view/estado-actual-zona-central",
@@ -3819,6 +3825,7 @@
     ],
     "rebeccanavarrokhoury": [
         "https://rebeccanavarrokhoury.users.earthengine.app/view/arboricartapp",
+        "https://rebeccanavarrokhoury.users.earthengine.app/view/olivedetectionapp",
         "https://rebeccanavarrokhoury.users.earthengine.app/view/referencedatacollector"
     ],
     "remotesensingjournal": [
@@ -3899,7 +3906,8 @@
         "https://rizkiatthoriq99.users.earthengine.app/view/urban-change-in-padang-city"
     ],
     "rizkinandika": [
-        "https://rizkinandika.users.earthengine.app/view/bali-mangrove-arset-training"
+        "https://rizkinandika.users.earthengine.app/view/bali-mangrove-arset-training",
+        "https://rizkinandika.users.earthengine.app/view/go-mangrove"
     ],
     "rjboothroyd1": [
         "https://rjboothroyd1.users.earthengine.app/view/flooding-from-typhoon-ulysses-vamco-in-the-philippines",

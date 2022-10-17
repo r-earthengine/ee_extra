@@ -1713,6 +1713,7 @@
     ],
     "felipellobo": [
         "https://felipellobo.users.earthengine.app/view/algaemapv10",
+        "https://felipellobo.users.earthengine.app/view/algaemapv12",
         "https://felipellobo.users.earthengine.app/view/algaemapv10"
     ],
     "fernandairokawa": [
@@ -1873,6 +1874,7 @@
         "https://gena.users.earthengine.app/view/cycloneidai",
         "https://gena.users.earthengine.app/view/dam-break-brazil",
         "https://gena.users.earthengine.app/view/dams-sarp",
+        "https://gena.users.earthengine.app/view/dw-stat",
         "https://gena.users.earthengine.app/view/eo-droughts",
         "https://gena.users.earthengine.app/view/flood-2021-vancouver",
         "https://gena.users.earthengine.app/view/flood-eu",
@@ -1922,6 +1924,7 @@
         "https://geocastellanosg.users.earthengine.app/view/cordtest",
         "https://geocastellanosg.users.earthengine.app/view/hydro",
         "https://geocastellanosg.users.earthengine.app/view/hydrov5",
+        "https://geocastellanosg.users.earthengine.app/view/laborde-esteban",
         "https://geocastellanosg.users.earthengine.app/view/poblacion-accesibilidad-v6",
         "https://geocastellanosg.users.earthengine.app/view/poblacion-accesibilidadv5",
         "https://geocastellanosg.users.earthengine.app/view/sociedad",
@@ -3193,6 +3196,7 @@
         "https://mkoontz.users.earthengine.app/view/wildfire-severity-calculator"
     ],
     "mmodou": [
+        "https://Mmodou.users.earthengine.app/view/crns-morocco",
         "https://Mmodou.users.earthengine.app/view/elocustservirwestafrica",
         "https://Mmodou.users.earthengine.app/view/hoalsoilmoisture",
         "https://Mmodou.users.earthengine.app/view/inp-2022",
@@ -4831,6 +4835,7 @@
         "https://ylfeng.users.earthengine.app/view/fire24",
         "https://ylfeng.users.earthengine.app/view/forestdisturbanceafterhurricanemaria",
         "https://ylfeng.users.earthengine.app/view/forestdisturbancemapinpr",
+        "https://ylfeng.users.earthengine.app/view/modisexplorer",
         "https://ylfeng.users.earthengine.app/view/forestdisturbanceafterhurricanemaria",
         "https://ylfeng.users.earthengine.app/view/forestdisturbancemapinpr"
     ],

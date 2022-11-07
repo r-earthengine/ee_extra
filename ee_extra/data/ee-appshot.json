@@ -590,6 +590,7 @@
     "abmigc": [
         "https://abmigc.users.earthengine.app/view/har",
         "https://abmigc.users.earthengine.app/view/harvest-area-spectral-regen-2018",
+        "https://abmigc.users.earthengine.app/view/harvest-area-spectral-regen-2019",
         "https://abmigc.users.earthengine.app/view/interiorhabitat",
         "https://abmigc.users.earthengine.app/view/plc-amwi",
         "https://abmigc.users.earthengine.app/view/plc30",
@@ -655,12 +656,14 @@
         "https://afotesfaye.users.earthengine.app/view/afoethiopialandcover10m",
         "https://afotesfaye.users.earthengine.app/view/awash-flood-extent",
         "https://afotesfaye.users.earthengine.app/view/bariesrilulc",
+        "https://afotesfaye.users.earthengine.app/view/bolosobombalulc201721",
         "https://afotesfaye.users.earthengine.app/view/ednaethanafework",
         "https://afotesfaye.users.earthengine.app/view/ethanafo",
         "https://afotesfaye.users.earthengine.app/view/janamorasplit9909",
         "https://afotesfaye.users.earthengine.app/view/landuse-ethiopia-afo",
         "https://afotesfaye.users.earthengine.app/view/m-land-use-of-ethiopia-slmp",
         "https://afotesfaye.users.earthengine.app/view/morphological-parameters-of-ethiopia",
+        "https://afotesfaye.users.earthengine.app/view/oiyidaworedalulc201721",
         "https://afotesfaye.users.earthengine.app/view/pdo23-tracker",
         "https://afotesfaye.users.earthengine.app/view/rllp",
         "https://afotesfaye.users.earthengine.app/view/rllp1",
@@ -1022,6 +1025,7 @@
         "https://arjenhaag.users.earthengine.app/view/cambodia-floods-october-2020",
         "https://arjenhaag.users.earthengine.app/view/cambodia-floods-october-2020---animations",
         "https://arjenhaag.users.earthengine.app/view/esa-ww-swd-rr",
+        "https://arjenhaag.users.earthengine.app/view/global-landcover",
         "https://arjenhaag.users.earthengine.app/view/landsat-surface-water",
         "https://arjenhaag.users.earthengine.app/view/ndvi-west-africa",
         "https://arjenhaag.users.earthengine.app/view/nederland-in-de-sneeuw",
@@ -2071,8 +2075,7 @@
     ],
     "earthtestqa18": [
         "https://earthtestqa18.users.earthengine.app/view/aaabbbbbbbb",
-        "https://earthtestqa18.users.earthengine.app/view/bbb",
-        "https://earthtestqa18.users.earthengine.app/view/dycyyfuffffufufffcycyfyfbggugguguf"
+        "https://earthtestqa18.users.earthengine.app/view/bbb"
     ],
     "earthtestqa24": [
         "https://earthtestqa24.users.earthengine.app/view/vinu"
@@ -3597,6 +3600,7 @@
         "https://jsilvan.users.earthengine.app/view/distribucin-potencial-de-fosas-clandestinas",
         "https://jsilvan.users.earthengine.app/view/espacio-clandestino",
         "https://jsilvan.users.earthengine.app/view/explorador-covid-19",
+        "https://jsilvan.users.earthengine.app/view/guerra-sucia",
         "https://jsilvan.users.earthengine.app/view/indices-espectrales-globales",
         "https://jsilvan.users.earthengine.app/view/jrc-global-surface-water-mapping-layers-v12",
         "https://jsilvan.users.earthengine.app/view/ortofotos-cm1",
@@ -4563,6 +4567,7 @@
     "murillop": [
         "https://murillop.users.earthengine.app/view/amazoncol",
         "https://murillop.users.earthengine.app/view/coca1",
+        "https://murillop.users.earthengine.app/view/cocacattle",
         "https://murillop.users.earthengine.app/view/comisionverdad",
         "https://murillop.users.earthengine.app/view/faargentina",
         "https://murillop.users.earthengine.app/view/gazavis",
@@ -4956,10 +4961,13 @@
     ],
     "palashbasak": [
         "https://palashbasak.users.earthengine.app/view/bangladesh-lulc-2021",
-        "https://palashbasak.users.earthengine.app/view/forestchangeaustralialga"
+        "https://palashbasak.users.earthengine.app/view/forestchangeaustralialga",
+        "https://palashbasak.users.earthengine.app/view/no2-bd"
     ],
     "paradisepilot": [
-        "https://paradisepilot.users.earthengine.app/view/annual-ndvi-sens-slope"
+        "https://paradisepilot.users.earthengine.app/view/annual-ndvi-sens-slope",
+        "https://paradisepilot.users.earthengine.app/view/s1-asc-vv-growing-season-median",
+        "https://paradisepilot.users.earthengine.app/view/water-masks"
     ],
     "parevalo-bu": [
         "https://parevalo_bu.users.earthengine.app/view/advanced-tstools",

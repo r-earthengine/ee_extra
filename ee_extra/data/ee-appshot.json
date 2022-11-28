@@ -29,6 +29,7 @@
     ],
     "19021508-004": [
         "https://19021508-004.users.earthengine.app/view/larkana-flood-mapping",
+        "https://19021508-004.users.earthengine.app/view/ndvi",
         "https://19021508-004.users.earthengine.app/view/sindh-flood-mapping"
     ],
     "19070241023": [
@@ -435,9 +436,6 @@
     "PIJ-17-05": [
         "https://PIJ-17-05.users.earthengine.app/view/landtrendrassessment",
         "https://PIJ-17-05.users.earthengine.app/view/sar-landtrendr"
-    ],
-    "P_okello": [
-        "https://P_okello.users.earthengine.app/view/trial"
     ],
     "PemaThinley": [
         "https://PemaThinley.users.earthengine.app/view/test"
@@ -2473,7 +2471,8 @@
         "https://fitoprincipe.users.earthengine.app/view/validation-app"
     ],
     "fjmesas": [
-        "https://fjmesas.users.earthengine.app/view/fincaexperimental"
+        "https://fjmesas.users.earthengine.app/view/fincaexperimental",
+        "https://fjmesas.users.earthengine.app/view/visor-parcel-1"
     ],
     "flaviecpelletier": [
         "https://flaviecpelletier.users.earthengine.app/view/bulc-d-2019-inspector"
@@ -5313,8 +5312,7 @@
         "https://ramiqcom.users.earthengine.app/view/rsqa",
         "https://ramiqcom.users.earthengine.app/view/sampling",
         "https://ramiqcom.users.earthengine.app/view/storyindonesia",
-        "https://ramiqcom.users.earthengine.app/view/tempjabar",
-        "https://ramiqcom.users.earthengine.app/view/urban"
+        "https://ramiqcom.users.earthengine.app/view/tempjabar"
     ],
     "randd-eesd": [
         "https://randd-eesd.users.earthengine.app/view/trendexplorer"
@@ -5384,6 +5382,7 @@
     "reginoa579": [
         "https://reginoa579.users.earthengine.app/view/lpiclasificador",
         "https://reginoa579.users.earthengine.app/view/mapa-7725-obs",
+        "https://reginoa579.users.earthengine.app/view/test-maxent",
         "https://reginoa579.users.earthengine.app/view/visualizador-lpi",
         "https://reginoa579.users.earthengine.app/view/visualsnmftmaps"
     ],

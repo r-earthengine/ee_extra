@@ -949,6 +949,7 @@
         "https://anjardimarasakti.users.earthengine.app/view/energi",
         "https://anjardimarasakti.users.earthengine.app/view/lstkotabandungcimahi",
         "https://anjardimarasakti.users.earthengine.app/view/lstmodisbandungcimahi",
+        "https://anjardimarasakti.users.earthengine.app/view/solarenergybandung",
         "https://anjardimarasakti.users.earthengine.app/view/solarenergyitb",
         "https://anjardimarasakti.users.earthengine.app/view/tngmburn-ratio-index",
         "https://anjardimarasakti.users.earthengine.app/view/simulatorcovid-19bandungraya"
@@ -3607,7 +3608,6 @@
         "https://jsilvan.users.earthengine.app/view/guerra-sucia",
         "https://jsilvan.users.earthengine.app/view/indices-espectrales-globales",
         "https://jsilvan.users.earthengine.app/view/jrc-global-surface-water-mapping-layers-v12",
-        "https://jsilvan.users.earthengine.app/view/ortofotos-cm1",
         "https://jsilvan.users.earthengine.app/view/distribucin-potencial-de-fosas-clandestinas",
         "https://jsilvan.users.earthengine.app/view/espacio-clandestino",
         "https://jsilvan.users.earthengine.app/view/explorador-covid-19",
@@ -4068,6 +4068,7 @@
     "lucassantarosa": [
         "https://lucassantarosa.users.earthengine.app/view/fire-monitoring",
         "https://lucassantarosa.users.earthengine.app/view/fire-monitoring-2",
+        "https://lucassantarosa.users.earthengine.app/view/fire-monitoring-uy-test",
         "https://lucassantarosa.users.earthengine.app/view/landsat---sentinel"
     ],
     "lucasterres": [
@@ -4546,6 +4547,7 @@
         "https://msanthosh1855.users.earthengine.app/view/s2-unsupervised-classification"
     ],
     "msekota": [
+        "https://msekota.users.earthengine.app/view/lcdb",
         "https://msekota.users.earthengine.app/view/my-landcover-app"
     ],
     "mtlazarz": [
@@ -4612,7 +4614,7 @@
         "https://najmakhofifah.users.earthengine.app/view/tugas-13najma-khofifah"
     ],
     "nandoceanos": [
-        "https://nandoceanos.users.earthengine.app/view/clascoral",
+        "https://nandoceanos.users.earthengine.app/view/coralclass",
         "https://nandoceanos.users.earthengine.app/view/corofilascaribecolombia",
         "https://nandoceanos.users.earthengine.app/view/droneclasificacion",
         "https://nandoceanos.users.earthengine.app/view/monitoreocorales",
@@ -4702,6 +4704,7 @@
     "nicolasalejandromari": [
         "https://nicolasalejandromari.users.earthengine.app/view/amazon-fires",
         "https://nicolasalejandromari.users.earthengine.app/view/iiff-cuchi-corral-2020",
+        "https://nicolasalejandromari.users.earthengine.app/view/iiffcba2022",
         "https://nicolasalejandromari.users.earthengine.app/view/reas-quemadas-en-villa-albertina"
     ],
     "nicoridley09": [
@@ -4871,6 +4874,7 @@
         "https://ogordienko112.users.earthengine.app/view/lab14jasu",
         "https://ogordienko112.users.earthengine.app/view/lab14jasuvideo",
         "https://ogordienko112.users.earthengine.app/view/monitoring2022",
+        "https://ogordienko112.users.earthengine.app/view/ndvitooltest1",
         "https://ogordienko112.users.earthengine.app/view/ndvivsvh",
         "https://ogordienko112.users.earthengine.app/view/newolives",
         "https://ogordienko112.users.earthengine.app/view/newrelief",
@@ -6122,6 +6126,7 @@
         "https://ssebop.users.earthengine.app/view/ssebop-br-v101",
         "https://ssebop.users.earthengine.app/view/ssebop-v101",
         "https://ssebop.users.earthengine.app/view/ssebopbriph",
+        "https://ssebop.users.earthengine.app/view/ssebopbrv2",
         "https://ssebop.users.earthengine.app/view/ssebop-br"
     ],
     "st069419": [
@@ -6550,6 +6555,7 @@
         "https://wallacesilva.users.earthengine.app/view/mapas-mapbiomas-fogo-coleao-1",
         "https://wallacesilva.users.earthengine.app/view/mapbiomas-alerta-monitor-fiscalizao",
         "https://wallacesilva.users.earthengine.app/view/mapbiomas-fogo-beta",
+        "https://wallacesilva.users.earthengine.app/view/mapbiomas-kyoshi-avaliacao-dos-estoques-de-carbono",
         "https://wallacesilva.users.earthengine.app/view/mapbiomas-mapmachine",
         "https://wallacesilva.users.earthengine.app/view/merinocaimanpolcerto",
         "https://wallacesilva.users.earthengine.app/view/merinorecaimanfirefrequency",

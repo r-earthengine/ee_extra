@@ -1020,6 +1020,7 @@
     "arjenhaag": [
         "https://arjenhaag.users.earthengine.app/view/awashriverbasinfloods2020",
         "https://arjenhaag.users.earthengine.app/view/bangladesh-erosion-monitor",
+        "https://arjenhaag.users.earthengine.app/view/beira-floods-march-2019",
         "https://arjenhaag.users.earthengine.app/view/borders-and-rivers",
         "https://arjenhaag.users.earthengine.app/view/cambodia-floods-october-2020",
         "https://arjenhaag.users.earthengine.app/view/cambodia-floods-october-2020---animations",
@@ -2472,8 +2473,7 @@
         "https://fitoprincipe.users.earthengine.app/view/validation-app"
     ],
     "fjmesas": [
-        "https://fjmesas.users.earthengine.app/view/fincaexperimental",
-        "https://fjmesas.users.earthengine.app/view/visor-parcel-1"
+        "https://fjmesas.users.earthengine.app/view/fincaexperimental"
     ],
     "flaviecpelletier": [
         "https://flaviecpelletier.users.earthengine.app/view/bulc-d-2019-inspector"
@@ -2701,7 +2701,8 @@
         "https://geraldoarquimedes.users.earthengine.app/view/mya"
     ],
     "geraldonazar": [
-        "https://geraldonazar.users.earthengine.app/view/analisis-dampak-bencana-banjir-bekasi-2020"
+        "https://geraldonazar.users.earthengine.app/view/analisis-dampak-bencana-banjir-bekasi-2020",
+        "https://geraldonazar.users.earthengine.app/view/salinitas-mooring-buoy-juli---agustus-2022"
     ],
     "gerardosoto": [
         "https://gerardosoto.users.earthengine.app/view/aluvion-de-chaaral-25-marzo-de-2015",
@@ -3112,7 +3113,8 @@
         "https://idakwovicks.users.earthengine.app/view/obura2020",
         "https://idakwovicks.users.earthengine.app/view/uklandsurfacetemerature2000",
         "https://idakwovicks.users.earthengine.app/view/uklandsurfacetemperature",
-        "https://idakwovicks.users.earthengine.app/view/uklandsurfacetemperature2006"
+        "https://idakwovicks.users.earthengine.app/view/uklandsurfacetemperature2006",
+        "https://idakwovicks.users.earthengine.app/view/wukari2022"
     ],
     "idoandifyfirdaus": [
         "https://idoandifyfirdaus.users.earthengine.app/view/night-light"
@@ -4069,7 +4071,8 @@
         "https://lucassantarosa.users.earthengine.app/view/fire-monitoring",
         "https://lucassantarosa.users.earthengine.app/view/fire-monitoring-2",
         "https://lucassantarosa.users.earthengine.app/view/fire-monitoring-uy-test",
-        "https://lucassantarosa.users.earthengine.app/view/landsat---sentinel"
+        "https://lucassantarosa.users.earthengine.app/view/landsat---sentinel",
+        "https://lucassantarosa.users.earthengine.app/view/split-panel-uy"
     ],
     "lucasterres": [
         "https://lucasterres.users.earthengine.app/view/capitoliomg",
@@ -4080,7 +4083,6 @@
         "https://lucasterres.users.earthengine.app/view/ubtm"
     ],
     "lucianolasala": [
-        "https://lucianolasala.users.earthengine.app/view/bajanteparana",
         "https://lucianolasala.users.earthengine.app/view/o-rostratus"
     ],
     "luciovilla": [
@@ -4693,7 +4695,8 @@
         "https://neurojunior.users.earthengine.app/view/vegasentinel1"
     ],
     "nguyenhong1611209": [
-        "https://nguyenhong1611209.users.earthengine.app/view/test"
+        "https://nguyenhong1611209.users.earthengine.app/view/test",
+        "https://nguyenhong1611209.users.earthengine.app/view/ythdtest"
     ],
     "nguyenkhoiphql": [
         "https://nguyenkhoiphql.users.earthengine.app/view/anhsetinel2"
@@ -5725,10 +5728,6 @@
         "https://samsammurphy.users.earthengine.app/view/liveability",
         "https://samsammurphy.users.earthengine.app/view/hotmap"
     ],
-    "sanarvaez": [
-        "https://sanarvaez.users.earthengine.app/view/inundacin-en-corredor-galerazamba-puerto-colombia",
-        "https://sanarvaez.users.earthengine.app/view/manglecienagagrande2014"
-    ],
     "sanchezjose0985": [
         "https://sanchezjose0985.users.earthengine.app/view/ejercicio-06"
     ],
@@ -6433,6 +6432,7 @@
         "https://unfassbarstephan.users.earthengine.app/view/water-mask-analyzer-v0-9"
     ],
     "uploads": [
+        "https://Uploads.users.earthengine.app/view/conservationimportance",
         "https://Uploads.users.earthengine.app/view/foodscapevisualization",
         "https://Uploads.users.earthengine.app/view/habitat-types-map",
         "https://uploads.users.earthengine.app/view/habitat-types-map"

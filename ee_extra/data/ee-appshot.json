@@ -441,6 +441,8 @@
         "https://PemaThinley.users.earthengine.app/view/test"
     ],
     "PrioritizationCobenefitsTool": [
+        "https://PrioritizationCobenefitsTool.users.earthengine.app/view/cobenefitscalculator",
+        "https://PrioritizationCobenefitsTool.users.earthengine.app/view/nc-huc-12-conservation-prioritizer",
         "https://PrioritizationCobenefitsTool.users.earthengine.app/view/nc-huc-12-conservation-prioritizer-tool-beta"
     ],
     "RMDMK": [
@@ -4083,7 +4085,8 @@
         "https://lucasterres.users.earthengine.app/view/ubtm"
     ],
     "lucianolasala": [
-        "https://lucianolasala.users.earthengine.app/view/o-rostratus"
+        "https://lucianolasala.users.earthengine.app/view/o-rostratus",
+        "https://lucianolasala.users.earthengine.app/view/wild-pigs-south-america"
     ],
     "luciovilla": [
         "https://luciovilla.users.earthengine.app/view/acca",
@@ -4297,24 +4300,14 @@
     ],
     "mbujan": [
         "https://mbujan.users.earthengine.app/view/app-prod-demo",
+        "https://mbujan.users.earthengine.app/view/apphinterlands20",
+        "https://mbujan.users.earthengine.app/view/apphinterlands30",
         "https://mbujan.users.earthengine.app/view/ee-demo",
         "https://mbujan.users.earthengine.app/view/example"
     ],
     "mcwimberly": [
         "https://mcwimberly.users.earthengine.app/view/wafordd22",
         "https://mcwimberly.users.earthengine.app/view/wafordd21"
-    ],
-    "mdewitt": [
-        "https://mdewitt.users.earthengine.app/view/example-ee101",
-        "https://mdewitt.users.earthengine.app/view/fruits",
-        "https://mdewitt.users.earthengine.app/view/hax",
-        "https://mdewitt.users.earthengine.app/view/linked-maps",
-        "https://mdewitt.users.earthengine.app/view/mosaic-editor",
-        "https://mdewitt.users.earthengine.app/view/ndvi",
-        "https://mdewitt.users.earthengine.app/view/null",
-        "https://mdewitt.users.earthengine.app/view/ocean-time-series",
-        "https://mdewitt.users.earthengine.app/view/srtm",
-        "https://mdewitt.users.earthengine.app/view/testthumbnail"
     ],
     "mdh": [
         "https://mdh.users.earthengine.app/view/kincade-fire",
@@ -5307,6 +5300,7 @@
         "https://ramiqcom.users.earthengine.app/view/adv",
         "https://ramiqcom.users.earthengine.app/view/cloud",
         "https://ramiqcom.users.earthengine.app/view/coastal",
+        "https://ramiqcom.users.earthengine.app/view/compositor",
         "https://ramiqcom.users.earthengine.app/view/diyflood",
         "https://ramiqcom.users.earthengine.app/view/env",
         "https://ramiqcom.users.earthengine.app/view/fairatmos",

@@ -996,7 +996,8 @@
         "https://arcilor72.users.earthengine.app/view/mappatura-degli-incendi-in-calabria"
     ],
     "ardian20001": [
-        "https://ardian20001.users.earthengine.app/view/splitt"
+        "https://ardian20001.users.earthengine.app/view/coba",
+        "https://ardian20001.users.earthengine.app/view/vgfh"
     ],
     "areasirrigadas": [
         "https://areasirrigadas.users.earthengine.app/view/ssebopinpe"
@@ -3116,6 +3117,8 @@
         "https://idakwovicks.users.earthengine.app/view/uklandsurfacetemerature2000",
         "https://idakwovicks.users.earthengine.app/view/uklandsurfacetemperature",
         "https://idakwovicks.users.earthengine.app/view/uklandsurfacetemperature2006",
+        "https://idakwovicks.users.earthengine.app/view/wukari2002",
+        "https://idakwovicks.users.earthengine.app/view/wukari2012",
         "https://idakwovicks.users.earthengine.app/view/wukari2022"
     ],
     "idoandifyfirdaus": [
@@ -3278,6 +3281,7 @@
         "https://jamesbrinkhoff.users.earthengine.app/view/wetlands"
     ],
     "jamesmaccarthy": [
+        "https://jamesmaccarthy.users.earthengine.app/view/drivers-1km-viz",
         "https://jamesmaccarthy.users.earthengine.app/view/firefreqglobal",
         "https://jamesmaccarthy.users.earthengine.app/view/gadchiroli-viewer",
         "https://jamesmaccarthy.users.earthengine.app/view/indonesia-fire-comparison",
@@ -4906,6 +4910,7 @@
         "https://ollielballinger.users.earthengine.app/view/bellingcat-radar-interference-tracker",
         "https://ollielballinger.users.earthengine.app/view/ism",
         "https://ollielballinger.users.earthengine.app/view/populated-area-voteshares",
+        "https://ollielballinger.users.earthengine.app/view/shipdetection",
         "https://ollielballinger.users.earthengine.app/view/ukraineconflictmonitor",
         "https://ollielballinger.users.earthengine.app/view/basra-oil",
         "https://ollielballinger.users.earthengine.app/view/beirut",
@@ -5241,6 +5246,7 @@
         "https://rahulaus.users.earthengine.app/view/umang2021"
     ],
     "rahulharod": [
+        "https://rahulharod.users.earthengine.app/view/crop-health",
         "https://rahulharod.users.earthengine.app/view/vci"
     ],
     "raianefcmachado": [
@@ -6157,6 +6163,7 @@
         "https://sudippradhan.users.earthengine.app/view/criteriatestapp"
     ],
     "sufy": [
+        "https://sufy.earthengine.app/view/forest-change-app",
         "https://sufy.earthengine.app/view/hillshade-app",
         "https://sufy.earthengine.app/view/test-table"
     ],

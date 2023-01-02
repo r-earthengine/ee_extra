@@ -442,8 +442,7 @@
     ],
     "PrioritizationCobenefitsTool": [
         "https://PrioritizationCobenefitsTool.users.earthengine.app/view/cobenefitscalculator",
-        "https://PrioritizationCobenefitsTool.users.earthengine.app/view/nc-huc-12-conservation-prioritizer",
-        "https://PrioritizationCobenefitsTool.users.earthengine.app/view/nc-huc-12-conservation-prioritizer-tool-beta"
+        "https://PrioritizationCobenefitsTool.users.earthengine.app/view/nc-huc-12-conservation-prioritizer"
     ],
     "RMDMK": [
         "https://RMDMK.users.earthengine.app/view/test"
@@ -5140,6 +5139,7 @@
     "pornchai": [
         "https://pornchai.users.earthengine.app/view/event-monitor",
         "https://pornchai.users.earthengine.app/view/sar-change-detection-for-navy",
+        "https://pornchai.users.earthengine.app/view/sentinel-1-101",
         "https://pornchai.users.earthengine.app/view/thailandflood2015rgb",
         "https://pornchai.users.earthengine.app/view/thailandflood2015sar"
     ],
@@ -5461,7 +5461,8 @@
         "https://ricardogeo.users.earthengine.app/view/ssebopbhpseval",
         "https://ricardogeo.users.earthengine.app/view/sseboplandsat",
         "https://ricardogeo.users.earthengine.app/view/sseboppsrb1984to2019",
-        "https://ricardogeo.users.earthengine.app/view/sseboppsrblandcover1987to2017"
+        "https://ricardogeo.users.earthengine.app/view/sseboppsrblandcover1987to2017",
+        "https://ricardogeo.users.earthengine.app/view/usocoberturaibge"
     ],
     "richardfernandes": [
         "https://richardfernandes.users.earthengine.app/view/leaf-toolbox-sl2p"

@@ -3772,9 +3772,6 @@
     "kalondepatrick": [
         "https://kalondepatrick.users.earthengine.app/view/yield-estimator"
     ],
-    "kamalhosen": [
-        "https://kamalhosen.users.earthengine.app/view/lst"
-    ],
     "kamas72_ML_Zim_Cities": [
         "https://kamas72_ML_Zim_Cities.users.earthengine.app/view/bulawayo-dry-s2--land-cover-2020a",
         "https://kamas72_ML_Zim_Cities.users.earthengine.app/view/bulawayo-post-rainy-s2--land-cover-2020a",
@@ -3921,6 +3918,7 @@
         "https://leofabiop120.users.earthengine.app/view/dataenergia",
         "https://leofabiop120.users.earthengine.app/view/datafuegohn",
         "https://leofabiop120.users.earthengine.app/view/dataspatialanalysis",
+        "https://leofabiop120.users.earthengine.app/view/disenopanle",
         "https://leofabiop120.users.earthengine.app/view/emergencycomparehn2",
         "https://leofabiop120.users.earthengine.app/view/etahonduras",
         "https://leofabiop120.users.earthengine.app/view/global-power-plant-database",
@@ -4858,6 +4856,7 @@
         "https://ogis.users.earthengine.app/view/timescanviz"
     ],
     "ogordienko112": [
+        "https://ogordienko112.users.earthengine.app/view/appsnezkapradedlysahora",
         "https://ogordienko112.users.earthengine.app/view/cokyiv",
         "https://ogordienko112.users.earthengine.app/view/course14man",
         "https://ogordienko112.users.earthengine.app/view/create",
@@ -5241,6 +5240,7 @@
     ],
     "rahulharod": [
         "https://rahulharod.users.earthengine.app/view/crop-health",
+        "https://rahulharod.users.earthengine.app/view/timeseries",
         "https://rahulharod.users.earthengine.app/view/vci"
     ],
     "raianefcmachado": [

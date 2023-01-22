@@ -12,6 +12,8 @@ point = ee.Geometry.Point([-76.21, 3.45])
 # They're commented for now.
 
 datasets = [
+    "COPERNICUS/S1_GRD",
+    "JAXA/ALOS/PALSAR-2/Level2_2/ScanSAR",
     "COPERNICUS/S2",
     "COPERNICUS/S2_HARMONIZED",
     "COPERNICUS/S2_SR",

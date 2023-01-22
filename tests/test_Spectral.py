@@ -7,43 +7,44 @@ from ee_extra.Spectral.core import *
 ee.Initialize()
 
 point = ee.Geometry.Point([-76.21, 3.45])
+point2 = ee.Geometry.Point([143, -5])
 
 # MYD Products are not in the GEE STAC anymore.
 # They're commented for now.
 
-datasets = [
-    "COPERNICUS/S1_GRD",
-    "JAXA/ALOS/PALSAR-2/Level2_2/ScanSAR",
-    "COPERNICUS/S2",
-    "COPERNICUS/S2_HARMONIZED",
-    "COPERNICUS/S2_SR",
-    "COPERNICUS/S2_SR_HARMONIZED",
-    "LANDSAT/LC08/C01/T1_SR",
-    "LANDSAT/LC08/C01/T2_SR",
-    "LANDSAT/LC08/C02/T1_L2",
-    "LANDSAT/LC09/C02/T1_L2",
-    "LANDSAT/LE07/C01/T1_SR",
-    "LANDSAT/LE07/C01/T2_SR",
-    "LANDSAT/LE07/C02/T1_L2",
-    "LANDSAT/LT05/C01/T1_SR",
-    "LANDSAT/LT05/C01/T2_SR",
-    "LANDSAT/LT04/C01/T1_SR",
-    "LANDSAT/LT04/C01/T2_SR",
-    "MODIS/006/MOD09GQ",
-    "MODIS/061/MOD09GQ",
+datasets = {
+    "COPERNICUS/S1_GRD": point,
+    "JAXA/ALOS/PALSAR-2/Level2_2/ScanSAR": point2,
+    "COPERNICUS/S2": point,
+    "COPERNICUS/S2_HARMONIZED": point,
+    "COPERNICUS/S2_SR": point,
+    "COPERNICUS/S2_SR_HARMONIZED": point,
+    "LANDSAT/LC08/C01/T1_SR": point,
+    "LANDSAT/LC08/C01/T2_SR": point,
+    "LANDSAT/LC08/C02/T1_L2": point,
+    "LANDSAT/LC09/C02/T1_L2": point,
+    "LANDSAT/LE07/C01/T1_SR": point,
+    "LANDSAT/LE07/C01/T2_SR": point,
+    "LANDSAT/LE07/C02/T1_L2": point,
+    "LANDSAT/LT05/C01/T1_SR": point,
+    "LANDSAT/LT05/C01/T2_SR": point,
+    "LANDSAT/LT04/C01/T1_SR": point,
+    "LANDSAT/LT04/C01/T2_SR": point,
+    "MODIS/006/MOD09GQ": point,
+    "MODIS/061/MOD09GQ": point,
     # "MODIS/006/MYD09GQ",
-    "MODIS/006/MOD09GA",
-    "MODIS/061/MOD09GA",
+    "MODIS/006/MOD09GA": point,
+    "MODIS/061/MOD09GA": point,
     # "MODIS/006/MYD09GA",
-    "MODIS/006/MOD09Q1",
-    "MODIS/061/MOD09Q1",
+    "MODIS/006/MOD09Q1": point,
+    "MODIS/061/MOD09Q1": point,
     # "MODIS/006/MYD09Q1",
-    "MODIS/006/MOD09A1",
-    "MODIS/061/MOD09A1",
+    "MODIS/006/MOD09A1": point,
+    "MODIS/061/MOD09A1": point,
     # "MODIS/006/MYD09A1",
-    "MODIS/006/MCD43A4",
+    "MODIS/006/MCD43A4": point,
     # "MODIS/061/MCD43A4",
-]
+}
 
 tasseledcap_datasets = [
     "COPERNICUS/S2",
@@ -72,11 +73,9 @@ class Test(unittest.TestCase):
 
     def test_spectralIndices(self):
         """Test the spectralIndices() method"""
-        for dataset in datasets:
+        for dataset, geom in datasets.items():
             with self.subTest(i=dataset):
-                if dataset == "JAXA/ALOS/PALSAR-2/Level2_2/ScanSAR":
-                    point = ee.Geometry.Point([143, -5])
-                x = ee.ImageCollection(dataset).filterBounds(point)
+                x = ee.ImageCollection(dataset).filterBounds(geom)
                 self.assertIsInstance(
                     spectralIndices(x, "all"), ee.imagecollection.ImageCollection
                 )

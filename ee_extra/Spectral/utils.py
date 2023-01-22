@@ -23,6 +23,14 @@ def _get_expression_map(img: ee.Image, platformDict: dict) -> dict:
         Map dictionary for the ee.Image.expression() method.
     """
 
+    def lookupS1(img):
+        return {
+            "HH": img.select("HH"),
+            "HV": img.select("HV"),
+            "VV": img.select("VV"),
+            "VH": img.select("VH"),
+        }
+
     def lookupS2(img):
         return {
             "A": img.select("B1"),
@@ -164,6 +172,7 @@ def _get_expression_map(img: ee.Image, platformDict: dict) -> dict:
         }
 
     lookupPlatform = {
+        "COPERNICUS/S1_GRD": lookupS1,
         "COPERNICUS/S2": lookupS2,
         "COPERNICUS/S2_HARMONIZED": lookupS2,
         "COPERNICUS/S2_SR": lookupS2,

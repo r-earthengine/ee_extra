@@ -74,6 +74,8 @@ class Test(unittest.TestCase):
         """Test the spectralIndices() method"""
         for dataset in datasets:
             with self.subTest(i=dataset):
+                if dataset == "JAXA/ALOS/PALSAR-2/Level2_2/ScanSAR":
+                    point = ee.Geometry.Point([143, -5])
                 x = ee.ImageCollection(dataset).filterBounds(point)
                 self.assertIsInstance(
                     spectralIndices(x, "all"), ee.imagecollection.ImageCollection

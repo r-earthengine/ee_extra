@@ -34,6 +34,7 @@ def spectralIndices(
     omega: Union[float, int] = 2.0,
     beta: Union[float, int] = 0.05,
     k: Union[float, int] = 0.0,
+    fdelta: Union[float, int] = 0.581,
     kernel: str = "RBF",
     sigma: Union[float, str] = "0.5 * (a + b)",
     p: Union[float, int] = 2,
@@ -65,6 +66,7 @@ def spectralIndices(
         omega : Weighting coefficient used for MBWI.
         beta : Calibration parameter used for NDSIns.
         k :  Slope parameter by soil used for NIRvH2.
+        fdelta :  Adjustment factor used for SEVI.
         kernel : Kernel used for kernel indices. One of 'linear', 'RBF', 'poly'.
         sigma : Length-scale parameter. Used for kernel = 'RBF'. If str, this must be an
             expression including 'a' and 'b'. If numeric, this must be positive.
@@ -115,6 +117,7 @@ def spectralIndices(
         "omega": float(omega),
         "beta": float(beta),
         "k": float(k),
+        "fdelta": float(fdelta),
         "p": float(p),
         "c": float(c),
         "lambdaN": float(lambdaN),
@@ -134,6 +137,7 @@ def spectralIndices(
             "water",
             "snow",
             "urban",
+            "soil",
             "kernel",
             "radar"
         ]:

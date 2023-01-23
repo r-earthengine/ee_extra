@@ -2,7 +2,7 @@
 ee_extra Extensions.
 """
 
-__version__ = "0.0.14"
+__version__ = "0.0.15"
 
 from ee_extra.Image.basic import *
 from ee_extra.ImageCollection.core import *

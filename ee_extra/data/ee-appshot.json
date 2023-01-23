@@ -34,15 +34,6 @@
         "https://19021508-004.users.earthengine.app/view/ndvi",
         "https://19021508-004.users.earthengine.app/view/sindh-flood-mapping"
     ],
-    "19070241023": [
-        "https://19070241023.users.earthengine.app/view/modilst"
-    ],
-    "19070241039": [
-        "https://19070241039.users.earthengine.app/view/akshata",
-        "https://19070241039.users.earthengine.app/view/lst",
-        "https://19070241039.users.earthengine.app/view/lst-day-and-night-map",
-        "https://19070241039.users.earthengine.app/view/shoaib"
-    ],
     "19981211lmy": [
         "https://19981211lmy.users.earthengine.app/view/appmap",
         "https://19981211lmy.users.earthengine.app/view/lmy"
@@ -684,13 +675,10 @@
         "https://agroenlace.users.earthengine.app/view/datosclimaticos19802020",
         "https://agroenlace.users.earthengine.app/view/datosnoaanl",
         "https://agroenlace.users.earthengine.app/view/evolucin-de-la-vegetacin-post---incendio",
-        "https://agroenlace.users.earthengine.app/view/forestal",
         "https://agroenlace.users.earthengine.app/view/ganaderiahumedad-de-suelo",
         "https://agroenlace.users.earthengine.app/view/indiceclorofila",
         "https://agroenlace.users.earthengine.app/view/materia-seca",
-        "https://agroenlace.users.earthengine.app/view/materia-seca-actual",
         "https://agroenlace.users.earthengine.app/view/materia-seca-municipal",
-        "https://agroenlace.users.earthengine.app/view/materia-seca-pronosticos",
         "https://agroenlace.users.earthengine.app/view/msabierto"
     ],
     "agronservice": [
@@ -1591,6 +1579,7 @@
         "https://chiayilin94.users.earthengine.app/view/taiwan-slr"
     ],
     "chriscandido93": [
+        "https://chriscandido93.users.earthengine.app/view/drone-classification",
         "https://chriscandido93.users.earthengine.app/view/landcover-mapping"
     ],
     "christhianscunha": [
@@ -2629,6 +2618,7 @@
         "https://gena.users.earthengine.app/view/goes-animation",
         "https://gena.users.earthengine.app/view/hurricane-ida",
         "https://gena.users.earthengine.app/view/landslides",
+        "https://gena.users.earthengine.app/view/last-month-flood",
         "https://gena.users.earthengine.app/view/last-scenes",
         "https://gena.users.earthengine.app/view/manila-bay-atlas",
         "https://gena.users.earthengine.app/view/mining",
@@ -3729,6 +3719,8 @@
         "https://juntakut37.users.earthengine.app/view/pogonovo-training-area-in-russia",
         "https://juntakut37.users.earthengine.app/view/primorsko-akhtarsk-air-base-in-russia",
         "https://juntakut37.users.earthengine.app/view/relationship-of-hydrological-factors-in-mekong-river-basin",
+        "https://juntakut37.users.earthengine.app/view/soil-erosion-risk-analysis---bang-pakong---level-7",
+        "https://juntakut37.users.earthengine.app/view/soil-erosion-risk-analysis---bang-pakong-basin---level-12",
         "https://juntakut37.users.earthengine.app/view/urban-area-in-each-province-of-thailand",
         "https://juntakut37.users.earthengine.app/view/water-quality-for-nn-ny-pb",
         "https://juntakut37.users.earthengine.app/view/water-quality-in-crma"
@@ -4636,7 +4628,8 @@
         "https://nandopando.users.earthengine.app/view/surgencia"
     ],
     "narayanthapa": [
-        "https://narayanthapa.users.earthengine.app/view/melamchiriverassessment"
+        "https://narayanthapa.users.earthengine.app/view/melamchiriverassessment",
+        "https://narayanthapa.users.earthengine.app/view/nightlight"
     ],
     "nateme16": [
         "https://nateme16.users.earthengine.app/view/darryl-clarity"

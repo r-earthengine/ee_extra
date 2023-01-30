@@ -464,11 +464,6 @@
     "SI_Testing": [
         "https://SI_Testing.users.earthengine.app/view/forestchangefdv"
     ],
-    "Sarath": [
-        "https://Sarath.users.earthengine.app/view/s1-sar-time-series-chachoengsao",
-        "https://Sarath.users.earthengine.app/view/s2-cambodia-2019",
-        "https://Sarath.users.earthengine.app/view/sentinel-2-explorer"
-    ],
     "Scarlettlee33": [
         "https://Scarlettlee33.users.earthengine.app/view/highqualitymosaic",
         "https://Scarlettlee33.users.earthengine.app/view/test",
@@ -884,6 +879,7 @@
         "https://andreatassi23.users.earthengine.app/view/ndvitimeseries"
     ],
     "andreim": [
+        "https://andreim.users.earthengine.app/view/geo1",
         "https://andreim.users.earthengine.app/view/bfastmonitor"
     ],
     "andreydara": [
@@ -1344,8 +1340,7 @@
     ],
     "bryceberrett": [
         "https://bryceberrett.users.earthengine.app/view/contour-maker-nasadem-srtm",
-        "https://bryceberrett.users.earthengine.app/view/evacuation-planning-app-tsunamis-1",
-        "https://bryceberrett.users.earthengine.app/view/evacuation-planning-app-tsunamis-11-beta",
+        "https://bryceberrett.users.earthengine.app/view/evacuation-planning-app-tsunamis-20-beta",
         "https://bryceberrett.users.earthengine.app/view/saint-vincent-volcano-update-april-2021-eruption",
         "https://bryceberrett.users.earthengine.app/view/solomon-island-classification"
     ],
@@ -2171,7 +2166,8 @@
         "https://emilioberti90.users.earthengine.app/view/amazon-cameras",
         "https://emilioberti90.users.earthengine.app/view/calvana",
         "https://emilioberti90.users.earthengine.app/view/connectivity-tigers-nepal",
-        "https://emilioberti90.users.earthengine.app/view/demographic-sdm"
+        "https://emilioberti90.users.earthengine.app/view/demographic-sdm",
+        "https://emilioberti90.users.earthengine.app/view/demographic-sdm-europe"
     ],
     "engcnalmeida": [
         "https://engcnalmeida.users.earthengine.app/view/climbrasil",
@@ -4509,6 +4505,7 @@
         "https://mortezakhazaei1370.users.earthengine.app/view/horalazim-wetland"
     ],
     "moukomlasitthisak": [
+        "https://moukomlasitthisak.users.earthengine.app/view/compare-fire",
         "https://moukomlasitthisak.users.earthengine.app/view/thailand-population",
         "https://moukomlasitthisak.users.earthengine.app/view/ukraine-night-light",
         "https://moukomlasitthisak.users.earthengine.app/view/unspider-for-flood-monitoring-in-thailand"
@@ -4860,6 +4857,7 @@
         "https://ogordienko112.users.earthengine.app/view/monitoring2022",
         "https://ogordienko112.users.earthengine.app/view/ndvitooltest1",
         "https://ogordienko112.users.earthengine.app/view/ndvivsvh",
+        "https://ogordienko112.users.earthengine.app/view/newdimm",
         "https://ogordienko112.users.earthengine.app/view/newolives",
         "https://ogordienko112.users.earthengine.app/view/newrelief",
         "https://ogordienko112.users.earthengine.app/view/no2",
@@ -4895,6 +4893,7 @@
         "https://ollielballinger.users.earthengine.app/view/ism",
         "https://ollielballinger.users.earthengine.app/view/populated-area-voteshares",
         "https://ollielballinger.users.earthengine.app/view/shipdetection",
+        "https://ollielballinger.users.earthengine.app/view/ukraine-damage-assessment",
         "https://ollielballinger.users.earthengine.app/view/ukraineconflictmonitor",
         "https://ollielballinger.users.earthengine.app/view/basra-oil",
         "https://ollielballinger.users.earthengine.app/view/beirut",
@@ -5629,6 +5628,7 @@
     ],
     "rymg40": [
         "https://rymg40.users.earthengine.app/view/landsatcomparisonjp",
+        "https://rymg40.users.earthengine.app/view/sentinel-2comparsion",
         "https://rymg40.users.earthengine.app/view/sgichlorafbjp",
         "https://rymg40.users.earthengine.app/view/sglichiora",
         "https://rymg40.users.earthengine.app/view/sglisst",

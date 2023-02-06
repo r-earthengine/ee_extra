@@ -330,6 +330,7 @@
         "https://LakshyaChaudhary.users.earthengine.app/view/myapp"
     ],
     "Landvis": [
+        "https://Landvis.users.earthengine.app/view/flood-mapping-general",
         "https://Landvis.users.earthengine.app/view/flood-maps"
     ],
     "LearningIIT": [
@@ -3040,6 +3041,7 @@
         "https://hpetroski.users.earthengine.app/view/nlcd-land-cover-change"
     ],
     "hydrosolutions": [
+        "https://hydrosolutions.users.earthengine.app/view/centralasia-snowcover",
         "https://hydrosolutions.users.earthengine.app/view/cropmapper-ferghana",
         "https://hydrosolutions.users.earthengine.app/view/cropmapper-ncp",
         "https://hydrosolutions.users.earthengine.app/view/sahel-water",
@@ -3731,7 +3733,10 @@
     ],
     "kadepasca100": [
         "https://kadepasca100.users.earthengine.app/view/banyuwangijagung",
-        "https://kadepasca100.users.earthengine.app/view/kaur"
+        "https://kadepasca100.users.earthengine.app/view/kaur",
+        "https://kadepasca100.users.earthengine.app/view/pemetaan1704",
+        "https://kadepasca100.users.earthengine.app/view/test1",
+        "https://kadepasca100.users.earthengine.app/view/ujicoba"
     ],
     "kaihu": [
         "https://kaihu.users.earthengine.app/view/gmcal",
@@ -3939,11 +3944,12 @@
         "https://lezanacd.users.earthengine.app/view/fracradrural2022v5",
         "https://lezanacd.users.earthengine.app/view/fracradruraleschaco2022",
         "https://lezanacd.users.earthengine.app/view/fracradv02",
+        "https://lezanacd.users.earthengine.app/view/municviv2021",
         "https://lezanacd.users.earthengine.app/view/v1-pobl-2010-chaco",
         "https://lezanacd.users.earthengine.app/view/v2-pobl-2010-chaco",
         "https://lezanacd.users.earthengine.app/view/vivminicradioamgr2020",
-        "https://lezanacd.users.earthengine.app/view/vivmunic",
-        "https://lezanacd.users.earthengine.app/view/vivmunic-radio2022"
+        "https://lezanacd.users.earthengine.app/view/vivmunic-radio2022",
+        "https://lezanacd.users.earthengine.app/view/vivrad2022pjes"
     ],
     "lfrmformacion": [
         "https://lfrmformacion.users.earthengine.app/view/ebro-floods-1516th-april-2018"
@@ -4625,6 +4631,7 @@
         "https://nandopando.users.earthengine.app/view/surgencia"
     ],
     "narayanthapa": [
+        "https://narayanthapa.users.earthengine.app/view/landcoverchangeicimod",
         "https://narayanthapa.users.earthengine.app/view/melamchiriverassessment",
         "https://narayanthapa.users.earthengine.app/view/nightlight"
     ],
@@ -6059,6 +6066,7 @@
         "https://sntopp.users.earthengine.app/view/mdd-hydroscape-explorer"
     ],
     "snyawacha": [
+        "https://snyawacha.users.earthengine.app/view/fcav",
         "https://snyawacha.users.earthengine.app/view/forestvegetation"
     ],
     "soilwatch": [

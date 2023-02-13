@@ -658,6 +658,7 @@
         "https://afotesfaye.users.earthengine.app/view/slmprllpethiopia2022",
         "https://afotesfaye.users.earthengine.app/view/slmprllpiethiopiapdo23tracker",
         "https://afotesfaye.users.earthengine.app/view/surface-water-explorer-of-ethiopia",
+        "https://afotesfaye.users.earthengine.app/view/water-occurrence-during-investigation--period-afo0911675804",
         "https://afotesfaye.users.earthengine.app/view/woreda-level"
     ],
     "ag": [
@@ -2097,6 +2098,7 @@
         "https://eduardo2188.users.earthengine.app/view/borrar",
         "https://eduardo2188.users.earthengine.app/view/caete",
         "https://eduardo2188.users.earthengine.app/view/caete2",
+        "https://eduardo2188.users.earthengine.app/view/captura-de-carbono-ocho-sur",
         "https://eduardo2188.users.earthengine.app/view/compuestos",
         "https://eduardo2188.users.earthengine.app/view/compuestoslandsat",
         "https://eduardo2188.users.earthengine.app/view/cuenca-caetemala",
@@ -2105,6 +2107,7 @@
         "https://eduardo2188.users.earthengine.app/view/glaciaresestudio",
         "https://eduardo2188.users.earthengine.app/view/imagenes-con-errores",
         "https://eduardo2188.users.earthengine.app/view/monitoreo-glaciares",
+        "https://eduardo2188.users.earthengine.app/view/monitoreo-historico-ocho-sur",
         "https://eduardo2188.users.earthengine.app/view/mosaicos-1985---2000",
         "https://eduardo2188.users.earthengine.app/view/serie-de-tiempo-indefo-1985---2000",
         "https://eduardo2188.users.earthengine.app/view/validacionpuntos",
@@ -2168,7 +2171,9 @@
         "https://emilioberti90.users.earthengine.app/view/calvana",
         "https://emilioberti90.users.earthengine.app/view/connectivity-tigers-nepal",
         "https://emilioberti90.users.earthengine.app/view/demographic-sdm",
-        "https://emilioberti90.users.earthengine.app/view/demographic-sdm-europe"
+        "https://emilioberti90.users.earthengine.app/view/demographic-sdm-america",
+        "https://emilioberti90.users.earthengine.app/view/demographic-sdm-europe",
+        "https://emilioberti90.users.earthengine.app/view/speed-temperature"
     ],
     "engcnalmeida": [
         "https://engcnalmeida.users.earthengine.app/view/climbrasil",
@@ -4015,6 +4020,7 @@
         "https://lmathew.users.earthengine.app/view/miombo-2016",
         "https://lmathew.users.earthengine.app/view/miombo-2017",
         "https://lmathew.users.earthengine.app/view/miombo-2018",
+        "https://lmathew.users.earthengine.app/view/monitoring-indices",
         "https://lmathew.users.earthengine.app/view/ndembera-catchment-monitoring",
         "https://lmathew.users.earthengine.app/view/nitrogen-dioxide---concentrations",
         "https://lmathew.users.earthengine.app/view/shorona-fcd",
@@ -4097,6 +4103,7 @@
         "https://luizcf14.users.earthengine.app/view/aplicacaopivotirrigacao",
         "https://luizcf14.users.earthengine.app/view/covid19-pa-br",
         "https://luizcf14.users.earthengine.app/view/covid19-pa-br-m",
+        "https://luizcf14.users.earthengine.app/view/illegal-air-strips",
         "https://luizcf14.users.earthengine.app/view/lasse-erb-spatialization",
         "https://luizcf14.users.earthengine.app/view/rasig"
     ],
@@ -4659,7 +4666,8 @@
     ],
     "neddgordon": [
         "https://neddgordon.users.earthengine.app/view/ee-mahaica-ndvi-last-edition",
-        "https://neddgordon.users.earthengine.app/view/ee-mahaica-river-mouth-last-edition"
+        "https://neddgordon.users.earthengine.app/view/ee-mahaica-river-mouth-last-edition",
+        "https://neddgordon.users.earthengine.app/view/ee-new-mahaica-river-mouth"
     ],
     "nestorcaalsuc": [
         "https://nestorcaalsuc.users.earthengine.app/view/eta-e-iota-en-alta-verapaz",
@@ -5239,8 +5247,8 @@
     ],
     "rahulharod": [
         "https://rahulharod.users.earthengine.app/view/crop-health",
-        "https://rahulharod.users.earthengine.app/view/timeseries",
-        "https://rahulharod.users.earthengine.app/view/vci"
+        "https://rahulharod.users.earthengine.app/view/dccropacreage",
+        "https://rahulharod.users.earthengine.app/view/timeseries"
     ],
     "raianefcmachado": [
         "https://raianefcmachado.users.earthengine.app/view/relevo"
@@ -5948,7 +5956,8 @@
         "https://shilosh.users.earthengine.app/view/continuous-lst",
         "https://shilosh.users.earthengine.app/view/emergence2heading",
         "https://shilosh.users.earthengine.app/view/hishtablout",
-        "https://shilosh.users.earthengine.app/view/lstcont-chart-inspector"
+        "https://shilosh.users.earthengine.app/view/lstcont-chart-inspector",
+        "https://shilosh.users.earthengine.app/view/prcc"
     ],
     "shoeb72844": [
         "https://shoeb72844.users.earthengine.app/view/waterbody"
@@ -6083,7 +6092,8 @@
     ],
     "solvedgeo": [
         "https://solvedgeo.users.earthengine.app/view/covid19",
-        "https://solvedgeo.users.earthengine.app/view/covid19-m"
+        "https://solvedgeo.users.earthengine.app/view/covid19-m",
+        "https://solvedgeo.users.earthengine.app/view/pistas-de-pouso"
     ],
     "sommer": [
         "https://sommer.users.earthengine.app/view/laimonthlyaggregates",
@@ -6281,10 +6291,8 @@
     "thao226355": [
         "https://thao226355.users.earthengine.app/view/biendongrung",
         "https://thao226355.users.earthengine.app/view/caobang",
-        "https://thao226355.users.earthengine.app/view/khubaotonmcc",
         "https://thao226355.users.earthengine.app/view/lulc-10m",
-        "https://thao226355.users.earthengine.app/view/qczwfgay80xytib",
-        "https://thao226355.users.earthengine.app/view/taianh"
+        "https://thao226355.users.earthengine.app/view/qczwfgay80xytib"
     ],
     "thaokl": [
         "https://thaokl.users.earthengine.app/view/sentinel2",
@@ -6816,11 +6824,7 @@
         "https://zoltansylvester.users.earthengine.app/view/mamore-bar-types"
     ],
     "zq10160617": [
-        "https://zq10160617.users.earthengine.app/view/coastal-seaward-urban-sprawl",
-        "https://zq10160617.users.earthengine.app/view/reclamation-extent",
-        "https://zq10160617.users.earthengine.app/view/seaward-urban-sprawl",
-        "https://zq10160617.users.earthengine.app/view/seaward-urban-sprawl1",
-        "https://zq10160617.users.earthengine.app/view/seaward-urban-sprawl2"
+        "https://zq10160617.users.earthengine.app/view/coastal-seaward-urban-sprawl"
     ],
     "zrahimi": [
         "https://zrahimi.users.earthengine.app/view/new",

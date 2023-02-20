@@ -614,6 +614,7 @@
         "https://adis.users.earthengine.app/view/sense4waterproject"
     ],
     "adriadescals": [
+        "https://adriadescals.users.earthengine.app/view/global-coconut-layer",
         "https://adriadescals.users.earthengine.app/view/global-oil-palm-map-2019",
         "https://adriadescals.users.earthengine.app/view/phenologymslai2019"
     ],
@@ -1243,6 +1244,7 @@
         "https://benitezrcamilo.users.earthengine.app/view/urbanization-in-asuncion"
     ],
     "benjaminpage8": [
+        "https://benjaminpage8.users.earthengine.app/view/chlasodak2022",
         "https://benjaminpage8.users.earthengine.app/view/floridalandsatclarity",
         "https://benjaminpage8.users.earthengine.app/view/canadawaterclarity",
         "https://benjaminpage8.users.earthengine.app/view/conuswaterclarity"
@@ -2064,7 +2066,8 @@
     ],
     "earthtestqa18": [
         "https://earthtestqa18.users.earthengine.app/view/aaabbbbbbbb",
-        "https://earthtestqa18.users.earthengine.app/view/bbb"
+        "https://earthtestqa18.users.earthengine.app/view/bbb",
+        "https://earthtestqa18.users.earthengine.app/view/jacksss"
     ],
     "earthwallmaster": [
         "https://earthwallmaster.users.earthengine.app/view/charts",
@@ -2098,7 +2101,6 @@
         "https://eduardo2188.users.earthengine.app/view/borrar",
         "https://eduardo2188.users.earthengine.app/view/caete",
         "https://eduardo2188.users.earthengine.app/view/caete2",
-        "https://eduardo2188.users.earthengine.app/view/captura-de-carbono-ocho-sur",
         "https://eduardo2188.users.earthengine.app/view/compuestos",
         "https://eduardo2188.users.earthengine.app/view/compuestoslandsat",
         "https://eduardo2188.users.earthengine.app/view/cuenca-caetemala",
@@ -2510,6 +2512,7 @@
     "fsn1995": [
         "https://fsn1995.users.earthengine.app/view/albedoinspector",
         "https://fsn1995.users.earthengine.app/view/iseeglacier",
+        "https://fsn1995.users.earthengine.app/view/modis-orbit-drift-viewer",
         "https://fsn1995.users.earthengine.app/view/transectprofile",
         "https://fsn1995.users.earthengine.app/view/iseeglacier"
     ],
@@ -3415,6 +3418,8 @@
         "https://jhowarth.users.earthengine.app/view/ee-edu-eeaf-f1-01",
         "https://jhowarth.users.earthengine.app/view/ee-edu-eefa-f11-02",
         "https://jhowarth.users.earthengine.app/view/ee-edu-rgb",
+        "https://jhowarth.users.earthengine.app/view/ee-vtcd-land-cover",
+        "https://jhowarth.users.earthengine.app/view/ee-vtcd-parcels-with-protections",
         "https://jhowarth.users.earthengine.app/view/eeprimer-compare-satellites",
         "https://jhowarth.users.earthengine.app/view/eeprimer-global-fire-explorer",
         "https://jhowarth.users.earthengine.app/view/eeprimer-holc-legacies",
@@ -3926,7 +3931,8 @@
         "https://leofabiop120.users.earthengine.app/view/etahonduras"
     ],
     "leszczukandresalejandro": [
-        "https://leszczukandresalejandro.users.earthengine.app/view/imagenvisualizador"
+        "https://leszczukandresalejandro.users.earthengine.app/view/imagenvisualizador",
+        "https://leszczukandresalejandro.users.earthengine.app/view/visualizadorbiomasagedi"
     ],
     "lethiquynhhoa": [
         "https://lethiquynhhoa.users.earthengine.app/view/s2img"
@@ -3971,7 +3977,8 @@
         "https://liezlvermeuln.users.earthengine.app/view/grazeengine"
     ],
     "liruonan02": [
-        "https://liruonan02.users.earthengine.app/view/foresttypeclassification-v10"
+        "https://liruonan02.users.earthengine.app/view/foresttypeclassification-v10",
+        "https://liruonan02.users.earthengine.app/view/treespeciesclassification-v10"
     ],
     "listerkristineanne": [
         "https://listerkristineanne.users.earthengine.app/view/hansenlossandimagery",
@@ -4788,7 +4795,8 @@
         "https://noamr.users.earthengine.app/view/ca-hsc"
     ],
     "noureddinebassa": [
-        "https://noureddinebassa.users.earthengine.app/view/agri40"
+        "https://noureddinebassa.users.earthengine.app/view/agri40",
+        "https://noureddinebassa.users.earthengine.app/view/new"
     ],
     "novoamariel_up_py": [
         "https://novoamariel_up_py.users.earthengine.app/view/deforestacion-alto-paraguay"
@@ -4908,6 +4916,7 @@
         "https://ollielballinger.users.earthengine.app/view/ism",
         "https://ollielballinger.users.earthengine.app/view/populated-area-voteshares",
         "https://ollielballinger.users.earthengine.app/view/shipdetection",
+        "https://ollielballinger.users.earthengine.app/view/tankertracker",
         "https://ollielballinger.users.earthengine.app/view/ukraine-damage-assessment",
         "https://ollielballinger.users.earthengine.app/view/ukraineconflictmonitor",
         "https://ollielballinger.users.earthengine.app/view/basra-oil",
@@ -6112,6 +6121,7 @@
         "https://spiruel.users.earthengine.app/view/extreme-heat-visualiser",
         "https://spiruel.users.earthengine.app/view/hyperspectral-comparison",
         "https://spiruel.users.earthengine.app/view/sentinel-2-flip-book",
+        "https://spiruel.users.earthengine.app/view/wheat-phenology",
         "http://spiruel.users.earthengine.app/view/sentinel-2-flip-book",
         "https://spiruel.users.earthengine.app/view/extreme-heat-visualiser"
     ],

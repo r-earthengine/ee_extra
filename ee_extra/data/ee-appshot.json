@@ -463,6 +463,7 @@
         "https://SAR_Radar.users.earthengine.app/view/ndvi--ndbi-tahun-2019--2014"
     ],
     "SI_Testing": [
+        "https://SI_Testing.users.earthengine.app/view/fdv2021",
         "https://SI_Testing.users.earthengine.app/view/forestchangefdv"
     ],
     "Scarlettlee33": [
@@ -2101,6 +2102,7 @@
         "https://eduardo2188.users.earthengine.app/view/borrar",
         "https://eduardo2188.users.earthengine.app/view/caete",
         "https://eduardo2188.users.earthengine.app/view/caete2",
+        "https://eduardo2188.users.earthengine.app/view/capturacarbonogreen-iniciative-ocho-sur",
         "https://eduardo2188.users.earthengine.app/view/compuestos",
         "https://eduardo2188.users.earthengine.app/view/compuestoslandsat",
         "https://eduardo2188.users.earthengine.app/view/cuenca-caetemala",
@@ -2109,7 +2111,6 @@
         "https://eduardo2188.users.earthengine.app/view/glaciaresestudio",
         "https://eduardo2188.users.earthengine.app/view/imagenes-con-errores",
         "https://eduardo2188.users.earthengine.app/view/monitoreo-glaciares",
-        "https://eduardo2188.users.earthengine.app/view/monitoreo-historico-ocho-sur",
         "https://eduardo2188.users.earthengine.app/view/mosaicos-1985---2000",
         "https://eduardo2188.users.earthengine.app/view/serie-de-tiempo-indefo-1985---2000",
         "https://eduardo2188.users.earthengine.app/view/validacionpuntos",
@@ -3245,6 +3246,7 @@
     "jackreid": [
         "https://jackreid.users.earthengine.app/view/jackreidghana",
         "https://jackreid.users.earthengine.app/view/jackreidrio",
+        "https://jackreid.users.earthengine.app/view/madagascar-cyclones",
         "https://jackreid.users.earthengine.app/view/madagascarjan-febcycloneroads"
     ],
     "jackrobison": [
@@ -3418,9 +3420,13 @@
         "https://jhowarth.users.earthengine.app/view/ee-edu-eeaf-f1-01",
         "https://jhowarth.users.earthengine.app/view/ee-edu-eefa-f11-02",
         "https://jhowarth.users.earthengine.app/view/ee-edu-rgb",
+        "https://jhowarth.users.earthengine.app/view/ee-vtcd-blended-hillshades",
+        "https://jhowarth.users.earthengine.app/view/ee-vtcd-farmlands",
         "https://jhowarth.users.earthengine.app/view/ee-vtcd-land-cover",
         "https://jhowarth.users.earthengine.app/view/ee-vtcd-parcels-with-protections",
+        "https://jhowarth.users.earthengine.app/view/ee-vtcd-view-surface",
         "https://jhowarth.users.earthengine.app/view/eeprimer-compare-satellites",
+        "https://jhowarth.users.earthengine.app/view/eeprimer-foundations-with-lights",
         "https://jhowarth.users.earthengine.app/view/eeprimer-global-fire-explorer",
         "https://jhowarth.users.earthengine.app/view/eeprimer-holc-legacies",
         "https://jhowarth.users.earthengine.app/view/eeprimer-lst-landsat8",
@@ -3460,6 +3466,7 @@
         "https://jmadrigal1leccion.users.earthengine.app/view/classlandcolombia",
         "https://jmadrigal1leccion.users.earthengine.app/view/imagen-sentinel-2aincendios-enero",
         "https://jmadrigal1leccion.users.earthengine.app/view/incendios-iztaccihuatl-2021",
+        "https://jmadrigal1leccion.users.earthengine.app/view/incendios-oax",
         "https://jmadrigal1leccion.users.earthengine.app/view/mapa-hidrolgico",
         "https://jmadrigal1leccion.users.earthengine.app/view/mapa-hidrolgico-2",
         "https://jmadrigal1leccion.users.earthengine.app/view/medellin",
@@ -4087,7 +4094,6 @@
         "https://lucasterres.users.earthengine.app/view/ubtm"
     ],
     "lucianolasala": [
-        "https://lucianolasala.users.earthengine.app/view/o-rostratus",
         "https://lucianolasala.users.earthengine.app/view/wild-pigs-south-america"
     ],
     "luciovilla": [
@@ -5125,6 +5131,7 @@
         "https://pmisson.users.earthengine.app/view/dmsp-viirs-comparison-tool",
         "https://pmisson.users.earthengine.app/view/eumap",
         "https://pmisson.users.earthengine.app/view/iberian-peninsula-colour-transition",
+        "https://pmisson.users.earthengine.app/view/kiev",
         "https://pmisson.users.earthengine.app/view/la-palma-volcano",
         "https://pmisson.users.earthengine.app/view/madrid-covid-19",
         "https://pmisson.users.earthengine.app/view/madrid-hotspots",
@@ -5257,6 +5264,7 @@
     "rahulharod": [
         "https://rahulharod.users.earthengine.app/view/crop-health",
         "https://rahulharod.users.earthengine.app/view/dccropacreage",
+        "https://rahulharod.users.earthengine.app/view/farmanalysis",
         "https://rahulharod.users.earthengine.app/view/timeseries"
     ],
     "raianefcmachado": [

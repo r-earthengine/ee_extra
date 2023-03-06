@@ -313,9 +313,7 @@
         "https://KHOA_LUAN.users.earthengine.app/view/biendong2015-2020"
     ],
     "KSA-GEE-2020-21": [
-        "https://KSA-GEE-2020-21.users.earthengine.app/view/kenya-sugarcane-maps",
-        "https://KSA-GEE-2020-21.users.earthengine.app/view/midst-nrm",
-        "https://KSA-GEE-2020-21.users.earthengine.app/view/midst-spatial-planning"
+        "https://KSA-GEE-2020-21.users.earthengine.app/view/midstnrm"
     ],
     "KaigeWang1": [
         "https://KaigeWang1.users.earthengine.app/view/igee-beta"
@@ -334,6 +332,7 @@
         "https://Landvis.users.earthengine.app/view/flood-maps"
     ],
     "LearningIIT": [
+        "https://LearningIIT.users.earthengine.app/view/arakvati",
         "https://LearningIIT.users.earthengine.app/view/assam-flood",
         "https://LearningIIT.users.earthengine.app/view/australia-fire-s2",
         "https://LearningIIT.users.earthengine.app/view/australiafire",
@@ -2102,7 +2101,6 @@
         "https://eduardo2188.users.earthengine.app/view/borrar",
         "https://eduardo2188.users.earthengine.app/view/caete",
         "https://eduardo2188.users.earthengine.app/view/caete2",
-        "https://eduardo2188.users.earthengine.app/view/capturacarbonogreen-iniciative-ocho-sur",
         "https://eduardo2188.users.earthengine.app/view/compuestos",
         "https://eduardo2188.users.earthengine.app/view/compuestoslandsat",
         "https://eduardo2188.users.earthengine.app/view/cuenca-caetemala",
@@ -3420,8 +3418,10 @@
         "https://jhowarth.users.earthengine.app/view/ee-edu-eeaf-f1-01",
         "https://jhowarth.users.earthengine.app/view/ee-edu-eefa-f11-02",
         "https://jhowarth.users.earthengine.app/view/ee-edu-rgb",
+        "https://jhowarth.users.earthengine.app/view/ee-vtcd-30x30",
         "https://jhowarth.users.earthengine.app/view/ee-vtcd-blended-hillshades",
         "https://jhowarth.users.earthengine.app/view/ee-vtcd-farmlands",
+        "https://jhowarth.users.earthengine.app/view/ee-vtcd-grasslands",
         "https://jhowarth.users.earthengine.app/view/ee-vtcd-land-cover",
         "https://jhowarth.users.earthengine.app/view/ee-vtcd-parcels-with-protections",
         "https://jhowarth.users.earthengine.app/view/ee-vtcd-view-surface",
@@ -3534,6 +3534,7 @@
     "johnstongonzalez": [
         "https://johnstongonzalez.users.earthengine.app/view/atlasintermarealnarino",
         "https://johnstongonzalez.users.earthengine.app/view/caliaire",
+        "https://johnstongonzalez.users.earthengine.app/view/islasdecalorcali",
         "https://johnstongonzalez.users.earthengine.app/view/ndvi",
         "https://johnstongonzalez.users.earthengine.app/view/sentineltest",
         "https://johnstongonzalez.users.earthengine.app/view/tidalclass"
@@ -4683,6 +4684,7 @@
         "https://neddgordon.users.earthengine.app/view/ee-new-mahaica-river-mouth"
     ],
     "nestorcaalsuc": [
+        "https://nestorcaalsuc.users.earthengine.app/view/buldd",
         "https://nestorcaalsuc.users.earthengine.app/view/eta-e-iota-en-alta-verapaz",
         "https://nestorcaalsuc.users.earthengine.app/view/inundaciones-europa",
         "https://nestorcaalsuc.users.earthengine.app/view/inundaciones-sica",
@@ -5436,6 +5438,7 @@
         "https://renankami.users.earthengine.app/view/dnbr2019",
         "https://renankami.users.earthengine.app/view/dnbr2020",
         "https://renankami.users.earthengine.app/view/incendiospantanal",
+        "https://renankami.users.earthengine.app/view/lg2dnbr2022",
         "https://renankami.users.earthengine.app/view/modisndviapp",
         "https://renankami.users.earthengine.app/view/nbrs208set20",
         "https://renankami.users.earthengine.app/view/nbrtestewbvb080920",
@@ -6228,7 +6231,8 @@
     ],
     "syefiarahania": [
         "https://syefiarahania.users.earthengine.app/view/analisis-kekeringan-kupang-tahun-2015",
-        "https://syefiarahania.users.earthengine.app/view/dampak-banjir-dki-jakarta-tahun-2020"
+        "https://syefiarahania.users.earthengine.app/view/dampak-banjir-dki-jakarta-tahun-2020",
+        "https://syefiarahania.users.earthengine.app/view/kelurahan-petojo-utara-dan-petojo-selatan"
     ],
     "syukrealworld": [
         "https://syukrealworld.users.earthengine.app/view/aplikasi-prediksi-tutupan-lahan-di-daerah-istimewa-yogyakarta",

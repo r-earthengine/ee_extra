@@ -313,6 +313,7 @@
         "https://KHOA_LUAN.users.earthengine.app/view/biendong2015-2020"
     ],
     "KSA-GEE-2020-21": [
+        "https://KSA-GEE-2020-21.users.earthengine.app/view/midst-sp",
         "https://KSA-GEE-2020-21.users.earthengine.app/view/midstnrm"
     ],
     "KaigeWang1": [
@@ -328,6 +329,7 @@
         "https://LakshyaChaudhary.users.earthengine.app/view/myapp"
     ],
     "Landvis": [
+        "https://Landvis.users.earthengine.app/view/electoral-administration",
         "https://Landvis.users.earthengine.app/view/flood-mapping-general",
         "https://Landvis.users.earthengine.app/view/flood-maps"
     ],
@@ -894,6 +896,7 @@
         "https://andytalbert.users.earthengine.app/view/rivers1"
     ],
     "angelini75": [
+        "https://angelini75.users.earthengine.app/view/combinaciondebandas",
         "https://angelini75.users.earthengine.app/view/global-black-soil-map---set-the-threshold",
         "https://angelini75.users.earthengine.app/view/gsocseq-wad-01",
         "https://angelini75.users.earthengine.app/view/priority-zones-for-soc-sequestrations"
@@ -1142,6 +1145,7 @@
         "https://aufaristama.users.earthengine.app/view/gee-landslide",
         "https://aufaristama.users.earthengine.app/view/indonesia-lst",
         "https://aufaristama.users.earthengine.app/view/landsat-8-reykjanes",
+        "https://aufaristama.users.earthengine.app/view/landsat-askja",
         "https://aufaristama.users.earthengine.app/view/reykjanes-lst-day",
         "https://aufaristama.users.earthengine.app/"
     ],
@@ -1963,9 +1967,6 @@
     "dnschavarria": [
         "https://dnschavarria.users.earthengine.app/view/inundaciones-guatuso-los-chiles-y-upala-julio-2021"
     ],
-    "dongformis": [
-        "https://dongformis.users.earthengine.app/view/pfes"
-    ],
     "dongluofan": [
         "https://dongluofan.users.earthengine.app/view/ccdcviewer"
     ],
@@ -2586,10 +2587,9 @@
     ],
     "geerestec": [
         "https://geerestec.users.earthengine.app/view/vega-restec",
-        "https://geerestec.users.earthengine.app/view/vega-restec-2beta",
         "https://geerestec.users.earthengine.app/view/vega-restec-en",
-        "https://geerestec.users.earthengine.app/view/vega-restec-ver2beta-en",
-        "https://geerestec.users.earthengine.app/view/vega-restec-ver2beta-jp",
+        "https://geerestec.users.earthengine.app/view/vega-restec-en-ver12",
+        "https://geerestec.users.earthengine.app/view/vega-restec-ver12",
         "https://geerestec.users.earthengine.app/view/vega-restec"
     ],
     "geethensingh": [
@@ -2710,6 +2710,7 @@
         "https://gerardosoto.users.earthengine.app/view/lcc-eastafrica-broadbasedmask",
         "https://gerardosoto.users.earthengine.app/view/lcc-eastafrica-highforagingmask",
         "https://gerardosoto.users.earthengine.app/view/ndvi-2018-2020",
+        "https://gerardosoto.users.earthengine.app/view/ndvi-magallanes",
         "https://gerardosoto.users.earthengine.app/view/paneles-fuegos-uader",
         "https://gerardosoto.users.earthengine.app/view/parcelasarturo"
     ],
@@ -3424,6 +3425,8 @@
         "https://jhowarth.users.earthengine.app/view/ee-vtcd-grasslands",
         "https://jhowarth.users.earthengine.app/view/ee-vtcd-land-cover",
         "https://jhowarth.users.earthengine.app/view/ee-vtcd-parcels-with-protections",
+        "https://jhowarth.users.earthengine.app/view/ee-vtcd-pro-lands-simple",
+        "https://jhowarth.users.earthengine.app/view/ee-vtcd-surface-waters",
         "https://jhowarth.users.earthengine.app/view/ee-vtcd-view-surface",
         "https://jhowarth.users.earthengine.app/view/eeprimer-compare-satellites",
         "https://jhowarth.users.earthengine.app/view/eeprimer-foundations-with-lights",
@@ -3816,6 +3819,7 @@
         "https://kentaogawa.users.earthengine.app/view/max-temp-map"
     ],
     "kevinwbarnes": [
+        "https://kevinwbarnes.users.earthengine.app/view/dakota-skipper-model-explorer",
         "https://kevinwbarnes.users.earthengine.app/view/grasslandchange",
         "https://kevinwbarnes.users.earthengine.app/view/landcover-thresholds",
         "https://kevinwbarnes.users.earthengine.app/view/priority-grassland-bird-weighted-mean-occurrence",
@@ -4686,6 +4690,7 @@
     "nestorcaalsuc": [
         "https://nestorcaalsuc.users.earthengine.app/view/buldd",
         "https://nestorcaalsuc.users.earthengine.app/view/eta-e-iota-en-alta-verapaz",
+        "https://nestorcaalsuc.users.earthengine.app/view/inundaciones-en-centroamerica",
         "https://nestorcaalsuc.users.earthengine.app/view/inundaciones-europa",
         "https://nestorcaalsuc.users.earthengine.app/view/inundaciones-sica",
         "https://nestorcaalsuc.users.earthengine.app/view/monitoreo-volcan-pacaya",
@@ -5261,10 +5266,12 @@
         "https://rafnuss.users.earthengine.app/view/pressuregeolocator"
     ],
     "rahulaus": [
+        "https://rahulaus.users.earthengine.app/view/test",
         "https://rahulaus.users.earthengine.app/view/umang2021"
     ],
     "rahulharod": [
         "https://rahulharod.users.earthengine.app/view/crop-health",
+        "https://rahulharod.users.earthengine.app/view/cropacreageblocklevel",
         "https://rahulharod.users.earthengine.app/view/dccropacreage",
         "https://rahulharod.users.earthengine.app/view/farmanalysis",
         "https://rahulharod.users.earthengine.app/view/timeseries"
@@ -5342,7 +5349,8 @@
         "https://ramiqcom.users.earthengine.app/view/tempjabar"
     ],
     "randd-eesd": [
-        "https://randd-eesd.users.earthengine.app/view/trendexplorer"
+        "https://randd-eesd.users.earthengine.app/view/trendexplorer",
+        "https://randd-eesd.users.earthengine.app/view/trendexplorer1pt4"
     ],
     "rasendriyanabil": [
         "https://rasendriyanabil.users.earthengine.app/view/land-surafce-temperature-tahun-2014-2020-di-jayapura15118072",
@@ -5693,7 +5701,8 @@
     ],
     "sachinbobbili": [
         "https://sachinbobbili.users.earthengine.app/view/ndvi",
-        "https://sachinbobbili.users.earthengine.app/view/srtmdownloader"
+        "https://sachinbobbili.users.earthengine.app/view/srtmdownloader",
+        "https://sachinbobbili.users.earthengine.app/view/terra-vegetation-indices"
     ],
     "sadeckgeo": [
         "https://sadeckgeo.users.earthengine.app/view/chuva"
@@ -6073,6 +6082,7 @@
         "https://slyfox6969.users.earthengine.app/view/amphanflood",
         "https://slyfox6969.users.earthengine.app/view/assam-flood",
         "https://slyfox6969.users.earthengine.app/view/california-forest-fire-2020",
+        "https://slyfox6969.users.earthengine.app/view/kochi-waste-plant-fire-march-2023",
         "https://slyfox6969.users.earthengine.app/view/rhinewaterloss",
         "https://slyfox6969.users.earthengine.app/view/shapetest",
         "https://slyfox6969.users.earthengine.app/view/suez-canal-crisis-2021",

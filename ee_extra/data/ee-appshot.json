@@ -1022,7 +1022,8 @@
         "https://arjenhaag.users.earthengine.app/view/ndvi-west-africa",
         "https://arjenhaag.users.earthengine.app/view/nederland-in-de-sneeuw",
         "https://arjenhaag.users.earthengine.app/view/parterra",
-        "https://arjenhaag.users.earthengine.app/view/wateroverlast-nl-wbd"
+        "https://arjenhaag.users.earthengine.app/view/wateroverlast-nl-wbd",
+        "https://arjenhaag.users.earthengine.app/view/yearly-mosaics-landsat"
     ],
     "ark1kh": [
         "https://ark1kh.users.earthengine.app/view/indus-delta-mangrove-extent",
@@ -1196,6 +1197,7 @@
         "https://balakumaran247.users.earthengine.app/view/tnlulc"
     ],
     "baldassarre": [
+        "https://baldassarre.users.earthengine.app/view/euaidsrd",
         "https://baldassarre.users.earthengine.app/view/srd",
         "https://baldassarre.users.earthengine.app/view/srd-forest-monitoring"
     ],
@@ -2665,6 +2667,7 @@
         "https://geocastellanosg.users.earthengine.app/view/poblacion-accesibilidad-v6",
         "https://geocastellanosg.users.earthengine.app/view/poblacion-accesibilidadv5",
         "https://geocastellanosg.users.earthengine.app/view/sociedad",
+        "https://geocastellanosg.users.earthengine.app/view/visualizador-first-flood",
         "https://geocastellanosg.users.earthengine.app/view/wmffv2",
         "https://geocastellanosg.users.earthengine.app/view/wmgeal8v5",
         "https://geocastellanosg.users.earthengine.app/view/wmgeav3"
@@ -3426,6 +3429,7 @@
         "https://jhowarth.users.earthengine.app/view/ee-vtcd-land-cover",
         "https://jhowarth.users.earthengine.app/view/ee-vtcd-parcels-with-protections",
         "https://jhowarth.users.earthengine.app/view/ee-vtcd-pro-lands-simple",
+        "https://jhowarth.users.earthengine.app/view/ee-vtcd-relative-elevation-model",
         "https://jhowarth.users.earthengine.app/view/ee-vtcd-surface-waters",
         "https://jhowarth.users.earthengine.app/view/ee-vtcd-view-surface",
         "https://jhowarth.users.earthengine.app/view/eeprimer-compare-satellites",
@@ -3784,6 +3788,7 @@
         "https://kalinggatitonnurihsan.users.earthengine.app/view/tingkat-keesesuaian-pembangunan-plts-di-indonesia"
     ],
     "kalondepatrick": [
+        "https://kalondepatrick.users.earthengine.app/view/chileka",
         "https://kalondepatrick.users.earthengine.app/view/yield-estimator"
     ],
     "kamas72_ML_Zim_Cities": [
@@ -5342,11 +5347,11 @@
         "https://ramiqcom.users.earthengine.app/view/floodjabar",
         "https://ramiqcom.users.earthengine.app/view/gig",
         "https://ramiqcom.users.earthengine.app/view/hemeroby",
+        "https://ramiqcom.users.earthengine.app/view/mangrove",
         "https://ramiqcom.users.earthengine.app/view/pop",
         "https://ramiqcom.users.earthengine.app/view/rsqa",
-        "https://ramiqcom.users.earthengine.app/view/sampling",
-        "https://ramiqcom.users.earthengine.app/view/storyindonesia",
-        "https://ramiqcom.users.earthengine.app/view/tempjabar"
+        "https://ramiqcom.users.earthengine.app/view/seagrass",
+        "https://ramiqcom.users.earthengine.app/view/storyindonesia"
     ],
     "randd-eesd": [
         "https://randd-eesd.users.earthengine.app/view/trendexplorer",
@@ -5715,10 +5720,6 @@
     "sagittarius": [
         "https://sagittarius.users.earthengine.app/view/apptutorial",
         "https://sagittarius.users.earthengine.app/view/hessemunicipalitieslst"
-    ],
-    "sakdahomhuan": [
-        "https://sakdahomhuan.users.earthengine.app/view/get-ndvi",
-        "https://sakdahomhuan.users.earthengine.app/view/villagema"
     ],
     "salitchakma": [
         "https://salitchakma.users.earthengine.app/view/blackbrown",
@@ -6648,11 +6649,20 @@
     ],
     "wocatapps": [
         "https://wocatapps.users.earthengine.app/view/drylands-ip",
+        "https://wocatapps.users.earthengine.app/view/dss-bhutan",
+        "https://wocatapps.users.earthengine.app/view/dss-bhutan-lct",
+        "https://wocatapps.users.earthengine.app/view/dss-bhutan-lpd",
         "https://wocatapps.users.earthengine.app/view/kazakhstan-experts",
         "https://wocatapps.users.earthengine.app/view/kazakhstan-ldn",
+        "https://wocatapps.users.earthengine.app/view/lc-transition-tool-col",
         "https://wocatapps.users.earthengine.app/view/ldn-colombia",
         "https://wocatapps.users.earthengine.app/view/ldn-ecuador",
-        "https://wocatapps.users.earthengine.app/view/ldn-prais4"
+        "https://wocatapps.users.earthengine.app/view/ldn-ecuador-lpd",
+        "https://wocatapps.users.earthengine.app/view/ldn-panama",
+        "https://wocatapps.users.earthengine.app/view/ldn-panama-lct",
+        "https://wocatapps.users.earthengine.app/view/ldn-panama-lpd",
+        "https://wocatapps.users.earthengine.app/view/ldn-prais4",
+        "https://wocatapps.users.earthengine.app/view/lpd-comparison-col"
     ],
     "wrd-iwmi": [
         "https://wrd-iwmi.users.earthengine.app/view/crophealth"

@@ -1247,7 +1247,8 @@
         "https://benitezrcamilo.users.earthengine.app/view/palmas-area-3",
         "https://benitezrcamilo.users.earthengine.app/view/pn-san-luis",
         "https://benitezrcamilo.users.earthengine.app/view/survey-sites-verification",
-        "https://benitezrcamilo.users.earthengine.app/view/urbanization-in-asuncion"
+        "https://benitezrcamilo.users.earthengine.app/view/urbanization-in-asuncion",
+        "https://benitezrcamilo.users.earthengine.app/view/vegetationconditionama"
     ],
     "benjaminpage8": [
         "https://benjaminpage8.users.earthengine.app/view/chlasodak2022",
@@ -1506,7 +1507,8 @@
     ],
     "caseyengstrom": [
         "https://caseyengstrom.users.earthengine.app/view/snow-algae-atlas",
-        "https://caseyengstrom.users.earthengine.app/view/snow-algae-ground-truth"
+        "https://caseyengstrom.users.earthengine.app/view/snow-algae-ground-truth",
+        "https://caseyengstrom.users.earthengine.app/view/watermelon-snow"
     ],
     "celbeberger": [
         "https://celbeberger.users.earthengine.app/view/bela-vista"
@@ -2107,6 +2109,7 @@
         "https://eduardo2188.users.earthengine.app/view/compuestos",
         "https://eduardo2188.users.earthengine.app/view/compuestoslandsat",
         "https://eduardo2188.users.earthengine.app/view/cuenca-caetemala",
+        "https://eduardo2188.users.earthengine.app/view/datos-deforestacin-histrica-v1-aiv",
         "https://eduardo2188.users.earthengine.app/view/frecuencialandsat",
         "https://eduardo2188.users.earthengine.app/view/fyryjrj",
         "https://eduardo2188.users.earthengine.app/view/glaciaresestudio",
@@ -2865,29 +2868,15 @@
         "https://guisousalobo.users.earthengine.app/view/ndvipvh"
     ],
     "gustavoirgang": [
-        "https://gustavoirgang.users.earthengine.app/view/biomassasentinel-ndvi",
+        "https://gustavoirgang.users.earthengine.app/view/c12d-fazenda-gleba-beta---parcela-1",
         "https://gustavoirgang.users.earthengine.app/view/c12dmanejo",
         "https://gustavoirgang.users.earthengine.app/view/c12dmanejoserafim",
         "https://gustavoirgang.users.earthengine.app/view/c12dpilotofabiano",
         "https://gustavoirgang.users.earthengine.app/view/c12draimundononato01",
         "https://gustavoirgang.users.earthengine.app/view/c12dticaiaby",
         "https://gustavoirgang.users.earthengine.app/view/c12dtimunduruku",
-        "https://gustavoirgang.users.earthengine.app/view/chuva-anual-e-normal",
-        "https://gustavoirgang.users.earthengine.app/view/cliclima",
-        "https://gustavoirgang.users.earthengine.app/view/cliclimap",
-        "https://gustavoirgang.users.earthengine.app/view/clique-para-coordenada-e-ndvi",
-        "https://gustavoirgang.users.earthengine.app/view/evapotranspirao",
-        "https://gustavoirgang.users.earthengine.app/view/fenologia-biomassa-sentinel-inspector",
-        "https://gustavoirgang.users.earthengine.app/view/fenologia-ndvi-modes-inspector",
-        "https://gustavoirgang.users.earthengine.app/view/fungo",
-        "https://gustavoirgang.users.earthengine.app/view/horas-de-frio",
-        "https://gustavoirgang.users.earthengine.app/view/iatlas",
-        "https://gustavoirgang.users.earthengine.app/view/ilhacalorurbano",
         "https://gustavoirgang.users.earthengine.app/view/imagensradar",
-        "https://gustavoirgang.users.earthengine.app/view/infowindow",
-        "https://gustavoirgang.users.earthengine.app/view/landsat-8-fenologia-biomassa",
         "https://gustavoirgang.users.earthengine.app/view/lucas",
-        "https://gustavoirgang.users.earthengine.app/view/mapbiomas",
         "https://gustavoirgang.users.earthengine.app/view/meteorologicobiomassa",
         "https://gustavoirgang.users.earthengine.app/view/meteorologicochuva",
         "https://gustavoirgang.users.earthengine.app/view/meteorologicoclima",
@@ -2896,10 +2885,6 @@
         "https://gustavoirgang.users.earthengine.app/view/meteorologicorad",
         "https://gustavoirgang.users.earthengine.app/view/meteorologicotmax",
         "https://gustavoirgang.users.earthengine.app/view/meteorologicotmin",
-        "https://gustavoirgang.users.earthengine.app/view/modisb2aqua24072019",
-        "https://gustavoirgang.users.earthengine.app/view/ndvi",
-        "https://gustavoirgang.users.earthengine.app/view/normal-biomassa",
-        "https://gustavoirgang.users.earthengine.app/view/normal-climatica",
         "https://gustavoirgang.users.earthengine.app/view/painelmeteorologicoaplicacao",
         "https://gustavoirgang.users.earthengine.app/view/painelmeteorologicochuva",
         "https://gustavoirgang.users.earthengine.app/view/painelmeteorologicoeto30d",
@@ -2912,13 +2897,6 @@
         "https://gustavoirgang.users.earthengine.app/view/painelmeteorologicorad",
         "https://gustavoirgang.users.earthengine.app/view/painelmeteorologicovento",
         "https://gustavoirgang.users.earthengine.app/view/petrol",
-        "https://gustavoirgang.users.earthengine.app/view/pop-covid-19",
-        "https://gustavoirgang.users.earthengine.app/view/purus",
-        "https://gustavoirgang.users.earthengine.app/view/radiacao-ondas-curtas",
-        "https://gustavoirgang.users.earthengine.app/view/sar1",
-        "https://gustavoirgang.users.earthengine.app/view/ssebop-evapotranspirao-real-diria-eta",
-        "https://gustavoirgang.users.earthengine.app/view/temperaturas-minimas",
-        "https://gustavoirgang.users.earthengine.app/view/temperaturas-mximas",
         "https://gustavoirgang.users.earthengine.app/view/pop-covid-19"
     ],
     "gustavoonagel": [
@@ -3432,6 +3410,7 @@
         "https://jhowarth.users.earthengine.app/view/ee-vtcd-relative-elevation-model",
         "https://jhowarth.users.earthengine.app/view/ee-vtcd-surface-waters",
         "https://jhowarth.users.earthengine.app/view/ee-vtcd-view-surface",
+        "https://jhowarth.users.earthengine.app/view/ee-vtcd-wetlands",
         "https://jhowarth.users.earthengine.app/view/eeprimer-compare-satellites",
         "https://jhowarth.users.earthengine.app/view/eeprimer-foundations-with-lights",
         "https://jhowarth.users.earthengine.app/view/eeprimer-global-fire-explorer",
@@ -3580,6 +3559,7 @@
     ],
     "josiascruz75": [
         "https://josiascruz75.users.earthengine.app/view/export-cn-amazon",
+        "https://josiascruz75.users.earthengine.app/view/gee-amazon-cmip6",
         "https://josiascruz75.users.earthengine.app/view/runoff-amazon"
     ],
     "josssknight": [
@@ -4663,7 +4643,8 @@
     "narayanthapa": [
         "https://narayanthapa.users.earthengine.app/view/landcoverchangeicimod",
         "https://narayanthapa.users.earthengine.app/view/melamchiriverassessment",
-        "https://narayanthapa.users.earthengine.app/view/nightlight"
+        "https://narayanthapa.users.earthengine.app/view/nightlight",
+        "https://narayanthapa.users.earthengine.app/view/rooftop-farming-ruhr"
     ],
     "nateme16": [
         "https://nateme16.users.earthengine.app/view/darryl-clarity"
@@ -4823,6 +4804,7 @@
         "https://nowfel_mahmud.users.earthengine.app/view/sentinel2-if-v1"
     ],
     "nrtwur": [
+        "https://nrtwur.users.earthengine.app/view/forest-disturbance-drivers",
         "https://nrtwur.users.earthengine.app/view/raddalert"
     ],
     "nsa120": [
@@ -6322,10 +6304,7 @@
         "https://thanhntrung.users.earthengine.app/view/tlodomuav12"
     ],
     "thao226355": [
-        "https://thao226355.users.earthengine.app/view/biendongrung",
-        "https://thao226355.users.earthengine.app/view/caobang",
-        "https://thao226355.users.earthengine.app/view/lulc-10m",
-        "https://thao226355.users.earthengine.app/view/qczwfgay80xytib"
+        "https://thao226355.users.earthengine.app/view/caobang"
     ],
     "thaokl": [
         "https://thaokl.users.earthengine.app/view/sentinel2",

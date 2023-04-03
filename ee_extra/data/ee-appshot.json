@@ -342,6 +342,7 @@
         "https://LearningIIT.users.earthengine.app/view/cyclone-amphan-vizualizer",
         "https://LearningIIT.users.earthengine.app/view/forest-fire-australia",
         "https://LearningIIT.users.earthengine.app/view/forest-uk",
+        "https://LearningIIT.users.earthengine.app/view/lulcsonipat",
         "https://LearningIIT.users.earthengine.app/view/monsoon-visualizer",
         "https://LearningIIT.users.earthengine.app/view/nisarg-cyclone",
         "https://LearningIIT.users.earthengine.app/view/nitrogen-oxides-visualization-after-effects-of-corona",
@@ -1924,6 +1925,7 @@
         "https://diegovalencia.users.earthengine.app/view/landcoverrnrcl"
     ],
     "digdgeografo": [
+        "https://digdgeografo.users.earthengine.app/view/flood-periods-donana",
         "https://digdgeografo.users.earthengine.app/view/ndvi",
         "https://digdgeografo.users.earthengine.app/view/ndvi-and-evi-landsat-time-series",
         "https://digdgeografo.users.earthengine.app/view/ndvitimelapse"
@@ -2594,6 +2596,7 @@
         "https://geerestec.users.earthengine.app/view/vega-restec",
         "https://geerestec.users.earthengine.app/view/vega-restec-en",
         "https://geerestec.users.earthengine.app/view/vega-restec-en-ver12",
+        "https://geerestec.users.earthengine.app/view/vega-restec-en-ver21-beta",
         "https://geerestec.users.earthengine.app/view/vega-restec-ver12",
         "https://geerestec.users.earthengine.app/view/vega-restec"
     ],
@@ -3628,6 +3631,7 @@
     "jstnbraaten": [
         "https://jstnbraaten.users.earthengine.app/view/conus-cover-vis",
         "https://jstnbraaten.users.earthengine.app/view/kincade-fire-explorer",
+        "https://jstnbraaten.users.earthengine.app/view/nihima-nahasdzaan",
         "https://jstnbraaten.users.earthengine.app/view/pdsi-explorer",
         "https://jstnbraaten.users.earthengine.app/view/pdsi-explorer-global",
         "https://jstnbraaten.users.earthengine.app/view/tongass-nf-logging",
@@ -3695,6 +3699,7 @@
     "juntakut37": [
         "https://juntakut37.users.earthengine.app/view/crmatest",
         "https://juntakut37.users.earthengine.app/view/deforestation-in-pretected-areas-of-thailand",
+        "https://juntakut37.users.earthengine.app/view/don-mueang-airport-2020-2022",
         "https://juntakut37.users.earthengine.app/view/drought-monitoring-in-amphoe-mueang-nakhonratchasima-province",
         "https://juntakut37.users.earthengine.app/view/drought-monitoring-in-each-basin-of-thailand",
         "https://juntakut37.users.earthengine.app/view/drought-monitoring-with-spi-in-nakhonratchasima-province",
@@ -3715,13 +3720,16 @@
         "https://juntakut37.users.earthengine.app/view/landsurface-temperature-in-nakhon-nayok-thailand",
         "https://juntakut37.users.earthengine.app/view/lower-mekhong-river-basin",
         "https://juntakut37.users.earthengine.app/view/machulishchy-air-base-in-perarus",
+        "https://juntakut37.users.earthengine.app/view/me-tha-lut-airbase-in-myanma-2019-2023",
         "https://juntakut37.users.earthengine.app/view/monitoring-and-evaluation-of-flooding-area---nr-ny-pb",
         "https://juntakut37.users.earthengine.app/view/monitoringflooding",
         "https://juntakut37.users.earthengine.app/view/novofedorivka-saki-air-base-in-crimea-ukraine",
         "https://juntakut37.users.earthengine.app/view/opuk-training-area-in-crimea",
         "https://juntakut37.users.earthengine.app/view/pogonovo-training-area-in-russia",
         "https://juntakut37.users.earthengine.app/view/primorsko-akhtarsk-air-base-in-russia",
+        "https://juntakut37.users.earthengine.app/view/ream-naval-base-2021-2023",
         "https://juntakut37.users.earthengine.app/view/relationship-of-hydrological-factors-in-mekong-river-basin",
+        "https://juntakut37.users.earthengine.app/view/sihanoukville-airport-2020-2022",
         "https://juntakut37.users.earthengine.app/view/soil-erosion-risk-analysis---bang-pakong---level-7",
         "https://juntakut37.users.earthengine.app/view/soil-erosion-risk-analysis---bang-pakong-basin---level-12",
         "https://juntakut37.users.earthengine.app/view/urban-area-in-each-province-of-thailand",
@@ -4522,6 +4530,7 @@
     ],
     "moukomlasitthisak": [
         "https://moukomlasitthisak.users.earthengine.app/view/compare-fire",
+        "https://moukomlasitthisak.users.earthengine.app/view/test",
         "https://moukomlasitthisak.users.earthengine.app/view/thailand-population",
         "https://moukomlasitthisak.users.earthengine.app/view/ukraine-night-light",
         "https://moukomlasitthisak.users.earthengine.app/view/unspider-for-flood-monitoring-in-thailand"
@@ -4804,7 +4813,6 @@
         "https://nowfel_mahmud.users.earthengine.app/view/sentinel2-if-v1"
     ],
     "nrtwur": [
-        "https://nrtwur.users.earthengine.app/view/forest-disturbance-drivers",
         "https://nrtwur.users.earthengine.app/view/raddalert"
     ],
     "nsa120": [

@@ -3406,6 +3406,7 @@
         "https://jhowarth.users.earthengine.app/view/ee-vtcd-30x30",
         "https://jhowarth.users.earthengine.app/view/ee-vtcd-blended-hillshades",
         "https://jhowarth.users.earthengine.app/view/ee-vtcd-farmlands",
+        "https://jhowarth.users.earthengine.app/view/ee-vtcd-field-map",
         "https://jhowarth.users.earthengine.app/view/ee-vtcd-grasslands",
         "https://jhowarth.users.earthengine.app/view/ee-vtcd-land-cover",
         "https://jhowarth.users.earthengine.app/view/ee-vtcd-parcels-with-protections",
@@ -5150,9 +5151,6 @@
         "https://pmisson.users.earthengine.app/view/tendsdiff",
         "https://pmisson.users.earthengine.app/view/trends"
     ],
-    "pmp237": [
-        "https://pmp237.users.earthengine.app/view/sasa"
-    ],
     "pornchai": [
         "https://pornchai.users.earthengine.app/view/event-monitor",
         "https://pornchai.users.earthengine.app/view/image-from-name",
@@ -6478,7 +6476,8 @@
         "https://usda-nass.users.earthengine.app/view/global-crop-mapper"
     ],
     "utkuunalan": [
-        "https://utkuunalan.users.earthengine.app/view/do-distrubution-map"
+        "https://utkuunalan.users.earthengine.app/view/do-distrubution-map",
+        "https://utkuunalan.users.earthengine.app/view/enve742mt"
     ],
     "vaishnaviadhav31": [
         "https://vaishnaviadhav31.users.earthengine.app/view/day--night-lst",

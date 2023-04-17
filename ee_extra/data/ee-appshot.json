@@ -1011,6 +1011,7 @@
         "https://ariverab.users.earthengine.app/view/fipforestcoverclassification"
     ],
     "arjenhaag": [
+        "https://arjenhaag.users.earthengine.app/view/angola-dam-dashboard",
         "https://arjenhaag.users.earthengine.app/view/awashriverbasinfloods2020",
         "https://arjenhaag.users.earthengine.app/view/bangladesh-erosion-monitor",
         "https://arjenhaag.users.earthengine.app/view/beira-floods-march-2019",
@@ -1854,6 +1855,7 @@
         "https://delaralfonso.users.earthengine.app/view/agua-en-superficie",
         "https://delaralfonso.users.earthengine.app/view/cambiourbano",
         "https://delaralfonso.users.earthengine.app/view/cba-agua-en-superficie",
+        "https://delaralfonso.users.earthengine.app/view/john-deere-adr---cultivos-e22-23",
         "https://delaralfonso.users.earthengine.app/view/wheat-trials-ndvi",
         "https://delaralfonso.users.earthengine.app/view/wheattrials-evi-modis"
     ],
@@ -2641,6 +2643,7 @@
         "https://gena.users.earthengine.app/view/rws-bathymetry",
         "https://gena.users.earthengine.app/view/sentinel-1-max",
         "https://gena.users.earthengine.app/view/tailing-dam-toolbox",
+        "https://gena.users.earthengine.app/view/temperature",
         "https://gena.users.earthengine.app/view/test-reservoirs",
         "https://gena.users.earthengine.app/view/three-light-sources-dem",
         "https://gena.users.earthengine.app/view/tinitaly-alos",
@@ -3371,6 +3374,7 @@
         "https://jessraemuller.users.earthengine.app/view/firsttest"
     ],
     "jesusc461": [
+        "https://jesusc461.users.earthengine.app/view/bosquemozambique1990",
         "https://jesusc461.users.earthengine.app/view/prueba"
     ],
     "jesusyw": [
@@ -3553,7 +3557,8 @@
     "josecaceres": [
         "https://josecaceres.users.earthengine.app/view/eta-iota-hn",
         "https://josecaceres.users.earthengine.app/view/inundacioneshn",
-        "https://josecaceres.users.earthengine.app/view/perdida-bosque-global"
+        "https://josecaceres.users.earthengine.app/view/perdida-bosque-global",
+        "https://josecaceres.users.earthengine.app/view/serie-ndvi-anual"
     ],
     "joselucassafanelli": [
         "https://joselucassafanelli.users.earthengine.app/view/brumadinho"
@@ -3933,6 +3938,7 @@
         "https://leofabiop120.users.earthengine.app/view/global-power-plant-database",
         "https://leofabiop120.users.earthengine.app/view/pruebacontamina",
         "https://leofabiop120.users.earthengine.app/view/smartfire2021",
+        "https://leofabiop120.users.earthengine.app/view/smartfirerd",
         "https://leofabiop120.users.earthengine.app/view/testlink",
         "https://leofabiop120.users.earthengine.app/view/etahonduras"
     ],
@@ -4534,7 +4540,8 @@
         "https://moukomlasitthisak.users.earthengine.app/view/test",
         "https://moukomlasitthisak.users.earthengine.app/view/thailand-population",
         "https://moukomlasitthisak.users.earthengine.app/view/ukraine-night-light",
-        "https://moukomlasitthisak.users.earthengine.app/view/unspider-for-flood-monitoring-in-thailand"
+        "https://moukomlasitthisak.users.earthengine.app/view/unspider-for-flood-monitoring-in-thailand",
+        "https://moukomlasitthisak.users.earthengine.app/view/water-stress-index"
     ],
     "mozadia12a": [
         "https://mozadia12a.users.earthengine.app/view/appmozardengine",
@@ -5862,14 +5869,12 @@
         "https://secanalysts.users.earthengine.app/view/xxxx"
     ],
     "seiasia": [
-        "https://seiasia.users.earthengine.app/view/agriwater",
         "https://seiasia.users.earthengine.app/view/coastal-erosion",
         "https://seiasia.users.earthengine.app/view/dancingriverv2",
         "https://seiasia.users.earthengine.app/view/drought-game-test",
         "https://seiasia.users.earthengine.app/view/droughtgame",
         "https://seiasia.users.earthengine.app/view/monthlymonitoringsystem",
-        "https://seiasia.users.earthengine.app/view/sarseasonalmonitoringsystem",
-        "https://seiasia.users.earthengine.app/view/testapp"
+        "https://seiasia.users.earthengine.app/view/sarseasonalmonitoringsystem"
     ],
     "seibertli602": [
         "https://seibertli602.users.earthengine.app/view/global-casanpp"

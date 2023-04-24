@@ -1904,6 +1904,7 @@
         "https://diegopons06.users.earthengine.app/view/agua-en-superfice-01042019",
         "https://diegopons06.users.earthengine.app/view/amazonasfire",
         "https://diegopons06.users.earthengine.app/view/cordobaislacalor",
+        "https://diegopons06.users.earthengine.app/view/curso-hcc2023ndvi",
         "https://diegopons06.users.earthengine.app/view/decreto4652019",
         "https://diegopons06.users.earthengine.app/view/frecuenciaaguacba",
         "https://diegopons06.users.earthengine.app/view/incendiochubut",
@@ -2376,7 +2377,9 @@
         "https://fauzifahmi804.users.earthengine.app/view/luparungpanjang",
         "https://fauzifahmi804.users.earthengine.app/view/mangrove",
         "https://fauzifahmi804.users.earthengine.app/view/mangrove-project",
-        "https://fauzifahmi804.users.earthengine.app/view/no2splitpanel"
+        "https://fauzifahmi804.users.earthengine.app/view/no2splitpanel",
+        "https://fauzifahmi804.users.earthengine.app/view/saviade",
+        "https://fauzifahmi804.users.earthengine.app/view/savirfade"
     ],
     "fbaart": [
         "https://fbaart.users.earthengine.app/view/ahn-dynamic-colors",
@@ -3738,6 +3741,8 @@
         "https://juntakut37.users.earthengine.app/view/sihanoukville-airport-2020-2022",
         "https://juntakut37.users.earthengine.app/view/soil-erosion-risk-analysis---bang-pakong---level-7",
         "https://juntakut37.users.earthengine.app/view/soil-erosion-risk-analysis---bang-pakong-basin---level-12",
+        "https://juntakut37.users.earthengine.app/view/soil-erosion-risk-analysis---mun-basin---level12",
+        "https://juntakut37.users.earthengine.app/view/soil-erosion-risk-analysis---nan-basin---level12",
         "https://juntakut37.users.earthengine.app/view/urban-area-in-each-province-of-thailand",
         "https://juntakut37.users.earthengine.app/view/water-quality-for-nn-ny-pb",
         "https://juntakut37.users.earthengine.app/view/water-quality-in-crma"
@@ -3938,7 +3943,6 @@
         "https://leofabiop120.users.earthengine.app/view/global-power-plant-database",
         "https://leofabiop120.users.earthengine.app/view/pruebacontamina",
         "https://leofabiop120.users.earthengine.app/view/smartfire2021",
-        "https://leofabiop120.users.earthengine.app/view/smartfirerd",
         "https://leofabiop120.users.earthengine.app/view/testlink",
         "https://leofabiop120.users.earthengine.app/view/etahonduras"
     ],
@@ -4723,6 +4727,7 @@
         "https://nicolasalejandromari.users.earthengine.app/view/amazon-fires",
         "https://nicolasalejandromari.users.earthengine.app/view/iiff-cuchi-corral-2020",
         "https://nicolasalejandromari.users.earthengine.app/view/iiffcba2022",
+        "https://nicolasalejandromari.users.earthengine.app/view/ippf",
         "https://nicolasalejandromari.users.earthengine.app/view/reas-quemadas-en-villa-albertina"
     ],
     "nicoridley09": [
@@ -5808,9 +5813,7 @@
         "https://santos_araujo.users.earthengine.app/view/cangalha"
     ],
     "saraiva": [
-        "https://saraiva.users.earthengine.app/view/alertas",
-        "https://saraiva.users.earthengine.app/view/icebergs",
-        "https://saraiva.users.earthengine.app/view/landsat-9"
+        "https://saraiva.users.earthengine.app/view/alertas"
     ],
     "sarthakkgupta": [
         "https://sarthakkgupta.users.earthengine.app/view/encroachment",
@@ -5826,6 +5829,7 @@
     ],
     "savannalabnmsu": [
         "https://savannalabnmsu.users.earthengine.app/view/ea-dry-rangeland-monitor",
+        "https://savannalabnmsu.users.earthengine.app/view/esa-cover-compare",
         "https://savannalabnmsu.users.earthengine.app/view/forage-monitor",
         "https://savannalabnmsu.users.earthengine.app/view/leaf-area-index-ke",
         "https://savannalabnmsu.users.earthengine.app/view/tunisia-forage-mapping",

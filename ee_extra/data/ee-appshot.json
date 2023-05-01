@@ -1931,7 +1931,8 @@
         "https://digdgeografo.users.earthengine.app/view/flood-periods-donana",
         "https://digdgeografo.users.earthengine.app/view/ndvi",
         "https://digdgeografo.users.earthengine.app/view/ndvi-and-evi-landsat-time-series",
-        "https://digdgeografo.users.earthengine.app/view/ndvitimelapse"
+        "https://digdgeografo.users.earthengine.app/view/ndvitimelapse",
+        "https://digdgeografo.users.earthengine.app/view/ndwi-periods-graph"
     ],
     "diimanut": [
         "https://diimanut.users.earthengine.app/view/diego-teste"
@@ -2378,8 +2379,7 @@
         "https://fauzifahmi804.users.earthengine.app/view/mangrove",
         "https://fauzifahmi804.users.earthengine.app/view/mangrove-project",
         "https://fauzifahmi804.users.earthengine.app/view/no2splitpanel",
-        "https://fauzifahmi804.users.earthengine.app/view/saviade",
-        "https://fauzifahmi804.users.earthengine.app/view/savirfade"
+        "https://fauzifahmi804.users.earthengine.app/view/savirandomforest"
     ],
     "fbaart": [
         "https://fbaart.users.earthengine.app/view/ahn-dynamic-colors",
@@ -2478,7 +2478,8 @@
         "https://fitoprincipe.users.earthengine.app/view/validation-app"
     ],
     "fjmesas": [
-        "https://fjmesas.users.earthengine.app/view/fincaexperimental"
+        "https://fjmesas.users.earthengine.app/view/fincaexperimental",
+        "https://fjmesas.users.earthengine.app/view/hipatia"
     ],
     "flaviecpelletier": [
         "https://flaviecpelletier.users.earthengine.app/view/bulc-d-2019-inspector"
@@ -5262,6 +5263,7 @@
     "rafiisephana": [
         "https://rafiisephana.users.earthengine.app/view/banjir-sulsel",
         "https://rafiisephana.users.earthengine.app/view/deforestasi2020",
+        "https://rafiisephana.users.earthengine.app/view/iou-sample",
         "https://rafiisephana.users.earthengine.app/view/nitrosite",
         "https://rafiisephana.users.earthengine.app/view/spektral"
     ],
@@ -6590,6 +6592,7 @@
         "https://wallacesilva.users.earthengine.app/view/mapbiomas-fogo-beta",
         "https://wallacesilva.users.earthengine.app/view/mapbiomas-kyoshi-avaliacao-dos-estoques-de-carbono",
         "https://wallacesilva.users.earthengine.app/view/mapbiomas-mapmachine",
+        "https://wallacesilva.users.earthengine.app/view/mbfogocol2",
         "https://wallacesilva.users.earthengine.app/view/merinocaimanpolcerto",
         "https://wallacesilva.users.earthengine.app/view/merinorecaimanfirefrequency",
         "https://wallacesilva.users.earthengine.app/view/merinorecaimanfirelandcover",
@@ -6810,7 +6813,6 @@
         "https://zandersamuel.users.earthengine.app/view/fire-inspector",
         "https://zandersamuel.users.earthengine.app/view/green-apartheid",
         "https://zandersamuel.users.earthengine.app/view/rainfall-inspector",
-        "https://zandersamuel.users.earthengine.app/view/rephotosa-bush-encroachment-inspector",
         "https://zandersamuel.users.earthengine.app/view/fire-inspector"
     ],
     "zepyoorohanian": [

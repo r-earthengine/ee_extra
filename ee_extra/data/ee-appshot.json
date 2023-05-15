@@ -1369,7 +1369,9 @@
     ],
     "chhandana": [
         "https://chhandana.users.earthengine.app/view/surface-water-congo",
-        "https://chhandana.users.earthengine.app/view/surfacewatercongov2"
+        "https://chhandana.users.earthengine.app/view/surface-water-swot",
+        "https://chhandana.users.earthengine.app/view/surfacewatercongov2",
+        "https://chhandana.users.earthengine.app/view/swot-fast-track"
     ],
     "chiayilin94": [
         "https://chiayilin94.users.earthengine.app/view/amazon-fire",
@@ -2005,9 +2007,7 @@
         "https://erikfao.users.earthengine.app/view/erik-rvf"
     ],
     "ermaure": [
-        "https://ermaure.users.earthengine.app/view/globaleutrophicationinspector",
         "https://ermaure.users.earthengine.app/view/mountain-slope",
-        "https://ermaure.users.earthengine.app/view/my-ocean",
         "https://ermaure.users.earthengine.app/view/py-vs-dct",
         "https://ermaure.users.earthengine.app/view/swath-reprojection-modisa",
         "https://ermaure.users.earthengine.app/view/swath-reprojection-sgli"
@@ -4408,7 +4408,8 @@
         "https://narayanthapa.users.earthengine.app/view/landcoverchangeicimod",
         "https://narayanthapa.users.earthengine.app/view/melamchiriverassessment",
         "https://narayanthapa.users.earthengine.app/view/nightlight",
-        "https://narayanthapa.users.earthengine.app/view/rooftop-farming-ruhr"
+        "https://narayanthapa.users.earthengine.app/view/rooftop-farming-ruhr",
+        "https://narayanthapa.users.earthengine.app/view/rooftopfarmingnayabasti"
     ],
     "nateme16": [
         "https://nateme16.users.earthengine.app/view/darryl-clarity"
@@ -4673,8 +4674,8 @@
         "https://ollielballinger.users.earthengine.app/view/bellingcat-radar-interference-tracker",
         "https://ollielballinger.users.earthengine.app/view/ism",
         "https://ollielballinger.users.earthengine.app/view/populated-area-voteshares",
+        "https://ollielballinger.users.earthengine.app/view/ship-detection-tool",
         "https://ollielballinger.users.earthengine.app/view/shipdetection",
-        "https://ollielballinger.users.earthengine.app/view/tankertracker",
         "https://ollielballinger.users.earthengine.app/view/ukraine-damage-assessment",
         "https://ollielballinger.users.earthengine.app/view/ukraineconflictmonitor",
         "https://ollielballinger.users.earthengine.app/view/basra-oil",
@@ -5090,7 +5091,8 @@
     ],
     "randd-eesd": [
         "https://randd-eesd.users.earthengine.app/view/trendexplorer",
-        "https://randd-eesd.users.earthengine.app/view/trendexplorer1pt4"
+        "https://randd-eesd.users.earthengine.app/view/trendexplorer1pt4",
+        "https://randd-eesd.users.earthengine.app/view/trendexplorer1pt5"
     ],
     "rasendriyanabil": [
         "https://rasendriyanabil.users.earthengine.app/view/land-surafce-temperature-tahun-2014-2020-di-jayapura15118072",

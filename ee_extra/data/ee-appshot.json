@@ -843,7 +843,9 @@
         "https://arisfikri633.users.earthengine.app/view/neraca-air-kabupaten-mempawah"
     ],
     "ariverab": [
-        "https://ariverab.users.earthengine.app/view/fipforestcoverclassification"
+        "https://ariverab.users.earthengine.app/view/fipforestcoverclassification",
+        "https://ariverab.users.earthengine.app/view/mali-ntl-splitpanel",
+        "https://ariverab.users.earthengine.app/view/malintl"
     ],
     "arjenhaag": [
         "https://arjenhaag.users.earthengine.app/view/angola-dam-dashboard",
@@ -1762,9 +1764,6 @@
     "dirtyarteaga": [
         "https://dirtyarteaga.users.earthengine.app/view/eeholyghost"
     ],
-    "djvek1067164": [
-        "https://djvek1067164.users.earthengine.app/view/visualccdc"
-    ],
     "dmlmont": [
         "https://dmlmont.users.earthengine.app/view/spectral"
     ],
@@ -2067,6 +2066,7 @@
         "https://estimacionesmagyp.users.earthengine.app/view/citricosra",
         "https://estimacionesmagyp.users.earthengine.app/view/invernaculos2020",
         "https://estimacionesmagyp.users.earthengine.app/view/mapacultivosfina2020-21",
+        "https://estimacionesmagyp.users.earthengine.app/view/mapacultivosgruesa2022-23",
         "https://estimacionesmagyp.users.earthengine.app/view/mapafinandvi",
         "https://estimacionesmagyp.users.earthengine.app/view/nuezpecan",
         "https://estimacionesmagyp.users.earthengine.app/view/mapafinandvi"
@@ -2494,6 +2494,7 @@
     "gerardosoto": [
         "https://gerardosoto.users.earthengine.app/view/aluvion-de-chaaral-25-marzo-de-2015",
         "https://gerardosoto.users.earthengine.app/view/bosque-chileno",
+        "https://gerardosoto.users.earthengine.app/view/cuenca-rio-valdivia",
         "https://gerardosoto.users.earthengine.app/view/fc---east-africa",
         "https://gerardosoto.users.earthengine.app/view/fcexplorer",
         "https://gerardosoto.users.earthengine.app/view/forest-change-2000-2016",
@@ -3840,6 +3841,7 @@
         "https://lsovellfernandez.users.earthengine.app/view/californiareservoirmonitor"
     ],
     "lucasneoclasico": [
+        "https://lucasneoclasico.users.earthengine.app/view/areas-quemadas-firecci-sl",
         "https://lucasneoclasico.users.earthengine.app/view/incendios-slmodis-burn"
     ],
     "lucassantarosa": [
@@ -4891,6 +4893,7 @@
         "https://pmisson.users.earthengine.app/view/malaga-granada-jaen",
         "https://pmisson.users.earthengine.app/view/santander",
         "https://pmisson.users.earthengine.app/view/trends",
+        "https://pmisson.users.earthengine.app/view/viirs-inspector-area-black-marble",
         "https://pmisson.users.earthengine.app/view/viirs-trends",
         "https://pmisson.users.earthengine.app/view/covid-19",
         "https://pmisson.users.earthengine.app/view/la-palma-volcano",

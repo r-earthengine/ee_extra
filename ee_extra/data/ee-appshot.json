@@ -498,6 +498,7 @@
         "https://afotesfaye.users.earthengine.app/view/rllp",
         "https://afotesfaye.users.earthengine.app/view/rllp1",
         "https://afotesfaye.users.earthengine.app/view/rllpslmp",
+        "https://afotesfaye.users.earthengine.app/view/sisaytimeserieslulc",
         "https://afotesfaye.users.earthengine.app/view/slmp-pdo-inspector",
         "https://afotesfaye.users.earthengine.app/view/slmpjanamoraafo",
         "https://afotesfaye.users.earthengine.app/view/slmprllpethiopia2022",
@@ -632,7 +633,8 @@
         "https://alexanderariza.users.earthengine.app/view/severity-fire"
     ],
     "alexandercotrina": [
-        "https://alexandercotrina.users.earthengine.app/view/multispectralindex"
+        "https://alexandercotrina.users.earthengine.app/view/multispectralindex",
+        "https://alexandercotrina.users.earthengine.app/view/pastures-v01"
     ],
     "alexanderfuentealbav": [
         "https://alexanderfuentealbav.users.earthengine.app/view/cobertura-nival-2020-elmbalse-el-yeso"
@@ -4293,6 +4295,7 @@
     "moukomlasitthisak": [
         "https://moukomlasitthisak.users.earthengine.app/view/compare-fire",
         "https://moukomlasitthisak.users.earthengine.app/view/test",
+        "https://moukomlasitthisak.users.earthengine.app/view/thailand-nighttime-light-2015-2023",
         "https://moukomlasitthisak.users.earthengine.app/view/thailand-population",
         "https://moukomlasitthisak.users.earthengine.app/view/ukraine-night-light",
         "https://moukomlasitthisak.users.earthengine.app/view/unspider-for-flood-monitoring-in-thailand",
@@ -4696,6 +4699,7 @@
         "https://orbtwz.users.earthengine.app/view/csar-eye",
         "https://orbtwz.users.earthengine.app/view/iron-march-users-explorer",
         "https://orbtwz.users.earthengine.app/view/radarinterferencetracker",
+        "https://orbtwz.users.earthengine.app/view/sentinel-2-speedometer",
         "https://orbtwz.users.earthengine.app/view/sosint-tools-01",
         "https://orbtwz.users.earthengine.app/view/iron-march-users-explorer",
         "https://orbtwz.users.earthengine.app/view/radarinterferencetracker"
@@ -4810,7 +4814,8 @@
         "https://penuelabi.users.earthengine.app/view/denis-abi"
     ],
     "perchoctristan": [
-        "https://perchoctristan.users.earthengine.app/view/suividuvignoble"
+        "https://perchoctristan.users.earthengine.app/view/ch9",
+        "https://perchoctristan.users.earthengine.app/view/ventoux"
     ],
     "percobaan1": [
         "https://percobaan1.users.earthengine.app/view/jember"
@@ -4882,6 +4887,7 @@
         "https://pmisson.users.earthengine.app/view/covid-19",
         "https://pmisson.users.earthengine.app/view/dmsp-viirs-comparison-tool",
         "https://pmisson.users.earthengine.app/view/eumap",
+        "https://pmisson.users.earthengine.app/view/geoparque-de-granada-de-noche",
         "https://pmisson.users.earthengine.app/view/iberian-peninsula-colour-transition",
         "https://pmisson.users.earthengine.app/view/kiev",
         "https://pmisson.users.earthengine.app/view/la-palma-volcano",
@@ -5267,6 +5273,7 @@
         "https://rizkiatthoriq99.users.earthengine.app/view/bukittinggi-urban-change",
         "https://rizkiatthoriq99.users.earthengine.app/view/mangrove-cahnge-in-the-south-east-asia",
         "https://rizkiatthoriq99.users.earthengine.app/view/mangrove-change-in-the-delta-of-mahakam-river",
+        "https://rizkiatthoriq99.users.earthengine.app/view/ndvislider",
         "https://rizkiatthoriq99.users.earthengine.app/view/urban-change-in-padang-city"
     ],
     "rizkinandika": [
@@ -5869,6 +5876,7 @@
         "https://spiruel.users.earthengine.app/view/cdla-viewer",
         "https://spiruel.users.earthengine.app/view/extreme-heat-visualiser",
         "https://spiruel.users.earthengine.app/view/hyperspectral-comparison",
+        "https://spiruel.users.earthengine.app/view/pixelpioneers",
         "https://spiruel.users.earthengine.app/view/sentinel-2-flip-book",
         "https://spiruel.users.earthengine.app/view/wheat-phenology",
         "http://spiruel.users.earthengine.app/view/sentinel-2-flip-book",
@@ -5910,6 +5918,7 @@
     "stormwaterheatmap": [
         "https://stormwaterheatmap.users.earthengine.app/view/comparewatersheds",
         "https://stormwaterheatmap.users.earthengine.app/view/downloadlayers",
+        "https://stormwaterheatmap.users.earthengine.app/view/layertesting",
         "https://stormwaterheatmap.users.earthengine.app/view/precipdisplay",
         "https://stormwaterheatmap.users.earthengine.app/view/singlewatershed",
         "https://stormwaterheatmap.users.earthengine.app/view/v1landing"
@@ -6281,6 +6290,7 @@
         "https://vladwingate2.users.earthengine.app/view/chirps-point-time-series-extract"
     ],
     "volante": [
+        "https://volante.users.earthengine.app/view/analisiscuencas",
         "https://volante.users.earthengine.app/view/mapasescenariosfuturos"
     ],
     "vportillososa": [
@@ -6355,10 +6365,6 @@
     "wifuchs": [
         "https://wifuchs.users.earthengine.app/view/drought-impact-explorer",
         "https://wifuchs.users.earthengine.app/view/sea-level-rise-impact-explorer"
-    ],
-    "wilberthpeniche": [
-        "https://wilberthpeniche.users.earthengine.app/view/incendios",
-        "https://wilberthpeniche.users.earthengine.app/view/vig"
     ],
     "wocatapps": [
         "https://wocatapps.users.earthengine.app/view/drylands-ip",

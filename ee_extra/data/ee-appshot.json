@@ -237,7 +237,8 @@
     "Landvis": [
         "https://Landvis.users.earthengine.app/view/electoral-administration",
         "https://Landvis.users.earthengine.app/view/flood-mapping-general",
-        "https://Landvis.users.earthengine.app/view/flood-maps"
+        "https://Landvis.users.earthengine.app/view/flood-maps",
+        "https://Landvis.users.earthengine.app/view/satellite-data-sets"
     ],
     "LearningIIT": [
         "https://LearningIIT.users.earthengine.app/view/arakvati",
@@ -2382,6 +2383,7 @@
         "https://geerestec.users.earthengine.app/view/vega-restec-en",
         "https://geerestec.users.earthengine.app/view/vega-restec-en-ver12",
         "https://geerestec.users.earthengine.app/view/vega-restec-en-ver21-beta",
+        "https://geerestec.users.earthengine.app/view/vega-restec-jp-ver21-beta",
         "https://geerestec.users.earthengine.app/view/vega-restec-ver12",
         "https://geerestec.users.earthengine.app/view/vega-restec"
     ],
@@ -4009,7 +4011,8 @@
     ],
     "martaberliana42": [
         "https://martaberliana42.users.earthengine.app/view/cobaaa",
-        "https://martaberliana42.users.earthengine.app/view/klasifikasituplahjatim"
+        "https://martaberliana42.users.earthengine.app/view/klasifikasituplahjatim",
+        "https://martaberliana42.users.earthengine.app/view/pbph-lunyuk"
     ],
     "martantiii18": [
         "https://martantiii18.users.earthengine.app/view/coba",
@@ -6124,7 +6127,8 @@
         "https://tszheichoi.users.earthengine.app/view/theme-park-through-the-years"
     ],
     "tubagus": [
-        "https://tubagus.users.earthengine.app/view/apps"
+        "https://tubagus.users.earthengine.app/view/apps",
+        "https://tubagus.users.earthengine.app/view/ta-apps"
     ],
     "tubagusputra1810": [
         "https://tubagusputra1810.users.earthengine.app/view/antaru-id"

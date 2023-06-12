@@ -1546,7 +1546,8 @@
     ],
     "danielp": [
         "https://danielp.users.earthengine.app/view/l8lstto10mlst",
-        "https://danielp.users.earthengine.app/view/lst-downscaling"
+        "https://danielp.users.earthengine.app/view/lst-downscaling",
+        "https://danielp.users.earthengine.app/view/saropticaltsexplorer"
     ],
     "danlafferty": [
         "https://danlafferty.users.earthengine.app/view/french-fires",
@@ -6294,7 +6295,6 @@
         "https://vladwingate2.users.earthengine.app/view/chirps-point-time-series-extract"
     ],
     "volante": [
-        "https://volante.users.earthengine.app/view/analisiscuencas",
         "https://volante.users.earthengine.app/view/mapasescenariosfuturos"
     ],
     "vportillososa": [

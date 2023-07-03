@@ -1313,7 +1313,8 @@
         "https://caseyengstrom.users.earthengine.app/view/watermelon-snow"
     ],
     "celbeberger": [
-        "https://celbeberger.users.earthengine.app/view/bela-vista"
+        "https://celbeberger.users.earthengine.app/view/bela-vista",
+        "https://celbeberger.users.earthengine.app/view/sobradinho"
     ],
     "celiohelder": [
         "https://celiohelder.users.earthengine.app/view/guineappv2",
@@ -2972,7 +2973,8 @@
         "https://irlan128.users.earthengine.app/view/perubahan-hutan-indonesia"
     ],
     "ismailfaruqi": [
-        "https://ismailfaruqi.users.earthengine.app/view/aod-as-a-new-instrument"
+        "https://ismailfaruqi.users.earthengine.app/view/aod-as-a-new-instrument",
+        "https://ismailfaruqi.users.earthengine.app/view/tsspraktikum-inling"
     ],
     "ispguv": [
         "https://ispguv.users.earthengine.app/view/covid19-reproductive-meteo-estimation",
@@ -3526,7 +3528,9 @@
         "https://juntakut37.users.earthengine.app/view/soil-erosion-risk-analysis---nan-basin---level12",
         "https://juntakut37.users.earthengine.app/view/urban-area-in-each-province-of-thailand",
         "https://juntakut37.users.earthengine.app/view/water-quality-for-nn-ny-pb",
-        "https://juntakut37.users.earthengine.app/view/water-quality-in-crma"
+        "https://juntakut37.users.earthengine.app/view/water-quality-in-crma",
+        "https://juntakut37.users.earthengine.app/view/water-quality-in-nr-ny-pb",
+        "https://juntakut37.users.earthengine.app/view/water-quality-in-thailand"
     ],
     "kabasalaheddine": [
         "https://kabasalaheddine.users.earthengine.app/view/app-test",
@@ -4859,16 +4863,9 @@
     "pjgelabert": [
         "https://pjgelabert.users.earthengine.app/view/climark",
         "https://pjgelabert.users.earthengine.app/view/composicionsrgb",
-        "https://pjgelabert.users.earthengine.app/view/cumbreviejaso2",
         "https://pjgelabert.users.earthengine.app/view/dnbr-santa-coloma",
-        "https://pjgelabert.users.earthengine.app/view/etmodis",
-        "https://pjgelabert.users.earthengine.app/view/l5dayslider",
-        "https://pjgelabert.users.earthengine.app/view/l7dayslider",
-        "https://pjgelabert.users.earthengine.app/view/l8dayslider",
-        "https://pjgelabert.users.earthengine.app/view/laiweb",
-        "https://pjgelabert.users.earthengine.app/view/ndvi-l7-web",
-        "https://pjgelabert.users.earthengine.app/view/ndvimodis",
-        "https://pjgelabert.users.earthengine.app/view/pollution",
+        "https://pjgelabert.users.earthengine.app/view/idlocator",
+        "https://pjgelabert.users.earthengine.app/view/incartsea",
         "https://pjgelabert.users.earthengine.app/view/pollution"
     ],
     "plewis": [
@@ -5984,6 +5981,7 @@
     ],
     "syefiarahania": [
         "https://syefiarahania.users.earthengine.app/view/analisis-kekeringan-kupang-tahun-2015",
+        "https://syefiarahania.users.earthengine.app/view/banjir-jakarta-2020",
         "https://syefiarahania.users.earthengine.app/view/dampak-banjir-dki-jakarta-tahun-2020",
         "https://syefiarahania.users.earthengine.app/view/kelurahan-petojo-utara-dan-petojo-selatan"
     ],
@@ -6153,11 +6151,6 @@
         "https://tylere.users.earthengine.app/view/temporal-mosaic-comparison-tool",
         "https://tylere.users.earthengine.app/view/usgs-3dep-slope",
         "https://tylere.users.earthengine.app/view/westbrook-ice-disk"
-    ],
-    "tzwgeeetest": [
-        "https://tzwgeeetest.users.earthengine.app/view/mainui",
-        "https://tzwgeeetest.users.earthengine.app/view/sehdesign",
-        "https://tzwgeeetest.users.earthengine.app/view/tzw0122test"
     ],
     "u3575961": [
         "https://u3575961.users.earthengine.app/view/nlcd"

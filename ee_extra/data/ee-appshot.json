@@ -222,6 +222,7 @@
         "https://Jyoti.users.earthengine.app/view/uhimapping"
     ],
     "KSA-GEE-2020-21": [
+        "https://KSA-GEE-2020-21.users.earthengine.app/view/crop-mask--products",
         "https://KSA-GEE-2020-21.users.earthengine.app/view/midst-sp",
         "https://KSA-GEE-2020-21.users.earthengine.app/view/midstnrm"
     ],
@@ -237,7 +238,9 @@
     "Landvis": [
         "https://Landvis.users.earthengine.app/view/electoral-administration",
         "https://Landvis.users.earthengine.app/view/flood-mapping-general",
+        "https://Landvis.users.earthengine.app/view/flood-mapping-ruda",
         "https://Landvis.users.earthengine.app/view/flood-maps",
+        "https://Landvis.users.earthengine.app/view/flood-maps-ruda",
         "https://Landvis.users.earthengine.app/view/satellite-data-sets"
     ],
     "LearningIIT": [
@@ -1431,9 +1434,6 @@
         "https://claumao.users.earthengine.app/view/cheia-manaus-2021-sentinel1",
         "https://claumao.users.earthengine.app/view/cidu",
         "https://claumao.users.earthengine.app/view/ndvimilhosentinel2"
-    ],
-    "claylevy53": [
-        "https://claylevy53.users.earthengine.app/view/capstone"
     ],
     "climatehorizons": [
         "https://climatehorizons.users.earthengine.app/view/biodiversity-risk",
@@ -4480,6 +4480,7 @@
     ],
     "nicolasalejandromari": [
         "https://nicolasalejandromari.users.earthengine.app/view/amazon-fires",
+        "https://nicolasalejandromari.users.earthengine.app/view/fuelloadsiartivgeo",
         "https://nicolasalejandromari.users.earthengine.app/view/iiff-cuchi-corral-2020",
         "https://nicolasalejandromari.users.earthengine.app/view/iiffcba2022",
         "https://nicolasalejandromari.users.earthengine.app/view/reas-quemadas-en-villa-albertina",

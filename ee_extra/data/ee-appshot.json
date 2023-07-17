@@ -713,7 +713,6 @@
     ],
     "andersonmuchawona": [
         "https://andersonmuchawona.users.earthengine.app/view/zambezi-valley--biodiversity-project-land-cover--map--2017",
-        "https://andersonmuchawona.users.earthengine.app/view/zimbabwe-1992-land-cover-map",
         "https://andersonmuchawona.users.earthengine.app/view/zimbabwe-2017-land-cover-map"
     ],
     "andradejmn": [
@@ -2038,6 +2037,7 @@
         "https://erollero.users.earthengine.app/view/mapa-ndvi-sta-fe",
         "https://erollero.users.earthengine.app/view/mapafina1920",
         "https://erollero.users.earthengine.app/view/mapafinandvi",
+        "https://erollero.users.earthengine.app/view/mapeo-desmonte-2020",
         "https://erollero.users.earthengine.app/view/marcha-campaa-cosecha-fina-20-21",
         "https://erollero.users.earthengine.app/view/ndvi-grdlapampa",
         "https://erollero.users.earthengine.app/view/papa-tandil-g20-21",
@@ -2069,6 +2069,7 @@
     "estimacionesmagyp": [
         "https://estimacionesmagyp.users.earthengine.app/view/cebollavbrc",
         "https://estimacionesmagyp.users.earthengine.app/view/citricosra",
+        "https://estimacionesmagyp.users.earthengine.app/view/forestcrops",
         "https://estimacionesmagyp.users.earthengine.app/view/invernaculos2020",
         "https://estimacionesmagyp.users.earthengine.app/view/mapacultivosfina2020-21",
         "https://estimacionesmagyp.users.earthengine.app/view/mapacultivosgruesa2022-23",
@@ -2508,8 +2509,7 @@
         "https://gerardosoto.users.earthengine.app/view/lcc-eastafrica-highforagingmask",
         "https://gerardosoto.users.earthengine.app/view/ndvi-2018-2020",
         "https://gerardosoto.users.earthengine.app/view/ndvi-magallanes",
-        "https://gerardosoto.users.earthengine.app/view/paneles-fuegos-uader",
-        "https://gerardosoto.users.earthengine.app/view/parcelasarturo"
+        "https://gerardosoto.users.earthengine.app/view/paneles-fuegos-uader"
     ],
     "gers": [
         "https://gers.users.earthengine.app/view/conus-disturbance-viewer"
@@ -4419,6 +4419,7 @@
         "https://narayanthapa.users.earthengine.app/view/landcoverchangenepal",
         "https://narayanthapa.users.earthengine.app/view/melamchiriverassessment",
         "https://narayanthapa.users.earthengine.app/view/nightlight",
+        "https://narayanthapa.users.earthengine.app/view/panchkhapanimpactassessment",
         "https://narayanthapa.users.earthengine.app/view/rooftop-farming-ruhr",
         "https://narayanthapa.users.earthengine.app/view/rooftopfarmingnayabasti"
     ],
@@ -5334,6 +5335,7 @@
     ],
     "romansah": [
         "https://romansah.users.earthengine.app/view/banjir-masamba",
+        "https://romansah.users.earthengine.app/view/deforestrasi",
         "https://romansah.users.earthengine.app/view/kalselflood",
         "https://romansah.users.earthengine.app/view/link-map-samarinda",
         "https://romansah.users.earthengine.app/view/suhu-permukaan-darata-indonesia-thn-2000-2003",

@@ -86,9 +86,6 @@
         "https://6240212101.users.earthengine.app/view/globalmtpi",
         "https://6240212101.users.earthengine.app/view/lulc10mesri2020"
     ],
-    "63011214004": [
-        "https://63011214004.users.earthengine.app/view/bandratio"
-    ],
     "740352779": [
         "https://740352779.users.earthengine.app/view/timeseries"
     ],
@@ -96,7 +93,8 @@
         "https://AKAH.users.earthengine.app/view/dem",
         "https://AKAH.users.earthengine.app/view/glakes",
         "https://AKAH.users.earthengine.app/view/mlh",
-        "https://AKAH.users.earthengine.app/view/plk"
+        "https://AKAH.users.earthengine.app/view/plk",
+        "https://AKAH.users.earthengine.app/view/vegwat"
     ],
     "AkashPandey": [
         "https://AkashPandey.users.earthengine.app/view/bhopal-2000vs2020",
@@ -259,7 +257,8 @@
         "https://LearningIIT.users.earthengine.app/view/solarviz",
         "https://LearningIIT.users.earthengine.app/view/surfacewater",
         "https://LearningIIT.users.earthengine.app/view/uttrakhandweather",
-        "https://LearningIIT.users.earthengine.app/view/wasap2"
+        "https://LearningIIT.users.earthengine.app/view/wasap2",
+        "https://LearningIIT.users.earthengine.app/view/yamunalulc"
     ],
     "LucasKruitwagen": [
         "https://LucasKruitwagen.users.earthengine.app/view/canada-temperature",
@@ -2123,9 +2122,6 @@
     "fajri91": [
         "https://fajri91.users.earthengine.app/view/comoditiesidn"
     ],
-    "fakhrurrozi": [
-        "https://fakhrurrozi.users.earthengine.app/view/mangroveinspektor"
-    ],
     "famambengue05": [
         "https://famambengue05.users.earthengine.app/view/nioro"
     ],
@@ -3093,7 +3089,8 @@
     ],
     "javierrieju": [
         "https://javierrieju.users.earthengine.app/view/re-forest-fire",
-        "https://javierrieju.users.earthengine.app/view/re-forest-zoning"
+        "https://javierrieju.users.earthengine.app/view/re-forest-zoning",
+        "https://javierrieju.users.earthengine.app/view/zambiabasinsnfo"
     ],
     "jayamapleton": [
         "https://jayamapleton.users.earthengine.app/view/ndvi-ucla-and-los-angeles"
@@ -5973,6 +5970,7 @@
         "https://svangordon.users.earthengine.app/view/atlas-v2-vis"
     ],
     "svoboj25": [
+        "https://svoboj25.users.earthengine.app/view/hares-localities",
         "https://svoboj25.users.earthengine.app/view/mariupol0504",
         "https://svoboj25.users.earthengine.app/view/svycarskohori"
     ],

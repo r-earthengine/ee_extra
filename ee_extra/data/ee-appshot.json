@@ -157,7 +157,6 @@
         "https://DMayer.users.earthengine.app/view/mayer13b"
     ],
     "DavidTheobald8": [
-        "https://DavidTheobald8.users.earthengine.app/view/cat-disease-risk",
         "https://DavidTheobald8.users.earthengine.app/view/ee-app-global-human-modification"
     ],
     "Dicroud": [
@@ -582,6 +581,7 @@
         "https://akramsp.users.earthengine.app/view/neraca-air-khg-tebingtinggi"
     ],
     "akshaycgctc": [
+        "https://akshaycgctc.users.earthengine.app/view/change-in-surface-water-for-hp-test-app",
         "https://akshaycgctc.users.earthengine.app/view/surface-water-explorer-hp",
         "https://akshaycgctc.users.earthengine.app/view/surface-water-explorer-rj-india"
     ],
@@ -1584,7 +1584,6 @@
         "https://davidparastatidis.users.earthengine.app/view/sentinel-2-nbs-monitoring-application"
     ],
     "davidtheobald8": [
-        "https://DavidTheobald8.users.earthengine.app/view/cat-disease-risk",
         "https://DavidTheobald8.users.earthengine.app/view/ee-app-global-human-modification",
         "https://davidtheobald8.users.earthengine.app/view/global-human-modification-change"
     ],
@@ -1955,7 +1954,8 @@
     ],
     "elenisofik": [
         "https://elenisofik.users.earthengine.app/view/sentinel-2-display-and-ndvi-chart",
-        "https://elenisofik.users.earthengine.app/view/sentinel-24seasons5images"
+        "https://elenisofik.users.earthengine.app/view/sentinel-24seasons5images",
+        "https://elenisofik.users.earthengine.app/view/supervised-classification-split-panel-app"
     ],
     "elisec": [
         "https://elisec.users.earthengine.app/view/landslides-ndvi"
@@ -3857,6 +3857,7 @@
     "lucasterres": [
         "https://lucasterres.users.earthengine.app/view/capitoliomg",
         "https://lucasterres.users.earthengine.app/view/chile-quinenco",
+        "https://lucasterres.users.earthengine.app/view/porceii",
         "https://lucasterres.users.earthengine.app/view/rs-coastal-impact",
         "https://lucasterres.users.earthengine.app/view/saodomingos",
         "https://lucasterres.users.earthengine.app/view/teste",
@@ -6582,6 +6583,7 @@
         "https://zoltansylvester.users.earthengine.app/view/mamore-bar-types"
     ],
     "zq10160617": [
+        "https://zq10160617.users.earthengine.app/view/carbonemission",
         "https://zq10160617.users.earthengine.app/view/coastal-seaward-urban-sprawl"
     ],
     "zrahimi": [

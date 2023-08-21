@@ -952,10 +952,6 @@
         "https://asrenninger.users.earthengine.app/view/heatwave",
         "https://asrenninger.users.earthengine.app/view/dimensionsofdevelopment"
     ],
-    "astokes2": [
-        "https://astokes2.users.earthengine.app/view/interactive-samburu-drought",
-        "https://astokes2.users.earthengine.app/view/ndvi-anomaly-slider"
-    ],
     "asuquo4sure": [
         "https://asuquo4sure.users.earthengine.app/view/ndvi"
     ],
@@ -1832,10 +1828,6 @@
     "dylannguyen289": [
         "https://dylannguyen289.users.earthengine.app/view/bushfire"
     ],
-    "e41171697": [
-        "https://e41171697.users.earthengine.app/view/populasi",
-        "https://e41171697.users.earthengine.app/view/test"
-    ],
     "eaglecopernicussar": [
         "https://eaglecopernicussar.users.earthengine.app/view/descarga-srtm-mexico-marioluna"
     ],
@@ -2274,6 +2266,7 @@
         "https://fqqwxc123.users.earthengine.app/view/crcfcheck",
         "https://fqqwxc123.users.earthengine.app/view/crcyangtze",
         "https://fqqwxc123.users.earthengine.app/view/exploresentinel2",
+        "https://fqqwxc123.users.earthengine.app/view/rsei",
         "https://fqqwxc123.users.earthengine.app/view/waterresourcevisualization"
     ],
     "francescadragut01": [
@@ -2991,6 +2984,7 @@
         "https://ivannalissaputra24.users.earthengine.app/view/forest-cover-loss-of-indonesia"
     ],
     "ivarzambrana": [
+        "https://ivarzambrana.users.earthengine.app/view/estanques",
         "https://ivarzambrana.users.earthengine.app/view/simbfao"
     ],
     "iwankubus": [
@@ -3896,10 +3890,6 @@
     ],
     "lwsmith": [
         "https://lwsmith.users.earthengine.app/view/changing-ndvi-and-lst-in-cape-town"
-    ],
-    "lyh": [
-        "https://lyh.users.earthengine.app/view/burnedareasampling",
-        "https://lyh.users.earthengine.app/view/samplingtool"
     ],
     "lyyuwanly1": [
         "https://lyyuwanly1.users.earthengine.app/view/app-73"

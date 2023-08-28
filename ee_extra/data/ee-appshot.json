@@ -296,7 +296,8 @@
         "https://MohsenSaber.users.earthengine.app/view/landsatindices2019"
     ],
     "NevinMcIntyreGIS": [
-        "https://NevinMcIntyreGIS.users.earthengine.app/view/crooksfirednbr"
+        "https://NevinMcIntyreGIS.users.earthengine.app/view/crooksfirednbr",
+        "https://NevinMcIntyreGIS.users.earthengine.app/view/parkway-fire-dnbr"
     ],
     "Noeliplaza": [
         "https://Noeliplaza.users.earthengine.app/view/grafica",
@@ -1937,6 +1938,7 @@
         "https://eirejuan.users.earthengine.app/view/cambiospniguazu"
     ],
     "ejvalero": [
+        "https://ejvalero.users.earthengine.app/view/landcover-venezuela",
         "https://ejvalero.users.earthengine.app/view/vegetationindex"
     ],
     "elacerda": [
@@ -2107,9 +2109,7 @@
         "https://fahmiariffkip1.users.earthengine.app/view/sumatera1"
     ],
     "fahrulmuhamad20": [
-        "https://fahrulmuhamad20.users.earthengine.app/view/indonesian-mangrove-forest",
-        "https://fahrulmuhamad20.users.earthengine.app/view/ndvi-change-west-kalimantan",
-        "https://fahrulmuhamad20.users.earthengine.app/view/ndvi-monitoring",
+        "https://fahrulmuhamad20.users.earthengine.app/view/indonesia-mangrove-forest",
         "https://fahrulmuhamad20.users.earthengine.app/view/ndvi-change-west-kalimantan"
     ],
     "fajri91": [

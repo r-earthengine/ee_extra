@@ -3083,6 +3083,7 @@
         "https://jatullis.users.earthengine.app/view/worldclimate"
     ],
     "javierrieju": [
+        "https://javierrieju.users.earthengine.app/view/pineforestspain",
         "https://javierrieju.users.earthengine.app/view/re-forest-fire",
         "https://javierrieju.users.earthengine.app/view/re-forest-zoning",
         "https://javierrieju.users.earthengine.app/view/zambiabasinsnfo"
@@ -6127,7 +6128,8 @@
     "tubagus": [
         "https://tubagus.users.earthengine.app/view/apps",
         "https://tubagus.users.earthengine.app/view/dyland",
-        "https://tubagus.users.earthengine.app/view/medoids-dyland"
+        "https://tubagus.users.earthengine.app/view/medoids-dyland",
+        "https://tubagus.users.earthengine.app/view/smce"
     ],
     "tubagusputra1810": [
         "https://tubagusputra1810.users.earthengine.app/view/antaru-id"

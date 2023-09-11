@@ -2745,9 +2745,6 @@
         "https://heichinoda.users.earthengine.app/view/test4gsmap",
         "https://heichinoda.users.earthengine.app/view/test4ndvi"
     ],
-    "heparmentier": [
-        "https://heparmentier.users.earthengine.app/view/hpapp"
-    ],
     "herciloodorico": [
         "https://herciloodorico.users.earthengine.app/view/land-use-land-cover-changes-in-zambezia-during-1983-and-2020",
         "https://herciloodorico.users.earthengine.app/view/land-useland-cover-in-mecuburi-during-2005---2018",
@@ -4049,6 +4046,7 @@
     ],
     "matthepler": [
         "https://matthepler.users.earthengine.app/view/cfxwatch",
+        "https://matthepler.users.earthengine.app/view/isonrock",
         "https://matthepler.users.earthengine.app/view/minewatch1101905",
         "https://matthepler.users.earthengine.app/view/minewatch1101918",
         "https://matthepler.users.earthengine.app/view/minewatch1101918slider",
@@ -4234,7 +4232,6 @@
         "https://Mmodou.users.earthengine.app/view/hoalsoilmoisture",
         "https://Mmodou.users.earthengine.app/view/locusts",
         "https://Mmodou.users.earthengine.app/view/mauritus-iot-irrigation",
-        "https://Mmodou.users.earthengine.app/view/ram-iot",
         "https://Mmodou.users.earthengine.app/view/senegallulc2020",
         "https://Mmodou.users.earthengine.app/view/wetlandscrns",
         "https://mmodou.users.earthengine.app/view/agristatisticsenegal2020"
@@ -6064,7 +6061,8 @@
         "https://thaokl.users.earthengine.app/view/tinhhuyenxa"
     ],
     "therebp": [
-        "https://therebp.users.earthengine.app/view/contoh-app-1"
+        "https://therebp.users.earthengine.app/view/contoh-app-1",
+        "https://therebp.users.earthengine.app/view/modis-lst-viewer"
     ],
     "theronmb": [
         "https://theronmb.users.earthengine.app/view/breach-verification-tool"

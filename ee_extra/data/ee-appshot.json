@@ -213,6 +213,7 @@
         "https://JamesMColl.users.earthengine.app/view/trendysnow"
     ],
     "Jyoti": [
+        "https://Jyoti.users.earthengine.app/view/coastlinedelineation",
         "https://Jyoti.users.earthengine.app/view/hri2",
         "https://Jyoti.users.earthengine.app/view/lulcdk",
         "https://Jyoti.users.earthengine.app/view/lulclevel1dk",
@@ -4965,7 +4966,8 @@
         "https://projectgeffao.users.earthengine.app/view/subcuencas-panama",
         "https://projectgeffao.users.earthengine.app/view/uzbekistan-folur",
         "https://projectgeffao.users.earthengine.app/view/uzbekistan-ldn",
-        "https://projectgeffao.users.earthengine.app/view/venezuela-andes"
+        "https://projectgeffao.users.earthengine.app/view/venezuela-andes",
+        "https://projectgeffao.users.earthengine.app/view/very-famous"
     ],
     "puentesdiaz_test": [
         "https://puentesdiaz_test.users.earthengine.app/view/firepunilla"

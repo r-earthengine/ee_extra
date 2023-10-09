@@ -2620,12 +2620,9 @@
     ],
     "grettelvargas": [
         "https://grettelvargas.users.earthengine.app/view/delimitaciondrones",
+        "https://grettelvargas.users.earthengine.app/view/forestgam",
         "https://grettelvargas.users.earthengine.app/view/golfo",
         "https://grettelvargas.users.earthengine.app/view/lulcpew",
-        "https://grettelvargas.users.earthengine.app/view/manglarescr",
-        "https://grettelvargas.users.earthengine.app/view/manglaressar",
-        "https://grettelvargas.users.earthengine.app/view/mcmangroves",
-        "https://grettelvargas.users.earthengine.app/view/monitoreoca",
         "https://grettelvargas.users.earthengine.app/view/montecristi",
         "https://grettelvargas.users.earthengine.app/view/nicoyasar",
         "https://grettelvargas.users.earthengine.app/view/precipitation-2000-2019",
@@ -5991,9 +5988,6 @@
         "https://tanzimtaher90.users.earthengine.app/view/global-population-explorer",
         "https://tanzimtaher90.users.earthengine.app/view/night-light-trends",
         "https://tanzimtaher90.users.earthengine.app/view/weather-forecasts-120-hours"
-    ],
-    "taquinones": [
-        "https://taquinones.users.earthengine.app/view/pronstico-meteorolgico-contra-incendios-forestales"
     ],
     "tarsilaandrade": [
         "https://tarsilaandrade.users.earthengine.app/view/area-caceres",

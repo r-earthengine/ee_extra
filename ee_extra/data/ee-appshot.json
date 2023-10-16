@@ -1888,7 +1888,8 @@
         "https://edersantibanhez.users.earthengine.app/view/deforestacionrobore",
         "https://edersantibanhez.users.earthengine.app/view/incendios3diasv3",
         "https://edersantibanhez.users.earthengine.app/view/incendiosmes",
-        "https://edersantibanhez.users.earthengine.app/view/incendiosultimos2dias"
+        "https://edersantibanhez.users.earthengine.app/view/incendiosultimos2dias",
+        "https://edersantibanhez.users.earthengine.app/view/servidumbreecologicarioaguascalientes"
     ],
     "edgarmanrique30": [
         "https://edgarmanrique30.users.earthengine.app/view/country-wide-map-of-travel-time-to-health-facilities-for-2018",
@@ -2209,6 +2210,7 @@
         "https://fernandotentor.users.earthengine.app/view/mapa-fma",
         "https://fernandotentor.users.earthengine.app/view/modis-evi-insp",
         "https://fernandotentor.users.earthengine.app/view/perfilaltimetricovt",
+        "https://fernandotentor.users.earthengine.app/view/soilsglobal",
         "https://fernandotentor.users.earthengine.app/view/unigropanelndvi2"
     ],
     "fh456h56j76jk87k34": [
@@ -2620,6 +2622,7 @@
     ],
     "grettelvargas": [
         "https://grettelvargas.users.earthengine.app/view/delimitaciondrones",
+        "https://grettelvargas.users.earthengine.app/view/forest",
         "https://grettelvargas.users.earthengine.app/view/forestgam",
         "https://grettelvargas.users.earthengine.app/view/golfo",
         "https://grettelvargas.users.earthengine.app/view/lulcpew",
@@ -4551,6 +4554,7 @@
         "https://nlab.users.earthengine.app/view/test"
     ],
     "nlang": [
+        "https://nlang.users.earthengine.app/view/global-canopy-height-2020",
         "https://nlang.users.earthengine.app/view/canopy-height-and-carbon-stock-southeast-asia-2020"
     ],
     "noamr": [
@@ -5089,6 +5093,7 @@
         "https://ramiqcom.users.earthengine.app/view/rsqa",
         "https://ramiqcom.users.earthengine.app/view/seagrass",
         "https://ramiqcom.users.earthengine.app/view/searise",
+        "https://ramiqcom.users.earthengine.app/view/southsumatera",
         "https://ramiqcom.users.earthengine.app/view/storyindonesia"
     ],
     "randd-eesd": [
@@ -5712,7 +5717,8 @@
         "https://shijuanchen32.users.earthengine.app/view/ccdc-sma-basic",
         "https://shijuanchen32.users.earthengine.app/view/ccdc-sma-ts",
         "https://shijuanchen32.users.earthengine.app/view/forest-degradation-monitor",
-        "https://shijuanchen32.users.earthengine.app/view/forest-degradation-monitor-tropic"
+        "https://shijuanchen32.users.earthengine.app/view/forest-degradation-monitor-tropic",
+        "https://shijuanchen32.users.earthengine.app/view/shift-cult"
     ],
     "shilosh": [
         "https://shilosh.users.earthengine.app/view/continuous-lst",

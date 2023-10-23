@@ -2093,7 +2093,6 @@
         "https://evaristizabalg.users.earthengine.app/view/hidroituango"
     ],
     "fa-rs": [
-        "https://fa-rs.users.earthengine.app/view/carboncalculator",
         "https://fa-rs.users.earthengine.app/view/classification",
         "https://fa-rs.users.earthengine.app/view/gig",
         "https://fa-rs.users.earthengine.app/view/sampling"
@@ -3178,8 +3177,6 @@
     "jhowarth": [
         "https://jhowarth.users.earthengine.app/view/addison-image-viewer",
         "https://jhowarth.users.earthengine.app/view/billy-app",
-        "https://jhowarth.users.earthengine.app/view/conservation-atlas-middlebury-vt",
-        "https://jhowarth.users.earthengine.app/view/conservation-planning",
         "https://jhowarth.users.earthengine.app/view/ee-edu-eeaf-f1-01",
         "https://jhowarth.users.earthengine.app/view/ee-edu-eefa-f11-02",
         "https://jhowarth.users.earthengine.app/view/ee-edu-rgb",
@@ -3281,6 +3278,7 @@
     ],
     "joberthgambati": [
         "https://joberthgambati.users.earthengine.app/view/dinamicalandsatsentinel",
+        "https://joberthgambati.users.earthengine.app/view/historicalserie",
         "https://joberthgambati.users.earthengine.app/view/mosaicgenerator"
     ],
     "jockcharles": [

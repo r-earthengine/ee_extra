@@ -156,9 +156,6 @@
     "DMayer": [
         "https://DMayer.users.earthengine.app/view/mayer13b"
     ],
-    "DavidTheobald8": [
-        "https://DavidTheobald8.users.earthengine.app/view/ee-app-global-human-modification"
-    ],
     "Dicroud": [
         "https://Dicroud.users.earthengine.app/view/tbagua",
         "https://Dicroud.users.earthengine.app/view/tbwater"
@@ -1583,7 +1580,6 @@
         "https://davidparastatidis.users.earthengine.app/view/sentinel-2-nbs-monitoring-application"
     ],
     "davidtheobald8": [
-        "https://DavidTheobald8.users.earthengine.app/view/ee-app-global-human-modification",
         "https://davidtheobald8.users.earthengine.app/view/global-human-modification-change"
     ],
     "dbpentest": [
@@ -6273,10 +6269,6 @@
     "vinfalardeau": [
         "https://vinfalardeau.users.earthengine.app/view/midcoast-sentinel",
         "https://vinfalardeau.users.earthengine.app/view/midcoast-watersheds"
-    ],
-    "viquezcy": [
-        "https://viquezcy.users.earthengine.app/view/bastimentos-mangroves-map",
-        "https://viquezcy.users.earthengine.app/view/first-draft-for-mapping-mangroves--bocas-del-toro"
     ],
     "vitorsveg": [
         "https://vitorsveg.users.earthengine.app/view/worldcover"

@@ -3718,6 +3718,7 @@
         "https://lezanacd.users.earthengine.app/view/fracradruraleschaco2022",
         "https://lezanacd.users.earthengine.app/view/fracradv02",
         "https://lezanacd.users.earthengine.app/view/municviv2021",
+        "https://lezanacd.users.earthengine.app/view/segmentovivrurallafidelidad",
         "https://lezanacd.users.earthengine.app/view/v1-pobl-2010-chaco",
         "https://lezanacd.users.earthengine.app/view/v2-pobl-2010-chaco",
         "https://lezanacd.users.earthengine.app/view/vivminicradioamgr2020",
@@ -5253,9 +5254,6 @@
         "https://rifkynauvalhsp.users.earthengine.app/view/ijbexplorer"
     ],
     "rinkalpatel": [
-        "https://rinkalpatel.users.earthengine.app/view/india-ag-burning",
-        "https://rinkalpatel.users.earthengine.app/view/indiamaxeviandemergence",
-        "https://rinkalpatel.users.earthengine.app/view/maxvegetation",
         "https://rinkalpatel.users.earthengine.app/view/ia-crop-damage-08-11-2020"
     ],
     "rishabhjain4891": [
@@ -5868,6 +5866,7 @@
     ],
     "spiruel": [
         "https://spiruel.users.earthengine.app/view/cdla-viewer",
+        "https://spiruel.users.earthengine.app/view/compare-resolutions",
         "https://spiruel.users.earthengine.app/view/extreme-heat-visualiser",
         "https://spiruel.users.earthengine.app/view/hyperspectral-comparison",
         "https://spiruel.users.earthengine.app/view/pixelpioneers",

@@ -3175,6 +3175,7 @@
         "https://jhowarth.users.earthengine.app/view/billy-app",
         "https://jhowarth.users.earthengine.app/view/ee-edu-eeaf-f1-01",
         "https://jhowarth.users.earthengine.app/view/ee-edu-eefa-f11-02",
+        "https://jhowarth.users.earthengine.app/view/ee-edu-global-forest-loss",
         "https://jhowarth.users.earthengine.app/view/ee-edu-rgb",
         "https://jhowarth.users.earthengine.app/view/ee-vtcd-30x30",
         "https://jhowarth.users.earthengine.app/view/ee-vtcd-blended-hillshades",
@@ -3717,8 +3718,10 @@
         "https://lezanacd.users.earthengine.app/view/fracradrural2022v5",
         "https://lezanacd.users.earthengine.app/view/fracradruraleschaco2022",
         "https://lezanacd.users.earthengine.app/view/fracradv02",
+        "https://lezanacd.users.earthengine.app/view/lafidelidadmuestraxsegm",
         "https://lezanacd.users.earthengine.app/view/municviv2021",
         "https://lezanacd.users.earthengine.app/view/segmentovivrurallafidelidad",
+        "https://lezanacd.users.earthengine.app/view/segmenvivv2",
         "https://lezanacd.users.earthengine.app/view/v1-pobl-2010-chaco",
         "https://lezanacd.users.earthengine.app/view/v2-pobl-2010-chaco",
         "https://lezanacd.users.earthengine.app/view/vivminicradioamgr2020",
@@ -4128,9 +4131,6 @@
         "https://mewchayutaphong.users.earthengine.app/view/testwater",
         "https://mewchayutaphong.users.earthengine.app/view/uiapptest"
     ],
-    "mfjtaylor": [
-        "https://mfjtaylor.users.earthengine.app/view/clearing63lots"
-    ],
     "mfstuhlmacher": [
         "https://mfstuhlmacher.users.earthengine.app/view/caseytest3",
         "https://mfstuhlmacher.users.earthengine.app/view/nlcd-land-cover-change"
@@ -4345,6 +4345,8 @@
         "https://mutindarisper.users.earthengine.app/view/air-quality-monitoring"
     ],
     "mwahyur46": [
+        "https://mwahyur46.users.earthengine.app/view/mapchallenge-2023-day8-africa",
+        "https://mwahyur46.users.earthengine.app/view/mapchallenge2023-day10-north-america",
         "https://mwahyur46.users.earthengine.app/view/no2jakarta2020"
     ],
     "mwang3108": [
@@ -4452,7 +4454,7 @@
         "https://neurojunior.users.earthengine.app/view/vegasentinel1"
     ],
     "nguyenhong1611209": [
-        "https://nguyenhong1611209.users.earthengine.app/view/test",
+        "https://nguyenhong1611209.users.earthengine.app/view/thuduc",
         "https://nguyenhong1611209.users.earthengine.app/view/ythdtest"
     ],
     "nguyenkhoiphql": [
@@ -5866,6 +5868,7 @@
     ],
     "spiruel": [
         "https://spiruel.users.earthengine.app/view/cdla-viewer",
+        "https://spiruel.users.earthengine.app/view/cloud-masking",
         "https://spiruel.users.earthengine.app/view/compare-resolutions",
         "https://spiruel.users.earthengine.app/view/extreme-heat-visualiser",
         "https://spiruel.users.earthengine.app/view/hyperspectral-comparison",

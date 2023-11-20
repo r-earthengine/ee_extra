@@ -147,7 +147,6 @@
         "https://CharlieBettigole.users.earthengine.app/view/stratifi-global"
     ],
     "ChenyangWei": [
-        "https://ChenyangWei.users.earthengine.app/view/global-elevational-transects",
         "https://ChenyangWei.users.earthengine.app/view/spectral-unmixing"
     ],
     "DIRENA": [
@@ -3719,6 +3718,7 @@
         "https://lezanacd.users.earthengine.app/view/fracradruraleschaco2022",
         "https://lezanacd.users.earthengine.app/view/fracradv02",
         "https://lezanacd.users.earthengine.app/view/lafidelidadmuestraxsegm",
+        "https://lezanacd.users.earthengine.app/view/muestraencuesta26segmv01",
         "https://lezanacd.users.earthengine.app/view/municviv2021",
         "https://lezanacd.users.earthengine.app/view/segmentovivrurallafidelidad",
         "https://lezanacd.users.earthengine.app/view/segmenvivv2",
@@ -4345,6 +4345,7 @@
         "https://mutindarisper.users.earthengine.app/view/air-quality-monitoring"
     ],
     "mwahyur46": [
+        "https://mwahyur46.users.earthengine.app/view/daymapchallenge2023-day12-south-america",
         "https://mwahyur46.users.earthengine.app/view/mapchallenge-2023-day8-africa",
         "https://mwahyur46.users.earthengine.app/view/mapchallenge2023-day10-north-america",
         "https://mwahyur46.users.earthengine.app/view/no2jakarta2020"

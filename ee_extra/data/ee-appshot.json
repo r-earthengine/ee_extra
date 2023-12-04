@@ -1124,6 +1124,7 @@
     ],
     "bonairhassan": [
         "https://bonairhassan.users.earthengine.app/view/flood-delineation--for-lakes-in-r-valley",
+        "https://bonairhassan.users.earthengine.app/view/ond-flood-extent-22-nov",
         "https://bonairhassan.users.earthengine.app/view/tana-river-county-inundation-mapping"
     ],
     "boombhupathi999": [
@@ -3202,6 +3203,7 @@
         "https://jhowarth.users.earthengine.app/view/rgb-nighttime-lights",
         "https://jhowarth.users.earthengine.app/view/spectral-signatures",
         "https://jhowarth.users.earthengine.app/view/vt-surface-geology",
+        "https://jhowarth.users.earthengine.app/view/wk11appdemo",
         "https://jhowarth.users.earthengine.app/view/billy-app",
         "https://jhowarth.users.earthengine.app/view/fire-modis-firms-historical",
         "https://jhowarth.users.earthengine.app/view/lights-change-time-neighborhood",
@@ -4456,6 +4458,10 @@
         "https://neurojunior.users.earthengine.app/view/vegasentinel1"
     ],
     "nguyenhong1611209": [
+        "https://nguyenhong1611209.users.earthengine.app/view/lst",
+        "https://nguyenhong1611209.users.earthengine.app/view/ndbi",
+        "https://nguyenhong1611209.users.earthengine.app/view/ndvi",
+        "https://nguyenhong1611209.users.earthengine.app/view/ndwi",
         "https://nguyenhong1611209.users.earthengine.app/view/thuduc",
         "https://nguyenhong1611209.users.earthengine.app/view/ythdtest"
     ],
@@ -5397,7 +5403,10 @@
         "https://rudiyanto.users.earthengine.app/view/paddyphenology",
         "https://rudiyanto.users.earthengine.app/view/phenologyea",
         "https://rudiyanto.users.earthengine.app/view/phenologysa",
-        "https://rudiyanto.users.earthengine.app/view/phenologysea"
+        "https://rudiyanto.users.earthengine.app/view/phenologysea",
+        "https://rudiyanto.users.earthengine.app/view/visualizationeasiach42022",
+        "https://rudiyanto.users.earthengine.app/view/visualizationsasiach42022",
+        "https://rudiyanto.users.earthengine.app/view/visualizationseasiach42022"
     ],
     "rudplatt": [
         "https://rudplatt.users.earthengine.app/view/snowevaluator"

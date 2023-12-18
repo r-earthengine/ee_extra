@@ -1730,15 +1730,6 @@
     "diimanut": [
         "https://diimanut.users.earthengine.app/view/diego-teste"
     ],
-    "dilmillano": [
-        "https://dilmillano.users.earthengine.app/view/amenazas-y-riesgos-altos-identificados-del-sector-el-ocaso",
-        "https://dilmillano.users.earthengine.app/view/cambio-multitemporal-2000-2020-satlite-landsat",
-        "https://dilmillano.users.earthengine.app/view/cambio-multitemporal-2015-2021-satlite-planet",
-        "https://dilmillano.users.earthengine.app/view/cambio-multitemporal-sector-el-ocaso-1985-2020-ndvi",
-        "https://dilmillano.users.earthengine.app/view/cobertura-forestal",
-        "https://dilmillano.users.earthengine.app/view/delimitacin-del-sector-el-ocaso-puntos-arcifinios",
-        "https://dilmillano.users.earthengine.app/view/tierras-en-sobreutilizacin-y-subutilizacin"
-    ],
     "dimkha2031": [
         "https://dimkha2031.users.earthengine.app/view/evolution-urbaine"
     ],
@@ -3172,6 +3163,7 @@
     ],
     "jhowarth": [
         "https://jhowarth.users.earthengine.app/view/billy-app",
+        "https://jhowarth.users.earthengine.app/view/cornwall-connectivity",
         "https://jhowarth.users.earthengine.app/view/ee-edu-eeaf-f1-01",
         "https://jhowarth.users.earthengine.app/view/ee-edu-eefa-f11-02",
         "https://jhowarth.users.earthengine.app/view/ee-edu-global-forest-loss",
@@ -3324,8 +3316,6 @@
         "https://joshlivni.users.earthengine.app/view/caldor-sentinel2"
     ],
     "josiascruz75": [
-        "https://josiascruz75.users.earthengine.app/view/export-cn-amazon",
-        "https://josiascruz75.users.earthengine.app/view/gee-amazon-cmip6",
         "https://josiascruz75.users.earthengine.app/view/runoff-amazon"
     ],
     "josssknight": [
@@ -4881,6 +4871,7 @@
         "https://pmisson.users.earthengine.app/view/madridvideo",
         "https://pmisson.users.earthengine.app/view/malaga-granada-jaen",
         "https://pmisson.users.earthengine.app/view/santander",
+        "https://pmisson.users.earthengine.app/view/sdgsat-1-p-iberica",
         "https://pmisson.users.earthengine.app/view/trends",
         "https://pmisson.users.earthengine.app/view/viirs-inspector-area-black-marble",
         "https://pmisson.users.earthengine.app/view/viirs-trends",

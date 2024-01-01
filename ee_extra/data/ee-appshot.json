@@ -2638,6 +2638,7 @@
     ],
     "gustavoirgang": [
         "https://gustavoirgang.users.earthengine.app/view/c12d-fazenda-gleba-beta---parcela-1",
+        "https://gustavoirgang.users.earthengine.app/view/c12d-projeto-nascente-do-arvoredo-so-pedro-de-alcan-sc",
         "https://gustavoirgang.users.earthengine.app/view/c12dmanejo",
         "https://gustavoirgang.users.earthengine.app/view/c12dmanejoserafim",
         "https://gustavoirgang.users.earthengine.app/view/c12dpilotofabiano",
@@ -4578,16 +4579,6 @@
         "https://nzahasan.users.earthengine.app/view/mdwi-sentinel",
         "https://nzahasan.users.earthengine.app/view/oh-my-gfs",
         "https://nzahasan.users.earthengine.app/view/rohingya-refugee-camp-change"
-    ],
-    "obaidrrhmnan": [
-        "https://obaidrrhmnan.users.earthengine.app/view/datasets",
-        "https://obaidrrhmnan.users.earthengine.app/view/engfertmultan",
-        "https://obaidrrhmnan.users.earthengine.app/view/lcda",
-        "https://obaidrrhmnan.users.earthengine.app/view/lcdacls",
-        "https://obaidrrhmnan.users.earthengine.app/view/mtn",
-        "https://obaidrrhmnan.users.earthengine.app/view/ndvits",
-        "https://obaidrrhmnan.users.earthengine.app/view/rcda",
-        "https://obaidrrhmnan.users.earthengine.app/view/wheat"
     ],
     "observatorionieves": [
         "https://observatorionieves.users.earthengine.app/view/cloudreduction",

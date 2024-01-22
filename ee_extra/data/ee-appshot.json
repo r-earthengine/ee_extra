@@ -5402,9 +5402,6 @@
         "https://s5p_co_nederland.users.earthengine.app/view/no2covid19nl2w"
     ],
     "sabenz": [
-        "https://sabenz.users.earthengine.app/view/covid-ej",
-        "https://sabenz.users.earthengine.app/view/surface-delta-t",
-        "https://sabenz.users.earthengine.app/view/urbanheatusa",
         "https://sabenz.users.earthengine.app/view/surface-delta-t",
         "https://sabenz.users.earthengine.app/view/urbanheatusa"
     ],

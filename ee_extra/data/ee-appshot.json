@@ -641,9 +641,6 @@
     "alexanderfuentealbav": [
         "https://alexanderfuentealbav.users.earthengine.app/view/cobertura-nival-2020-elmbalse-el-yeso"
     ],
-    "alexanderquevedo": [
-        "https://alexanderquevedo.users.earthengine.app/view/incendiosjalisco"
-    ],
     "alexchunet": [
         "https://alexchunet.users.earthengine.app/view/alkhalidiyah",
         "https://alexchunet.users.earthengine.app/view/bukavumnt",
@@ -1063,6 +1060,7 @@
     ],
     "benjaminpage8": [
         "https://benjaminpage8.users.earthengine.app/view/chlasodak2022",
+        "https://benjaminpage8.users.earthengine.app/view/conus10yearaverage",
         "https://benjaminpage8.users.earthengine.app/view/floridalandsatclarity",
         "https://benjaminpage8.users.earthengine.app/view/canadawaterclarity",
         "https://benjaminpage8.users.earthengine.app/view/conuswaterclarity"
@@ -4552,10 +4550,6 @@
     "nsp161101": [
         "https://nsp161101.users.earthengine.app/view/lstcm",
         "https://nsp161101.users.earthengine.app/view/test"
-    ],
-    "nt02249417": [
-        "https://nt02249417.users.earthengine.app/view/aavc",
-        "https://nt02249417.users.earthengine.app/view/vertical-farming"
     ],
     "nunocaldeira": [
         "https://nunocaldeira.users.earthengine.app/view/viirs"

@@ -4845,6 +4845,7 @@
         "https://pmamuszka.users.earthengine.app/view/ndvi-difference"
     ],
     "pmisson": [
+        "https://pmisson.users.earthengine.app/view/clouds-12-august-2026-eclipse",
         "https://pmisson.users.earthengine.app/view/colours-of-europe",
         "https://pmisson.users.earthengine.app/view/covid-19",
         "https://pmisson.users.earthengine.app/view/dmsp-viirs-comparison-tool",

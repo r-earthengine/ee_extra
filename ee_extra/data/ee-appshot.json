@@ -2286,6 +2286,7 @@
     "fsn1995": [
         "https://fsn1995.users.earthengine.app/view/albedoinspector",
         "https://fsn1995.users.earthengine.app/view/iseeglacier",
+        "https://fsn1995.users.earthengine.app/view/landsat-surface-temperature-viewer",
         "https://fsn1995.users.earthengine.app/view/modis-orbit-drift-viewer",
         "https://fsn1995.users.earthengine.app/view/transectprofile",
         "https://fsn1995.users.earthengine.app/view/iseeglacier"

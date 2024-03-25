@@ -5211,9 +5211,6 @@
         "https://ricardogeo.users.earthengine.app/view/sseboppsrblandcover1987to2017",
         "https://ricardogeo.users.earthengine.app/view/usocoberturaibge"
     ],
-    "richardfernandes": [
-        "https://richardfernandes.users.earthengine.app/view/leaf-toolbox-sl2p"
-    ],
     "richsharp": [
         "https://richsharp.users.earthengine.app/view/spring-data-viewer"
     ],
@@ -5848,6 +5845,7 @@
         "https://spiruel.users.earthengine.app/view/pixelpioneers",
         "https://spiruel.users.earthengine.app/view/sentinel-2-flip-book",
         "https://spiruel.users.earthengine.app/view/sst-anomalies",
+        "https://spiruel.users.earthengine.app/view/uk-fields",
         "https://spiruel.users.earthengine.app/view/wheat-phenology",
         "http://spiruel.users.earthengine.app/view/sentinel-2-flip-book",
         "https://spiruel.users.earthengine.app/view/extreme-heat-visualiser"
@@ -6182,6 +6180,7 @@
     ],
     "utkuunalan": [
         "https://utkuunalan.users.earthengine.app/view/do-distrubution-map",
+        "https://utkuunalan.users.earthengine.app/view/enve742exam",
         "https://utkuunalan.users.earthengine.app/view/enve742mt"
     ],
     "vaishnaviadhav31": [

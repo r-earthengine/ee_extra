@@ -2064,10 +2064,6 @@
         "https://etiennekras.users.earthengine.app/view/jip-calm-depth-proxy-heat-map",
         "https://etiennekras.users.earthengine.app/view/ndvi-africa"
     ],
-    "euroclimacomponente2": [
-        "https://euroclimacomponente2.users.earthengine.app/view/aizal",
-        "https://euroclimacomponente2.users.earthengine.app/view/visorzonificacion"
-    ],
     "eutrophicationwatch": [
         "https://eutrophicationwatch.users.earthengine.app/view/global-eutrophication-watch"
     ],
@@ -2591,6 +2587,7 @@
         "https://glennwithtwons.users.earthengine.app/view/peninsula-fire-recovery"
     ],
     "gponce": [
+        "https://gponce.users.earthengine.app/view/prism-norm-allotments",
         "https://gponce.users.earthengine.app/view/srer2017-neon-aop-data-explorer",
         "https://gponce.users.earthengine.app/view/srer2017neonrgb10cm",
         "https://gponce.users.earthengine.app/view/westernrangeland",
@@ -2731,6 +2728,7 @@
         "https://heichinoda.users.earthengine.app/view/test4ndvi"
     ],
     "herciloodorico": [
+        "https://herciloodorico.users.earthengine.app/view/kiln-scar-detection-in-chilundo-mapai-gaza-mozambique",
         "https://herciloodorico.users.earthengine.app/view/land-use-land-cover-changes-in-zambezia-during-1983-and-2020",
         "https://herciloodorico.users.earthengine.app/view/land-useland-cover-in-mecuburi-during-2005---2018",
         "https://herciloodorico.users.earthengine.app/view/time-series-animation"
@@ -3306,9 +3304,6 @@
         "https://josecaceres.users.earthengine.app/view/perdida-bosque-global",
         "https://josecaceres.users.earthengine.app/view/serie-ndvi-anual"
     ],
-    "joselucassafanelli": [
-        "https://joselucassafanelli.users.earthengine.app/view/brumadinho"
-    ],
     "joshlivni": [
         "https://joshlivni.users.earthengine.app/view/caldor-sentinel2"
     ],
@@ -3789,11 +3784,6 @@
     "lojanjulia": [
         "https://lojanjulia.users.earthengine.app/view/app-mars-quilanga",
         "https://lojanjulia.users.earthengine.app/view/incendios-loja"
-    ],
-    "lopezjuana": [
-        "https://lopezjuana.users.earthengine.app/view/descarga",
-        "https://lopezjuana.users.earthengine.app/view/granchacoestadopasturas",
-        "https://lopezjuana.users.earthengine.app/view/sitiosecologicos"
     ],
     "lpintos": [
         "https://lpintos.users.earthengine.app/view/irrigation-map-2020"
@@ -4846,6 +4836,9 @@
     ],
     "pmisson": [
         "https://pmisson.users.earthengine.app/view/clouds-12-august-2026-eclipse",
+        "https://pmisson.users.earthengine.app/view/clouds-eclipse-26th-of-january-2028",
+        "https://pmisson.users.earthengine.app/view/clouds-eclipse-2nd-of-august-2027",
+        "https://pmisson.users.earthengine.app/view/clouds-eclipse-4-april-2024",
         "https://pmisson.users.earthengine.app/view/colours-of-europe",
         "https://pmisson.users.earthengine.app/view/covid-19",
         "https://pmisson.users.earthengine.app/view/dmsp-viirs-comparison-tool",
@@ -5367,6 +5360,7 @@
         "https://rudiyanto.users.earthengine.app/view/phenologyea",
         "https://rudiyanto.users.earthengine.app/view/phenologysa",
         "https://rudiyanto.users.earthengine.app/view/phenologysea",
+        "https://rudiyanto.users.earthengine.app/view/riceterengganu",
         "https://rudiyanto.users.earthengine.app/view/seariceci2021",
         "https://rudiyanto.users.earthengine.app/view/visualizationeasiach42022",
         "https://rudiyanto.users.earthengine.app/view/visualizationsasiach42022",
@@ -5747,6 +5741,7 @@
         "https://sigyury.users.earthengine.app/view/covid19perudistritos"
     ],
     "silviolemosamb": [
+        "https://silviolemosamb.users.earthengine.app/view/download-lulc",
         "https://silviolemosamb.users.earthengine.app/view/inspetor-ndvi",
         "https://silviolemosamb.users.earthengine.app/view/inspetor-ndvi-pa"
     ],

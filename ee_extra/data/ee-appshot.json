@@ -2899,14 +2899,6 @@
     "imadghanma": [
         "https://imadghanma.users.earthengine.app/view/imad"
     ],
-    "incendiosloja": [
-        "https://incendiosloja.users.earthengine.app/view/lmt-catamayo",
-        "https://incendiosloja.users.earthengine.app/view/lmtespindola",
-        "https://incendiosloja.users.earthengine.app/view/mars-calvas",
-        "https://incendiosloja.users.earthengine.app/view/mars-gonzanama",
-        "https://incendiosloja.users.earthengine.app/view/mars-loja",
-        "https://incendiosloja.users.earthengine.app/view/mars-quilanga"
-    ],
     "infonamonitoreo": [
         "https://infonamonitoreo.users.earthengine.app/view/betaappmapassmt",
         "https://infonamonitoreo.users.earthengine.app/view/testpriogladpy",
@@ -4443,9 +4435,6 @@
         "https://nicolasalejandromari.users.earthengine.app/view/iiffcba2022",
         "https://nicolasalejandromari.users.earthengine.app/view/reas-quemadas-en-villa-albertina",
         "https://nicolasalejandromari.users.earthengine.app/view/siartivgeoippf"
-    ],
-    "nicoridley09": [
-        "https://nicoridley09.users.earthengine.app/view/eclipse"
     ],
     "nicosv95": [
         "https://nicosv95.users.earthengine.app/view/mtigprogg3tr17"
@@ -6256,9 +6245,6 @@
     ],
     "vuthy": [
         "https://vuthy.users.earthengine.app/view/cambodia-flood-frequency-map"
-    ],
-    "waeldimassi": [
-        "https://waeldimassi.users.earthengine.app/view/timeseries-animation"
     ],
     "wallacesilva": [
         "https://wallacesilva.users.earthengine.app/view/assessment-scar-ok-app-1",

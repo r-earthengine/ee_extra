@@ -964,7 +964,6 @@
     "atstahl": [
         "https://atstahl.users.earthengine.app/view/naipview",
         "https://atstahl.users.earthengine.app/view/sentinelview",
-        "https://atstahl.users.earthengine.app/view/sewashingtonveg",
         "https://atstahl.users.earthengine.app/view/viewlateseasoncoverchange",
         "https://atstahl.users.earthengine.app/view/vspchange2020-21"
     ],
@@ -2248,8 +2247,7 @@
         "https://fqqwxc123.users.earthengine.app/view/crcfcheck",
         "https://fqqwxc123.users.earthengine.app/view/crcyangtze",
         "https://fqqwxc123.users.earthengine.app/view/exploresentinel2",
-        "https://fqqwxc123.users.earthengine.app/view/rsei",
-        "https://fqqwxc123.users.earthengine.app/view/waterresourcevisualization"
+        "https://fqqwxc123.users.earthengine.app/view/rsei"
     ],
     "francescadragut01": [
         "https://francescadragut01.users.earthengine.app/view/beta-version"
@@ -3792,6 +3790,7 @@
     ],
     "lucasneoclasico": [
         "https://lucasneoclasico.users.earthengine.app/view/areas-quemadas-firecci-sl",
+        "https://lucasneoclasico.users.earthengine.app/view/devonianplutonslpcafcc",
         "https://lucasneoclasico.users.earthengine.app/view/incendios-slmodis-burn"
     ],
     "lucassantarosa": [

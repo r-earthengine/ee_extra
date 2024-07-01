@@ -1308,10 +1308,6 @@
         "https://caseyengstrom.users.earthengine.app/view/snow-algae-ground-truth",
         "https://caseyengstrom.users.earthengine.app/view/watermelon-snow"
     ],
-    "celbeberger": [
-        "https://celbeberger.users.earthengine.app/view/bela-vista",
-        "https://celbeberger.users.earthengine.app/view/sobradinho"
-    ],
     "celiohelder": [
         "https://celiohelder.users.earthengine.app/view/guineappv2",
         "https://celiohelder.users.earthengine.app/view/liberia-lcm-2000---2018"
@@ -4371,8 +4367,7 @@
         "https://nateme16.users.earthengine.app/view/darryl-clarity"
     ],
     "naumanulhaq": [
-        "https://naumanulhaq.users.earthengine.app/view/gomalzam-splitpannel",
-        "https://naumanulhaq.users.earthengine.app/view/kp-lulc-l8"
+        "https://naumanulhaq.users.earthengine.app/view/tea-suitability---mansehra"
     ],
     "nazapuni": [
         "https://nazapuni.users.earthengine.app/view/zkkkk"

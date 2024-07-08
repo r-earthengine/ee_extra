@@ -1869,6 +1869,7 @@
         "https://edersantibanhez.users.earthengine.app/view/incendios3diasv3",
         "https://edersantibanhez.users.earthengine.app/view/incendiosmes",
         "https://edersantibanhez.users.earthengine.app/view/incendiosultimos2dias",
+        "https://edersantibanhez.users.earthengine.app/view/junio2024",
         "https://edersantibanhez.users.earthengine.app/view/servidumbreecologicarioaguascalientes"
     ],
     "edgarmanrique30": [
@@ -4314,6 +4315,7 @@
     "nabinyadav34": [
         "https://nabinyadav34.users.earthengine.app/view/cssteap-nabin",
         "https://nabinyadav34.users.earthengine.app/view/flood-mapping-and-damage-assessment",
+        "https://nabinyadav34.users.earthengine.app/view/fmda",
         "https://nabinyadav34.users.earthengine.app/view/integration-of-sentinel-dataset-for-burned-area-mapping",
         "https://nabinyadav34.users.earthengine.app/view/nepal-forest"
     ],
@@ -4597,11 +4599,6 @@
         "https://ogordienko112.users.earthengine.app/view/temperaturekyiv",
         "https://ogordienko112.users.earthengine.app/view/ukrainetemperature",
         "https://ogordienko112.users.earthengine.app/view/usingradarsatelliteimagerytodetectnaturalandtechnogenic"
-    ],
-    "olegzhelezn": [
-        "https://olegzhelezn.users.earthengine.app/view/fires-in-central-yakutia",
-        "https://olegzhelezn.users.earthengine.app/view/fires-pdmr",
-        "https://olegzhelezn.users.earthengine.app/view/norilsk-classification"
     ],
     "oliverblues": [
         "https://oliverblues.users.earthengine.app/view/compositing-masking-and-mosaicking"
@@ -5391,9 +5388,11 @@
         "https://sachiemelin.users.earthengine.app/view/banjirdkijakarta2020"
     ],
     "sachinbobbili": [
-        "https://sachinbobbili.users.earthengine.app/view/ndvi",
-        "https://sachinbobbili.users.earthengine.app/view/srtmdownloader",
-        "https://sachinbobbili.users.earthengine.app/view/terra-vegetation-indices"
+        "https://sachinbobbili.users.earthengine.app/view/elevation-explorer",
+        "https://sachinbobbili.users.earthengine.app/view/esa-lulc-2021",
+        "https://sachinbobbili.users.earthengine.app/view/glc-30m",
+        "https://sachinbobbili.users.earthengine.app/view/lulc-lst",
+        "https://sachinbobbili.users.earthengine.app/view/solar-farm"
     ],
     "sadeckgeo": [
         "https://sadeckgeo.users.earthengine.app/view/chuva"

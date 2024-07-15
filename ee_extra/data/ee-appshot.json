@@ -1801,9 +1801,6 @@
         "https://duynguyen.users.earthengine.app/view/ssmsbi",
         "https://duynguyen.users.earthengine.app/view/temp"
     ],
-    "dyhammon": [
-        "https://dyhammon.users.earthengine.app/view/gis-presentation"
-    ],
     "dylanhatlas": [
         "https://dylanhatlas.users.earthengine.app/view/zoom-box"
     ],
@@ -2280,15 +2277,6 @@
         "https://fsn1995.users.earthengine.app/view/transectprofile",
         "https://fsn1995.users.earthengine.app/view/iseeglacier"
     ],
-    "ftentor": [
-        "https://ftentor.users.earthengine.app/view/adeco-arroz",
-        "https://ftentor.users.earthengine.app/view/granizosancor",
-        "https://ftentor.users.earthengine.app/view/inundsancor",
-        "https://ftentor.users.earthengine.app/view/inundvillaminetti",
-        "https://ftentor.users.earthengine.app/view/panelinundrigran",
-        "https://ftentor.users.earthengine.app/view/precipitacion",
-        "https://ftentor.users.earthengine.app/view/riesgohidrico"
-    ],
     "fudongjie": [
         "https://fudongjie.users.earthengine.app/view/aurora",
         "https://fudongjie.users.earthengine.app/view/seasonalcrop",
@@ -2333,9 +2321,6 @@
     ],
     "gdifnr2": [
         "https://gdifnr2.users.earthengine.app/view/wof-washa-project"
-    ],
-    "gdispiri": [
-        "https://gdispiri.users.earthengine.app/view/geo281"
     ],
     "geasivaul0401": [
         "https://geasivaul0401.users.earthengine.app/view/landcover",
@@ -4820,6 +4805,7 @@
         "https://pmisson.users.earthengine.app/view/clouds-eclipse-2nd-of-august-2027",
         "https://pmisson.users.earthengine.app/view/clouds-eclipse-4-april-2024",
         "https://pmisson.users.earthengine.app/view/colours-of-europe",
+        "https://pmisson.users.earthengine.app/view/compara-madrid-sdgsat-2024--iss-2011",
         "https://pmisson.users.earthengine.app/view/covid-19",
         "https://pmisson.users.earthengine.app/view/dmsp-viirs-comparison-tool",
         "https://pmisson.users.earthengine.app/view/eumap",

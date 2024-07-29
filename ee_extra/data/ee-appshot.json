@@ -2735,12 +2735,10 @@
         "https://hkrnhn.users.earthengine.app/view/app11",
         "https://hkrnhn.users.earthengine.app/view/app12",
         "https://hkrnhn.users.earthengine.app/view/app14",
-        "https://hkrnhn.users.earthengine.app/view/app15",
         "https://hkrnhn.users.earthengine.app/view/app21",
         "https://hkrnhn.users.earthengine.app/view/app22",
         "https://hkrnhn.users.earthengine.app/view/app41",
-        "https://hkrnhn.users.earthengine.app/view/app51",
-        "https://hkrnhn.users.earthengine.app/view/smap-soil-moisture-profile"
+        "https://hkrnhn.users.earthengine.app/view/app51"
     ],
     "hkvgee": [
         "https://hkvgee.users.earthengine.app/view/channeldynamics",
@@ -2774,7 +2772,6 @@
     "hydrosolutions": [
         "https://hydrosolutions.users.earthengine.app/view/centralasia-snowcover",
         "https://hydrosolutions.users.earthengine.app/view/cropmapper-ferghana",
-        "https://hydrosolutions.users.earthengine.app/view/cropmapper-ncp",
         "https://hydrosolutions.users.earthengine.app/view/sahel-water",
         "https://hydrosolutions.users.earthengine.app/view/zh-fiebermesser"
     ],
@@ -3230,6 +3227,7 @@
     "jodaurmu": [
         "https://jodaurmu.users.earthengine.app/view/amazoniavertical",
         "https://jodaurmu.users.earthengine.app/view/bamboo-explorer",
+        "https://jodaurmu.users.earthengine.app/view/enasgerfor",
         "https://jodaurmu.users.earthengine.app/view/forestexplorerconssesionv1",
         "https://jodaurmu.users.earthengine.app/view/forestexporer",
         "https://jodaurmu.users.earthengine.app/view/ibc",
@@ -3274,8 +3272,7 @@
     "josecaceres": [
         "https://josecaceres.users.earthengine.app/view/eta-iota-hn",
         "https://josecaceres.users.earthengine.app/view/inundacioneshn",
-        "https://josecaceres.users.earthengine.app/view/perdida-bosque-global",
-        "https://josecaceres.users.earthengine.app/view/serie-ndvi-anual"
+        "https://josecaceres.users.earthengine.app/view/perdida-bosque-global"
     ],
     "joshlivni": [
         "https://joshlivni.users.earthengine.app/view/caldor-sentinel2"

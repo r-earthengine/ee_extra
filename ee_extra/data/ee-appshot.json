@@ -4958,7 +4958,7 @@
         "https://rajansingh5264.users.earthengine.app/view/esri-2020-global-land-cover-10m",
         "https://rajansingh5264.users.earthengine.app/view/global-crop-calender",
         "https://rajansingh5264.users.earthengine.app/view/global-forest-loss-in-pa",
-        "https://rajansingh5264.users.earthengine.app/view/global-surface-water-1999---2021",
+        "https://rajansingh5264.users.earthengine.app/view/global-surface-water-1999-2021",
         "https://rajansingh5264.users.earthengine.app/view/modis-ndvi-slider",
         "https://rajansingh5264.users.earthengine.app/view/rainfall-data-explorer",
         "https://rajansingh5264.users.earthengine.app/view/sentinel-5p-explorer",
@@ -5375,6 +5375,7 @@
         "https://sachinbobbili.users.earthengine.app/view/elevation-explorer",
         "https://sachinbobbili.users.earthengine.app/view/esa-lulc-2021",
         "https://sachinbobbili.users.earthengine.app/view/glc-30m",
+        "https://sachinbobbili.users.earthengine.app/view/india-district-explorer",
         "https://sachinbobbili.users.earthengine.app/view/lulc-lst",
         "https://sachinbobbili.users.earthengine.app/view/solar-farm"
     ],

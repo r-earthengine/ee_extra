@@ -2290,11 +2290,6 @@
         "https://gaertnerp.users.earthengine.app/view/population-rings",
         "https://gaertnerp.users.earthengine.app/view/sentinel2-ingestion-status"
     ],
-    "gaguilar": [
-        "https://gaguilar.users.earthengine.app/view/incendios",
-        "https://gaguilar.users.earthengine.app/view/landsat-py-2000-2020",
-        "https://gaguilar.users.earthengine.app/view/nbr"
-    ],
     "gaitanjuanjose": [
         "https://gaitanjuanjose.users.earthengine.app/view/mallinesneuquen",
         "https://gaitanjuanjose.users.earthengine.app/view/idppasturaschaco"

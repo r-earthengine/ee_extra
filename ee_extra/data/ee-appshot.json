@@ -3269,9 +3269,6 @@
     "joshlivni": [
         "https://joshlivni.users.earthengine.app/view/caldor-sentinel2"
     ],
-    "josiascruz75": [
-        "https://josiascruz75.users.earthengine.app/view/runoff-amazon"
-    ],
     "josssknight": [
         "https://josssknight.users.earthengine.app/view/flood",
         "https://josssknight.users.earthengine.app/view/swqds",
@@ -4577,12 +4574,6 @@
     ],
     "oliverwesley96": [
         "https://oliverwesley96.users.earthengine.app/view/colombia-redd-monitor"
-    ],
-    "olivierqueyrut": [
-        "https://olivierqueyrut.users.earthengine.app/view/cnes-eolab-sentinel1-visualization",
-        "https://olivierqueyrut.users.earthengine.app/view/cnes-eolab-sentinel2-visualization",
-        "https://olivierqueyrut.users.earthengine.app/view/cnes-eolab-sentinel5p-visualization",
-        "https://olivierqueyrut.users.earthengine.app/view/ouganda"
     ],
     "ollielballinger": [
         "https://ollielballinger.users.earthengine.app/view/bellingcat-radar-interference-tracker",
@@ -6020,18 +6011,6 @@
     ],
     "torrezaffaroni": [
         "https://torrezaffaroni.users.earthengine.app/view/lagunasbaoes"
-    ],
-    "treeline": [
-        "https://treeline.users.earthengine.app/view/annual-atei",
-        "https://treeline.users.earthengine.app/view/ate-elevation-time-series",
-        "https://treeline.users.earthengine.app/view/atei-timeseries",
-        "https://treeline.users.earthengine.app/view/ateicomparison",
-        "https://treeline.users.earthengine.app/view/chelsa",
-        "https://treeline.users.earthengine.app/view/global-ate",
-        "https://treeline.users.earthengine.app/view/ndvi-explorer",
-        "https://treeline.users.earthengine.app/view/precision-agriculture",
-        "https://treeline.users.earthengine.app/view/test",
-        "https://treeline.users.earthengine.app/view/watershed"
     ],
     "try1": [
         "https://try1.users.earthengine.app/view/choose-a-location-in-jhansi",

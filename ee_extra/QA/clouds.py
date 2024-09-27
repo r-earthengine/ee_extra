@@ -331,7 +331,7 @@ def maskClouds(
         if isinstance(x, ee.image.Image):
             masked = lookup[platformDict["platform"]](x)
         elif isinstance(x, ee.imagecollection.ImageCollection):
-            if platformDict["platform"] == "COPERNICUS/S2_SR":
+            if platformDict["platform"].startswith("COPERNICUS/S2_SR"):
                 masked = lookup[platformDict["platform"]](x)
             else:
                 masked = x.map(lookup[platformDict["platform"]])

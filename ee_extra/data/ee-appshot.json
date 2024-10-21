@@ -4480,9 +4480,6 @@
         "https://nlang.users.earthengine.app/view/global-canopy-height-2020",
         "https://nlang.users.earthengine.app/view/canopy-height-and-carbon-stock-southeast-asia-2020"
     ],
-    "noamr": [
-        "https://noamr.users.earthengine.app/view/ca-hsc"
-    ],
     "noureddinebassa": [
         "https://noureddinebassa.users.earthengine.app/view/agri40",
         "https://noureddinebassa.users.earthengine.app/view/new"
@@ -6413,9 +6410,6 @@
         "https://zandersamuel.users.earthengine.app/view/green-apartheid",
         "https://zandersamuel.users.earthengine.app/view/rainfall-inspector",
         "https://zandersamuel.users.earthengine.app/view/fire-inspector"
-    ],
-    "zepyoorohanian": [
-        "https://zepyoorohanian.users.earthengine.app/view/f1-suitability-checker"
     ],
     "zh": [
         "https://zh.users.earthengine.app/view/ricefan"

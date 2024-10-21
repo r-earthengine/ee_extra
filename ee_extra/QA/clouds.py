@@ -25,9 +25,10 @@ def maskClouds(
         method : Method used to mask clouds.\n
             Available options:
                 - 'cloud_prob' : Use cloud probability.
+                - 'cloud_score+' : Use cloud score+.
                 - 'qa' : Use Quality Assessment band.
             This parameter is ignored for Landsat products.
-        prob : Cloud probability threshold. Valid just for method = 'cloud_prob'. This parameter is ignored for Landsat products.
+        prob : Cloud probability threshold. Valid for method = 'cloud_prob' or 'cloud_score+'. This parameter is ignored for Landsat products.
         maskCirrus : Whether to mask cirrus clouds. Valid just for method = 'qa'. This parameter is ignored for Landsat products.
         maskShadows : Whether to mask cloud shadows. For more info see 'Braaten, J. 2020. Sentinel-2 Cloud Masking with s2cloudless. Google Earth Engine, Community Tutorials'.
         scaledImage : Whether the pixel values are scaled to the range [0,1] (reflectance values). This parameter is ignored for Landsat products.
@@ -43,7 +44,7 @@ def maskClouds(
         Cloud-shadow masked image or image collection.
     """
 
-    validMethods = ["cloud_prob", "qa"]
+    validMethods = ["cloud_prob", "cloud_score+", "qa"]
 
     if method not in validMethods:
         raise Exception(
@@ -59,6 +60,11 @@ def maskClouds(
         def cloud_prob(img):
             clouds = ee.Image(img.get("cloud_mask")).select("probability")
             isCloud = clouds.gte(prob).rename("CLOUD_MASK")
+            return img.addBands(isCloud)
+        
+        def cloud_score(img):
+            clouds = img.select("cs_cdf")
+            isCloud = clouds.lte(1-(prob/100)).rename("CLOUD_MASK")
             return img.addBands(isCloud)
 
         def QA(img):
@@ -128,6 +134,11 @@ def maskClouds(
                     ee.ImageCollection(args), S2Clouds, fil
                 )
                 S2Masked = ee.ImageCollection(S2WithCloudMask).map(cloud_prob).first()
+            elif method == 'cloud_score+':
+                QA_BAND = 'cs_cdf'
+                S2Clouds = ee.ImageCollection('GOOGLE/CLOUD_SCORE_PLUS/V1/S2_HARMONIZED').select(QA_BAND)
+                S2WithCloudMask = ee.ImageCollection(args).linkCollection(S2Clouds, [QA_BAND])
+                S2Masked = ee.ImageCollection(S2WithCloudMask).map(cloud_score).first()
             elif method == "qa":
                 S2Masked = QA(args)
             if cdi != None:
@@ -145,6 +156,11 @@ def maskClouds(
                     args, S2Clouds, fil
                 )
                 S2Masked = ee.ImageCollection(S2WithCloudMask).map(cloud_prob)
+            elif method == 'cloud_score+':
+                QA_BAND = 'cs_cdf'
+                S2Clouds = ee.ImageCollection('GOOGLE/CLOUD_SCORE_PLUS/V1/S2_HARMONIZED').select(QA_BAND)
+                S2WithCloudMask = ee.ImageCollection(args).linkCollection(S2Clouds, [QA_BAND])
+                S2Masked = ee.ImageCollection(S2WithCloudMask).map(cloud_score)
             elif method == "qa":
                 S2Masked = args.map(QA)
             if cdi != None:
@@ -331,8 +347,9 @@ def maskClouds(
         if isinstance(x, ee.image.Image):
             masked = lookup[platformDict["platform"]](x)
         elif isinstance(x, ee.imagecollection.ImageCollection):
-            if platformDict["platform"] == "COPERNICUS/S2_SR":
+            if platformDict["platform"] in ["COPERNICUS/S2_SR", "COPERNICUS/S2_SR_HARMONIZED"]:
                 masked = lookup[platformDict["platform"]](x)
             else:
                 masked = x.map(lookup[platformDict["platform"]])
         return masked
+

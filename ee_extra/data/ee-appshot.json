@@ -668,9 +668,6 @@
         "https://alfirdazahra.users.earthengine.app/view/analisis-banjir-di-kabupaten-bandung",
         "https://alfirdazahra.users.earthengine.app/view/analisis-banjir-dki-jakarta-tahun-2020"
     ],
-    "alijw09": [
-        "https://alijw09.users.earthengine.app/view/app1"
-    ],
     "alkindigifty": [
         "https://alkindigifty.users.earthengine.app/view/genangan-banjir-menggunakan-ndwi"
     ],
@@ -1135,10 +1132,6 @@
     ],
     "brendonraw": [
         "https://brendonraw.users.earthengine.app/view/ndviexample"
-    ],
-    "brianneesby": [
-        "https://brianneesby.users.earthengine.app/view/seechangewithzoombox",
-        "https://brianneesby.users.earthengine.app/view/testapp"
     ],
     "bricker0": [
         "https://bricker0.users.earthengine.app/view/ndvi-abc-islands-wet-and-dry-season-2021",
@@ -3047,10 +3040,6 @@
     "jeffjeff20072": [
         "https://jeffjeff20072.users.earthengine.app/view/image-explorer"
     ],
-    "jeffreyadams": [
-        "https://jeffreyadams.users.earthengine.app/view/test",
-        "https://jeffreyadams.users.earthengine.app/view/test2"
-    ],
     "jeffreyryangroff": [
         "https://jeffreyryangroff.users.earthengine.app/view/levittown-ny",
         "https://jeffreyryangroff.users.earthengine.app/view/levittown-ny"
@@ -3374,17 +3363,6 @@
         "https://juandb.users.earthengine.app/view/siradisa",
         "https://juandb.users.earthengine.app/view/sar-watcher",
         "https://juandb.users.earthengine.app/view/siradisa"
-    ],
-    "juantorres-batllo": [
-        "https://juantorres-batllo.users.earthengine.app/view/apptrial",
-        "https://juantorres-batllo.users.earthengine.app/view/barcelona-40",
-        "https://juantorres-batllo.users.earthengine.app/view/barcelonapoint",
-        "https://juantorres-batllo.users.earthengine.app/view/chirps-explorer-20",
-        "https://juantorres-batllo.users.earthengine.app/view/chirps-viewer-10",
-        "https://juantorres-batllo.users.earthengine.app/view/explorador-de-chirps",
-        "https://juantorres-batllo.users.earthengine.app/view/precipitation-trends",
-        "https://juantorres-batllo.users.earthengine.app/view/rainfall-data-explorer-40",
-        "https://juantorres-batllo.users.earthengine.app/view/rainfall-explorer-50"
     ],
     "juliodavid961": [
         "https://juliodavid961.users.earthengine.app/view/aplicacion",
@@ -5982,10 +5960,6 @@
     ],
     "tingtinghe2011": [
         "https://tingtinghe2011.users.earthengine.app/view/landsat-8-explorer"
-    ],
-    "tirthankarchakraborty": [
-        "https://tirthankarchakraborty.users.earthengine.app/view/pmexplorer",
-        "https://tirthankarchakraborty.users.earthengine.app/view/uhiinspector"
     ],
     "tnc-cuti": [
         "https://tnc-cuti.earthengine.app/view/tnc-ca-closing-urban-treeinequity"

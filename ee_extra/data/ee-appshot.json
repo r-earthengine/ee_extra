@@ -3208,6 +3208,7 @@
         "https://jodaurmu.users.earthengine.app/view/amazoniavertical",
         "https://jodaurmu.users.earthengine.app/view/bamboo-explorer",
         "https://jodaurmu.users.earthengine.app/view/enasgerfor",
+        "https://jodaurmu.users.earthengine.app/view/expert-forest-v1",
         "https://jodaurmu.users.earthengine.app/view/forestexplorerconssesionv1",
         "https://jodaurmu.users.earthengine.app/view/forestexporer",
         "https://jodaurmu.users.earthengine.app/view/ibc",
@@ -5371,6 +5372,7 @@
         "https://salmanreza91.users.earthengine.app/view/ndwi"
     ],
     "samapriya": [
+        "https://samapriya.users.earthengine.app/view/annual-nlcd",
         "https://samapriya.users.earthengine.app/view/landcover10",
         "https://samapriya.users.earthengine.app/view/landcover10"
     ],

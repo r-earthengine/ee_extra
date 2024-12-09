@@ -1191,6 +1191,7 @@
         "https://bzgeo.users.earthengine.app/view/gt-atitlan-viewer-s2",
         "https://bzgeo.users.earthengine.app/view/gt-peten-s1-multitemp",
         "https://bzgeo.users.earthengine.app/view/mes-fcover-landsat",
+        "https://bzgeo.users.earthengine.app/view/mes-lidar-gedi-landsat",
         "https://bzgeo.users.earthengine.app/view/bz-forest-cover-modis-pt1",
         "https://bzgeo.users.earthengine.app/view/bz-s1-multitemp",
         "https://bzgeo.users.earthengine.app/view/bz-s1-multitemp-asc",
@@ -2937,6 +2938,7 @@
         "https://j9herrer.users.earthengine.app/view/urban-spatial-structure-of-american-metropolitan-regions"
     ],
     "jaafarhadi": [
+        "https://jaafarhadi.users.earthengine.app/view/hseb",
         "https://jaafarhadi.users.earthengine.app/view/hydrologic-curve-number"
     ],
     "jackreid": [
@@ -5639,15 +5641,6 @@
         "https://shubhanu.users.earthengine.app/view/greengood-labs-gangetic-plain-flood-explorer",
         "https://shubhanu.users.earthengine.app/view/greengood-labs-flood-explorer",
         "https://shubhanu.users.earthengine.app/view/greengood-labs-gangetic-plain-flood-explorer"
-    ],
-    "shugh": [
-        "https://shugh.users.earthengine.app/view/bigtree-cluster",
-        "https://shugh.users.earthengine.app/view/carpathianboundary",
-        "https://shugh.users.earthengine.app/view/elevation-inspector",
-        "https://shugh.users.earthengine.app/view/kayapo-eastern-border",
-        "https://shugh.users.earthengine.app/view/kayapofire2019",
-        "https://shugh.users.earthengine.app/view/kayapolandsatsliderui",
-        "https://shugh.users.earthengine.app/view/melanesia"
     ],
     "shurlock": [
         "https://shurlock.users.earthengine.app/view/burrowing-owl-habitat-loss"

@@ -1,10 +1,9 @@
 import difflib
 import json
-import os
 from typing import Any, Optional, List, Sequence
+from pathlib import Path
 
 import ee
-import pkg_resources
 
 
 def _load_JSON(x: Optional[str] = "ee-catalog-ids.json") -> Any:
@@ -16,12 +15,9 @@ def _load_JSON(x: Optional[str] = "ee-catalog-ids.json") -> Any:
     Returns:
         JSON file.
     """
-    eeExtraDir = os.path.dirname(
-        pkg_resources.resource_filename("ee_extra", "ee_extra.py")
-    )
-    dataPath = os.path.join(eeExtraDir, "data/" + x)
-    f = open(dataPath)
-    data = json.load(f)
+    eeExtraDir = Path(__file__).parent
+    dataPath = eeExtraDir / "data" / x
+    data = json.loads(dataPath.read_text())
 
     return data
 

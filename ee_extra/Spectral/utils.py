@@ -6,7 +6,6 @@ import warnings
 from typing import Optional, Union, Tuple, Dict
 
 import ee
-import pkg_resources
 
 from ee_extra.STAC.utils import _get_platform_STAC
 from ee_extra.utils import _load_JSON
@@ -242,9 +241,8 @@ def _get_indices(online: bool) -> dict:
         Indices.
     """
     if online:
-        with urllib.request.urlopen(
-            "https://raw.githubusercontent.com/awesome-spectral-indices/awesome-spectral-indices/main/output/spectral-indices-dict.json"
-        ) as url:
+        url = "https://raw.githubusercontent.com/awesome-spectral-indices/awesome-spectral-indices/main/output/spectral-indices-dict.json"
+        with urllib.request.urlopen(url) as url:
             indices = json.loads(url.read().decode())
     else:
         indices = _load_JSON("spectral-indices-dict.json")
@@ -425,8 +423,8 @@ def _get_tc_coefficients(platform: str) -> dict:
         "TCW": (0.2254, 0.3681, 0.2250, -0.6053, -0.6298)
     }
 
-    # Zhai et al. 2022 coefficients were included for L8 TOA over the Baig 
-    # et al. 2014 coefficients for consistency with the L8 SR coefficients, 
+    # Zhai et al. 2022 coefficients were included for L8 TOA over the Baig
+    # et al. 2014 coefficients for consistency with the L8 SR coefficients,
     # which were not calculated by Baig et al.
     LANDSAT8_TOA = {
         "bands": ("B3", "B4", "B5", "B6", "B7"),

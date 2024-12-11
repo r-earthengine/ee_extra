@@ -6,7 +6,6 @@ import warnings
 from typing import Optional, Union
 
 import ee
-import pkg_resources
 
 from ee_extra.utils import _load_JSON
 
@@ -19,9 +18,8 @@ def _get_apps(online: bool) -> dict:
         Apps.
     """
     if online:
-        with urllib.request.urlopen(
-            "https://raw.githubusercontent.com/samapriya/ee-appshot/main/app_urls.json"
-        ) as url:
+        url = "https://raw.githubusercontent.com/samapriya/ee-appshot/main/app_urls.json"
+        with urllib.request.urlopen(url) as url:
             apps = json.loads(url.read().decode())
     else:
         apps = _load_JSON("ee-appshot.json")

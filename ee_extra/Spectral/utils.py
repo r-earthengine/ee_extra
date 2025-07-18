@@ -53,6 +53,9 @@ def _get_expression_map(img: ee.Image, platformDict: dict) -> dict:
             "lambdaG": 559.8,
             "lambdaR": 664.6,
             "lambdaN": 832.8,
+            "lambdaN2": 864.7,
+            "lambdaS1": 1613.7,
+            "lambdaS2": 2202.4,
         }
 
     def lookupL8(img):
@@ -69,6 +72,8 @@ def _get_expression_map(img: ee.Image, platformDict: dict) -> dict:
             "lambdaG": 560.0,
             "lambdaR": 655.0,
             "lambdaN": 865.0,
+            "lambdaS1": 1610.0,
+            "lambdaS2": 2200.0,
         }
 
     def lookupL8C2(img):
@@ -84,6 +89,8 @@ def _get_expression_map(img: ee.Image, platformDict: dict) -> dict:
             "lambdaG": 560.0,
             "lambdaR": 655.0,
             "lambdaN": 865.0,
+            "lambdaS1": 1610.0,
+            "lambdaS2": 2200.0,
         }
 
     def lookupL45(img):
@@ -98,6 +105,8 @@ def _get_expression_map(img: ee.Image, platformDict: dict) -> dict:
             "lambdaG": 560.0,
             "lambdaR": 660.0,
             "lambdaN": 830.0,
+            "lambdaS1": 1650.0,
+            "lambdaS2": 2215.0,
         }
 
     def lookupL45C2(img):
@@ -112,6 +121,8 @@ def _get_expression_map(img: ee.Image, platformDict: dict) -> dict:
             "lambdaG": 560.0,
             "lambdaR": 660.0,
             "lambdaN": 830.0,
+            "lambdaS1": 1650.0,
+            "lambdaS2": 2215.0,
         }
 
     def lookupL7(img):
@@ -126,6 +137,8 @@ def _get_expression_map(img: ee.Image, platformDict: dict) -> dict:
             "lambdaG": 560.0,
             "lambdaR": 660.0,
             "lambdaN": 835.0,
+            "lambdaS1": 1650.0,
+            "lambdaS2": 2220.0,
         }
 
     def lookupL7C2(img):
@@ -140,6 +153,8 @@ def _get_expression_map(img: ee.Image, platformDict: dict) -> dict:
             "lambdaG": 560.0,
             "lambdaR": 660.0,
             "lambdaN": 835.0,
+            "lambdaS1": 1650.0,
+            "lambdaS2": 2220.0,
         }
 
     def lookupMOD09GQ(img):
@@ -161,6 +176,8 @@ def _get_expression_map(img: ee.Image, platformDict: dict) -> dict:
             "lambdaG": 555.0,
             "lambdaR": 645.0,
             "lambdaN": 858.5,
+            "lambdaS1": 1640.0,
+            "lambdaS2": 2130.0,
         }
 
     def lookupMCD43A4(img):
@@ -174,6 +191,8 @@ def _get_expression_map(img: ee.Image, platformDict: dict) -> dict:
             "lambdaG": 555.0,
             "lambdaR": 645.0,
             "lambdaN": 858.5,
+            "lambdaS1": 1640.0,
+            "lambdaS2": 2130.0,
         }
 
     lookupPlatform = {

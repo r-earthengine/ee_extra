@@ -35,13 +35,17 @@ def spectralIndices(
     beta: Union[float, int] = 0.05,
     k: Union[float, int] = 0.0,
     fdelta: Union[float, int] = 0.581,
+    epsilon: Union[float, int] = 1.0,
     kernel: str = "RBF",
     sigma: Union[float, str] = "0.5 * (a + b)",
     p: Union[float, int] = 2,
     c: Union[float, int] = 1.0,
     lambdaN: Union[float, int] = 858.5,
+    lambdaN2: Union[float, int] = 864.7,
     lambdaR: Union[float, int] = 645.0,
     lambdaG: Union[float, int] = 555.0,
+    lambdaS1: Union[float, int] = 1613.7,
+    lambdaS2: Union[float, int] = 2202.4,
     online: bool = False,
     drop: bool = False,
 ) -> Union[ee.Image, ee.ImageCollection]:
@@ -67,6 +71,7 @@ def spectralIndices(
         beta : Calibration parameter used for NDSIns.
         k :  Slope parameter by soil used for NIRvH2.
         fdelta :  Adjustment factor used for SEVI.
+        epsilon :  Adjustment constant used for EBI.
         kernel : Kernel used for kernel indices. One of 'linear', 'RBF', 'poly'.
         sigma : Length-scale parameter. Used for kernel = 'RBF'. If str, this must be an
             expression including 'a' and 'b'. If numeric, this must be positive.
@@ -77,8 +82,11 @@ def spectralIndices(
         online : Whether to retrieve the most recent list of indices directly from the
             GitHub repository and not from the local copy.
         lambdaN : NIR wavelength used for NIRvH2 and NDGI.
+        lambdaN2 : NIR2 wavelength.
         lambdaR : Red wavelength used for NIRvH2 and NDGI.
-        lambdaG: Green wavelength used for NDGI.
+        lambdaG : Green wavelength used for NDGI.
+        lambdaS1 : SWIR1 wavelength.
+        lambdaS2 : SWIR2 wavelength.
         drop : Whether to drop all bands except the new spectral indices.
 
     Returns:
@@ -118,11 +126,15 @@ def spectralIndices(
         "beta": float(beta),
         "k": float(k),
         "fdelta": float(fdelta),
+        "epsilon": float(epsilon),
         "p": float(p),
         "c": float(c),
         "lambdaN": float(lambdaN),
         "lambdaR": float(lambdaR),
         "lambdaG": float(lambdaG),
+        "lambdaN2": float(lambdaN),
+        "lambdaS1": float(lambdaR),
+        "lambdaS2": float(lambdaG),
     }
 
     spectralIndices = _get_indices(online)

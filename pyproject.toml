@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["ee_extra*"]
+
+[project]
+name = "ee_extra"
+version = "0.0.15"
+authors = [
+    { name = "Cesar Aybar" },
+    { name = "David Montero Loaiza", email = "dml.mont@gmail.com" },
+    { name = "Aaron Zuspan" }
+]
+description = "A ninja Python package behind rgee, rgeeExtra and eemont."
+readme = "README.md"
+
+requires-python = ">=3.8"
+
+classifiers=[
+    "Development Status :: 2 - Pre-Alpha",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+]
+
+dependencies = [
+    "earthengine-api>=1.5.24",
+]
+
+[project.urls]
+"Bug Tracker"= "https://github.com/r-earthengine/ee_extra/issues"
+Documentation =  "https://ee-extra.readthedocs.io/"
+"Source Code" = "https://github.com/r-earthengine/ee_extra"
+
+[tool.setuptools.package-data]
+"ee_extra.data" = ["*.json"]
+
+# Compatibility between black and isort
+[tool.isort]
+profile = "black"

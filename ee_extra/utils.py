@@ -1,10 +1,10 @@
 import difflib
 import json
-import os
 from typing import Any, Optional, List, Sequence
 
+from importlib.resources import files
+
 import ee
-import pkg_resources
 
 
 def _load_JSON(x: Optional[str] = "ee-catalog-ids.json") -> Any:
@@ -16,14 +16,9 @@ def _load_JSON(x: Optional[str] = "ee-catalog-ids.json") -> Any:
     Returns:
         JSON file.
     """
-    eeExtraDir = os.path.dirname(
-        pkg_resources.resource_filename("ee_extra", "ee_extra.py")
-    )
-    dataPath = os.path.join(eeExtraDir, "data/" + x)
-    f = open(dataPath)
-    data = json.load(f)
-
-    return data
+    data_file = files("ee_extra.data") / file
+    with data_file.open("r", encoding="utf-8") as f:
+        return json.load(f)
 
 
 def _get_case_insensitive_close_matches(

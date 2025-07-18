@@ -6,7 +6,7 @@ import pathlib
 import re
 import urllib.request
 
-import pkg_resources
+from importlib.resources import files
 
 
 def _convert_path_to_ee_sources(path: str) -> str:
@@ -32,9 +32,8 @@ def _get_ee_sources_path() -> str:
     Returns:
         The ee-sources folder path.
     """
-    ee_extra_py_file = pkg_resources.resource_filename("ee_extra", "ee_extra.py")
-    pkgdir = pathlib.Path(ee_extra_py_file).parent
-    return pkgdir.joinpath("ee-sources").as_posix()
+    pkgdir = files("ee_extra").parent
+    return str(pkgdir / "ee-sources")
 
 
 def _convert_path_to_ee_extra(path: str) -> str:

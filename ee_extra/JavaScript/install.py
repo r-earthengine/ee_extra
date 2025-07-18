@@ -5,7 +5,8 @@ a JavaScript Earth Enginemodule.
 import pathlib
 import re
 import urllib.request
-from pathlib import Path
+
+from importlib.resources import files
 
 
 def _convert_path_to_ee_sources(path: str) -> str:
@@ -31,8 +32,8 @@ def _get_ee_sources_path() -> str:
     Returns:
         The ee-sources folder path.
     """
-    pkgdir = Path(__file__).parents[1]
-    return (pkgdir / "ee-sources").as_posix()
+    pkgdir = files("ee_extra").parent
+    return str(pkgdir / "ee-sources")
 
 
 def _convert_path_to_ee_extra(path: str) -> str:

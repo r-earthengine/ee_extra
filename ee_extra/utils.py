@@ -16,7 +16,7 @@ def _load_JSON(x: Optional[str] = "ee-catalog-ids.json") -> Any:
     Returns:
         JSON file.
     """
-    data_file = files("ee_extra.data") / file
+    data_file = files("ee_extra.data") / x
     with data_file.open("r", encoding="utf-8") as f:
         return json.load(f)
 

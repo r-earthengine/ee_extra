@@ -1173,6 +1173,7 @@
         "https://bzgeo.users.earthengine.app/view/bz-chiquibul-fires-2020-1",
         "https://bzgeo.users.earthengine.app/view/bz-chiquibul-fires-2020-2",
         "https://bzgeo.users.earthengine.app/view/bz-fcover-modis",
+        "https://bzgeo.users.earthengine.app/view/bz-forest-cover-landsat",
         "https://bzgeo.users.earthengine.app/view/bz-landsat-s2",
         "https://bzgeo.users.earthengine.app/view/bz-modis-viewer-2000-2019",
         "https://bzgeo.users.earthengine.app/view/bz-phenology-modis-2018-2019",
@@ -5412,7 +5413,8 @@
         "https://santiagoduarte09.users.earthengine.app/view/temperatura"
     ],
     "saraiva": [
-        "https://saraiva.users.earthengine.app/view/alertas"
+        "https://saraiva.users.earthengine.app/view/alertas",
+        "https://saraiva.users.earthengine.app/view/eecrop"
     ],
     "sarthakkgupta": [
         "https://sarthakkgupta.users.earthengine.app/view/encroachment",

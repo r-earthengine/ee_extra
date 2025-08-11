@@ -780,7 +780,6 @@
     ],
     "anmarkos": [
         "https://anmarkos.users.earthengine.app/view/bertholletia-excelsa-north-bolivia",
-        "https://anmarkos.users.earthengine.app/view/irrpiracicaba",
         "https://anmarkos.users.earthengine.app/view/peligro-incendio-ecuador",
         "https://anmarkos.users.earthengine.app/view/socio-economic-vulnerability-to-wildfires",
         "https://anmarkos.users.earthengine.app/view/vulnerabilidad-socio-econmica-a-los-incendios"
@@ -832,9 +831,6 @@
     ],
     "ariaesta": [
         "https://ariaesta.users.earthengine.app/view/the-forest-visualizer"
-    ],
-    "arinnasution55": [
-        "https://arinnasution55.users.earthengine.app/view/batang-natal-estuary-area-water-quality"
     ],
     "arisfikri633": [
         "https://arisfikri633.users.earthengine.app/view/coba2",
@@ -4981,19 +4977,6 @@
     "rashikaaCropPrediction": [
         "https://rashikaaCropPrediction.users.earthengine.app/view/crop-monitoring-pro"
     ],
-    "rauldeatcu99": [
-        "https://rauldeatcu99.users.earthengine.app/view/aplicatie-practica-de-specialitate",
-        "https://rauldeatcu99.users.earthengine.app/view/datacube",
-        "https://rauldeatcu99.users.earthengine.app/view/detectare-vase-maritime",
-        "https://rauldeatcu99.users.earthengine.app/view/final",
-        "https://rauldeatcu99.users.earthengine.app/view/hyperionrauldeatcu",
-        "https://rauldeatcu99.users.earthengine.app/view/management-vase-varianta1",
-        "https://rauldeatcu99.users.earthengine.app/view/mobile-version",
-        "https://rauldeatcu99.users.earthengine.app/view/my-final-app",
-        "https://rauldeatcu99.users.earthengine.app/view/raul-deatcu---final-app",
-        "https://rauldeatcu99.users.earthengine.app/view/semantic-data-cube---raul-deatcu",
-        "https://rauldeatcu99.users.earthengine.app/view/timeseriescursspatialanalysisrauldeatcu"
-    ],
     "ravindra1364": [
         "https://ravindra1364.users.earthengine.app/view/sone",
         "https://ravindra1364.users.earthengine.app/view/waterspreadgangariver"
@@ -5303,6 +5286,7 @@
         "https://sachinbobbili.users.earthengine.app/view/elevation-explorer",
         "https://sachinbobbili.users.earthengine.app/view/esa-lulc-2021",
         "https://sachinbobbili.users.earthengine.app/view/esri-land-cover-explorer",
+        "https://sachinbobbili.users.earthengine.app/view/geodem-explorer",
         "https://sachinbobbili.users.earthengine.app/view/glc-30m",
         "https://sachinbobbili.users.earthengine.app/view/global-tropical-cyclone-tracks",
         "https://sachinbobbili.users.earthengine.app/view/india-district-explorer",
@@ -5724,6 +5708,7 @@
     ],
     "spareeth": [
         "https://spareeth.users.earthengine.app/view/drought",
+        "https://spareeth.users.earthengine.app/view/moroccocropmon",
         "https://spareeth.users.earthengine.app/view/nlbc"
     ],
     "spiruel": [

@@ -82,11 +82,6 @@
         "https://410093033.users.earthengine.app/view/testapp",
         "https://410093033.users.earthengine.app/view/validation-roi-marking"
     ],
-    "6240212101": [
-        "https://6240212101.users.earthengine.app/view/globalmtpi",
-        "https://6240212101.users.earthengine.app/view/lst",
-        "https://6240212101.users.earthengine.app/view/lulc10mesri2020"
-    ],
     "740352779": [
         "https://740352779.users.earthengine.app/view/timeseries"
     ],

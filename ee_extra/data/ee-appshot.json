@@ -1465,10 +1465,6 @@
         "https://cristhiancordoba.users.earthengine.app/view/deforestacionnocaimani",
         "https://cristhiancordoba.users.earthengine.app/view/mulitemporalnocaimani"
     ],
-    "crivard": [
-        "https://crivard.users.earthengine.app/view/gppchange",
-        "https://crivard.users.earthengine.app/view/rangelands-explorer"
-    ],
     "csaybar": [
         "https://csaybar.users.earthengine.app/view/cloudapp"
     ],
@@ -4759,6 +4755,7 @@
         "https://pmisson.users.earthengine.app/view/santander",
         "https://pmisson.users.earthengine.app/view/sdgsat-1-p-iberica",
         "https://pmisson.users.earthengine.app/view/sdgsat-eu-visual",
+        "https://pmisson.users.earthengine.app/view/shadows-eclipse-2026",
         "https://pmisson.users.earthengine.app/view/spain-blackout",
         "https://pmisson.users.earthengine.app/view/trends",
         "https://pmisson.users.earthengine.app/view/viirs-inspector-area-black-marble",
@@ -4880,6 +4877,7 @@
         "https://rafnuss.users.earthengine.app/view/pressuregeolocator"
     ],
     "rahulaus": [
+        "https://rahulaus.users.earthengine.app/view/punjab-flood2025",
         "https://rahulaus.users.earthengine.app/view/test",
         "https://rahulaus.users.earthengine.app/view/umang2021"
     ],

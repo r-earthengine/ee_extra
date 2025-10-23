@@ -788,7 +788,7 @@
     "GOOGLE/CLOUD_SCORE_PLUS/V1/S2_HARMONIZED": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/GOOGLE/GOOGLE_CLOUD_SCORE_PLUS_V1_S2_HARMONIZED.json",
-        "sci:citation": "Pasquarella, V. J., Brown, C. F., Czerwinski, W., & Rucklidge, W. J. (2023)\nComprehensive Quality Assessment of Optical Satellite Imagery Using Weakly\nSupervised Video Learning. In Proceedings of the IEEE/CVF Conference on\nComputer Vision and Pattern Recognition (pp. 2124-2134).\n[PDF](https://openaccess.thecvf.com/content/CVPR2023W/EarthVision/html/Pasquarella_Comprehensive_Quality_Assessment_of_Optical_Satellite_Imagery_Using_Weakly_Supervised_CVPRW_2023_paper.html)\n",
+        "sci:citation": "Pasquarella, V. J., Brown, C. F., Czerwinski, W., & Rucklidge, W. J. (2023)\nComprehensive Quality Assessment of Optical Satellite Imagery Using Weakly\nSupervised Video Learning. In Proceedings of the IEEE/CVF Conference on\nComputer Vision and Pattern Recognition (pp. 2125-2135).\n[doi:10.1109/CVPRW59228.2023.00206](https://doi.org/10.1109/CVPRW59228.2023.00206)\n[PDF](https://openaccess.thecvf.com/content/CVPR2023W/EarthVision/html/Pasquarella_Comprehensive_Quality_Assessment_of_Optical_Satellite_Imagery_Using_Weakly_Supervised_CVPRW_2023_paper.html)\n",
         "sci:doi": "DOI not available"
     },
     "GOOGLE/DYNAMICWORLD/V1": {

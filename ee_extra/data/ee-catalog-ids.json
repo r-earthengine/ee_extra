@@ -3308,8 +3308,8 @@
     "NASA/OCEANDATA/SeaWiFS/L3SMI": {
         "gee:type": "image_collection",
         "href": "https://storage.googleapis.com/earthengine-stac/catalog/NASA/NASA_OCEANDATA_SeaWiFS_L3SMI.json",
-        "sci:citation": "NASA Goddard Space Flight Center, Ocean Ecology Laboratory, Ocean Biology\nProcessing Group. Sea-viewing Wide Field-of-view Sensor (SeaWiFS) Data,\nNASA OB.DAAC, Greenbelt, MD, USA.\n[doi:10.5067/ORBVIEW-2/SEAWIFS/L1/DATA/1](\n  https://doi.org/10.5067/ORBVIEW-2/SEAWIFS/L1/DATA/1)\n",
-        "sci:doi": "10.5067/ORBVIEW-2/SEAWIFS/L3M/CHL/2018"
+        "sci:citation": "NASA Goddard Space Flight Center, Ocean Ecology Laboratory, Ocean Biology\nProcessing Group. Sea-viewing Wide Field-of-view Sensor (SeaWiFS) Level 3\nBinned Chlorophyll Data, NASA OB.DAAC, Greenbelt, MD, USA.\n[SeaWiFS-ORBVIEW-2 Citations](https://oceancolor.gsfc.nasa.gov/resources/how-to-cite/)\nThe old DOI for this publication was\n10.5067/ORBVIEW-2/SEAWIFS/L3B/CHL/2018.0.\n",
+        "sci:doi": "DOI not available"
     },
     "NASA/ORNL/DAYMET_V3": {
         "gee:type": "image_collection",

@@ -139,6 +139,7 @@
     ],
     "CharlieBettigole": [
         "https://CharlieBettigole.users.earthengine.app/view/snowfinder",
+        "https://CharlieBettigole.users.earthengine.app/view/spectralsignatureplotting",
         "https://CharlieBettigole.users.earthengine.app/view/stratifi-beta-v21",
         "https://CharlieBettigole.users.earthengine.app/view/stratifi-global"
     ],
@@ -770,8 +771,7 @@
         "https://anmarkos.users.earthengine.app/view/nrtapp",
         "https://anmarkos.users.earthengine.app/view/peligro-de-incendio-en-bolivia",
         "https://anmarkos.users.earthengine.app/view/peligro-incendio-ecuador",
-        "https://anmarkos.users.earthengine.app/view/socio-economic-vulnerability-to-wildfires",
-        "https://anmarkos.users.earthengine.app/view/vulnerabilidad-socio-econmica-a-los-incendios"
+        "https://anmarkos.users.earthengine.app/view/socio-economic-vulnerability-to-wildfires"
     ],
     "annaban5": [
         "https://annaban5.users.earthengine.app/view/populationdensity"
@@ -3453,9 +3453,6 @@
     ],
     "karolinazieba": [
         "https://karolinazieba.users.earthengine.app/view/treelossnadlesnictwa"
-    ],
-    "katbastidasm": [
-        "https://katbastidasm.users.earthengine.app/view/prueba1"
     ],
     "kentaogawa": [
         "https://kentaogawa.users.earthengine.app/view/max-temp-map"

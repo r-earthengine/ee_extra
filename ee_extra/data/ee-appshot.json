@@ -768,6 +768,7 @@
     "anmarkos": [
         "https://anmarkos.users.earthengine.app/view/fuego-en-tiempo-real",
         "https://anmarkos.users.earthengine.app/view/irrigacaopasto",
+        "https://anmarkos.users.earthengine.app/view/lclu",
         "https://anmarkos.users.earthengine.app/view/nrtapp",
         "https://anmarkos.users.earthengine.app/view/peligro-de-incendio-en-bolivia",
         "https://anmarkos.users.earthengine.app/view/peligro-incendio-ecuador",
@@ -2216,9 +2217,6 @@
         "https://fqqwxc123.users.earthengine.app/view/crcyangtze",
         "https://fqqwxc123.users.earthengine.app/view/exploresentinel2",
         "https://fqqwxc123.users.earthengine.app/view/rsei"
-    ],
-    "francescadragut01": [
-        "https://francescadragut01.users.earthengine.app/view/beta-version"
     ],
     "franciscocorvalan6": [
         "https://franciscocorvalan6.users.earthengine.app/view/analisis-histrico-ndvi",

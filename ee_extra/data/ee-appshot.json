@@ -767,7 +767,6 @@
     ],
     "anmarkos": [
         "https://anmarkos.users.earthengine.app/view/fuego-en-tiempo-real",
-        "https://anmarkos.users.earthengine.app/view/irrigacaopasto",
         "https://anmarkos.users.earthengine.app/view/lclu",
         "https://anmarkos.users.earthengine.app/view/nrtapp",
         "https://anmarkos.users.earthengine.app/view/peligro-de-incendio-en-bolivia",
@@ -1009,6 +1008,9 @@
         "https://baldassarre.users.earthengine.app/view/srd-forest-monitoring"
     ],
     "baroseniruth": [
+        "https://baroseniruth.users.earthengine.app/view/rspg-islands",
+        "https://baroseniruth.users.earthengine.app/view/rspg-rtnbenthicclasses",
+        "https://baroseniruth.users.earthengine.app/view/rspg-slopeparcel",
         "https://baroseniruth.users.earthengine.app/view/sar-flood-mapping-aya"
     ],
     "bassantsara": [
@@ -2237,8 +2239,6 @@
     ],
     "frederickirchhoff": [
         "https://frederickirchhoff.users.earthengine.app/view/baprawdata",
-        "https://frederickirchhoff.users.earthengine.app/view/summitpresentation",
-        "https://frederickirchhoff.users.earthengine.app/view/swscvsrf",
         "https://frederickirchhoff.users.earthengine.app/view/waterbodyclassification"
     ],
     "fsn1995": [

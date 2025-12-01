@@ -23,11 +23,6 @@
     "190210303040": [
         "https://190210303040.users.earthengine.app/view/runoff"
     ],
-    "19021508-004": [
-        "https://19021508-004.users.earthengine.app/view/larkana-flood-mapping",
-        "https://19021508-004.users.earthengine.app/view/ndvi",
-        "https://19021508-004.users.earthengine.app/view/sindh-flood-mapping"
-    ],
     "19981211lmy": [
         "https://19981211lmy.users.earthengine.app/view/appmap",
         "https://19981211lmy.users.earthengine.app/view/lmy"
@@ -89,6 +84,7 @@
         "https://AKAH.users.earthengine.app/view/dem",
         "https://AKAH.users.earthengine.app/view/glakes",
         "https://AKAH.users.earthengine.app/view/mlh",
+        "https://AKAH.users.earthengine.app/view/mountain-weather-explorer",
         "https://AKAH.users.earthengine.app/view/plk",
         "https://AKAH.users.earthengine.app/view/vegwat"
     ],
@@ -1885,7 +1881,7 @@
         "https://eeyale.users.earthengine.app/view/test-app"
     ],
     "efha94": [
-        "https://efha94.users.earthengine.app/view/testingapps"
+        "https://efha94.users.earthengine.app/view/sumatra-flood-nov-25"
     ],
     "efrainlav": [
         "https://efrainlav.users.earthengine.app/view/myapptest",

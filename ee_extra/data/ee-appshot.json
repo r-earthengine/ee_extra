@@ -86,6 +86,7 @@
         "https://AKAH.users.earthengine.app/view/mlh",
         "https://AKAH.users.earthengine.app/view/mountain-weather-explorer",
         "https://AKAH.users.earthengine.app/view/plk",
+        "https://AKAH.users.earthengine.app/view/precipitation-insight-dashboard-chirps",
         "https://AKAH.users.earthengine.app/view/vegwat"
     ],
     "AkashPandey": [
@@ -1881,6 +1882,7 @@
         "https://eeyale.users.earthengine.app/view/test-app"
     ],
     "efha94": [
+        "https://efha94.users.earthengine.app/view/flood-probability",
         "https://efha94.users.earthengine.app/view/sumatra-flood-nov-25"
     ],
     "efrainlav": [
@@ -4737,6 +4739,7 @@
         "https://pmisson.users.earthengine.app/view/shadows-eclipse-2026",
         "https://pmisson.users.earthengine.app/view/spain-blackout",
         "https://pmisson.users.earthengine.app/view/trends",
+        "https://pmisson.users.earthengine.app/view/vigo-desde-el-espacio-en-navidad",
         "https://pmisson.users.earthengine.app/view/viirs-inspector-area-black-marble",
         "https://pmisson.users.earthengine.app/view/viirs-trends",
         "https://pmisson.users.earthengine.app/view/covid-19",

@@ -1894,6 +1894,7 @@
     ],
     "ejvalero": [
         "https://ejvalero.users.earthengine.app/view/landcover-venezuela",
+        "https://ejvalero.users.earthengine.app/view/landsat-explorer",
         "https://ejvalero.users.earthengine.app/view/vegetationindex"
     ],
     "elacerda": [
@@ -5322,9 +5323,6 @@
         "https://samsammurphy.users.earthengine.app/view/hotmap",
         "https://samsammurphy.users.earthengine.app/view/liveability",
         "https://samsammurphy.users.earthengine.app/view/hotmap"
-    ],
-    "sanchezjose0985": [
-        "https://sanchezjose0985.users.earthengine.app/view/ejercicio-06"
     ],
     "sanchezpauspro": [
         "https://sanchezpauspro.users.earthengine.app/view/collect-earth-grid-generator",

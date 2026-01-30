@@ -1,8 +1,7 @@
 import difflib
 import json
 from typing import Any, Optional, List, Sequence
-
-from importlib.resources import files
+from pathlib import Path
 
 import ee
 
@@ -16,7 +15,7 @@ def _load_JSON(x: Optional[str] = "ee-catalog-ids.json") -> Any:
     Returns:
         JSON file.
     """
-    data_file = files("ee_extra.data") / x
+    data_file = Path(__file__).parent / "data" / x
     with data_file.open("r", encoding="utf-8") as f:
         return json.load(f)
 

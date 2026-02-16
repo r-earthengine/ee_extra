@@ -2623,20 +2623,12 @@
     "hadicu06": [
         "https://hadicu06.users.earthengine.app/view/composites-explorer",
         "https://hadicu06.users.earthengine.app/view/explore-crowd-data",
-        "https://hadicu06.users.earthengine.app/view/global-mobile-network",
         "https://hadicu06.users.earthengine.app/view/inspect-crowd-vs-experts-interpretation",
         "https://hadicu06.users.earthengine.app/view/interactive-classification-eng",
         "https://hadicu06.users.earthengine.app/view/quick-vis-gedi-vert-cover",
         "https://hadicu06.users.earthengine.app/view/restore-geowiki-consensus-vis",
         "https://hadicu06.users.earthengine.app/view/restoreplus-geowiki-companion",
-        "https://hadicu06.users.earthengine.app/view/temporal-weighted-composite",
-        "https://hadicu06.users.earthengine.app/view/vis-ccdc-change-provs",
-        "https://hadicu06.users.earthengine.app/view/vis-cci-ina",
         "https://hadicu06.users.earthengine.app/view/vis-compare-esri-esa-10m-lc",
-        "https://hadicu06.users.earthengine.app/view/vis-modis-phenology",
-        "https://hadicu06.users.earthengine.app/view/vis-optic-radar-timeseries-onclick",
-        "https://hadicu06.users.earthengine.app/view/vis-speedtest-ookla-mobile-2020q3",
-        "https://hadicu06.users.earthengine.app/view/vis-wri-treeplantationina",
         "https://hadicu06.users.earthengine.app/view/greece-wildfire",
         "https://hadicu06.users.earthengine.app/view/vis-modis-phenology"
     ],
@@ -5916,9 +5908,6 @@
     ],
     "tvandevoorde": [
         "https://tvandevoorde.users.earthengine.app/view/altai"
-    ],
-    "tvklinh": [
-        "https://tvklinh.users.earthengine.app/view/linh"
     ],
     "tylere": [
         "https://tylere.users.earthengine.app/view/demo-watershed-delineation",

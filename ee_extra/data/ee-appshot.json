@@ -1211,10 +1211,6 @@
         "https://canal.users.earthengine.app/view/territorio",
         "https://canal.users.earthengine.app/view/tragadero-y-paca"
     ],
-    "caralyngorman": [
-        "https://caralyngorman.users.earthengine.app/view/camp-fire-sliding-map-3-9-19",
-        "https://caralyngorman.users.earthengine.app/view/slider-original-version"
-    ],
     "careyesbo": [
         "https://careyesbo.users.earthengine.app/view/cobertura-boscosa-y-edificaciones-combeima-ibague",
         "https://careyesbo.users.earthengine.app/view/usos-pot-y-establecimientos-combeima-ibagu"
@@ -3684,9 +3680,6 @@
     ],
     "loganmitchell": [
         "https://loganmitchell.users.earthengine.app/view/covid-19-and-air-quality-in-utah"
-    ],
-    "lpintos": [
-        "https://lpintos.users.earthengine.app/view/irrigation-map-2020"
     ],
     "lrvings": [
         "https://lrvings.users.earthengine.app/view/cas-ci",

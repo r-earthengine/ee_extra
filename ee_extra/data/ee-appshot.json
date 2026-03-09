@@ -3176,9 +3176,7 @@
         "https://jockcharles.users.earthengine.app/view/landsat-8-ndvi-yearcomposition"
     ],
     "jodaurmu": [
-        "https://jodaurmu.users.earthengine.app/view/amazoniavertical",
         "https://jodaurmu.users.earthengine.app/view/bamboo-explorer",
-        "https://jodaurmu.users.earthengine.app/view/enasgerfor",
         "https://jodaurmu.users.earthengine.app/view/expert-forest-v1",
         "https://jodaurmu.users.earthengine.app/view/forestexplorerconssesionv1",
         "https://jodaurmu.users.earthengine.app/view/forestexporer",
@@ -4234,18 +4232,9 @@
         "https://nandopando.users.earthengine.app/view/corofilamensual",
         "https://nandopando.users.earthengine.app/view/dinamicasedimentaria",
         "https://nandopando.users.earthengine.app/view/drone",
-        "https://nandopando.users.earthengine.app/view/gas",
-        "https://nandopando.users.earthengine.app/view/glaciares",
-        "https://nandopando.users.earthengine.app/view/mapa-zonas-quemadas-colombia",
         "https://nandopando.users.earthengine.app/view/oilspill",
-        "https://nandopando.users.earthengine.app/view/oteccaribeanual",
         "https://nandopando.users.earthengine.app/view/oteccaribemensual",
-        "https://nandopando.users.earthengine.app/view/productividadmarinacolombia",
-        "https://nandopando.users.earthengine.app/view/providencia",
-        "https://nandopando.users.earthengine.app/view/recorteareas",
-        "https://nandopando.users.earthengine.app/view/severidad",
-        "https://nandopando.users.earthengine.app/view/sumideros",
-        "https://nandopando.users.earthengine.app/view/surgencia"
+        "https://nandopando.users.earthengine.app/view/providencia"
     ],
     "narayanthapa": [
         "https://narayanthapa.users.earthengine.app/view/forestchangenepal",

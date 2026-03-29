@@ -9,9 +9,9 @@ In JavaScript there is three diferent ways of GEE users define functions:
         }                              |    };
     2. GEE users define the function in the middle of the line (yeah it's ok).
         ic.map(function(x) {return x})
-    
+
     3. GEE users define function after export (we hate u!).
-        exports.addBand = function(landsat){ var wrap = function(image){ return 0;} return 0;}        
+        exports.addBand = function(landsat){ var wrap = function(image){ return 0;} return 0;}
 
 This module try to convert all theses cases to Python. If you consider that
 there is more cases that must be added to the module, please, contact us by
@@ -107,7 +107,7 @@ def from_js_to_py_fn_simple(js_function):
         fn_header = js_function
 
     # is there a assignement? e.g. eeExtraExports0.addBand = function(image) {...}
-    tentative_name = regex.findall("(.*\..*)\s=\sfunction\(", fn_header)
+    tentative_name = regex.findall(r"(.*\..*)\s=\sfunction\(", fn_header)
 
     # 2. get function name
     pattern = r"function\s*([\x00-\x7F][^\s]+)\s*\(.*\)\s*{"
@@ -141,7 +141,7 @@ def from_js_to_py_fn_simple(js_function):
     body = regex.search(pattern, fn_header)[0][1:-1].rstrip()
 
     # 6. Init space
-    init_space = regex.match("\s*", fn_header)[0]
+    init_space = regex.match(r"\s*", fn_header)[0]
 
     # 7. py function info
     if tentative_name == []:
@@ -389,7 +389,7 @@ def from_mapjs_to_py_fn_simple(js_function):
     body = regex.search(pattern, fn_header)[0][1:-1].rstrip()
 
     # 6. Init space
-    init_space = regex.match("\s*", fn_header)[0]
+    init_space = regex.match(r"\s*", fn_header)[0]
 
     # 7. py function info
     py_func = f"{init_space}def {function_name}({args_name}):{body}\n"
@@ -599,7 +599,7 @@ def func_translate_case03(x):
         for index in lines_to_work:
             line = lines[index]
             # Does the line inmediately assign a function?
-            if bool(regex.search("=\s*function", line)):
+            if bool(regex.search(r"=\s*function", line)):
                 # Search the name
                 pattern02 = "([^=]*)="
                 export_str = regex.findall(pattern02, line)[0]

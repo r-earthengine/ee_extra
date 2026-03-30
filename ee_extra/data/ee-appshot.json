@@ -394,9 +394,6 @@
     "aasareansah": [
         "https://aasareansah.users.earthengine.app/view/zoom-boxkumasi"
     ],
-    "aazuspan": [
-        "https://aazuspan.users.earthengine.app/view/cellular-flood"
-    ],
     "abdouu2005": [
         "https://abdouu2005.users.earthengine.app/view/ndvi-ts"
     ],
@@ -764,7 +761,6 @@
     ],
     "anmarkos": [
         "https://anmarkos.users.earthengine.app/view/fuego-en-tiempo-real",
-        "https://anmarkos.users.earthengine.app/view/lclu",
         "https://anmarkos.users.earthengine.app/view/nrtapp",
         "https://anmarkos.users.earthengine.app/view/peligro-de-incendio-en-bolivia",
         "https://anmarkos.users.earthengine.app/view/peligro-incendio-ecuador",
@@ -4123,9 +4119,6 @@
         "https://mortezakhazaei1370.users.earthengine.app/view/horalazim-wetland"
     ],
     "moukomlasitthisak": [
-        "https://moukomlasitthisak.users.earthengine.app/view/compare-fire",
-        "https://moukomlasitthisak.users.earthengine.app/view/test",
-        "https://moukomlasitthisak.users.earthengine.app/view/thailand-nighttime-light-2015-2023",
         "https://moukomlasitthisak.users.earthengine.app/view/thailand-population",
         "https://moukomlasitthisak.users.earthengine.app/view/ukraine-night-light",
         "https://moukomlasitthisak.users.earthengine.app/view/unspider-for-flood-monitoring-in-thailand",
@@ -5954,13 +5947,6 @@
         "https://urbansustlab.users.earthengine.app/view/usphenologydynamics",
         "https://urbansustlab.users.earthengine.app/view/usurbandynamics19852015",
         "https://urbansustlab.users.earthengine.app/view/zslandsatscenes"
-    ],
-    "usda-nass": [
-        "https://usda-nass.users.earthengine.app/view/cdl-predictor",
-        "https://usda-nass.users.earthengine.app/view/cdl-predictor-mobile",
-        "https://usda-nass.users.earthengine.app/view/cdl-viewer",
-        "https://usda-nass.users.earthengine.app/view/cropland-verdancy",
-        "https://usda-nass.users.earthengine.app/view/global-crop-mapper"
     ],
     "utkuunalan": [
         "https://utkuunalan.users.earthengine.app/view/do-distrubution-map",

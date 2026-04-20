@@ -387,7 +387,6 @@
         "https://ZeyuZhang.users.earthengine.app/view/pointsamplingdemo"
     ],
     "ZhenZhang": [
-        "https://ZhenZhang.users.earthengine.app/view/coastalwetlandmaps",
         "https://ZhenZhang.users.earthengine.app/view/globalmangrovedynamic",
         "https://ZhenZhang.users.earthengine.app/view/tidalwetlandmap"
     ],
@@ -3978,28 +3977,6 @@
         "https://mfstuhlmacher.users.earthengine.app/view/nlcd-land-cover-change"
     ],
     "mgaute14": [
-        "https://mgaute14.users.earthengine.app/view/appmonitoreocambiosplantacionesforestalescorrientesv2",
-        "https://mgaute14.users.earthengine.app/view/appmonitoreoplantacionesforestalescorrientes",
-        "https://mgaute14.users.earthengine.app/view/appmonitoreoplantacionesforestalesdelta",
-        "https://mgaute14.users.earthengine.app/view/appmonitoreoplantacionesforestalesentreros",
-        "https://mgaute14.users.earthengine.app/view/appmonitoreoplantacionesforestalesmisiones",
-        "https://mgaute14.users.earthengine.app/view/apptfgautecaracterizacionplantacionesforestales",
-        "https://mgaute14.users.earthengine.app/view/caracterizacionplantacionesforestales",
-        "https://mgaute14.users.earthengine.app/view/caracterizacionplantacionesforestales3",
-        "https://mgaute14.users.earthengine.app/view/caracterizacionplantacionesforestales4",
-        "https://mgaute14.users.earthengine.app/view/caracterizacionplantacionesforestalesargentina",
-        "https://mgaute14.users.earthengine.app/view/caracterizacionplantacionesforestalescorrientes",
-        "https://mgaute14.users.earthengine.app/view/deteccionaprovechamientosplantacionesforestalesv1",
-        "https://mgaute14.users.earthengine.app/view/direccioncambiosplantacionesforestalescorrientes",
-        "https://mgaute14.users.earthengine.app/view/monitoreobufferplantaciones",
-        "https://mgaute14.users.earthengine.app/view/monitoreoplantacionesforestalescorrientes",
-        "https://mgaute14.users.earthengine.app/view/monitoreoplantacionesforestalesdelta",
-        "https://mgaute14.users.earthengine.app/view/monitoreoplantacionesforestalesentreros",
-        "https://mgaute14.users.earthengine.app/view/monitoreoplantacionesforestalesmisiones",
-        "https://mgaute14.users.earthengine.app/view/monitoreoplantacionesforestalessantafe",
-        "https://mgaute14.users.earthengine.app/view/plantacionesforestalescorrientes",
-        "https://mgaute14.users.earthengine.app/view/smifv1",
-        "https://mgaute14.users.earthengine.app/view/sudesteglobulus",
         "https://mgaute14.users.earthengine.app/view/appmonitoreocambiosplantacionesforestalescorrientesv2",
         "https://mgaute14.users.earthengine.app/view/caracterizacionplantacionesforestales4",
         "https://mgaute14.users.earthengine.app/view/estadoydirecciondel-cambioplantacionesforestalescorrient",

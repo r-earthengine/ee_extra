@@ -23,7 +23,7 @@ def get_finditer_cases(condition, text):
     point method.
     """
     regex = _check_regex()
-    
+
     results = list()
     results_position = list()
     for match in regex.finditer(condition, text):
@@ -42,9 +42,9 @@ def fcondition01(line, method_name, attribute=False, extra=""):
     """
     # Detect possible cases (just detect!)
     if not attribute:
-        fcondition = "([\w'\"\]\)%s]+?)\.%s\((?>[^()]+|(?1))*\)" % (extra, method_name)
+        fcondition = r"([\w'\"\]\)%s]+?)\.%s\((?>[^()]+|(?1))*\)" % (extra, method_name)
     else:
-        fcondition = "([\w'\"\]\)%s]+?)\.%s" % (extra, method_name)
+        fcondition = r"([\w'\"\]\)%s]+?)\.%s" % (extra, method_name)
 
     results, results_position = get_finditer_cases(fcondition, line)
 
@@ -93,7 +93,7 @@ def fcondition02(line, method_name="every", extra=""):
         - print([1, 2, 3, 4].every(checkAge)) -> [1, 2, 3, 4].every(checkAge)
         - ["cesar".every(checkAge)] -> "cesar".every(checkAge)
     """
-    fcondition = "([\w'\"\]\)%s]+?)\.%s\((?>[^()]+|(?1))*\)" % (extra, method_name)
+    fcondition = r"([\w'\"\]\)%s]+?)\.%s\((?>[^()]+|(?1))*\)" % (extra, method_name)
     results, results_position = get_finditer_cases(fcondition, line)
     variables = fcondition01(line, method_name=method_name, extra=extra)
 
@@ -116,7 +116,7 @@ def fcondition03(line, method_name, extra=""):
         - print([1, 2, 3, 4].every(checkAge)) -> checkAge
         - ["cesar".every(checkAge)] -> checkAge
     """
-    fcondition = "([\w'\"\]\)%s]+?)\.%s\((?>[^()]+|(?1))*\)" % (extra, method_name)
+    fcondition = r"([\w'\"\]\)%s]+?)\.%s\((?>[^()]+|(?1))*\)" % (extra, method_name)
     results, results_position = get_finditer_cases(fcondition, line)
     variables = fcondition01(line, method_name=method_name, extra=extra)
 
@@ -662,8 +662,8 @@ def translate_trim(x):
     """
     # Regex conditions to get the string to replace,
     # the arguments, and the variable name.
-    var_names = fcondition01(x, "trim", extra="\s")
-    replacement = fcondition02(x, "trim", extra="\s")
+    var_names = fcondition01(x, "trim", extra=r"\s")
+    replacement = fcondition02(x, "trim", extra=r"\s")
 
     # if does not match the condition, return the original string
     if var_names == []:
@@ -1130,7 +1130,7 @@ def translate_some(x):
 
 
 def translate_splice(x):
-    """Converts list.splice(index, howmany, item1, ... itemx) to 
+    """Converts list.splice(index, howmany, item1, ... itemx) to
        __ee_extra_splice(list, index, howmany, item1, ... itemx)
 
     Args:

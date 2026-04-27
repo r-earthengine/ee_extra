@@ -6080,6 +6080,7 @@
         "https://wocatapps.users.earthengine.app/view/lpd-comparison-col"
     ],
     "wrd-iwmi": [
+        "https://wrd_iwmi.users.earthengine.app/view/seasonal-risk-intelligence",
         "https://wrd-iwmi.users.earthengine.app/view/crophealth"
     ],
     "wrd_iwmi": [

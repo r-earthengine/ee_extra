@@ -760,6 +760,7 @@
     ],
     "anmarkos": [
         "https://anmarkos.users.earthengine.app/view/fuego-en-tiempo-real",
+        "https://anmarkos.users.earthengine.app/view/necesidadehidricapasto",
         "https://anmarkos.users.earthengine.app/view/nrtapp",
         "https://anmarkos.users.earthengine.app/view/peligro-de-incendio-en-bolivia",
         "https://anmarkos.users.earthengine.app/view/peligro-incendio-ecuador",
@@ -1735,7 +1736,6 @@
         "https://dpacheco.users.earthengine.app/view/no2-troposfrico-ecuador"
     ],
     "drhamedtavakolifar": [
-        "https://drhamedtavakolifar.users.earthengine.app/view/iran-snow-cover-v1",
         "https://drhamedtavakolifar.users.earthengine.app/view/iran-snow-cover-v11"
     ],
     "drhburningham": [
@@ -5609,6 +5609,7 @@
     ],
     "spareeth": [
         "https://spareeth.users.earthengine.app/view/drought",
+        "https://spareeth.users.earthengine.app/view/kenya-soil-water",
         "https://spareeth.users.earthengine.app/view/moroccocropmon",
         "https://spareeth.users.earthengine.app/view/nlbc"
     ],

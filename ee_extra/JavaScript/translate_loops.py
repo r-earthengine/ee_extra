@@ -4,7 +4,7 @@ Auxiliary module with functions to translate JavaScript loops to Python.
 In GEE JavaScript there is four diferent ways to define a loop:
 
     1. JS loop FOR.
-    2. JS loop FOR IN.    
+    2. JS loop FOR IN.
     3. JS loop WHILE.
     4. JS loop SWITCH.
 
@@ -46,7 +46,7 @@ def fix_case03_loop(x):
     # Is a line with a for loop?
     for line in lines:
         # 1. Get the text inside parenthesis (ignore nested parenthesis)
-        condition_01 = "(?<=for\s*\()(?:[^()]+|\([^)]+\))+(?=\))"
+        condition_01 = r"(?<=for\s*\()(?:[^()]+|\([^)]+\))+(?=\))"
         matches = list(regex.finditer(condition_01, line))
         if matches == []:
             fulfill_condition.append(False)
@@ -58,7 +58,7 @@ def fix_case03_loop(x):
     index01 = [index for index, x in enumerate(fulfill_condition) if x]
 
     def fast_ck03(line):
-        return regex.findall("\).*", line)[0][1:].strip() == ""
+        return regex.findall(r"\).*", line)[0][1:].strip() == ""
 
     index02 = [index for index, x in enumerate(lines_to_check) if fast_ck03(x)]
     index03 = [index01[x] for x in index02]
@@ -106,9 +106,9 @@ def fix_while_loop(x):
     # line = lines[1]
     for line in lines:
         # 1. Get the text inside parenthesis (ignore nested parenthesis)
-        condition_01 = "(?<=while.*\()(?:[^()]+|\([^)]+\))+(?=\))"
+        condition_01 = r"(?<=while.*\()(?:[^()]+|\([^)]+\))+(?=\))"
         matches = list(regex.finditer(condition_01, line))
-        initial_white_space = regex.findall("^\s*", line)[0]
+        initial_white_space = regex.findall(r"^\s*", line)[0]
         if matches == []:
             list_while_solver.append(line)
             continue
@@ -164,7 +164,7 @@ def fix_for_loop(x):
     # line = lines[1]
     for line in lines:
         # 1. Get the text inside parenthesis (ignore nested parenthesis)
-        condition_01 = "(?<=for\s*\()(?:[^()]+|\([^)]+\))+(?=\))"
+        condition_01 = r"(?<=for\s*\()(?:[^()]+|\([^)]+\))+(?=\))"
         matches = list(regex.finditer(condition_01, line))
         if matches == []:
             list_for_solver.append(line)
@@ -174,7 +174,7 @@ def fix_for_loop(x):
             for_loop_body = match.group()
 
         # initial space
-        initial_white_space = regex.findall("^\s*", line)[0]
+        initial_white_space = regex.findall(r"^\s*", line)[0]
 
         ## Match for in
         if " in " in for_loop_body:
@@ -209,7 +209,7 @@ def fix_for_loop(x):
                 if not for_loop_var in (lgradient + lcond)
             ]
 
-            lcond = regex.sub("\s+", "", lcond[0])
+            lcond = regex.sub(r"\s+", "", lcond[0])
 
             # 5. Get the iterator name and range
             fcop = [cop for cop in cops if cop in lcond][0]
@@ -217,12 +217,12 @@ def fix_for_loop(x):
 
             # this statement is to transform the case of "for(;i < x.length;){...}" to while(i < x.length){...}
             if len(lgradient) == 0:
-                ldef = "\n".join([regex.sub("\s+", "", var_remove(ld)) for ld in ldef])
+                ldef = "\n".join([regex.sub(r"\s+", "", var_remove(ld)) for ld in ldef])
                 ldef = "\n".join(ldef.split(","))
                 python_for_loop = delete_brackets(x="%s\nwhile %s :\n" % (ldef, lcond))
             else:
-                lgradient = regex.sub("\s+", "", lgradient[0])
-                ldef = "\n".join([regex.sub("\s+", "", var_remove(ld)) for ld in ldef])
+                lgradient = regex.sub(r"\s+", "", lgradient[0])
+                ldef = "\n".join([regex.sub(r"\s+", "", var_remove(ld)) for ld in ldef])
                 ldef = "\n".join(ldef.split(","))
 
                 # 6. Get the step value
@@ -369,7 +369,7 @@ def check_loop_line_breaks_r(x):
 
 def check_loop_line_breaks(x):
     regex = _check_regex()
-    
+
     lines = x.split("\n")
     # trace for loop bad line breaks
     condtion = r"^for\s*\("

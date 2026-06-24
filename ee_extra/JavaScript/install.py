@@ -2,11 +2,9 @@
 a JavaScript Earth Enginemodule.
 """
 
-import pathlib
+from pathlib import Path
 import re
 import urllib.request
-
-from importlib.resources import files
 
 
 def _convert_path_to_ee_sources(path: str) -> str:
@@ -32,7 +30,7 @@ def _get_ee_sources_path() -> str:
     Returns:
         The ee-sources folder path.
     """
-    pkgdir = files("ee_extra").parent
+    pkgdir = Path(__file__).parents[1]
     return str(pkgdir / "ee-sources")
 
 
@@ -46,16 +44,16 @@ def _convert_path_to_ee_extra(path: str) -> str:
         An ee_extra modules path.
     """
     if path.startswith("http"):
-        ee_extra_path = pathlib.Path(_get_ee_sources_path()).joinpath(
-            "EXTERNAL_" + pathlib.Path(path).stem + "/" + pathlib.Path(path).name
+        ee_extra_path = Path(_get_ee_sources_path()).joinpath(
+            "EXTERNAL_" + Path(path).stem + "/" + Path(path).name
         )
     else:
         if path.endswith(".js"):
-            ee_extra_path = pathlib.Path(_get_ee_sources_path()).joinpath(
+            ee_extra_path = Path(_get_ee_sources_path()).joinpath(
                 path.replace(":", "/")
             )
         else:
-            ee_extra_path = pathlib.Path(_get_ee_sources_path()).joinpath(
+            ee_extra_path = Path(_get_ee_sources_path()).joinpath(
                 path.replace(":", "/") + ".js"
             )
     return ee_extra_path
@@ -70,7 +68,7 @@ def _check_if_module_exists(path: str) -> bool:
     Returns:
         Whether the module has been installed.
     """
-    return pathlib.Path(_convert_path_to_ee_extra(path)).exists()
+    return Path(_convert_path_to_ee_extra(path)).exists()
 
 
 def _open_module_as_str(path: str) -> str:
@@ -138,11 +136,11 @@ def _install(x: str, update: bool, quiet: bool = False):
 
         # Local path
         if x.startswith("http"):
-            module_folder = pathlib.Path(ee_sources).joinpath(
-                "EXTERNAL/" + pathlib.Path(x).stem
+            module_folder = Path(ee_sources).joinpath(
+                "EXTERNAL/" + Path(x).stem
             )
         else:
-            module_folder = pathlib.Path(ee_sources).joinpath(
+            module_folder = Path(ee_sources).joinpath(
                 "/".join(x.replace(":", "/").split("/")[:-1])
             )
 

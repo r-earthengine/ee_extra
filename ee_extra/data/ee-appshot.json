@@ -341,9 +341,6 @@
         "https://StrongSun.users.earthengine.app/view/viewlandsatandmodistimeseriesndvi",
         "https://StrongSun.users.earthengine.app/view/viewlandsatmodistimeseries"
     ],
-    "Sundarban": [
-        "https://Sundarban.users.earthengine.app/view/floodmapping"
-    ],
     "Surabaya": [
         "https://Surabaya.users.earthengine.app/view/azizah",
         "https://Surabaya.users.earthengine.app/view/monitoringfenomenakotapanaskotabekasi",
@@ -4582,10 +4579,6 @@
     ],
     "percobaan1": [
         "https://percobaan1.users.earthengine.app/view/jember"
-    ],
-    "phamngochairs": [
-        "https://phamngochairs.users.earthengine.app/view/fcdm",
-        "https://phamngochairs.users.earthengine.app/view/ritcdbrqn"
     ],
     "phedelt": [
         "https://phedelt.users.earthengine.app/view/so2explorer",

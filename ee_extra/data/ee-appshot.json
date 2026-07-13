@@ -230,6 +230,7 @@
         "https://Landvis.users.earthengine.app/view/flood-mapping-ruda",
         "https://Landvis.users.earthengine.app/view/flood-maps",
         "https://Landvis.users.earthengine.app/view/flood-maps-ruda",
+        "https://Landvis.users.earthengine.app/view/floodanalysispunjab",
         "https://Landvis.users.earthengine.app/view/satellite-data-sets"
     ],
     "LearningIIT": [
@@ -5103,10 +5104,6 @@
     "rossbernet": [
         "https://rossbernet.users.earthengine.app/view/creekfire",
         "https://rossbernet.users.earthengine.app/view/creekfire"
-    ],
-    "rriggs": [
-        "https://rriggs.users.earthengine.app/view/rodeo",
-        "https://rriggs.users.earthengine.app/view/rodeo-validation"
     ],
     "rrmeza89": [
         "https://rrmeza89.users.earthengine.app/view/diafpa1resiproaf",

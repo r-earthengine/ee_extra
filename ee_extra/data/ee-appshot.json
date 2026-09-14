@@ -4433,7 +4433,8 @@
         "https://ollielballinger.users.earthengine.app/view/syria-nightlights"
     ],
     "openforisearthmap": [
-        "https://openforisearthmap.users.earthengine.app/view/elevationcompare"
+        "https://openforisearthmap.users.earthengine.app/view/elevationcompare",
+        "https://openforisearthmap.users.earthengine.app/view/zoningexplorernigeria"
     ],
     "openforisinitiative": [
         "https://openforisinitiative.users.earthengine.app/view/emergency-compare",
@@ -4681,6 +4682,7 @@
         "https://prasunkgupta.users.earthengine.app/view/ui-example"
     ],
     "premkumars": [
+        "https://premkumars.users.earthengine.app/view/agromonitor-a-web-app-for-crop-health-and-insights",
         "https://premkumars.users.earthengine.app/view/s4wdecdal"
     ],
     "priogladpy": [
@@ -5208,8 +5210,6 @@
         "https://salmanreza91.users.earthengine.app/view/ndwi"
     ],
     "samapriya": [
-        "https://samapriya.users.earthengine.app/view/annual-nlcd",
-        "https://samapriya.users.earthengine.app/view/landcover10",
         "https://samapriya.users.earthengine.app/view/landcover10"
     ],
     "samirsellars": [

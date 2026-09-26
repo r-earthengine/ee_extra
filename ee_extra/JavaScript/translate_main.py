@@ -44,7 +44,7 @@ def fix_typeof(x):
         for typeof_case in typeof_cases:
             x = x.replace(typeof_case, "typeof(%s)" % typeof_case.split(" ")[1])
     header = """
-    
+
     # Javascript typeof wrapper ---------------------------------------
     def typeof(x):
         # Python version of Javascript typeof
@@ -53,7 +53,7 @@ def fix_typeof(x):
         elif x == None:
             return "object"
         elif isinstance(x, bool):
-            return "boolean"  
+            return "boolean"
         elif isinstance(x, (int, float)):
             return "number"
         elif isinstance(x, str):
@@ -86,7 +86,7 @@ def fix_sugar_if(x):
     """
     regex = _check_regex()
     lines = x.split("\n")
-    condition01 = "\(.*\)\s\?\s\w+\s:.*"  # search for sugar strings
+    condition01 = r"\(.*\)\s\?\s\w+\s:.*"  # search for sugar strings
     sugar_lines = [line for line in lines if regex.search(condition01, line)]
 
     if sugar_lines == []:
@@ -95,17 +95,17 @@ def fix_sugar_if(x):
         for sugar_line in sugar_lines:
             if " = " in sugar_line:
                 # initial space
-                whitespace_cond = "^\s*"
+                whitespace_cond = r"^\s*"
                 init_space = regex.findall(whitespace_cond, sugar_line)[0]
 
                 # is there a assignment?
-                condition02 = "(.*)\s+=\s+"
+                condition02 = r"(.*)\s+=\s+"
                 matches = regex.findall(condition02, sugar_line, regex.MULTILINE)
                 varname = matches[0].strip() + " = "
             else:
                 varname = ""
             # sugar syntax is: if (condition) ? true_value : false_value
-            condition03 = "=(.*)\?(.*):(.*)"
+            condition03 = r"=(.*)\?(.*):(.*)"
             ifcondition, dotrue, dofalse = regex.findall(
                 condition03, sugar_line, regex.MULTILINE
             )[0]
@@ -140,7 +140,7 @@ def normalize_fn_name(x: str) -> str:
         >>> # function exp(x){'hi'}
     """
     regex = _check_regex()
-    pattern = "var\s*(.*[^\s])\s*=\s*function"
+    pattern = r"var\s*(.*[^\s])\s*=\s*function"
     matches = regex.finditer(pattern, x, regex.MULTILINE)
     for _, item in enumerate(matches):
         match = item.group(0)
@@ -172,15 +172,15 @@ def change_operators(x):
         {
             "===": " == ",
             "!==": " != ",
-            "\.and\(": ".And(",
-            "\.or\(": ".Or(",
-            "\.not\(": ".Not(",
-            "(?<![a-zA-Z])true(?![a-zA-Z])": "True",
-            "(?<![a-zA-Z])false(?![a-zA-Z])": "False",
-            "(?<![a-zA-Z])null(?![a-zA-Z])": "None",
-            "//": "#",
-            "!(\w)": " not ",
-            "\|\|": " or ",
+            r"\.and\(": ".And(",
+            r"\.or\(": ".Or(",
+            r"\.not\(": ".Not(",
+            r"(?<![a-zA-Z])true(?![a-zA-Z])": "True",
+            r"(?<![a-zA-Z])false(?![a-zA-Z])": "False",
+            r"(?<![a-zA-Z])null(?![a-zA-Z])": "None",
+            r"//": "#",
+            r"!(\w)": " not ",
+            r"\|\|": " or ",
         }
     )
 
@@ -441,7 +441,7 @@ def fix_str_plus_int(x):
         >>> # '"hola" |plus| "mundo" |plus| str(10000)'
     """
     # Header Infix operator class to add if the '+' operator exists.
-    header = """    
+    header = """
     # Javascript sum module -------------------------------------------------------
     class Infix:
         def __init__(self, function):
@@ -456,9 +456,9 @@ def fix_str_plus_int(x):
             return self.function(other)
         def __call__(self, value1, value2):
             return self.function(value1, value2)
-        
+
     def __eextra_plus(*args):
-        try:        
+        try:
             sum_container = 0
             for arg in args:
                 sum_container = sum_container + arg
@@ -550,7 +550,7 @@ def add_identation(x):
 
 
 def remove_extra_spaces(x):
-    """Remove \n and \s if they are at the begining of the string"""
+    r"""Remove \n and \s if they are at the begining of the string"""
     if x[0] == "\n":
         # Remove spaces at the beginning
         word_list = list()
@@ -778,14 +778,14 @@ def add_header(x, header_list=""):
 
 def remove_single_declarations(x):
     regex = _check_regex()
-    condition = "var\s[A-Za-z0-9Α-Ωα-ωίϊΐόάέύϋΰήώ\[\]_]+;*\n"
+    condition = r"var\s[A-Za-z0-9Α-Ωα-ωίϊΐόάέύϋΰήώ\[\]_]+;*\n"
     x = regex.sub(condition, "", x)
     return x
 
 def remove_documentation(x):
     regex = _check_regex()
     # remove // only if it is not in a string
-    condition = "\/\/(?=(?:[^\"']*\"[^\"']*\")*[^\"']*$).*"
+    condition = r"\/\/(?=(?:[^\"']*\"[^\"']*\")*[^\"']*$).*"
     newx = regex.sub(condition, "", x, flags=regex.MULTILINE)
     return newx
 
@@ -850,9 +850,9 @@ def translate(x: str, black: bool = False, quiet: bool = True) -> str:
     x = tloops.fix_inline_iterators(x)
 
     x = if_statement(x)
-    
+
     # 14. Delete extra brackets.
-    x = tgnrl.delete_brackets(x)    
+    x = tgnrl.delete_brackets(x)
 
     # 15. Change [if (condition) ? true_value : false_value] to [true_value if condition else false_value]
     # OBS: fix_sugar_if must always to if_statement to avoid conflicts.
@@ -871,7 +871,7 @@ def translate(x: str, black: bool = False, quiet: bool = True) -> str:
         except ImportError:
             raise ImportError(
                 '"black" is not installed. Please install "black" when using "black=True" -> "pip install black"'
-            )    
+            )
     x, header = fix_str_plus_int(x)
     header_list.append(header)
     x = add_header(x, header_list)

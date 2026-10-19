@@ -6047,6 +6047,7 @@
     "wrd-iwmi": [
         "https://wrd_iwmi.users.earthengine.app/view/basin-storage",
         "https://wrd_iwmi.users.earthengine.app/view/country-status",
+        "https://wrd_iwmi.users.earthengine.app/view/global-basin-water-status",
         "https://wrd_iwmi.users.earthengine.app/view/seasonal-risk-intelligence",
         "https://wrd-iwmi.users.earthengine.app/view/crophealth"
     ],
